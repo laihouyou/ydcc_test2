@@ -15,9 +15,9 @@ public class LocationInfo implements Serializable {
 	
 	private double longitude; // 纬度		wgs84
 
-	private double latitude_bd09; // 经度		bd09
+	private double latitude_gcj02; // 经度		gcj02
 
-	private double longitude_bd09; // 纬度		bd09
+	private double longitude_gcj02; // 纬度		gcj02
 
 	private double altitude; // 海拨
 	
@@ -423,20 +423,20 @@ public class LocationInfo implements Serializable {
 		this.qualityStr = qualityStr;
 	}
 
-	public double getLatitude_bd09() {
-		return latitude_bd09;
+	public double getLatitude_gcj02() {
+		return latitude_gcj02;
 	}
 
-	public void setLatitude_bd09(double latitude_bd09) {
-		this.latitude_bd09 = latitude_bd09;
+	public void setLatitude_gcj02(double latitude_gcj02) {
+		this.latitude_gcj02 = latitude_gcj02;
 	}
 
-	public double getLongitude_bd09() {
-		return longitude_bd09;
+	public double getLongitude_gcj02() {
+		return longitude_gcj02;
 	}
 
-	public void setLongitude_bd09(double longitude_bd09) {
-		this.longitude_bd09 = longitude_bd09;
+	public void setLongitude_gcj02(double longitude_gcj02) {
+		this.longitude_gcj02 = longitude_gcj02;
 	}
 
 	//获取当前GPS坐标位置

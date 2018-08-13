@@ -261,8 +261,8 @@ public class Gps {
 					location.getProvider(), addressName, satellites,zoning);
 			LatLng latLng_wgs84=new LatLng(location.getLatitude(),location.getLongitude());
 			LatLng latLng_bd09=BaiduCoordinateTransformation.wgs84ToBd09(latLng_wgs84);
-			locationInfo.setLongitude_bd09(latLng_bd09.longitude);
-			locationInfo.setLatitude_bd09(latLng_bd09.latitude);
+			locationInfo.setLongitude_gcj02(latLng_bd09.longitude);
+			locationInfo.setLatitude_gcj02(latLng_bd09.latitude);
 			return locationInfo;
 		} else {
 			return null;

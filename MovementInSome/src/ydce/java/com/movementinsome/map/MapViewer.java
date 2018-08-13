@@ -1812,12 +1812,12 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                     .accuracy(0)            //半径设置0米
                     // 此处设置开发者获取到的方向信息，顺时针0-360
                     .direction(locationInfoExt.getBearing())
-                    .latitude(locationInfoExt.getLatitude_bd09())
-                    .longitude(locationInfoExt.getLongitude_bd09())
+                    .latitude(locationInfoExt.getLatitude_gcj02())
+                    .longitude(locationInfoExt.getLongitude_gcj02())
                     .build();
             mBaiduMap.setMyLocationData(locData);
-            cenpt = new LatLng(locationInfoExt.getLatitude_bd09(),
-                    locationInfoExt.getLongitude_bd09());
+            cenpt = new LatLng(locationInfoExt.getLatitude_gcj02(),
+                    locationInfoExt.getLongitude_gcj02());
             cenpt_wgs84 = new LatLng(locationInfoExt.getLatitude(),
                     locationInfoExt.getLongitude());
             Log.i("cenpt", "(" + cenpt.longitude + "," + cenpt.latitude + ")");

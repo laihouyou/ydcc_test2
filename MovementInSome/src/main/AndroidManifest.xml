@@ -95,6 +95,10 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="ZRT9WdlTq6VaFGWtpDaQ3piL" />
 
+        <service android:name="com.amap.api.location.APSService">
+
+        </service>
+
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="ce07a5b1c0ac33e5e657289412a73a41"/>

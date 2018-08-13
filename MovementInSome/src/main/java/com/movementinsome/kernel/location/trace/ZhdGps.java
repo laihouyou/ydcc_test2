@@ -46,8 +46,8 @@ public class ZhdGps {
 
             LatLng latLng_wgs84=new LatLng(wg84lat,wg84log);
             LatLng latLng_bd09= BaiduCoordinateTransformation.wgs84ToBd09(latLng_wgs84);
-            locationInfo.setLongitude_bd09(latLng_bd09.longitude);
-            locationInfo.setLatitude_bd09(latLng_bd09.latitude);
+            locationInfo.setLongitude_gcj02(latLng_bd09.longitude);
+            locationInfo.setLatitude_gcj02(latLng_bd09.latitude);
 
             locationInfo.setAltitude(Double.parseDouble(new DecimalFormat("0.00").format(gpsPoint.H)));   //海拔高程
             locationInfo.setSatellites(gpsPoint.UsedSats);      //使用的卫星数（来自GPGGA）

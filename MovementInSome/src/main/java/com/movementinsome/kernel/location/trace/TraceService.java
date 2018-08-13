@@ -20,7 +20,8 @@ public class TraceService extends Service {
 
 	//ArrayList<CellInfo> cellIds = null;
 	private Gps gps = null;
-	private Bgps bgps = null;
+//	private Bgps bgps = null;
+	private Agps agps = null;
 	private boolean threadDisable = false;
 	private final static String TAG = TraceService.class.getSimpleName();
 	
@@ -44,8 +45,11 @@ public class TraceService extends Service {
 		gps = new Gps(TraceService.this,minTime,minDistance);
 		
 		//cellIds = TraceUtil.init(TraceService.this);
-		//百度定位
-		bgps = new Bgps(TraceService.this,minTime,minDistance);
+//		//百度定位
+//		bgps = new Bgps(TraceService.this,minTime,minDistance);
+
+		//高德
+		agps = new Agps(TraceService.this,minTime,minDistance);
 
 		//中海达定位
 		zhdGps=new ZhdGps(context);
@@ -88,24 +92,24 @@ public class TraceService extends Service {
 								location = null;
 							}
 
-							// 如果gps无法获取经纬度，改用百度LBS定位获取
+							// 如果gps无法获取经纬度，改用高德定位获取
 							if (location == null) {
 								// Log.v(TAG, "gps location null");
 								// 2.根据基站信息获取经纬度
 								try {
-									location = bgps.getLocation();
+									location = agps.getLocation();
 								} catch (Exception e) {
 									location = null;
 									e.printStackTrace();
 								}
 							} else if (null == location.getAddr() || "中国".equals(location.getAddr())) {
 								try {
-									location.setAddr(bgps.getLocation().getAddr());
+									location.setAddr(agps.getLocation().getAddr());
 								} catch (Exception e) {
 									e.printStackTrace();
 								}
 							} else {
-								bgps.closeLocation();  //减少流量消耗，如果GPS定位正常则关闭百度定位
+								agps.closeLocation();  //减少流量消耗，如果GPS定位正常则关闭百度定位
 							}
 
 							if (null != location) {
@@ -136,9 +140,9 @@ public class TraceService extends Service {
 			gps.closeLocation();
 			gps = null;
 		}
-		if (bgps != null) {
-			bgps.closeLocation();
-			bgps = null;
+		if (agps != null) {
+			agps.closeLocation();
+			agps = null;
 		}
 		super.onDestroy();
 	}
