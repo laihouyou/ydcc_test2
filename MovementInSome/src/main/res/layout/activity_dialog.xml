@@ -1,0 +1,101 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dip"
+    android:background="#e3e3e3"
+    android:paddingBottom="10dp"
+    android:paddingTop="10dp"
+    android:layout_marginTop="77dp"
+    tools:context=".DialogActivity" >
+    
+    
+    <LinearLayout 
+        android:id="@+id/linyout"
+        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        >
+    <TextView 
+        android:id="@+id/tv_dialog_nanqu"
+        android:layout_weight="1"
+        android:layout_width="0dip"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@drawable/uniline"
+        android:text="南区"
+        />
+    <RelativeLayout 
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        ></RelativeLayout>
+    <TextView 
+        android:id="@+id/tv_dialog_dongqu"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+         android:background="@drawable/uniline"
+        android:padding="5dp"
+        android:text="东区"
+        />
+    <RelativeLayout 
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        ></RelativeLayout>
+    <TextView 
+        android:id="@+id/tv_dialog_zhongqu"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_width="0dip"
+        android:layout_height="wrap_content"
+         android:background="@drawable/uniline"
+        android:padding="5dp"
+        android:layout_alignParentRight="true"
+        android:text="中区"
+        />
+    </LinearLayout>
+    
+    
+	<LinearLayout 
+	     android:id="@+id/linearLayout_tv"
+        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/linyout"
+        android:layout_marginTop="10dp"
+	    >
+     <TextView
+         android:id="@+id/tv_dialog_beiqu"
+         android:layout_width="0dp"
+         android:layout_height="wrap_content"
+         android:background="@drawable/uniline"
+        android:layout_weight="1"
+        android:gravity="center"
+         android:padding="5dp"
+         android:text="北区" />
+      <RelativeLayout 
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        ></RelativeLayout>
+       <RelativeLayout 
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        ></RelativeLayout>
+       <RelativeLayout 
+        android:layout_width="10dp"
+        android:layout_height="wrap_content"
+        ></RelativeLayout>
+        <RelativeLayout 
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        ></RelativeLayout>
+     
+     </LinearLayout>
+
+</RelativeLayout>

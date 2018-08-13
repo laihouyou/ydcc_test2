@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/black_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout 
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:background="#398fdc" >
+
+            <Button
+                android:id="@+id/wtQbtn_Back"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dip"
+                android:background="@drawable/back_icon"
+                 />
+
+            <TextView
+                android:id="@+id/wtQtv_Table_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                android:text="设施编辑" />
+
+            <Button
+                android:id="@+id/wtQSave"
+                android:layout_width="60dp"
+                android:layout_height="32dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dip"
+                android:background="@drawable/btn_icon"
+                android:text="保存"
+                android:textColor="#ffffff"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <ViewFlipper
+            android:id="@+id/wtQFlipper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:inAnimation="@anim/push_left_in"
+            android:outAnimation="@anim/push_left_out"
+            android:persistentDrawingCache="animation" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <ListView
+                    android:id="@+id/wtQListview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:cacheColorHint="#00000000"
+                    android:divider="#00000000"
+                    android:dividerHeight="0dip"
+                    android:padding="10dip" >
+                </ListView>
+
+                <Button
+                    android:id="@+id/wtQAdd"
+                    style="@style/myPhoneButtonBig"
+                    android:layout_alignParentBottom="true"
+                    android:text="添加水表" />
+            </RelativeLayout>
+
+            <ScrollView
+                style="@style/myPhoneLayoutBgType"
+                android:layout_weight="1.0" >
+
+                <LinearLayout
+                    android:id="@+id/wtQLinearMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" >
+                </LinearLayout>
+            </ScrollView>
+        </ViewFlipper>
+    </LinearLayout>
+
+</LinearLayout>

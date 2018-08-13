@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ES_T_TASK_MATERIAL_USE" name="材料单"  table="ES_T_TASK_MATERIAL_USE" submitTo="loopback" page="one">
+	   	<params>
+			
+		</params>
+		 <rules>
+		    <rule id="mapfac">
+		        
+		    </rule>
+		</rules>
+
+		<page id="1" name="">
+			<group id="1" name="基本信息" display="Y" type="common">
+				<field name="facType" label="类型" type="edit_check" readOnly="N" required="N" maxLength="20" defValue="" options="阀门|消防栓|管道" listKey="" listTableName=""/>
+				<field name="facSpec" label="规格" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="facUnit" label="单位" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="materialNumber" label="数量" type="number" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>	
+			
+		</page>
+	</form>
+</axf>

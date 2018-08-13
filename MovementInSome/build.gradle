@@ -1,0 +1,132 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion var.compileSdkVersion
+    buildToolsVersion var.buildToolsVersion
+    useLibrary 'org.apache.http.legacy'
+    aaptOptions {
+        cruncherEnabled = false
+        useNewCruncher = false
+
+    }
+    defaultConfig {
+        minSdkVersion var.minSdkVersion
+        targetSdkVersion var.targetSdkVersion
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_7
+            targetCompatibility JavaVersion.VERSION_1_7
+        }
+        multiDexEnabled true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath false
+            }
+        }
+    }
+
+    // 重点在这下面这些
+    flavorDimensions "app"
+    // 重点--------------------------
+    productFlavors {
+        ydce {
+            applicationId "com.movementinsome"
+            versionCode 302
+            versionName "移动采测V3.0.3.1"
+            dimension "app"
+        }
+        ydtl {
+            applicationId "com.gddst.leak"
+            versionCode 101
+            versionName "移动探漏V1.0.1"
+            dimension "app"
+        }
+    }
+    sourceSets {
+        ydce {
+            java.srcDir('src/ydce/java')
+            res.srcDir('src/ydce/res')
+        }
+        ydtl{
+            java.srcDir('src/ydtl/java')
+            res.srcDir('src/ydtl/res')
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    buildTypes {
+        release {
+            //是否混淆
+            minifyEnabled false
+            //是否移除无用资源
+            zipAlignEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+    android.applicationVariants.all { variant ->
+//        if (variant.buildType.name.equals('release')) {
+//            variant.outputs.all { output ->
+////                def buildName = "Downloader"
+////                def releaseApkName = buildName + '_' + versionName + '_' + ${releaseTime()} + '.apk'
+//                def releaseApkName = versionName + '_' + ${releaseTime()} + '.apk'
+//                outputFileName = releaseApkName
+////                outputFileName = "${defaultConfig.versionName}_${releaseTime()}.apk"
+//            }
+//        }
+        variant.getPackageApplication().outputScope.apkDatas.forEach { apkData ->
+            //这个修改输出APK的文件名
+            apkData.outputFileName =
+                    variant.versionName +"_" +
+                    new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC")) +
+                    ".apk"
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':library_SlidingMenu')
+//    implementation project(path: ':library_SlidingMenu', configuration: 'default')
+    implementation 'com.google.code.gson:gson:2.8.2'
+    //联网
+    implementation 'com.zhy:okhttputils:2.6.2'
+    //新版arcgis地图
+    implementation 'com.esri.arcgis.android:arcgis-android:10.2.8-1'
+    implementation 'com.android.support:multidex:1.0.1'
+    implementation 'com.alibaba:fastjson:1.2.31'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+    implementation 'com.github.sam474850601:fastutils:1.1.2'
+    implementation 'org.greenrobot:eventbus:3.0.0'
+    implementation 'com.github.jdsjlzx:LRecyclerView:1.4.3'
+    //拖拽布局
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    //二维码
+    implementation 'cn.yipianfengye.android:zxing-library:2.2'
+    //rxjava2
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.6'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
+
+    //高德地图
+    //3D地图so及jar
+//    implementation 'com.amap.api:3dmap:latest.integration'
+    //导航功能
+    implementation 'com.amap.api:navi-3dmap:latest.integration'
+    //搜索功能
+    implementation 'com.amap.api:search:latest.integration'
+    //定位功能
+    implementation 'com.amap.api:location:latest.integration'
+}

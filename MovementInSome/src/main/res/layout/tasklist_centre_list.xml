@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal" >
+    <!-- 任务列表显示 tl -->
+
+    <LinearLayout
+        android:id="@+id/tlLinearContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dip"
+        android:paddingRight="8dip"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:background="#f5f5f5"
+        android:paddingTop="3dip" >
+
+        <RelativeLayout
+            android:id="@+id/rl_bugchuli"
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:background="@drawable/pgd_up_title" >
+
+            <TextView
+                android:id="@+id/tubiao"
+                android:layout_width="30dip"
+                android:layout_height="30dip"
+                android:layout_marginLeft="13dip"
+                android:background="@drawable/pgd_newtask" />
+
+            <TextView
+                android:id="@+id/tltv_titilename"
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/tubiao"
+                android:textColor="#3f3e3e"
+                android:textSize="14dp"
+                android:layout_marginLeft="5dip"
+                android:gravity="center_vertical"
+                android:text="新任务" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dip"
+            android:background="#FFFFFF" >
+            
+            <TextView
+                 android:id="@+id/tltv_content"
+                 style="@style/myPhoneTvType"
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:layout_centerVertical="true"
+                 android:paddingLeft="13dip" />
+
+            <TextView
+                android:id="@+id/tlTv_Title"
+                android:layout_width="60dip"
+                android:layout_height="55dip"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/round_blue"
+                android:text="执行"
+                android:textColor="#2e72b0"
+                android:gravity="center"
+                android:layout_marginRight="10dip"
+                android:textSize="14dip" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_bottombar"
+            android:layout_width="match_parent"
+            android:layout_height="30dip"
+            android:gravity="center_vertical"
+            android:background="@drawable/pgd_down_title" >
+            
+            		<LinearLayout
+                        android:id="@+id/tltv_ll1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentRight="true"
+                        android:orientation="horizontal" >
+                        
+            		    <RelativeLayout 
+            		        android:id="@+id/tlimage_job"
+            		        android:layout_width="45dip"
+            		        android:layout_weight="1.0"
+            		        android:visibility="gone"
+            		        android:layout_height="30dip">
+
+            		        <LinearLayout
+            		            android:layout_width="50dip"
+            		            android:layout_height="wrap_content"
+            		            android:layout_centerHorizontal="true"
+            		            android:layout_centerVertical="true" >
+
+            		            <TextView
+            		                android:id="@+id/job_x"
+            		                android:layout_width="20dip"
+            		                android:layout_height="20dip"
+            		                android:background="@drawable/downbutton_blue" />
+
+            		            <TextView
+            		                android:layout_width="25dip"
+            		                android:layout_height="25dip"
+            		                android:layout_marginLeft="5dip"
+            		                android:gravity="center_vertical"
+            		                android:text="展开"
+            		                android:textColor="#2e72b0"
+            		                android:textSize="12dp" />
+            		        </LinearLayout>
+
+            		        <LinearLayout
+            		            android:layout_width="1dip"
+            		            android:layout_height="20dip"
+            		            android:layout_alignParentRight="true"
+            		            android:layout_centerVertical="true"
+            		            android:background="#b0b0b0" >
+            		        </LinearLayout>
+
+            		    </RelativeLayout>
+                        
+                        <RelativeLayout 
+            		        android:id="@+id/tlBn_xx"
+            		        android:layout_width="45dip"
+            		        android:layout_weight="1.0"
+            		        android:visibility="gone"
+            		        android:layout_height="30dip">
+
+            		        <LinearLayout
+            		            android:layout_width="50dip"
+            		            android:layout_height="wrap_content"
+            		            android:layout_centerHorizontal="true"
+            		            android:layout_centerVertical="true" >
+
+            		            <TextView
+            		                android:layout_width="20dip"
+            		                android:layout_height="20dip"
+            		                android:background="@drawable/identical" />
+
+            		            <TextView
+            		                android:layout_width="25dip"
+            		                android:layout_height="25dip"
+            		                android:layout_marginLeft="5dip"
+            		                android:gravity="center_vertical"
+            		                android:text="信息"
+            		                android:textColor="#2e72b0"
+            		                android:textSize="12dp" />
+            		        </LinearLayout>
+
+            		        <LinearLayout
+            		            android:layout_width="1dip"
+            		            android:layout_height="20dip"
+            		            android:orientation="vertical"
+            		            android:layout_alignParentRight="true"
+            		            android:layout_centerVertical="true"
+            		            android:background="#b0b0b0" >
+            		        </LinearLayout>
+
+            		    </RelativeLayout>
+                        
+                        <RelativeLayout 
+            		        android:id="@+id/tlBn_td"
+            		        android:layout_width="45dip"
+            		        android:layout_weight="1.0"
+            		        android:visibility="gone"
+            		        android:layout_height="30dip">
+
+            		        <LinearLayout
+            		            android:layout_width="50dip"
+            		            android:layout_height="wrap_content"
+            		            android:layout_centerHorizontal="true"
+            		            android:layout_centerVertical="true" >
+
+            		            <TextView
+            		                android:layout_width="20dip"
+            		                android:layout_height="20dip"
+            		                android:background="@drawable/identical" />
+
+            		            <TextView
+            		                android:layout_width="25dip"
+            		                android:layout_height="25dip"
+            		                android:layout_marginLeft="5dip"
+            		                android:gravity="center_vertical"
+            		                android:text="填单"
+            		                android:textColor="#2e72b0"
+            		                android:textSize="12dp" />
+            		        </LinearLayout>
+
+            		    </RelativeLayout>
+                        
+                        <RelativeLayout 
+            		        android:id="@+id/tlBn_ks"
+            		        android:layout_width="45dip"
+            		        android:layout_weight="1.0"
+            		        android:visibility="gone"
+            		        android:layout_height="30dip">
+
+            		        <LinearLayout
+            		            android:layout_width="50dip"
+            		            android:layout_height="wrap_content"
+            		            android:layout_centerHorizontal="true"
+            		            android:layout_centerVertical="true" >
+
+            		            <TextView
+            		                android:layout_width="20dip"
+            		                android:layout_height="20dip"
+            		                android:background="@drawable/identical" />
+
+            		            <TextView
+            		                android:id="@+id/tlBn_ks_tv"
+            		                android:layout_width="25dip"
+            		                android:layout_height="25dip"
+            		                android:layout_marginLeft="5dip"
+            		                android:gravity="center_vertical"
+            		                android:text="开始"
+            		                android:textColor="#2e72b0"
+            		                android:textSize="12dp" />
+            		        </LinearLayout>
+
+            		    </RelativeLayout>
+                        
+                        <RelativeLayout 
+            		        android:id="@+id/tlBn_th"
+            		        android:layout_width="45dip"
+            		        android:layout_weight="1.0"
+            		        android:visibility="gone"
+            		        android:layout_height="30dip">
+
+            		        <LinearLayout
+            		            android:layout_width="50dip"
+            		            android:layout_height="wrap_content"
+            		            android:layout_centerHorizontal="true"
+            		            android:layout_centerVertical="true" >
+
+            		            <TextView
+            		                android:layout_width="20dip"
+            		                android:layout_height="20dip"
+            		                android:background="@drawable/identical" />
+
+            		            <TextView
+            		                android:layout_width="25dip"
+            		                android:layout_height="25dip"
+            		                android:layout_marginLeft="5dip"
+            		                android:gravity="center_vertical"
+            		                android:text="同号"
+            		                android:textColor="#2e72b0"
+            		                android:textSize="12dp" />
+            		        </LinearLayout>
+
+            		        <LinearLayout
+            		            android:layout_width="1dip"
+            		            android:layout_height="20dip"
+            		            android:layout_alignParentRight="true"
+            		            android:layout_centerVertical="true"
+            		            android:background="#b0b0b0" >
+            		        </LinearLayout>
+
+            		    </RelativeLayout>
+            		    
+                        <RelativeLayout 
+            		        android:id="@+id/tlBn_t"
+            		        android:layout_width="45dip"
+            		        android:layout_weight="1.0"
+            		        android:visibility="gone"
+            		        android:layout_height="30dip">
+
+            		        <LinearLayout
+            		            android:layout_width="50dip"
+            		            android:layout_height="wrap_content"
+            		            android:layout_centerHorizontal="true"
+            		            android:layout_centerVertical="true" >
+
+            		            <TextView
+            		                android:layout_width="20dip"
+            		                android:layout_height="20dip"
+            		                android:background="@drawable/charge_back" />
+
+            		            <TextView
+            		                android:layout_width="25dip"
+            		                android:layout_height="25dip"
+            		                android:layout_marginLeft="5dip"
+            		                android:gravity="center_vertical"
+            		                android:text="退单"
+            		                android:textColor="#2e72b0"
+            		                android:textSize="12dp" />
+            		        </LinearLayout>
+
+            		        <LinearLayout
+            		            android:id="@+id/tlBn_t_xian"
+            		            android:layout_width="1dip"
+            		            android:layout_height="20dip"
+            		            android:orientation="vertical"
+            		            android:layout_alignParentRight="true"
+            		            android:layout_centerVertical="true"
+            		            android:visibility="gone"
+            		            android:background="#b0b0b0" >
+            		        </LinearLayout>
+
+            		    </RelativeLayout>
+            		    
+                        <RelativeLayout 
+            		        android:id="@+id/tlBn_xz"
+            		        android:layout_width="45dip"
+            		        android:layout_weight="1.0"
+            		        android:visibility="gone"
+            		        android:layout_height="30dip">
+
+            		        <LinearLayout
+            		            android:layout_width="75dip"
+            		            android:layout_height="wrap_content"
+            		            android:layout_centerHorizontal="true"
+            		            android:layout_centerVertical="true" >
+
+            		            <TextView
+            		                android:layout_width="20dip"
+            		                android:layout_height="20dip"
+            		                android:background="@drawable/charge_back" />
+
+            		            <TextView
+            		                android:layout_width="55dip"
+            		                android:layout_height="25dip"
+            		                android:layout_marginLeft="5dip"
+            		                android:gravity="center_vertical"
+            		                android:text="接收任务"
+            		                android:textColor="#2e72b0"
+            		                android:textSize="12dp" />
+            		        </LinearLayout>
+            		        
+            		       		<LinearLayout
+	            		            android:id="@+id/tlBn_xz_xian"
+	            		            android:layout_width="1dip"
+	            		            android:layout_height="20dip"
+	            		            android:orientation="vertical"
+	            		            android:layout_alignParentRight="true"
+	            		            android:layout_centerVertical="true"
+	            		            android:visibility="gone"
+	            		            android:background="#b0b0b0" >
+            		       		</LinearLayout>
+
+            		    </RelativeLayout>
+                        
+                        <LinearLayout 
+            		        android:id="@+id/tlBn_wc"
+            		        android:layout_width="45dip"
+            		        android:layout_weight="1.0"
+            		        android:visibility="gone"
+            		        android:gravity="center"
+            		        android:layout_height="30dip">
+            		        
+            		        <LinearLayout 
+            		            android:layout_width="75dip"
+            		            android:layout_gravity="center_vertical"
+            		            android:layout_height="wrap_content">
+            		            <TextView 
+            		                android:id="@+id/img_tlBn_wc"
+            		                android:layout_width="20dip"
+            		            	android:layout_height="20dip"
+            		            	android:background="@drawable/pgd_perform1"/>
+            		            <TextView 
+            		                android:id="@+id/tv_tlBn_wc"
+            		                android:layout_marginLeft="5dip"
+            		                android:layout_width="55dip"
+            		            	android:layout_height="25dip"
+            		            	android:gravity="center_vertical"
+            		            	android:textSize="12dp"
+                					android:textColor="#747474"
+            		            	android:text="任务完成"/>
+            		        </LinearLayout>
+            		        
+            		        	<LinearLayout
+	            		            android:id="@+id/tlBn_wc_xian"
+	            		            android:layout_width="1dip"
+	            		            android:layout_height="20dip"
+	            		            android:orientation="vertical"
+	            		            android:layout_alignParentRight="true"
+	            		            android:layout_centerVertical="true"
+	            		            android:visibility="gone"
+	            		            android:background="#b0b0b0" >
+            		       		</LinearLayout>
+            		        
+            		    </LinearLayout>
+            		    
+                        <RelativeLayout 
+            		        android:id="@+id/tlBn_loc"
+            		        android:layout_width="45dip"
+            		        android:layout_weight="1.0"
+            		        android:visibility="gone"
+            		        android:layout_height="30dip">
+            		        	
+                            <LinearLayout
+	            		            android:layout_width="1dip"
+	            		            android:layout_height="20dip"
+	            		            android:orientation="vertical"
+	            		            android:layout_alignParentLeft="true"
+	            		            android:layout_centerVertical="true"
+	            		            android:visibility="visible"
+	            		            android:background="#b0b0b0" >
+            		       	</LinearLayout>
+
+            		        <LinearLayout
+            		            android:layout_width="75dip"
+            		            android:layout_height="wrap_content"
+            		            android:layout_centerHorizontal="true"
+            		            android:layout_centerVertical="true" >
+
+            		            <TextView
+            		                android:layout_width="20dip"
+            		                android:layout_height="20dip"
+            		                android:background="@drawable/charge_back" />
+
+            		            <TextView
+            		                android:layout_width="55dip"
+            		                android:layout_height="25dip"
+            		                android:layout_marginLeft="5dip"
+            		                android:gravity="center_vertical"
+            		                android:text="定位"
+            		                android:textColor="#2e72b0"
+            		                android:textSize="12dp" />
+            		        </LinearLayout>
+						</RelativeLayout>
+                    </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tlLinearContent2"
+        android:layout_width="800dip"
+        android:layout_height="120dip"
+        android:background="@drawable/map_layer_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="10dip" >
+    </LinearLayout>
+
+</LinearLayout>

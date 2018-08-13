@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center" >
+
+    <LinearLayout
+        android:id="@+id/voice_rcd_hint_rcding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="bottom|center"
+        android:background="@drawable/voice_rcd_hint_bg"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:gravity="bottom|center"
+            android:minWidth="140.0dip"
+            android:orientation="horizontal"
+            android:paddingLeft="25.0dip" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15.0dip"
+                android:layout_marginRight="4.0dip"
+                android:src="@drawable/voice_rcd_hint" />
+
+            <ImageView
+                android:id="@+id/volume"
+                android:layout_width="43sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="10dip"
+                android:layout_marginTop="10dip"
+                android:src="@drawable/amp1" />
+        </LinearLayout>
+        <TextView 
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="向上滑动取消录音"/>
+    </LinearLayout>
+
+</LinearLayout>

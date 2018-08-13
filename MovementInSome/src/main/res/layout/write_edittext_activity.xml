@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/ptdsll_PLinear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/writeTvTitle"
+            style="@style/myPhoneTvTitle"
+            android:background="@drawable/tob_title_bg"
+            android:gravity="center_vertical"
+            android:text="内容编辑：" />
+
+        <EditText
+            android:id="@+id/writeEdContent"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:ems="10"
+            android:inputType="textMultiLine" >
+            <requestFocus />
+        </EditText>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tabhost_bg" >
+
+            <Button
+                android:id="@+id/writebtnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1.0"
+                android:background="#00000000"
+                android:text="取    消"
+                android:textColor="#ddffffff" />
+
+            <Button
+                android:id="@+id/writebtnClear"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1.0"
+                android:background="#00000000"
+                android:text="清    空"
+                android:textColor="#ddffffff" />
+
+            <Button
+                android:id="@+id/writebtnSave"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_weight="1.0"
+                android:background="#00000000"
+                android:text="保    存"
+                android:textColor="#ddffffff" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--任务列表item-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+
+        <RelativeLayout
+            android:id="@+id/facility_Re"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:orientation="horizontal">
+
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:text="Button">
+
+                <TextView
+                    android:id="@+id/move_time"
+                    android:layout_width="90dp"
+                    android:layout_height="26dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="10dp"
+                    android:textColor="#656565"
+                    android:text="2017/05/22" />
+
+                <Button
+                    android:id="@+id/move_stuas"
+                    android:layout_width="60dp"
+                    android:layout_height="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/move_stuas"
+                    android:text="采测中"
+                    android:textColor="#46aaff"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/newest"
+                    android:layout_width="60dp"
+                    android:layout_height="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/shape_blue"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="@dimen/dp_10"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:text="最新"
+                    android:textColor="#46aaff"
+                    android:visibility="visible" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/move_logo_ly"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/move_logo"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/gather_water_supply" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/move_logo_ly"
+                >
+
+                <TextView
+                    android:id="@+id/move_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="26dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="工程名称"
+                    android:textColor="#000000"
+                    android:textSize="22dp" />
+
+                <TextView
+                    android:id="@+id/move_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignLeft="@+id/move_name"
+                    android:layout_alignStart="@+id/move_name"
+                    android:layout_below="@+id/move_name"
+                    android:textColor="#656565"
+                    android:layout_marginTop="5dp"
+                    android:text="工程类型" />
+
+                <TextView
+                    android:id="@+id/move_value_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_alignLeft="@+id/move_type"
+                    android:layout_alignStart="@+id/move_type"
+                    android:layout_below="@+id/move_type"
+                    android:textColor="#656565"
+                    android:layout_marginTop="5dp"
+                    android:text="设施点数量" />
+
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#f2a0a0ab"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/move_check"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="3dp"
+                    android:drawableLeft="@drawable/move_check1"
+                    android:drawablePadding="3dp"
+                    android:textColor="#656565"
+                    android:gravity="center"
+                    android:text="查看" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/move_surveying"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="3dp"
+                    android:drawableLeft="@drawable/move_surveying1"
+                    android:drawablePadding="3dp"
+                    android:textColor="#656565"
+                    android:gravity="center"
+                    android:text="采测" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/move_delect"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="3dp"
+                    android:drawableLeft="@drawable/move_delect1"
+                    android:drawablePadding="3dp"
+                    android:textColor="#656565"
+                    android:gravity="center"
+                    android:text="删除" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/move_finsh"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="3dp"
+                    android:drawableLeft="@drawable/move_finsh1"
+                    android:drawablePadding="3dp"
+                    android:textColor="#656565"
+                    android:gravity="center"
+                    android:text="完成" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/move_upload"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="3dp"
+                    android:drawableLeft="@drawable/move_finsh1"
+                    android:drawablePadding="3dp"
+                    android:textColor="#656565"
+                    android:gravity="center"
+                    android:text="上传" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/move_sub"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="3dp"
+                    android:drawableLeft="@drawable/move_finsh1"
+                    android:drawablePadding="3dp"
+                    android:textColor="#656565"
+                    android:gravity="center"
+                    android:text="同步" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+</LinearLayout>

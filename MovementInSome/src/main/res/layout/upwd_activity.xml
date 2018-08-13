@@ -1,0 +1,103 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+
+    <LinearLayout style="@style/myPhoneLayoutTitleType" >
+
+        <Button
+            android:id="@+id/upwd_back"
+            style="@style/myPhoneButtonBack" />
+
+        <TextView
+   
+            style="@style/myPhoneTvTitle"
+            android:text="密码修改" />
+
+        <Button
+            android:id="@+id/upwd_commit"
+            style="@style/myPhoneButtonSmall"
+            android:text="提交" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/myPhoneLayoutPType" >
+
+        <LinearLayout style="@style/myPhoneLayoutBgType" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="3dip" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="用 户 名" />
+
+                <TextView
+                    android:id="@+id/et_name"
+                    style="@style/myPhoneEtType"
+                    android:singleLine="true" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="3dip" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="当前密码" />
+
+                <EditText
+                    android:id="@+id/et_pass"
+                    android:inputType="textPassword"
+                    style="@style/myPhoneEtType" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="3dip" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="修改密码" />
+
+                <EditText
+                    android:id="@+id/et_xpass"
+                    android:inputType="textPassword"
+                    style="@style/myPhoneEtType" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="10dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="3dip" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="确定密码" />
+
+                <EditText
+                    android:id="@+id/et_qdpass"
+                    android:inputType="textPassword"
+                    style="@style/myPhoneEtType" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

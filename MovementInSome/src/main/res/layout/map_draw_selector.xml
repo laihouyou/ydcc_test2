@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/draw_type_linearLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/map_bg_menu_black"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="绘制类型选择"
+        android:textColor="@color/white"
+        android:textSize="14.0sp" />
+
+<!--     <LinearLayout android:orientation="vertical" android:background="@drawable/map_bg_menu_white" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="4.0dip" android:layout_marginRight="4.0dip" android:layout_marginBottom="4.0dip">
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="60.0dip">
+
+            <TextView
+                android:id="@+id/TextView_type_pt"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip"
+                android:layout_gravity="center"
+                android:layout_weight="1.0"
+                android:background="@*android:color/transparent"
+                android:drawableTop="@drawable/nav_btn_more_set_end"
+                android:gravity="bottom|center"
+                android:singleLine="true"
+                android:text="@string/nav_more_set_end"
+                android:textColor="@*android:color/black"
+                android:textSize="12.0sp" />
+
+            <View android:background="@*android:color/darker_gray" android:layout_width="1.0px" android:layout_height="fill_parent" />
+
+            <TextView
+                android:id="@+id/TextView_type_pl"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip"
+                android:layout_gravity="center"
+                android:layout_weight="1.0"
+                android:background="@*android:color/transparent"
+                android:drawableTop="@drawable/nav_btn_more_set_via"
+                android:gravity="bottom|center"
+                android:singleLine="true"
+                android:text="@string/nav_set_via_point_btn"
+                android:textColor="@*android:color/black"
+                android:textSize="12.0sp" />
+
+            <View android:background="@*android:color/darker_gray" android:layout_width="1.0px" android:layout_height="fill_parent" />
+
+            <TextView
+                android:id="@+id/TextView_type_pg"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip"
+                android:layout_gravity="center"
+                android:layout_weight="1.0"
+                android:background="@*android:color/transparent"
+                android:drawableTop="@drawable/nav_btn_more_return"
+                android:gravity="bottom|center"
+                android:singleLine="true"
+                android:text="@string/nav_get_return_btn"
+                android:textColor="@*android:color/black"
+                android:textSize="12.0sp" />
+
+        </LinearLayout>
+        <View android:background="@*android:color/darker_gray" android:layout_width="fill_parent" android:layout_height="1.0px" />
+        <LinearLayout android:gravity="center" android:orientation="horizontal" android:layout_width="fill_parent" android:layout_height="60.0dip">
+
+            <TextView
+                android:id="@+id/"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip"
+                android:layout_gravity="center"
+                android:layout_weight="1.0"
+                android:background="@*android:color/transparent"
+                android:drawableTop="@drawable/nav_btn_more_earth"
+                android:gravity="bottom|center"
+                android:singleLine="true"
+                android:text="@string/nav_more_earth_off"
+                android:textColor="@*android:color/black"
+                android:textSize="12.0sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/TextView_type_fpl"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip"
+                android:layout_gravity="center"
+                android:layout_weight="1.0"
+                android:background="@*android:color/transparent"
+                android:drawableTop="@drawable/nav_btn_more_poi"
+                android:gravity="bottom|center"
+                android:singleLine="true"
+                android:text="@string/nav_more_search_poi"
+                android:textColor="@*android:color/black"
+                android:textSize="12.0sp" />
+
+            <View android:background="@*android:color/darker_gray" android:layout_width="1.0px" android:layout_height="fill_parent" />
+
+            <TextView
+                android:id="@+id/TextView_type_fpg"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip"
+                android:layout_gravity="center"
+                android:layout_weight="1.0"
+                android:background="@*android:color/transparent"
+                android:drawableTop="@drawable/nav_btn_more_route_view"
+                android:gravity="bottom|center"
+                android:singleLine="true"
+                android:text="@string/nav_more_route_view"
+                android:textColor="@*android:color/black"
+                android:textSize="12.0sp" />
+
+            <View android:background="@*android:color/darker_gray" android:layout_width="1.0px" android:layout_height="fill_parent" />
+
+            <TextView
+                android:id="@+id/TextView_draw_clear"
+                android:layout_width="fill_parent"
+                android:layout_height="50.0dip"
+                android:layout_gravity="center"
+                android:layout_weight="1.0"
+                android:background="@*android:color/transparent"
+                android:drawableTop="@drawable/nav_btn_more_settings"
+                android:gravity="bottom|center"
+                android:singleLine="true"
+                android:text="@string/nav_more_settings"
+                android:textColor="@*android:color/black"
+                android:textSize="12.0sp" />
+
+        </LinearLayout>
+    </LinearLayout> -->
+</LinearLayout>

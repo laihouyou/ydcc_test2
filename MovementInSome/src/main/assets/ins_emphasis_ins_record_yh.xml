@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_emphasis_ins_record_yh" name="区域巡查记录" table="BS_EMPHASIS_INS_RECORD" submitTo="loopback" page="one">
+	   	<params>
+	    
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        
+		    </rule>
+		</rules>
+	
+		<page id="1" name="重点区域信息">
+		    <group id="1" name="重点区域信息" display="Y" type="common">
+			    <field name="eirCoordinate" label="重点区域坐标" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapcoord(N)" options="" listKey="" rule=""/>
+		        <field name="isHiddenDanger" label="是否隐患" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="是|否" listKey=""/>
+		    	<field name="eirContent" label="巡查内容" type="memo" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey=""/>
+		        <field name="prjProgress" label="工程进度" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="remark" label="备注" type="memo" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey=""/>
+		        <field name="camera" label="现场照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			</group>
+			
+			<group id="2" name="系统信息" display="N" type="common"> 
+			    <field name="pnitId" label="巡查任务ID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":pnitId" options="" listKey="" rule=""/>
+			    <field name="pnitNum" label="巡查任务编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":pnitNum" options="" listKey="" rule=""/>
+			    <field name="eiaId" label="重点区域ID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":riaId" options="" listKey="" rule=""/>
+			    <field name="areaNum" label="区域编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":areaNum" options="" listKey="" rule=""/>
+			    
+			    <field name="insDateStr" label="巡查日期" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="datetime()" options="" listKey="" rule=""/>
+			    <field name="insUId" label="巡查人ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userId()" options="" listKey="" rule=""/>
+			    <field name="insUNum" label="巡查人编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userNum()" options="" listKey="" rule=""/>
+			    <field name="insUName" label="巡查人名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="username()" options="" listKey="" rule=""/>
+			    <field name="insDeptId" label="巡查人部门ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteamId()" options="" listKey="" rule=""/>
+			    <field name="insDeptNum" label="巡查人部门编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteamNum()" options="" listKey="" rule=""/>
+			    <field name="insDeptName" label="巡查人部门名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteam()" options="" listKey="" rule=""/>
+			    <field name="insTeamId" label="巡查人班组ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupId()" options="" listKey="" rule=""/>
+			    <field name="insTeamNum" label="巡查人班组编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupNum()" options="" listKey="" rule=""/>
+			    <field name="insTeamName" label="巡查人班组名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupName()" options="" listKey="" rule=""/>
+ 			</group>
+		</page>
+	</form>
+</axf>

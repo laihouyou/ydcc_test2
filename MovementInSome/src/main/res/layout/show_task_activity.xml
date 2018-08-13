@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/black_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:id="@+id/show_task_title"
+        style="@style/myPhoneLayoutTitleType"
+        android:layout_alignParentTop="true"
+        android:visibility="visible" >
+
+        <ImageView
+            android:id="@+id/show_task_back"
+            android:layout_width="30dip"
+            android:layout_height="20dip"
+			android:layout_centerVertical="true"
+            android:src="@drawable/back_icon" />
+
+        <TextView
+            android:id="@+id/show_task_titletext"
+            style="@style/myPhoneTvTitle"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="任务信息" />
+    </RelativeLayout>
+    <!-- 任务信息 -->
+
+            <ScrollView
+                android:id="@+id/show_task_msg"
+                style="@style/myPhoneLayoutBgTypeFG"
+                android:layout_below="@+id/show_task_title"
+                android:layout_above="@+id/show_task_t"
+                android:paddingBottom="15dip" >
+            </ScrollView>
+            <LinearLayout
+        android:id="@+id/show_task_t"
+        style="@style/myPhoneLayoutType"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:padding="10dip" >
+
+        <TextView
+            android:id="@+id/show_task_back_msg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_bg"
+            android:gravity="center"
+            android:paddingBottom="15dip"
+            android:paddingTop="15dip"
+            android:textColor="#ccff0000"
+            android:textSize="14dip"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/show_task_button"
+            style="@style/myPhoneLayoutType"
+            android:paddingTop="20dip" >
+
+            <Button
+                android:id="@+id/show_task_start"
+                style="@style/myPhoneButtonBig"
+                android:text="开始工作"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/show_task_down"
+                style="@style/myPhoneButtonBig"
+                android:text="下载任务" />
+        </LinearLayout>
+    </LinearLayout>
+            
+
+</RelativeLayout>

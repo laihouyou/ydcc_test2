@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_supervision_point_record_yh" name="巡查监督点记录" table="BS_SUPERVISION_POINT_RECORD" submitTo="loopback" page="one">
+	   	<params>
+	    
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="facNum" value="EID,设备编号"/>
+		        <do filed="facName" value="LayerName"/>
+		    </rule>
+		</rules>
+	
+		<page id="1" name="监督点信息">
+		    <group id="1" name="填写信息" display="Y" type="common">
+		        <field name="sprDesc" label="巡查描述" type="memo" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey=""/>
+		        <field name="camera" label="现场照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			</group>
+			
+			<group id="2" name="系统信息" display="N" type="common">
+			    <field name="pnitId" label="巡查任务ID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":pnitId" options="" listKey="" rule=""/>
+			    <field name="pnitNum" label="巡查任务编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":pnitNum" options="" listKey="" rule=""/>
+			    <field name="spId" label="监督点ID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":spId" options="" listKey="" rule=""/>
+			    <field name="sprCoordinate" label="签到坐标" type="text" readOnly="N"  required="N" maxLength="20" defValue=":sprCoordinate" options="" listKey="" rule=""/>
+			    
+			    <field name="sprDateStr" label="巡查时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="dateTime()" options="" listKey="" rule=""/>
+			    <field name="sprUId" label="签到人ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userId()" options="" listKey="" rule=""/>
+			    <field name="sprUNum" label="签到人编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userNum()" options="" listKey="" rule=""/>
+			    <field name="sprUName" label="签到人名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="username()" options="" listKey="" rule=""/>
+			    <field name="sprDeptId" label="签到人部门ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteamId()" options="" listKey="" rule=""/>
+			    <field name="sprDeptNum" label="签到人部门编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteamNum()" options="" listKey="" rule=""/>
+			    <field name="sprDeptName" label="签到人部门名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteam()" options="" listKey="" rule=""/>
+			    <field name="sprTeamId" label="签到人班组ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupId()" options="" listKey="" rule=""/>
+			    <field name="sprTeamNum" label="签到人班组编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupNum()" options="" listKey="" rule=""/>
+			    <field name="sprTeamName" label="签到人班组名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupName()" options="" listKey="" rule=""/>
+			    
+ 			</group>
+		</page>
+	</form>
+</axf>

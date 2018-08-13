@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="" name="关阀单"  table="" submitTo="loopback" page="one">
+	   	<params>
+			
+		</params>
+		 <rules>
+		    <rule id="mapfac">
+		        
+		    </rule>
+		</rules>
+
+		<page id="1" name="">
+			<group id="1" name="" display="Y" type="common">
+			    <field name="" label="阀门编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			    <field name="" label="口径" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="" label="关阀时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				
+			</group>	
+			
+		</page>
+	</form>
+</axf>

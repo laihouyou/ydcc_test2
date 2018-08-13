@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="INS_FAC_TIEPAI_RECORD" name="设施贴牌记录"  table="INS_FAC_TIEPAI_RECORD" submitTo="loopback" page="one">
+	   	<params>
+			
+		</params>
+		 <rules>
+		    <rule id="mapfac">
+		        
+		    </rule>
+		</rules>
+
+		<page id="1" name="">
+			<group id="1" name="" display="Y" type="common">
+			    <field name="bfNum" label="设施编号" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapfac()" options="" listKey="" rule="mapfac"/>
+			    <field name="facType" label="设施类型" type="choice" readOnly="N" required="N" maxLength="20" defValue=":facType" options="" listKey="工单+设施类型" rule=""/>
+				<field name="operTime" label="操作时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="remarks" label="备注" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="checkItem1" label="新增、更换" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="新增|更新" listKey=""/>
+			</group>	
+			 
+			<group id="2" name="系统信息" display="N" type="common">
+                <field name="taskNum" label="任务编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":workTaskNum" options="" listKey="" rule=""/>
+			   	<field name="gid" label="设施唯一码" type="system" readOnly="N"  required="N" maxLength="20" defValue=":gid" options="" listKey="" rule=""/>
+                <field name="wpdId" label="巡查数据表ID" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsIpsNum" options="" listKey="" rule=""/>
+			</group>
+		</page>
+	</form>
+</axf>

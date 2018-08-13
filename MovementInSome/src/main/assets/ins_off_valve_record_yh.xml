@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_off_valve_record_yh" name="开关阀记录"  table="BS_OFF_VALVE_RECORD" submitTo="loopback" page="one">
+	   	<params>
+			
+		</params>
+		 <rules>
+		    <rule id="mapfac">
+		        <do filed="valveNum" value="EID,设备编号"/>
+		        <do filed="valveType" value="LayerName"/>
+		        <do filed="lirFacMaterial" value="MATERIAL,材质"/>
+		        <do filed="gid" value="GID,业务编码"/>
+		        <do filed="valveDs" value="D_S,口径"/>
+		        <do filed="valveCoordinate" value="shape"/>
+		    </rule>
+		</rules>
+
+		<page id="1" name="开关阀信息">
+			<group id="1" name="开关阀信息" display="Y" type="common">		
+			    <field name="valveNum" label="阀门编号" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapfac()" options="" listKey="" rule="mapfac"/>		
+				<field name="valveType" label="阀门类型" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="valveAddr" label="阀门具体位置" type="text" readOnly="N"  required="N" maxLength="20" defValue="addr()" options="" listKey=""/>	
+				<field name="valveDs" label="阀门口径" type="number" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="openDegree" label="开启度 " type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="0035"/>
+				<field name="openWay" label="开启方式 " type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="switchReason" label="开启原因 " type="memo" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey=""/>
+				<field name="operType" label="操作类型" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="0018"/>
+				<field name="operDateStr" label="操作时间  " type="datetime" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="operPerson" label="操作人  " type="text" readOnly="N" required="N" maxLength="20" defValue="username()" options="" listKey=""/>
+				<field name="valveCoordinate" label="阀门坐标" type="maptext" readOnly="N"  required="Y" maxLength="20" defValue="mapcoord(N)" options="" listKey=""/>
+				<field name="remark" label="备注" type="memo" readOnly="N"  required="N" maxLength="2000" defValue="" options="" listKey=""/>
+				<field name="camera" label="现场照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			</group>	
+			 
+			<group id="2" name="系统信息" display="N" type="common">
+			    <field name="gid" label="GID" type="text" readOnly="N"  required="N" maxLength="2000" defValue=":gid" options="" listKey="" rule=""/>
+				<field name="guid" label="GUID" type="text" readOnly="N"  required="N" maxLength="20" defValue="guid()" options="" listKey="" rule=""/>
+                <field name="rrwoNum" label="工单编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":rrwoNum" options="" listKey="" rule=""/>
+                <field name="rrwoType" label="工单类型" type="text" readOnly="N"  required="N" maxLength="20" defValue=":rrwoType" options="" listKey="" rule=""/>
+                <field name="reportCoordinate" label="终端上报坐标" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapcoord()" options="" listKey="" rule=""/>
+			    <field name="uniqueCode" label="移动端唯一编码" type="text" readOnly="N" required="N" maxLength="20" defValue="guid()" options="" listKey=""/>
+			</group>
+		</page>
+	</form>
+</axf>

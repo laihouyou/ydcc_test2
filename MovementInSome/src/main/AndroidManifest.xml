@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.movementinsome"
+    android:sharedUserId="@string/sharedUserId"
+    android:versionCode="169"
+    android:versionName="mapApp1.6.9" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-sdk android:minSdkVersion="15" />
+
+    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+
+    <!-- 访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 这个权限用于获取wifi的权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 改变网络状态 -->
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+        <!-- 这个权限用于访问GPS定位 -->
+    <!-- NETWORK 特点：精度低，省电，需要网络访问  权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCES_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+
+    <!-- SDK1.5需要android.permission.GET_TASKS权限判断本程序是否为当前运行的应用? -->
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.WRITE_SECURE_SETTING" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <!-- 震动服务权限 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+    
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 访问照相机的权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 用于读取手机当前状态，获取设置信息和详情页直接拨打电话需要以下权限 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 来电消音 -->
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-feature
+        android:glEsVersion="0x00020000"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+  
+   <!--添加可以向外拨打电话的权限  -->
+   <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission> 
+   
+    
+    <application
+        android:name="com.movementinsome.AppContext"
+        android:icon="@drawable/longquan"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        <service
+            android:name="com.movementinsome.xmpp.NotificationService"
+            android:enabled="true"
+            android:label="NotificationService" >
+            <intent-filter>
+                <action android:name="com.gddst.xmpp.NotificationService" />
+            </intent-filter>
+        </service>
+        <service android:name="com.movementinsome.kernel.location.trace.TraceService" >
+            <intent-filter>
+                <action android:name="com.movement.locate.TraceService" />
+            </intent-filter>
+        </service>
+        <!--<service android:name="com.movementinsome.app.pub.scada.service.ScadaAlertService" >-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.gddst.scada.ScadaAlertService" />-->
+            <!--</intent-filter>-->
+        <!--</service>-->
+        <service android:name="com.movementinsome.app.server.NetListenervice" >
+            <intent-filter>
+                <action android:name="com.gddst.app.server.NetListenervice" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+        </service>
+        
+        <!-- meta-data需要写在application中 -->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="ZRT9WdlTq6VaFGWtpDaQ3piL" />
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="ce07a5b1c0ac33e5e657289412a73a41"/>
+
+        <!-- 开机自动启动 -->
+        <receiver
+            android:name="com.movementinsome.BootUpReceiver"
+            android:enabled="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+        
+        <!-- 定时自动启动 -->
+        <receiver android:name="com.movementinsome.AlarmReceiver">
+               <intent-filter>
+                 <action android:name="android.intent.action.STARTMYAP"/>
+             </intent-filter>
+        </receiver>
+        <!-- scada实时数据接收 -->
+        <!--<receiver android:name="com.movementinsome.app.pub.scada.receiver.ScadaReceiver">-->
+               <!--<intent-filter>-->
+                 <!--<action android:name="com.gddst.app.pub.scada.receiver.ScadaReceiver"/>-->
+                 <!--<category android:name="android.intent.category.DEFAULT" />-->
+             <!--</intent-filter>-->
+        <!--</receiver>-->
+                
+        <receiver android:name="com.movementinsome.NetBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        
+        <activity
+            android:name="com.movementinsome.app.mytask.ShowPatrolDataExpActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden" >
+        </activity>
+        <activity android:name="com.movementinsome.Appstart"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.Login"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+        </activity>
+        <activity android:name="com.movementinsome.sysmanager.init.SystemInitActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+        </activity>
+        <activity android:name="com.movementinsome.Main" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+        </activity>
+        <activity
+            android:name="com.movementinsome.map.MapViewer"
+            android:label="@string/app_name" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="mapContain" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.movementinsome.map.MoveMapViewer"
+            android:label="@string/app_name" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="mapMove" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.map.nearby.NearByActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="map.nearby" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.map.attributeQuery.AttributeQueryActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="map.attributeQuery" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.kernel.camera.Camera" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="map.camera" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.app.mytask.TaskListActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <!--<intent-filter>-->
+                <!--<action android:name="taskCenter" />-->
+
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--</intent-filter>-->
+        </activity>
+        <activity android:name="com.movementinsome.app.bizcenter.TableCommitActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="appCenter" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.caice.activity.ManageActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="mainMine" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.app.bizcenter.ApecialActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="appSpecial" />
+				
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.map.MapBizViewer2" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="biz.bizviewer" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.app.pub.activity.WebSendOrdersActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="biz.bizwebsend" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.app.webView.ZsMapInaccurateActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="biz.bizmapinaccurate" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.app.webView.ZsWorkTaskWebActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="biz.bizworktask" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.app.pub.activity.WebSpecialShowActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="biz.bizwebspecial" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.app.webView.HzWebZxjlActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="biz.bizwebZxjl" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.app.webView.HzWebGwqxActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="biz.bizwebGwqx" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.app.webView.HzWebDgxjfxActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="biz.bizwebDgxjfx" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.app.webView.HzWebMgxjfxActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="biz.bizwebMgxjfx" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.app.webView.HzWebQxtjfxActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="biz.bizwebQxtjfx" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.app.webView.HzWebDsfsgActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="biz.bizwebDsfsg" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.map.FacSublistEditActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="biz.fac_sublist_edit_activity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!--<activity android:name="com.movementinsome.app.pub.scada.activity.ScadaActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="biz.bizscada" />-->
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+        <activity android:name="com.movementinsome.app.mytask.FacSearchActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="biz.facsearch" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.app.bizcenter.HistoryTableActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="biz.historytable" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!--<activity android:name="com.movementinsome.app.gather.AppGatherActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="biz.appgather" />-->
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+        <activity android:name="com.movementinsome.app.bizcenter.HistoryReportActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden"></activity>
+        <activity android:name="com.movementinsome.app.bizcenter.ReceiveMsgActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+        </activity>
+		<activity android:name="com.movementinsome.app.mytask.FhflActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+		    <intent-filter>
+                <action android:name="floodCenter" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+       </activity>
+       <activity android:name="com.movementinsome.app.mytask.CoordinateActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+           <intent-filter>
+            <action android:name="coordinateCenter" />
+
+            <category android:name="android.intent.category.DEFAULT" />
+       		</intent-filter>
+       </activity>        
+        <activity android:name="com.movementinsome.app.mytask.TaskListItemActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+        </activity>
+        <activity android:name="com.movementinsome.app.mytask.InspectionActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+        </activity>
+        <activity android:name="com.movementinsome.app.mytask.ShowTaskActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+        </activity>
+        <activity android:name="com.movementinsome.app.mytask.ShowMsgActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+        </activity>
+        <activity android:name="com.movementinsome.app.mytask.ShowTaskMsgActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+        	<intent-filter>
+                <action android:name="biz.showtaskmsg" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.app.mytask.ShowPatrolDataActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+        </activity>
+        <!--<activity android:name="com.movementinsome.app.buiderrpt.XjsgsbActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="biz.buiderrpt" />-->
+
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+        <!--<activity android:name="com.movementinsome.app.pub.activity.ShowPictureActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">-->
+        <!--</activity>-->
+        <activity android:name="com.movementinsome.app.pub.activity.CameraActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+        </activity>
+        <activity android:name="com.movementinsome.app.pub.activity.FormsActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+        </activity>
+        <activity android:name="com.movementinsome.app.pub.activity.UserManualActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="biz.usermanual" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.app.bizcenter.RepairBillrRecordActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="biz.RepairBillrRecord" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.map.MapBizViewer" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="mapBizContain" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.easyform.formengineer.RunForm" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+        </activity>
+        <activity android:name="com.movementinsome.easyform.widgets.michooser.activity.AlbumActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+        </activity>
+        <activity android:name="com.movementinsome.easyform.widgets.michooser.activity.ShowPictureActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+        </activity>
+        <activity android:name="com.movementinsome.app.pub.activity.PushTaskActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+        </activity>
+        <activity android:name="com.movementinsome.app.pub.activity.WebCheckPhotoActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+        </activity>
+        <activity android:name="com.movementinsome.app.mytask.XxldqkjlActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            
+        </activity>
+        <activity android:name="com.movementinsome.app.mytask.DredgePlanActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            
+        </activity>
+         <activity android:name="com.movementinsome.app.mytask.EmphasisPatrolAreaActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="biz.emphasis_ins_record_yh" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.sysmanager.upwd.UpwdActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            
+        </activity>
+        <!--<activity android:name="com.baidu.lbsapi.panoramaviewdemo.PanoramaDemoActivityMain" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">-->
+            <!---->
+        <!--</activity>-->
+        <activity android:name="com.movementinsome.kernel.gpswidget.GpsViewActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="gpsView" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.map.search.SearchDialog" android:configChanges="orientation|screenSize|keyboard|keyboardHidden"></activity>
+        <activity android:name="com.movementinsome.sysmanager.set.SystemSetActivity"></activity>
+
+        <activity android:name=".app.pub.video.PlayVideo" android:configChanges="orientation|screenSize|keyboard|keyboardHidden" android:screenOrientation="landscape"/>
+        <activity  android:name=".app.pub.video.VideoCaptureActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden" android:screenOrientation="landscape"/>
+        
+        <!--<activity-->
+            <!--android:name="com.movementinsome.burst.activity.BurstMainActivity"-->
+            <!--android:configChanges="orientation|screenSize|keyboard|keyboardHidden" >-->
+            <!--<intent-filter>-->
+                <!--<action android:name="biz.bizburstmain" />-->
+
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+      <!---->
+        <!--<activity-->
+            <!--android:name="com.movementinsome.burst.activity.ArchivesActivity"-->
+            <!--android:label="@string/app_name" >-->
+        <!--</activity>-->
+        <!--<activity-->
+            <!--android:name="com.movementinsome.burst.activity.BitmapActivity"-->
+            <!--android:label="@string/app_name" >-->
+        <!--</activity>-->
+        <!--<activity-->
+            <!--android:name="com.movementinsome.burst.activity.DialogActivity"-->
+            <!--android:label="@string/app_name"-->
+            <!--android:theme="@android:style/Theme.Translucent.NoTitleBar" >-->
+        <!--</activity>-->
+        <activity
+            android:name="com.baidu.BaiduTextAcitvity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity android:name="com.movementinsome.app.zhd.zhdactivity.BluetoothConnectActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        </activity>
+        <activity android:name="com.movementinsome.app.zhd.zhdactivity.DeviceInfoActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity android:name="com.movementinsome.app.zhd.zhdactivity.GPSInfoActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity android:name="com.movementinsome.app.zhd.zhdactivity.ZhdMainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            <intent-filter>
+                <action android:name="biz.giscorrect10" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.movementinsome.app.zhd.zhdactivity.RegisteActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity android:name="com.movementinsome.caice.activity.StatisticalActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+        </activity>
+        <activity android:name="com.movementinsome.caice.activity.StatisticalFacActivity" android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+        </activity>
+        <activity android:name="com.movementinsome.caice.activity.ResubmitActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
+        </activity>
+        <activity android:name="com.movementinsome.caice.activity.ProjectExportActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
+        </activity>
+        <activity android:name="com.movementinsome.caice.activity.FacilityListActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
+        </activity>
+        <activity android:name="com.movementinsome.caice.activity.NewMap"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
+        </activity>
+        <activity android:name="com.movementinsome.caice.activity.OfflineActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
+        </activity>
+        <activity android:name="com.movementinsome.caice.activity.SettingActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
+        </activity>
+        <activity android:name="com.movementinsome.caice.activity.RegardsActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
+        </activity>
+        <activity android:name="com.baidu.pano.PanoDemoMain"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
+        </activity>
+        <activity android:name="com.movementinsome.app.zhd.zhdactivity.SetRoverActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
+        </activity>
+        <activity android:name="com.movementinsome.caice.activity.OfflineActivity2"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
+        </activity>
+        <activity android:name="com.movementinsome.caice.activity.QRCodeActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
+        </activity>
+        <activity
+            android:name="com.baidu.navi.BNDemoGuideActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
+        </activity>
+        <activity android:name="com.baidu.navi.BNaviGuideActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
+        </activity>
+        <activity android:name="com.baidu.navi.WNaviGuideActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
+        </activity>
+        <activity android:name="com.movementinsome.caice.activity.ChangPasswordActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
+        </activity>
+        <activity android:name="com.movementinsome.caice.activity.LoginRegisterActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
+        </activity>
+        <activity android:name="com.movementinsome.caice.activity.PersonalCenterActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
+        </activity>
+        <activity android:name="com.movementinsome.caice.activity.PictureActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
+        </activity>
+        <activity android:name="com.movementinsome.caice.activity.TaskListActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            >
+            <intent-filter>
+                <action android:name="taskCenter" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

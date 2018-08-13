@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_data_entry_point_chonghua" name="录入入河排污口数据" table="" submitTo="loopback" page="one">
+	   	<params>
+	    <param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+ 			
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="deviceNum" value="设备编号,管线编号,站点编号"/>
+		        <do filed="deviceType" value="LayerName"/>
+		        <do filed="facilitiesMaterial" value="MATERIAL,材料"/>
+		        <do filed="deviceDs" value="D_S,口径,主管口径"/>
+		        <do filed="coordinate" value="shape"/>
+		    </rule>
+		</rules>
+		<!-- 问题上报
+			表INS_HIDDEN_DANGER_REPORT
+			
+			workOrder 紧急程度
+			reportedType 问题类型
+			reportedContent 问题内容
+			addr 发生地址
+			remarks 描述
+			reportedDate 发现时间
+			leakageQuantity 漏水量
+			problemCoordinate 问题位置
+			depth 埋深
+			facilitiesType 设施类型
+			facilitiesCaliber 口径
+			facilitiesMaterial 管材
+			phone 上报人电话 -->
+	   
+		<page id="1" name="基本信息">
+		    <group id="1" name="显示信息" display="Y" type="common">
+
+				<field name="cellCode" label="普查小区代码" type="number" readOnly="N" required="N" maxLength="20" defValue=":cellCode" options="" listKey="" associatedControl="village"/>
+				<field name="town" label="镇" type="choice" readOnly="N" required="N" maxLength="20" defValue=":town"
+					options="阀门|消防栓" listKey="001" id ="10001" cId ="10002"/>
+				<field name="village" label="村" type="choice" readOnly="N" required="N" maxLength="20" defValue=":village"
+					options="变材点|测压点|蝶阀|多通点|阀门|阀门井|非测区" listKey="0011" id ="10002" fId="10001" fName ="镇" mName="村"/>
+				<field name="sewageOutletCode" label="排污口编码" type="text" readOnly="N" required="N" maxLength="20" defValue=":sewageOutletCode" options="" listKey=""/>
+				<field name="sewageOutletName" label="排污口名称" type="text" readOnly="N" required="N" maxLength="20" defValue=":sewageOutletName" options="" listKey=""/>
+				<field name="sewageOutletCategory" label="排污口类别" type="choice" readOnly="N" required="N" maxLength="20" defValue=":sewageOutletCategory" options="入河排污口|入海排污口" listKey=""/>
+				<field name="longitudeWg84" label="经度" type="numeric" readOnly="N" required="Y" maxLength="20" defValue=":longitudeWg84" options="" listKey=""/>
+				<field name="latitudeWg84" label="纬度" type="numeric" readOnly="N" required="Y" maxLength="20" defValue=":latitudeWg84" options="" listKey=""/>
+				<field name="settingUnit" label="设置单位" type="text" readOnly="N" required="N" maxLength="20" defValue=":settingUnit" options="" listKey=""/>
+				<field name="sewageOutletScale" label="排污口规模" type="choice" readOnly="N" required="N" maxLength="20" defValue=":sewageOutletScale" options="规模以上|规模以下" listKey=""/>
+				<field name="sewageOutletType" label="排污口类型" type="choice" readOnly="N" required="N" maxLength="20" defValue=":sewageOutletType" options="工业废水排污口|生活污水排污口|混合污废水排污口" listKey=""/>
+				<field name="inputMethod" label="入河(海)方式" type="edit_check" readOnly="N" required="N" maxLength="20" defValue=":inputMethod" options="明渠|暗管|泵站|涵闸" listKey=""/>
+				<field name="waterName" label="受纳水体名称" type="text" readOnly="N" required="N" maxLength="20" defValue=":waterName" options="" listKey=""/>
+				<field name="remark" label="备注" type="memo" readOnly="N"  required="N" maxLength="300" defValue=":remark" options="" listKey=""/>
+				<field name="camera" label="现场照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue=":camera" options="" listKey=""/>
+				<field name="new_video" label="视屏录制" qty="8" type="new_video" readOnly="N" required="N" maxLength="20" defValue=":new_video" options="" listKey=""/>
+
+
+
+				<!--<field name="manageArea" label="巡检片区" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" listTableName=""/>-->
+		        <!--<field name="hydrantArea" label="消防栓管理区" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="石岐区|南区|东区|西区|市政处|五桂山" listKey="" listTableName=""/>-->
+		        <!--<field name="hydrantNum" label="市政编码" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>-->
+		        <!--<field name="deviceMaterial" label="管材" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="工单+管材"/>-->
+		        <!--<field name="cenDeep" label="埋深" type="numeric" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>-->
+		        <!--<field name="sceneRemarks" label="漏水点状况" type="edit_check" readOnly="N" required="N" maxLength="20" defValue="" options="锈蚀|人为|其它" listKey=""/>-->
+		        <!--<field name="waterDamage" label="时漏量（M3/h)" type="numeric" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>-->
+		        <!--<field name="reportedCategory" label="问题类型" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="工单+问题类型" id ="10001" cId ="10002"/>-->
+		    	<!--<field name="reportedContent" label="问题内容" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="工单+问题内容" id ="10002" fId="10001" fName ="问题类型"/>-->
+ 		        <!--<field name="sceneRemarks" label="现场情况" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>-->
+ 		        <!--<field name="reportedPerson" label="反映人" type="text" readOnly="N"  required="N" maxLength="20" defValue="username()" options="" listKey=""/>-->
+ 		        <!--<field name="happenDateStr" label="发现时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>-->
+ 		        <!--<field name="deviceNum" label="设施编号" type="maptext" readOnly="N" required="N" maxLength="20" defValue="mapfac()" options="" listKey="" rule="mapfac"/>-->
+ 		        <!--<field name="deviceDs" label="设施口径" type="number" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>-->
+ 		        <!--<field name="deviceType" label="设施类型" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="工单+设施类型"/>-->
+				<!--<field name="happenAddr" label="发生地址" type="text" readOnly="N" required="N" maxLength="20" defValue="addr()" options="" listKey=""/>-->
+				<!--<field name="tel" label="联系电话" type="number" readOnly="N"  required="N" maxLength="20" defValue="userPhone()" options="" listKey=""/>-->
+				<!--<field name="camera" label="现场照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>-->
+				<!--<field name="voice" label="语音" type="voice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>	-->
+			</group>
+			
+			<!--<group id="2" name="隐藏信息" display="N" type="common">-->
+			    <!--<field name="status" label="状态" type="text" readOnly="N" required="N" maxLength="20" defValue="-1" options="" listKey=""/>-->
+			    <!--<field name="linkedNum" label="关联巡查任务编号" type="text" readOnly="N" required="N" maxLength="20" defValue=":taskNum" options="" listKey=""/>-->
+			    <!--<field name="workTaskNum" label="任务编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":workTaskNum" options="" listKey="" rule=""/>-->
+ 			<!--</group>-->
+		</page>
+	</form>
+</axf>

@@ -1,0 +1,87 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/black_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ViewFlipper
+        android:id="@+id/neary_vf"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout style="@style/myPhoneLayoutTitleType" >
+
+                <Button
+                    android:id="@+id/nearby_Back"
+                    style="@style/myPhoneButtonBack"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    style="@style/myPhoneTvTitle"
+                    android:layout_height="match_parent"
+                    android:text="附近" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/nearby_gridview_bg"
+                android:paddingBottom="12.0dip" >
+
+                <ViewFlipper
+                    android:id="@+id/nearby_viewpager"
+                    android:layout_width="fill_parent"
+                    android:layout_height="150.0dip"
+                    android:layout_marginTop="13.0dip" />
+
+                <LinearLayout
+                    android:id="@+id/pageGuide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/nearby_viewpager"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="8.0dip"
+                    android:layout_marginTop="8.0dip"
+                    android:orientation="horizontal" />
+            </RelativeLayout>
+
+            <ListView
+                android:id="@+id/nearby_fac_type_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+            </ListView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout style="@style/myPhoneLayoutTitleType" >
+
+                <Button
+                    android:id="@+id/nearby_facList_Back"
+                    style="@style/myPhoneButtonBack"
+                    android:layout_centerVertical="true" />
+
+                <TextView
+                    style="@style/myPhoneTvTitle"
+                    android:layout_height="match_parent"
+                    android:text="设施列表" />
+            </RelativeLayout>
+            <ListView
+                android:id="@+id/nearby_fac_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+            </ListView>
+        </LinearLayout>
+    </ViewFlipper>
+
+</LinearLayout>

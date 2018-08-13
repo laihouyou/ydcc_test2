@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white" >
+    <ImageView 
+        android:id="@+id/voic_play_list_item_img"
+        android:layout_width="45dip"
+    	android:layout_height="45dip"
+    	android:background="@drawable/mp3"/>
+    <TextView
+        android:id="@+id/voic_play_list_item_text" 
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+    	android:layout_toLeftOf="@+id/voic_play_list_item_del"
+    	android:layout_toRightOf="@+id/voic_play_list_item_img"
+    	android:layout_centerVertical="true"/>
+
+    <ImageView 
+        android:id="@+id/voic_play_list_item_del"
+        android:layout_width="45dip"
+    	android:layout_height="45dip"
+    	android:layout_alignParentRight="true"
+    	android:background="@drawable/voic_play_list_item_del"/>
+</RelativeLayout>

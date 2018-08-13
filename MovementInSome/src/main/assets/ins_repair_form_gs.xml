@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="" name="现场施工反馈单" table="ES_T_TASK_REPAIRING_INFO" submitTo="loopback" page="one">
+	   	<params>
+ 			
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="deviceNum" value="EID,设备编号,GID,业务编码"/>
+		        <do filed="deviceType" value="LayerName"/>
+		        <do filed="deviceDs" value="D_S,口径"/>
+		        <do filed="deviceMaterial" value="MATERIAL,材质"/>
+		        <do filed="coordinate" value="shape"/>
+		    </rule>
+		</rules>
+		<page id="1" name="信息">
+		    <group id="1" name="" display="Y" type="common">
+		        <field name="facilitiesNum" label="设施编号" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		        <field name="facilitiesCaliber" label="设施口径" type="number" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="repairingPeople" label="处理人" type="text" readOnly="N"  required="N" maxLength="20" defValue="username()" options="" listKey=""/>
+		        <field name="facilitiesAddr" label="详细位置" type="text" readOnly="N" required="N" maxLength="20" defValue="addr()" options="" listKey=""/>
+		        <field name="manageUnit" label="处理部门" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteam()" options="" listKey=""/>
+		        <field name="repairingDate" label="维修时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="datetime()" options="" listKey=""/>
+			</group>
+			<group id="2" name="" display="Y" type="attach">
+			   <field name="handleCategory" label="处理类别" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="广水+处理类别" id ="10001" cId ="10002,10004" mName="处理类别" cName="故障状态,处理内容"/>
+ 		        <field name="faultStatus" label="故障状态" type="choice" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="广水+故障状态" id ="10002" cId ="10003" fId="10001" fName ="处理类别" mName="故障状态" cName="故障原因"/>
+ 		    	<field name="failureCauses" label="故障原因" type="choice" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="广水+故障原因" id ="10003" fId="10002" fName ="故障状态" mName="故障原因"/>
+ 		    	<field name="handlerResult" label="处理内容" type="choice" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="广水+处理内容" id ="10004" fId="10001" fName ="处理类别" mName="处理内容"/>	
+			</group>
+			<group id="3" name="" display="Y" type="common">
+			    <field name="remarks" label="备注" type="memo" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+			    <field name="camera1" label="维修前照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			    <field name="camera2" label="维修后照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			</group>	
+			
+			<group id="5" name="系统信息" display="N" type="common">
+			   
+ 			</group>
+		</page>
+	</form>
+</axf>

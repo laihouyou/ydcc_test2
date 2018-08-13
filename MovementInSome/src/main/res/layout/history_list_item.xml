@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:id="@+id/history_list_item_ll"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/task_false"
+        android:gravity="center_vertical"
+        android:padding="5dp" >
+        <TextView
+            android:id="@+id/history_list_item_num"
+            android:layout_width="60dip"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#333333"
+            android:textSize="14dip" />
+        <RelativeLayout 
+            android:layout_width="match_parent"
+    		android:layout_height="wrap_content">
+        <TextView
+                android:id="@+id/history_list_item_content"
+                style="@style/myPhoneTvType"
+                android:layout_width="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/history_list_item_del"/>
+        <Button 
+            android:id="@+id/history_list_item_del"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="删除"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

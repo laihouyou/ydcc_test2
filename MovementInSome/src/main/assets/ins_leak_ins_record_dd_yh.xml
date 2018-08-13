@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_leak_ins_record_dd_yh" name="查漏记录" table="BS_LEAK_INS_RECORD" submitTo="loopback" page="one">
+	   	<params>
+	    
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="lirFacNum" value="EID,设备编号"/>
+		        <do filed="lirFacName" value="LayerName"/>
+		        <do filed="lirFacMaterial" value="MATERIAL,材质"/>
+		        <do filed="manageUnit" value="MANAGEDEPT,管理单位"/>
+		        <do filed="gid" value="GID,业务编码"/>
+		        <do filed="lirFacDs" value="D_S,口径"/>
+		        <do filed="lirCoordinate" value="shape"/>
+		    </rule>
+		</rules>
+	
+		<page id="1" name="查漏信息">
+		    <group id="1" name="查漏信息" display="Y" type="common">
+		        <field name="lirFacNum" label="设施编号" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapfac()" options="" listKey="" rule="mapfac"/>
+		        <field name="lirFacName" label="设施名称" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="0014"/>
+		        <field name="lirFacDs" label="管线口径" type="number" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		    	<field name="lirFacMaterial" label="管线材质" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="lirLocation" label="具体漏水地点" type="text" readOnly="N" required="N" maxLength="20" defValue="addr()" options="" listKey=""/>
+		        <field name="manageUnit" label="管理单位" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="0002"/>
+		        <field name="urgency" label="紧急程度" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="0006"/>
+		        <field name="ltType" label="漏损类型" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="0017"/>
+		        <field name="lirSituation" label="漏损情况" type="memo" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey=""/>
+		        <field name="lirPhenomenon" label="漏损现象" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="0031"/>
+		        <field name="isLeak" label="是否确定漏点" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="是|否" listKey=""/>
+		        <field name="lirCoordinate" label="漏点xy坐标" type="maptext" readOnly="N"  required="Y" maxLength="20" defValue="mapcoord(N)" options="" listKey=""/>
+		        <field name="remark" label="备注" type="memo" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey=""/>
+		        <field name="camera" label="现场照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			</group>
+			
+			<group id="2" name="系统信息" display="N" type="common">
+			    <field name="handleStatus" label="处理状态" type="number" readOnly="N" required="Y" maxLength="20" defValue="0" options="" listKey=""/>
+			    <field name="reportSource" label="上报来源" type="text" readOnly="N"  required="N" maxLength="20" defValue="单独上报" options="" listKey="" rule=""/>
+			    <field name="pnitId" label="巡查任务ID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":pnitId" options="" listKey="" rule=""/>
+			    <field name="pnitNum" label="巡查任务编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":pnitNum" options="" listKey="" rule=""/>
+			    <field name="liaId" label="查漏区域ID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":liaId" options="" listKey="" rule=""/>
+			    <field name="gid" label="GID" type="text" readOnly="N"  required="N" maxLength="2000" defValue=":gid" options="" listKey="" rule=""/>
+			    
+			    <field name="reportDateStr" label="上报时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="datetime()" options="" listKey="" rule=""/>
+			    <field name="reportPId" label="上报人ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userId()" options="" listKey="" rule=""/>
+			    <field name="reportPNum" label="上报人编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userNum()" options="" listKey="" rule=""/>
+			    <field name="reportPName" label="上报人名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="username()" options="" listKey="" rule=""/>
+			    <field name="rpDeptId" label="上报人部门ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteamId()" options="" listKey="" rule=""/>
+			    <field name="rpDeptNum" label="上报人部门编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteamNum()" options="" listKey="" rule=""/>
+			    <field name="rpDeptName" label="上报人部门名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteam()" options="" listKey="" rule=""/>
+			    <field name="rpTeamId" label="上报人班组ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupId()" options="" listKey="" rule=""/>
+			    <field name="rpTeamNum" label="上报人班组编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupNum()" options="" listKey="" rule=""/>
+			    <field name="rpTeamName" label="上报人班组名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupName()" options="" listKey="" rule=""/>
+			    
+ 			</group>
+		</page>
+	</form>
+</axf>

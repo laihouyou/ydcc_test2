@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/black_background"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout style="@style/myPhoneLayoutTitleType" >
+
+        <Button
+            android:id="@+id/helpBtnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/back"
+            android:layout_centerVertical="true"
+            android:textColor="#ddffffff" />
+
+        <TextView
+            style="@style/myPhoneTvTitle"
+            android:layout_height="match_parent"
+            android:text="使  用  手  册" />
+
+        <Button
+            android:id="@+id/helpBtnGoBack"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_bg"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:text="上一页"
+            android:textColor="#ddffffff" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/helpLinearHtml"
+        style="@style/myPhoneLayoutPType" >
+
+        <ListView
+            android:id="@+id/helpListHtml"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:cacheColorHint="#00000000"
+            android:divider="#00000000"
+            android:visibility="gone" >
+        </ListView>
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/helpWebViewHtml"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

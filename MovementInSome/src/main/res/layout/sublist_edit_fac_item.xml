@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_gv" >
+
+        <TextView
+            android:id="@+id/sublist_edit_fac_item_num"
+            android:layout_width="30dip"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_gv"
+            android:gravity="center"
+            android:text="(1)"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/sublist_edit_fac_item_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/scada_list_item_msg"
+            android:layout_toRightOf="@+id/scada_list_item_num"
+            android:paddingLeft="10dip"
+            android:paddingTop="3dip"
+            android:paddingBottom="3dip"
+            android:background="@drawable/bg_gv"
+            android:textColor="@color/black"
+            android:gravity="center_vertical"/>
+        
+
+        <TextView
+            android:id="@+id/sublist_edit_fac_item_msg"
+            android:layout_width="45dip"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/bg_gv"
+            android:gravity="center"
+            android:text="详细"
+            android:textColor="#0000FF" />
+    </RelativeLayout>
+
+</LinearLayout>

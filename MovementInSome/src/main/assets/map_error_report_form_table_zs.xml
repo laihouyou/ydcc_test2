@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="map_error_report" name="地图数据纠错" table="INS_MAP_INACCURATE" submitTo="loopback" page="one">
+	   	<params>
+			<param name="pid" type="c" required="Y" defValue="" io="i"/>
+			<param name="uid" type="c" required="Y" defValue="" io="i"/>
+			<param name="sections" field="" type="c" required="Y" defValue="" io="i"></param>	
+			<param name="sectionsNum" field="" type="c" required="Y" defValue="" io="i"></param>
+		</params>
+	    <rules>
+		    <rule id="mapfac">
+		        <do filed="deviceType" value="LayerName"/>
+		        <do filed="facilitiesNum" value="EID,设备编号,GID,业务编码"/>
+		        <do filed="facilitiesMaterial" value="MATERIAL,材质"/>
+		        <do filed="manageUnit" value="MANAGEDEPT,管理单位"/>
+		        <do filed="gid" value="GID,业务编码"/>
+		        <do filed="coordinate" value="shape"/>
+		        <do filed="facilitiesCaliber" value="D_S,口径"/>
+		    </rule>
+		</rules>
+	
+		<page id="1" name="基本信息">
+			<group id="1" name="基本信息" display="Y" type="common">
+				<field name="handleResult" label="处理结果" type="choice" readOnly="N"  required="Y" maxLength="20" defValue="" options="已修正|不能修理" listKey="" rule=""/>
+				<field name="handleRemarks" label="备注" type="memo" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			</group>
+			<group id="2" name="现场信息" display="N" type="attach">
+				<field name="guid" label="guid" type="text" readOnly="N"  required="N" maxLength="2000" defValue=":guid" options="" listKey="" rule=""/>
+				<field name="gid" label="gid" type="text" readOnly="N"  required="N" maxLength="2000" defValue="" options="" listKey="" rule=""/>
+				<field name="sources" label="信息来源" type="text" readOnly="N"  required="N" maxLength="2000" defValue="自查" options="" listKey="" rule=""/>	
+				 <field name="sections" label="所在路段" type="system" readOnly="N"  required="N" maxLength="20" defValue=":sections" options="" listKey="" rule=""/>
+			    <field name="sectionsNum" label="路段编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":sectionsNum" options="" listKey="" rule=""/>
+			    <field name="serialNumber" label="流水号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":serialNumber" options="" listKey="" rule=""/>	
+			</group>		
+			
+		</page>
+	</form>
+</axf>

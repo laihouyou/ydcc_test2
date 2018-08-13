@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_rrwo_node_record_yh" name="维修工单节点记录"  table="BS_RRWO_NODE_RECORD" submitTo="loopback" page="one">
+	   	<params>
+			
+		</params>
+		 <rules>
+		    <rule id="mapfac">
+		        
+		    </rule>
+		</rules>
+
+		<page id="1" name="">
+			<group id="1" name="" display="Y" type="common">
+			    <field name="operActiion" label="操作动作  " type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="operDateStr" label="操作时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="remark" label="备注" type="memo" readOnly="N"  required="N" maxLength="2000" defValue="" options="" listKey=""/>
+			</group>	
+			 
+			<group id="2" name="系统信息" display="N" type="common">
+                <field name="rnrId" label="维修工单节点记录ID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":rnrId" options="" listKey="" rule=""/>
+				<field name="woNum" label="通知单编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":woNum" options="" listKey="" rule=""/>
+				<field name="rrwoNum" label="工单编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":rrwoNum" options="" listKey="" rule=""/>
+				<field name="rrwoType" label="工单类型" type="text" readOnly="N"  required="N" maxLength="20" defValue=":rrwoType" options="" listKey="" rule=""/>
+				
+				<field name="reportDateStr" label="上报时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="datetime()" options="" listKey="" rule=""/>
+				<field name="reportPId" label="上报人ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userId()" options="" listKey=""/>
+				<field name="reportPNum" label="上报人编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userNum()" options="" listKey=""/>
+				<field name="reportPName" label="上报人名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="username()" options="" listKey=""/>
+			</group>
+		</page>
+	</form>
+</axf>

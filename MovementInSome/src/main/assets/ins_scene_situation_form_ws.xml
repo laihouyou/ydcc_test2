@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ES_T_SCENE_SITUATION" name="人员到场表"  table="ES_T_SCENE_SITUATION" submitTo="loopback" page="one">
+	   	<params>
+			
+		</params>
+		 <rules>
+		    <rule id="mapfac">
+		        
+		    </rule>
+		</rules>
+
+		<page id="1" name="">
+			<group id="1" name="" display="Y" type="common">
+			    <field name="ssUserNum" label="人员编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="ssUserName" label="人员名称" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" listTableName=""/>
+				<field name="ssSceneTime" label="到场时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="ssDepartureTime" label="离场时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<!-- <field name="ssWorkingHours" label="工作时间" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="ssWorkType" label="工作类型" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" listTableName=""/> -->
+			</group>	
+			
+		</page>
+	</form>
+</axf>

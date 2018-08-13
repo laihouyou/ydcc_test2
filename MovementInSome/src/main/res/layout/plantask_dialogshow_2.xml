@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp" >
+
+    <LinearLayout
+        android:id="@+id/ptdLinearP2"
+        android:layout_width="match_parent"
+        android:layout_height="65dip"
+        android:background="@drawable/dialog_up"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="15dp" >
+
+        <Button
+            android:id="@+id/ptdsbtn2_finish"
+            android:layout_width="60dip"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_next_bg"
+            android:textColor="#ffffffff"
+            android:text="完    成"/>
+
+        <TextView
+            android:layout_width="5dip"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/ptdsbtn2_WriteT"
+            android:layout_width="60dip"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_next_bg"
+            android:textColor="#ffffffff"
+            android:text="填    表" />
+        <TextView
+            android:layout_width="5dip"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/ptdsbtn2_MSG"
+            android:layout_width="60dip"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_next_bg"
+            android:textColor="#ffffffff"
+            android:text="详细" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_rush_repair_work_order_yh" name="抢维工单"  table="BS_RUSH_REPAIR_WORK_ORCORD" submitTo="loopback" page="one">
+	   	<params>
+			
+		</params>
+		 <rules>
+		    <rule id="mapfac">
+		        <do filed="facNum" value="EID,设备编号"/>
+		        <do filed="facType" value="LayerName"/>
+		        <do filed="facMaterial" value="MATERIAL,材质"/>
+		        <do filed="gid" value="GID,业务编码"/>
+		        <do filed="facDs" value="D_S,口径"/>
+		        <do filed="coordinate" value="shape"/>
+		    </rule>
+		</rules>
+
+		<page id="1" name="维修单信息">
+			<group id="1" name="维修单信息" display="Y" type="common">
+			    <field name="facNum" label="设施编号" type="maptext" readOnly="N"  required="N" maxLength="20" defValue=":facNum,mapfac()" options="" listKey="" rule="mapfac"/>
+			    <field name="facType" label="设施名称" type="text" readOnly="N" required="N" maxLength="20" defValue=":facType" options="" listKey="" rule=""/>
+			    <field name="facDs" label="口径" type="number" readOnly="N"  required="N" maxLength="20" defValue=":facDs" options="" listKey=""/>
+			    <field name="facMaterial" label="材质" type="text" readOnly="N" required="N" maxLength="20" defValue=":facMaterial" options="" listKey="" rule=""/>
+			    <field name="facDepth" label="埋深" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			    <field name="rrType" label="维修类别" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="0020" id ="10001" cId ="10002"  mName="维修类别" cName="维修内容"/>
+			    <field name="rrContent" label="故障类型" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="0021" id ="10002" cId ="10003" fId="10001" fName ="维修类别" mName="维修内容" cName="处理类别"/>
+			    <field name="handleCategory" label="处理类别" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="0036" id ="10003" fId="10002" fName ="维修内容" mName="处理类别"/>
+			    <!-- <field name="workMember" label="工作班成员" type="memo" readOnly="N"  required="N" maxLength="2000" defValue="" options="" listKey="" rule=""/> -->
+			    <field name="handleLocation" label="处理地点" type="text" readOnly="N" required="N" maxLength="20" defValue="addr()" options="" listKey="" rule=""/>
+			    <field name="constructionInfo" label="施工方信息" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			    <field name="constructionContactPerson" label="施工方联系人" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			    <field name="constructionTel" label="施工方联系电话" type="number" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			    <field name="handleResult" label="处理结果" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			    <field name="sceneTimeStr" label="到场时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="datetime()" options="" listKey=""/>
+			    <field name="handleSituation" label="处理情况" type="memo" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey="" rule=""/>
+			    <field name="isExcavation" label="是否开挖" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="是|否" listKey=""/>
+			    <field name="remark" label="备注" type="memo" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			    <field name="isExtension" label="是否延期" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="是|否" listKey="" rule=""/>
+			    <field name="coordinate" label="维修坐标" type="maptext" readOnly="N" required="Y" maxLength="20" defValue=":coordinate,mapcoord(N)" options="" listKey="" rule=""/>
+			    <field name="camera" label="现场照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			</group>	
+			 
+			<group id="2" name="系统信息" display="N" type="common">
+			    <field name="rrwoNum" label="工单编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":rrwoNum" options="" listKey="" rule=""/>
+			    <field name="rrwoType" label="工单类型" type="text" readOnly="N"  required="N" maxLength="20" defValue=":rrwoType" options="" listKey="" rule=""/>
+                <field name="rrwoId" label="抢维工单ID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":rrwoId" options="" listKey="" rule=""/>
+			   	<field name="woNum" label="通知单编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":woNum" options="" listKey="" rule=""/>
+                <field name="gid" label="GID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":gid" options="" listKey="" rule=""/>
+                
+			    <field name="handleDeptId" label="处理人部门ID" type="text" readOnly="N" required="N" maxLength="20" defValue="userteamId()" options="" listKey="" rule=""/>
+			    <field name="handleDeptNum" label="处理人部门编号" type="text" readOnly="N" required="N" maxLength="20" defValue="userteamNum()" options="" listKey="" rule=""/>
+			    <field name="handleDeptName" label="处理人部门名称" type="text" readOnly="N" required="N" maxLength="20" defValue="userteam()" options="" listKey="" rule=""/>
+			    <field name="handleTeamId" label="处理人班组ID" type="text" readOnly="N" required="N" maxLength="20" defValue="userGroupId()" options="" listKey="" rule=""/>
+			    <field name="handleTeamNum" label="处理人班组编号" type="text" readOnly="N" required="N" maxLength="20" defValue="userGroupNum()" options="" listKey="" rule=""/>
+			    <field name="handleTeamName" label="处理人班组名称" type="text" readOnly="N" required="N" maxLength="20" defValue="userGroupName()" options="" listKey="" rule=""/>
+			    <field name="handlePersonId" label="处理人ID" type="text" readOnly="N" required="N" maxLength="20" defValue="userId()" options="" listKey="" rule=""/>
+			    <field name="handlePersonNum" label="处理人编号" type="text" readOnly="N" required="N" maxLength="20" defValue="userNum()" options="" listKey="" rule=""/>
+			    <field name="handlePersonName" label="处理人名称" type="text" readOnly="N" required="N" maxLength="20" defValue="username()" options="" listKey="" rule=""/>
+			</group>
+			
+			<group id="3" name="开挖记录" display="Y" type="common">
+				<field name="BS_EXCAVATION_RECORD" label="开挖记录表" type="childrentable" readOnly="N" required="N" maxLength="" defValue="" options="" listKey="" childrenTableAction="" childrenTableUpdateAction="excavationrecord" template="ins_excavation_record_yh.xml"/>
+			</group>
+			
+			<group id="4" name="人员出勤记录" display="Y" type="common">
+				<field name="BS_STAFF_ATTENDANCE_RECORD" label="人员出勤表" type="childrentable" readOnly="N" required="N" maxLength="" defValue="" options="" listKey="" childrenTableAction="" childrenTableUpdateAction="staffattendancerecord" template="ins_staff_attendance_record_yh.xml"/>
+			</group>
+			
+			<group id="5" name="耗水情况记录" display="Y" type="common">
+				<field name="BS_WATER_SITUATION_RECORD" label="耗水情况记录" type="childrentable" readOnly="N" required="N" maxLength="" defValue="" options="" listKey="" childrenTableAction="" childrenTableUpdateAction="watersituationrecord" template="ins_water_situation_record_yh.xml"/>
+			</group>
+			
+			<group id="6" name="开关阀记录" display="Y" type="common">
+				<field name="BS_OFF_VALVE_RECORD" label="开关阀记录" type="childrentable" readOnly="N" required="N" maxLength="" defValue="" options="" listKey="" childrenTableAction="" childrenTableUpdateAction="offvalverecord" template="ins_off_valve_record_yh.xml"/>
+			</group>
+			
+			<group id="7" name="材料使用记录" display="Y" type="common">
+				<field name="ES_MATERIALS_USING_THE_RECORD_PT" label="材料使用记录" type="childrentable" readOnly="N" required="N" maxLength="" defValue="" options="" listKey="" childrenTableAction="" childrenTableUpdateAction="watersupplyscheme" template="ins_materials_using_the_record_pt.xml"/>
+			</group>
+			<!-- <group id="7" name="停水方案" display="Y" type="common">
+				<field name="BS_WATER_SUPPLY_SCHEME" label="停水方案" type="childrentable" readOnly="N" required="N" maxLength="" defValue="" options="" listKey="" childrenTableAction="" childrenTableUpdateAction="watersupplyscheme" template="ins_water_supply_scheme_yh.xml"/>
+			</group> -->
+		</page>
+	</form>
+</axf>

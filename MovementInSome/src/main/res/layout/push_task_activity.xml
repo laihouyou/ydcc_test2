@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/black_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- 标题 -->
+
+    <LinearLayout
+        android:id="@+id/ptLayoutMTitle"
+        style="@style/myPhoneLayoutTitleType"
+         >
+
+        <ImageView
+            android:id="@+id/ptImageMBack"
+           style="@style/myPhoneButtonBack" />
+
+        <TextView
+            android:id="@+id/ptTvTitle"
+            style="@style/myPhoneTvTitle"
+            android:text="新任务单" />
+
+        <!-- <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_bg"
+            android:visibility="invisible" /> -->
+    </LinearLayout>
+
+    <LinearLayout style="@style/myPhoneLayoutPType" >
+
+        <LinearLayout
+            style="@style/myPhoneLayoutBgType"
+            android:orientation="vertical" >
+
+            <!-- 任务下载型内容 -->
+
+            <RelativeLayout
+                android:id="@+id/ptLayoutDContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
+
+                <ScrollView
+                    android:id="@+id/ptLayoutDTask"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_above="@+id/push_task_ll"
+                    android:paddingBottom="10dip" >
+                </ScrollView>
+
+                <LinearLayout
+                    android:id="@+id/push_task_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" 
+                    android:layout_alignParentBottom="true">
+
+                    <Button
+                        android:id="@+id/ptBtnDBackSingle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:background="@drawable/btn_next_bg"
+                        android:text="退单申请"
+                        android:textColor="#ddffffff" />
+
+                    <TextView
+                        android:layout_width="20dip"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/ptBtnDTaskIn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:background="@drawable/btn_next_bg"
+                        android:text="接单下载"
+                        android:textColor="#ddffffff" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <!-- 消息型 -->
+
+            <LinearLayout
+                android:id="@+id/ptLayoutMContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingTop="10dip"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/ptTvMMsg"
+                    style="@style/myPhoneTvTypeT"
+                    android:layout_height="match_parent"
+                    android:hint="显示后台的消息内容……" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/fg_bg" />
+
+                <TextView
+                    style="@style/myPhoneTvTypeT"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="30dip"
+                    android:visibility="gone"
+                    android:text="信息回访" />
+
+                <EditText
+                    android:id="@+id/ptEtMReturn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/input_bg"
+                    android:ems="10"
+                    android:visibility="gone"
+                    android:gravity="top"
+                    android:hint="请填写回访信息，最多200个字"
+                    android:inputType="textMultiLine"
+                    android:lines="10"
+                    android:padding="5dip"
+                    android:textColor="#6f6f6f"
+                    android:textColorHint="#88ff0000"
+                    android:textSize="12dip" >
+
+                    <requestFocus />
+                </EditText>
+
+                <LinearLayout
+                    style="@style/myPhoneLayoutType"
+                    android:paddingTop="20dip" >
+
+                    <Button
+                        android:id="@+id/ptBtnMClear"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:background="@drawable/btn_next_bg"
+                        android:text="清    空"
+                        android:visibility="gone"
+                        android:textColor="#ddffffff" />
+
+                    <TextView
+                        android:visibility="gone"
+                        android:layout_width="10dip"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/ptBtnMReply"
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:background="@drawable/btn_next_bg"
+                        android:text="回    复"
+                        android:textColor="#ddffffff" />
+                     <TextView
+                        android:visibility="gone"
+                        android:layout_width="10dip"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/ptBtnMLoc"
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:background="@drawable/btn_next_bg"
+                        android:text="定	   位"
+                        android:textColor="#ddffffff" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

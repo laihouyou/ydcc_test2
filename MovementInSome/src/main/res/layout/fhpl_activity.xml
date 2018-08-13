@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/black_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout style="@style/myPhoneLayoutTitleType" >
+
+        <TextView
+            android:id="@+id/xxQtv_Table_Title"
+            style="@style/myPhoneTvTitle"
+            android:text="防洪排涝" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/myPhoneLayoutBgType" >
+
+        <ListView
+            android:id="@+id/fhpl_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </ListView>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,900 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ViewFlipper
+        android:id="@+id/scada_live_data_user_viewgflipper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/scada_live_data_user_bottom_ll"
+        android:background="#E3E3E3"
+        android:padding="5dip"
+        android:persistentDrawingCache="animation"
+        android:visibility="visible" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/frame"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:paddingLeft="16dip"
+                android:paddingTop="4dip" >
+
+                <TextView
+                    android:id="@+id/tv_sssj_add"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="（北磨）莆田市第二水厂"
+                    android:textColor="#0000FF"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1.0px"
+                android:background="#6490ED"
+                android:orientation="vertical" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingLeft="1dip"
+                android:paddingRight="1dip" >
+
+                <TextView
+                    android:id="@+id/tv_sssj_zdbh"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#E3E3E3"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dip"
+                    android:text="站点编号： 4659 "
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingLeft="1dip"
+                android:paddingRight="1dip" >
+
+                <TextView
+                    android:id="@+id/tv_sssj_scsj"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#E3E3E3"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="20dip"
+                    android:text="上传时间:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/scada_live_data_user_list1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="#00000000"
+                android:divider="#00000000"
+                android:dividerHeight="0px"
+                android:fadingEdge="none" >
+            </ListView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1.0px"
+                android:background="#6490ED"
+                android:orientation="vertical" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1.0px"
+                android:background="#6490ED"
+                android:orientation="vertical" >
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dip"
+                android:background="@drawable/frame"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="60dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:text="时间 "
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="1.0px"
+                    android:layout_height="match_parent"
+                    android:background="#6490ED"
+                    android:orientation="vertical" >
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="60dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dip"
+                    android:text="今日"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="1.0px"
+                    android:layout_height="match_parent"
+                    android:background="#6490ED"
+                    android:orientation="vertical" >
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="60dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dip"
+                    android:text="昨日"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="1.0px"
+                    android:layout_height="match_parent"
+                    android:background="#6490ED"
+                    android:orientation="vertical" >
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="60dip"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dip"
+                    android:text="前日"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <ListView
+                android:id="@+id/scada_live_data_user_list2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="#00000000"
+                android:divider="#00000000"
+                android:dividerHeight="0px"
+                android:fadingEdge="none" >
+            </ListView>
+        </LinearLayout>
+        -->
+    </ViewFlipper>
+
+    <LinearLayout
+        android:id="@+id/scada_live_data_user_zhbb"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/scada_live_data_user_bottom_ll"
+        android:background="#E3E3E3"
+        android:orientation="vertical"
+        android:padding="5dip"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:id="@+id/scada_live_data_user_zhbb_title"
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:layout_marginTop="5dip"
+            android:background="@drawable/frame"
+            android:orientation="horizontal" >
+
+            <!--
+            <TextView
+                android:layout_width="70dip"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="000"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#6490ED" >
+            </LinearLayout>
+            -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_sssj_zhname"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dip"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#6490ED" >
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_zhbb_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:id="@+id/tv_zhbb_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dip"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center"
+                        android:drawablePadding="5dp"
+                        android:drawableRight="@drawable/pull_down_big2"
+                        android:gravity="center"
+                        android:text="压力(pa)"
+                        android:textColor="@color/black" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/scada_live_data_user_zhbb_start"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="5"
+                android:background="@drawable/input_bg"
+                android:gravity="center"
+                android:hint="选择日期"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="15dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@color/black" />
+
+            <!--
+                 <TextView
+                android:id="@+id/scada_live_data_user_zhbb_end"
+                android:layout_width="130dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/input_bg"
+                android:gravity="center"
+                android:hint="结束日期"
+                android:textSize="13dp" />
+            -->
+
+            <Button
+                android:id="@+id/scada_live_data_user_zhbb_search"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="2.5dp"
+                android:layout_marginTop="2.5dp"
+                android:layout_weight="1"
+                android:background="@drawable/scada_chaxun" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/scada_live_data_end_data"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="起止日期:"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <!-- 折线图布局 -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp" >
+
+            <lecho.lib.hellocharts.view.LineChartView
+                android:id="@+id/line_chart"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:background="#E3E3E3" >
+            </lecho.lib.hellocharts.view.LineChartView>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--
+    <LinearLayout
+        android:id="@+id/scada_live_data_user_zhbb"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/scada_live_data_user_bottom_ll"
+        android:background="#E3E3E3"
+        android:orientation="vertical"
+        android:padding="5dip"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:layout_marginRight="50dp"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/scada_live_data_user_zhbb_start"
+                android:layout_width="130dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/input_bg"
+                android:gravity="center"
+                android:hint="开始日期"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="~"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/scada_live_data_user_zhbb_end"
+                android:layout_width="130dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/input_bg"
+                android:gravity="center"
+                android:hint="结束日期"
+                android:textSize="13dp" />
+
+            <Button
+                android:id="@+id/scada_live_data_user_zhbb_search"
+                android:layout_width="67dip"
+                android:layout_height="31dip"
+                android:background="@drawable/scada_chaxun" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/scada_live_data_user_zhbb_title"
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:layout_marginTop="5dip"
+            android:background="@drawable/frame"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="70dip"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="序号 "
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#6490ED" >
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="70dip"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="时间"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#6490ED" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/tv_sssj_zhname"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dip"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#6490ED" >
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dip" >
+
+                    <TextView
+                        android:id="@+id/tv_zhbb_type"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dip"
+                        android:layout_weight="1.0"
+                        android:gravity="center"
+                        android:text="压力(pa)"
+                        android:textColor="@color/black" />
+
+                    <Button
+                        android:id="@+id/bt_dw"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dip"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginRight="40dp"
+                        android:background="@drawable/pull_down_big2" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/scada_live_data_user_zhbb_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="#00000000"
+            android:divider="#00000000"
+            android:dividerHeight="0px"
+            android:fadingEdge="none" >
+        </ListView>
+    </LinearLayout>
+    -->
+
+    <LinearLayout
+        android:id="@+id/scada_live_data_user_yssj"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/scada_live_data_user_bottom_ll"
+        android:background="#E3E3E3"
+        android:orientation="vertical"
+        android:padding="5dip"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:ems="4"
+                android:gravity="center_vertical"
+                android:text="起止时刻:"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/scada_live_data_user_yssj_start"
+                android:layout_width="130dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/input_bg"
+                android:gravity="center"
+                android:hint="00:00"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="~"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/scada_live_data_user_yssj_end"
+                android:layout_width="130dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/input_bg"
+                android:gravity="center"
+                android:hint="00:00"
+                android:textSize="13dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:layout_marginBottom="4dip"
+            android:layout_marginTop="4dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:ems="4"
+                android:gravity="center_vertical"
+                android:text="日期:"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/scada_live_data_user_yssj_date"
+                android:layout_width="130dip"
+                android:layout_height="match_parent"
+                android:layout_marginRight="6dip"
+                android:layout_weight="1.0"
+                android:background="@drawable/input_bg"
+                android:gravity="center"
+                android:hint="2016/11/15"
+                android:textSize="13dp" />
+
+            <Button
+                android:id="@+id/scada_live_data_user_yssj_search"
+                android:layout_width="67dip"
+                android:layout_height="31dip"
+                android:background="@drawable/scada_chaxun" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/scada_live_data_user_yssj_title"
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:background="@drawable/frame"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="70dip"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="序号 "
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#6490ED" >
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="70dip"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="时间"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="#6490ED" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dip"
+                    android:gravity="center"
+                    android:text="（北磨）莆田市第二水厂"
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1px"
+                    android:background="#6490ED" >
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dip"
+                    android:gravity="center"
+                    android:text="压力(pa)"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/scada_live_data_user_yssj_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="#00000000"
+            android:divider="#00000000"
+            android:dividerHeight="0px"
+            android:fadingEdge="none" >
+        </ListView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/scada_live_data_user_zdxx"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/scada_live_data_user_bottom_ll"
+        android:background="#E3E3E3"
+        android:orientation="vertical"
+        android:padding="5dip"
+        android:visibility="gone" >
+
+        <ListView
+            android:id="@+id/scada_live_data_user_zdxx_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="#00000000"
+            android:divider="#00000000"
+            android:dividerHeight="0px"
+            android:fadingEdge="none" >
+        </ListView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/scada_live_data_user_bjwh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/scada_live_data_user_bottom_ll"
+        android:background="#E3E3E3"
+        android:orientation="vertical"
+        android:padding="5dip"
+        android:visibility="gone" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:layout_marginRight="50dp"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:ems="4"
+                android:gravity="center_vertical"
+                android:text="起止时刻:"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/scada_live_data_user_bjwh_start"
+                android:layout_width="130dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/input_bg"
+                android:gravity="center"
+                android:hint="00:00"
+                android:textSize="13dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="~"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/scada_live_data_user_bjwh_end"
+                android:layout_width="130dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:background="@drawable/input_bg"
+                android:gravity="center"
+                android:hint="00:00"
+                android:textSize="13dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:layout_marginBottom="4dip"
+            android:layout_marginTop="4dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:ems="4"
+                android:gravity="center_vertical"
+                android:text="日期:"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/scada_live_data_user_bjwh_date"
+                android:layout_width="130dip"
+                android:layout_height="match_parent"
+                android:layout_marginRight="6dip"
+                android:layout_weight="1.0"
+                android:background="@drawable/input_bg"
+                android:gravity="center"
+                android:hint="2016/11/15"
+                android:textSize="13dp" />
+
+            <Button
+                android:id="@+id/scada_live_data_user_bjwh_search"
+                android:layout_width="67dip"
+                android:layout_height="31dip"
+                android:background="@drawable/scada_chaxun" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_gv" >
+
+            <ListView
+                android:id="@+id/scada_live_data_user_bjwh_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="#00000000"
+                android:divider="#00000000"
+                android:dividerHeight="0px"
+                android:fadingEdge="none" >
+            </ListView>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_dian"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/scada_live_data_user_bottom_ll"
+        android:gravity="center_horizontal"
+        android:paddingBottom="10dip"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/scada_live_data_user_ym1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/yema1_1" />
+
+        <ImageView
+            android:id="@+id/scada_live_data_user_ym2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:src="@drawable/yema1_2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/scada_live_data_user_bottom_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#E3E3E3"
+        android:orientation="horizontal"
+        android:paddingBottom="3dip"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dip"
+            android:background="@drawable/input_bg"
+            android:gravity="center_vertical" >
+
+            <TextView
+                android:id="@+id/scada_live_data_user_bottom_sssj"
+                android:layout_width="70dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="实时数据"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="2px"
+                android:layout_height="20dip"
+                android:background="#6490ED" >
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/scada_live_data_user_bottom_zhbb"
+                android:layout_width="70dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="综合报表"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="2px"
+                android:layout_height="20dip"
+                android:background="#6490ED" >
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/scada_live_data_user_bottom_yssj"
+                android:layout_width="70dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="原始数据"
+                android:textColor="@color/black"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="2px"
+                android:layout_height="20dip"
+                android:background="#6490ED"
+                android:visibility="gone" >
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/scada_live_data_user_bottom_zdxx"
+                android:layout_width="70dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="站点信息"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="2px"
+                android:layout_height="20dip"
+                android:background="#6490ED" >
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/scada_live_data_user_bottom_bjwh"
+                android:layout_width="70dip"
+                android:layout_height="match_parent"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="报警维护"
+                android:textColor="@color/black" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/rl_scada_live_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp" >
+
+        <ImageView
+            android:id="@+id/im_scada_live_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/charge_back" />
+    </FrameLayout>
+
+</RelativeLayout>

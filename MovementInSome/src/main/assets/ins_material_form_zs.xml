@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ES_T_TASK_MATERIAL_USE" name="维修工程结算单"  table="ES_T_TASK_MATERIAL_USE" submitTo="loopback" page="one">
+	   	<params>
+			
+		</params>
+		 <rules>
+		    <rule id="mapfac">
+		        
+		    </rule>
+		</rules>
+
+		<page id="1" name="">
+			<group id="1" name="基本信息" display="Y" type="common">
+				<field name="materialType" label="材料类别" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="工单+材料类别" id ="10001" cId ="10002" listTableName=""/>
+				<field name="materialName" label="材料名称" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="工单+材料名称" id ="10002" fId="10001" fName ="材料类别" listTableName=""/>
+				<field name="facSpec" label="规格" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="工单+规格" listTableName=""/>
+				<field name="materialNumber" label="数量（长度）" type="number" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="facUnit" label="单位" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>	
+			
+		</page>
+	</form>
+</axf>

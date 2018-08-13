@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="hline_workorder" name="热线工单处理" table="INS_COMPLAINANT_FORM" submitTo="loopback" page="one">
+	   	<params>
+			<param name="pid" type="c" required="Y" defValue="" io="i"/>
+			<param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+			<param name="sections" field="" type="c" required="Y" defValue="" io="i"></param>	
+			<param name="sectionsNum" field="" type="c" required="Y" defValue="" io="i"></param>
+		</params>
+		
+		<rules>
+		    <rule id="mapfac">
+		        <do filed="bfNum" value="EID"/>
+		        <do filed="idvrMetre" value="MATERIAL"/>
+		        <do filed="idvrCab" value="MAINPIPE_DS"/>
+		    </rule>
+		</rules>
+		
+		<page id="1" name="热线工作单">
+		    <group id="1" name="联系用户" display="Y" type="common">
+		        <field name="cfPhone" label="联系电话" type="text" readOnly="N"  required="Y" maxLength="20" defValue="89225300" options="" listKey="" rule="mapfac"/>
+				<field name="linkerDate" label="联系到用户时间" type="datetime" readOnly="N"  required="Y" maxLength="20" defValue="datetime()" options="" listKey="" rule="mapfac"/>
+			</group>
+			<group id="2" name="现场状况" display="Y" type="common">
+		    	<field name="arriveDate" label="到场时间" type="datetime" readOnly="N" required="Y" maxLength="20" defValue="datetime()" options="" listKey="" rule=""/>
+		    	<field name="idvrException" label="现场情况" type="memo" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		        <field name="idvrException" label="损坏部位" type="text" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		    	<field name="idvrCheckDate" label="路面种类" type="choice" readOnly="N" required="Y" maxLength="20" defValue="水泥路" options="水泥路|绿化带|泥路" listKey="" rule=""/>
+		    	<field name="idvrCheckDate" label="路面面积" type="text" readOnly="N" required="Y" maxLength="20" defValue="长          宽               高             " options="" listKey="" rule=""/>
+		        <field name="camera" label="现场照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>	
+		    </group>
+		    <group id="3" name="处理过程" display="Y" type="common">
+		    	<field name="startWaterDate" label="止水时间" type="datetime" readOnly="N" required="Y" maxLength="20" defValue="datetime()" options="" listKey="" rule=""/>
+		        <field name="waterDateLen" label="完工时间" type="datetime" readOnly="N" required="Y" maxLength="20" defValue="datetime()" options="" listKey="" rule=""/>
+		    	<field name="waterDamage" label="处理内容" type="memo" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		    	<field name="waterDamage" label="处理备注" type="memo" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		    	<field name="camera" label="处理照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>	
+		    </group>
+		    <group id="4" name="水质检测" display="Y" type="common">
+		        <field name="pdsTime" label="浊度" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		    	<field name="pdsPressureValue" label="余氯" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		    	<field name="pdsGroundElevation" label="是否二次供水" type="radio" readOnly="N" required="N" maxLength="20" defValue="否" options="是|否" listKey="" rule=""/>
+		    </group>
+		    <group id="5" name="地理信息" display="Y" type="attach">	
+		        <field name="facilitiesNum" label="设施编号" type="maptext" readOnly="N" required="N" maxLength="20" defValue="mapfac()" options="" listKey="" rule="mapfac"/>
+				<field name="facilitiesType" label="设施类型" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="facilitiesCaliber" label="设施口径" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="facilitiesMaterial" label="设施材质" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        
+		        <field name="addr" label="发生地址" type="text" readOnly="N" required="Y" maxLength="20" defValue="addr()" options="" listKey=""/>
+		        <field name="reportedCoordinate" label="地理坐标" type="maptext" readOnly="N"  required="Y" maxLength="20" defValue="mapcoord()" options="" listKey="" rule=""/>
+		        <field name="reportedCoordinate" label="图与现实不符" type="radio" readOnly="N"  required="Y" maxLength="20" defValue="否" options="是|否" listKey="" rule=""/>
+			</group>
+			<group id="6" name="处理信息" display="N" type="common">
+			    <field name="serialNumber" label="serialNumber" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":serialNumber" options="" listKey="" rule=""/>
+			    <field name="pid" label="pid" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":pid" options="" listKey="" rule=""/>
+			     <field name="sections" label="所在路段" type="system" readOnly="N"  required="N" maxLength="20" defValue=":sections" options="" listKey="" rule=""/>
+			    <field name="sectionsNum" label="路段编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":sectionsNum" options="" listKey="" rule=""/>
+<!-- 			    <field name="guid" label="GUID" type="system" readOnly="N"  required="Y" maxLength="20" defValue="guid()" options="" listKey="" rule=""/>
+ -->			</group>
+		</page>
+		
+		<atepss>
+		    <ateps groupid="1" name="联系用户" state="0"></ateps>
+		    <ateps groupid="2" name="现场状况" state="0"></ateps>
+		    <ateps groupid="3" name="处理过程" state="0"></ateps>
+		    <ateps groupid="4" name="水质检测" state="0"></ateps>
+		    <ateps groupid="5" name="地理信息" state="0"></ateps>
+		</atepss>
+	</form>
+</axf>

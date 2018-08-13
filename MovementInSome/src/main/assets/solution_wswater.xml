@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" ?>
+<!--
+	////////////////////////////////////////////////////////////////////////////////
+	//
+	// Copyright (c) 2009 DRAGONSPRING
+	//
+	//
+	////////////////////////////////////////////////////////////////////////////////
+-->
+<configuration>
+
+	<app>
+		<!-- 定位上报频率和距离 rate=毫秒 distance=米 -->
+		<locate rate="5000" distance="5"></locate>
+		<!-- 推送服务IP、端口-->
+		<push local="10.10.10.28:5222"
+			foreign="10.10.10.28:5222">
+		</push>
+			<!-- 中间数据交互服务-->
+		<commuservice local="http://10.10.10.28:8093/fisds/rest"
+			foreign="http://10.10.10.28:8093/fisds/rest">
+		</commuservice>
+		<!-- FTP上的照片展现URL -->
+		<fileservice local="http://10.10.10.28:8091/fileService"
+		foreign="http://10.10.10.28:8091/fileService" compress="true" type="size" config="300"/>		
+		<!-- boot是否为开机启动系统;timing设置为定时启动时间,格式为时:分 ,不填值为不定时启动-->
+		<autostart boot="1" timing="8:30">
+		</autostart>		
+		
+	</app>
+	
+	<!-- 地图信息-->
+	<map extent="432957.36,3319469.79,616242.56,3445825.49" srid="2435" tolerance = "10">
+		<basemap default="1">
+			<!--mapservice id="1" name="whdh" label="导航地图" 
+				type="dynamic" visible="true" alpha="1" format="png8" uery="false"
+				local="http://10.10.10.28:8399/arcgis/rest/services/whdh_msd/MapServer"
+				foreign="http://10.10.10.28:8399/arcgis/rest/services/whdh_msd/MapServer">
+			</mapservice -->
+			<mapservice id="1" name="whdh" label="导航地图" 
+				type="local" visible="true" alpha="1" format="png8" uery="false"
+				local="whdh1.tpk" foreign="whdh1.tpk">
+			</mapservice>
+			<mapservice id="2" name="ws_ground_msd" label="基础地形" 
+				type="dynamic" visible="true" alpha="1" format="png8" query="false"
+				local="http://10.10.10.28:8399/arcgis/rest/services/ws_ground_msd/MapServer"
+				foreign="http://10.10.10.28:8399/arcgis/rest/services/ws_ground_msd/MapServer">
+			</mapservice>
+		</basemap>
+		<bizmap>
+			<mapservice id="1" name="ws_wgis" label="管网设施" 
+				type="dynamic" visible="true" alpha="1" format="png8" query="true"
+				local="http://10.10.10.28:8399/arcgis/rest/services/ws_wgis_msd/MapServer"
+				foreign="http://10.10.10.28:8399/arcgis/rest/services/ws_wgis_msd/MapServer">
+			</mapservice> 
+		</bizmap>
+		<ftlayers>
+			<ftlayer id="1" name="水厂" mapservice="1" tablename="水厂" keyfield="OBJECTID"
+				fields="OBJECTID:OBJECTID:0,EID:设备编号:1,FNAME:水厂名称:1,ADDR:安装地址:1,WSC_NUM:供水能力:1,SUR_H:地面高程:1,WORK_STATS:运行状态:1,TRAN_FLOW:转输流量:1,TRAN_PRE:转输压力:1">
+			</ftlayer>
+			<ftlayer id="2" name="泵站" mapservice="1" tablename="泵站" keyfield="OBJECTID"
+				fields="OBJECTID:OBJECTID:0,EID:设备编号:1,FNAME:泵站名称:1,SUBTYPE:类型:1,SUR_H:轴心标高:1,ADDR:安装地址:1,SWITCH_TIME:转压时段:1,PUMP_H_FORM:泵房形式:1,PUMP_NUMS:水泵台数:1,CELL_SIZE:小区规模:1,BUILD_NUMS:房屋栋数:1,BOX_NUMS:水箱个数:1,HOLD_NUMS:户数:1,PEOPLE_NUMS:人数:1,RESER_VOL:水库容积:1,MACHINE_VOL:装机容积:1,TRAN_FLOW:转输流量:1,TRAN_CAP:转输能力:1,WS_AREA:供水面积:1,SWITH_MODE:转压方式:1,IS_CONVERED:是否变频:1,TRAN_PRE:转输压力:1,REC_DATE:接收时间:1,WORK_STATS:运行状态:1">
+			</ftlayer>
+			<ftlayer id="3" name="其它功能阀" mapservice="1" tablename="其它功能阀" keyfield="OBJECTID"
+				fields="OBJECTID:要素编码:0,EID:设备编号:1,SUBTYPE:类型:1,D_S:口径:1,SUR_H:地面高程:1,CEN_DEEP:埋深:1,FINISH_DATE:竣工日期:1,ADDR:安装地址:1,MANAGEDEPT:管理单位:1,PRJID:工程编号:1,MODEL:型号:1,TURN_ON:开启转向:1,TURNANGLE:关启度:1,TURNNUM:转数:1,MANUFACTURER:生产厂家:1,ONOFF_STATS:开关状态:1,CONSTRUCTER:施工单位:1,PRJ_TYPE:工程类型:1,ASSET_TYPE:资产类型:1,UNIT_PRICE:综合单价:1,WORK_STATS:运行状态:1">
+			</ftlayer>			
+			<ftlayer id="4" name="阀门" mapservice="1" tablename="阀门" keyfield="OBJECTID"
+				fields="OBJECTID:要素编码:0,EID:设备编号:1,SUBTYPE:类型:1,D_S:口径:1,SUR_H:地面高程:1,CEN_DEEP:埋深:1,FINISH_DATE:竣工日期:1,ADDR:安装地址:1,MANAGEDEPT:管理单位:1,PRJID:工程编号:1,MODEL:型号:1,TURN_ON:开启转向:1,TURNANGLE:关启度:1,TURNNUM:转数:1,MANUFACTURER:生产厂家:1,ONOFF_STATS:开关状态:1,CONSTRUCTER:施工单位:1,PRJ_TYPE:工程类型:1,ASSET_TYPE:资产类型:1,UNIT_PRICE:综合单价:1,WORK_STATS:运行状态:1">
+			</ftlayer>
+			<ftlayer id="5" name="排污阀" mapservice="1" tablename="排污阀" keyfield="OBJECTID"
+				fields="OBJECTID:要素编码:0,EID:设备编号:1,SUBTYPE:类型:1,D_S:口径:1,SUR_H:地面高程:1,CEN_DEEP:埋深:1,FINISH_DATE:竣工日期:1,ADDR:安装地址:1,MANAGEDEPT:管理单位:1,PRJID:工程编号:1,MODEL:型号:1,WELL_FORM:阀井形式:1,TURN_ON:开启转向:1,TURNNUM:转数:1,MANUFACTURER:生产厂家:1,ONOFF_STATS:开关状态:1,CONSTRUCTER:施工单位:1,PRJ_TYPE:工程类型:1,ASSET_TYPE:资产类型:1,UNIT_PRICE:综合单价:1,WORK_STATS:运行状态:1">
+			</ftlayer>			
+			<ftlayer id="6" name="排气阀 " mapservice="1" tablename="排气阀 " keyfield="OBJECTID"
+				fields="OBJECTID:要素编码:0,EID:设备编号:1,SUBTYPE:类型:1,D_S:口径:1,SUR_H:地面高程:1,CEN_DEEP:埋深:1,FINISH_DATE:竣工日期:1,ADDR:安装地址:1,MANAGEDEPT:管理单位:1,PRJID:工程编号:1,WELL_TYPE:井盖规格:1,WELL_FORM:阀井形式:1,WELL_STATS:井室状况:1,ONOFF_STATS:开关状态:1,WORK_STATS:运行状态:1">
+			</ftlayer>			
+			<ftlayer id="7" name="消火栓" mapservice="1" tablename="消火栓" keyfield="OBJECTID"
+				fields="OBJECTID:要素编码:0,EID:设备编号:1,SUBTYPE:类型:1,SUR_H:地面高程:1,CEN_DEEP:埋深:1,FINISH_DATE:竣工日期:1,ADDR:安装地址:1,MANAGEDEPT:管理单位:1,PRJID:工程编号:1,MODEL:型号:1,PRJ_TYPE:工程类型:1,ASSET_TYPE:资产类型:1,UNIT_PRICE:综合单价:1,WORK_STATS:运行状态:1">
+			</ftlayer>			
+			<ftlayer id="8" name="供水栓" mapservice="1" tablename="供水栓" keyfield="OBJECTID"
+				fields="OBJECTID:要素编码:0,EID:设备编号:1,SUBTYPE:类型:1,SUR_H:地面高程:1,CEN_DEEP:埋深:1,FINISH_DATE:竣工日期:1,ADDR:安装地址:1,MANAGEDEPT:管理单位:1,PRJID:工程编号:1,MODEL:型号:1,PRJ_TYPE:工程类型:1,ASSET_TYPE:资产类型:1,UNIT_PRICE:综合单价:1,WORK_STATS:运行状态:1">
+			</ftlayer>				
+			<ftlayer id="9" name="管道泵" mapservice="1" tablename="管道泵" keyfield="OBJECTID"
+				fields="OBJECTID:OBJECTID:0,EID:设备编号:1,FNAME:泵站名称:1,SUBTYPE:类型:1,SUR_H:轴心标高:1,ADDR:安装地址:1,SWITCH_TIME:转压时段:1,PUMP_H_FORM:泵房形式:1,PUMP_NUMS:水泵台数:1,CELL_SIZE:小区规模:1,BUILD_NUMS:房屋栋数:1,BOX_NUMS:水箱个数:1,HOLD_NUMS:户数:1,PEOPLE_NUMS:人数:1,RESER_VOL:水库容积:1,MACHINE_VOL:装机容积:1,TRAN_FLOW:转输流量:1,TRAN_CAP:转输能力:1,WS_AREA:供水面积:1,SWITH_MODE:转压方式:1,IS_CONVERED:是否变频:1,TRAN_PRE:转输压力:1,REC_DATE:接收时间:1,MODEL:功能类型:1,WORK_STATS:运行状态:1">
+			</ftlayer>			
+			<ftlayer id="10" name="流量计" mapservice="1" tablename="流量计" keyfield="OBJECTID"
+				fields="OBJECTID:要素编码:0,EID:设备编号:1,SUBTYPE:类型:1,SUR_H:地面高程:1,CEN_DEEP:埋深:1,FINISH_DATE:竣工日期:1,ADDR:安装地址:1,MANAGEDEPT:管理单位:1,PRJID:工程编号:1,MODEL:型号:1,WATER_TYPE:供水类型:1,PRJ_TYPE:工程类型:1,ASSET_TYPE:资产类型:1,UNIT_PRICE:综合单价:1,WORK_STATS:运行状态:1">
+			</ftlayer>	
+			<ftlayer id="11" name="立管点" mapservice="1" tablename="立管点" keyfield="OBJECTID"
+				fields="OBJECTID:要素编码:0,EID:设备编号:1,SUBTYPE:类型:1,FINISH_DATE:竣工日期:1,ADDR:安装地址:1,MANAGEDEPT:管理单位:1,PRJID:工程编号:1,USE_TYPE:使用类型:1,USERNUM:用户数:1">
+			</ftlayer>		
+			<ftlayer id="12" name="水表" mapservice="1" tablename="水表" keyfield="OBJECTID"
+				fields="OBJECTID:OBJECTID:0,EID:设备编号:1,SUBTYPE:类型:1,D_S:口径:1,SUR_H:地面高程:1,CEN_DEEP:埋深:1,MODEL:型号:1,USERID:客户编号:1,USERNAME:业主名称:1,METERSN:表身号:1">
+			</ftlayer>		
+            <ftlayer id="13" name="储水设备" mapservice="1" tablename="储水设备" keyfield="OBJECTID"
+				fields="OBJECTID:OBJECTID:0,EID:设备编号:1,SUBTYPE:储水形式:1,PPROPERTY:材质:1,PDIM:容量:1,BOX_COLOR:箱体颜色:1,FLOOR_LEN:楼面管长:1,BOX_SHAPE:水箱形状:1,IN_P_CAB:进水管口径:1,IN_P_FORM:进水管形式:1,IN_V_QTY:进水阀门数:1,IN_V_CAB:进水阀口径:1,OUT_P_CAB:出水管口径:1,OUT_P_FORM:出水管形式:1,OUT_V_QTY:出水阀门数:1,CHK_V_CAB:逆止阀口径:1,CHK_V_QTY:逆止阀个数:1,FLT_V_CAB:浮球阀口径:1,DRAIN_V_CAB:排污阀口径:1,FIRE_P_CAB:消防管口径:1,FIRE_V_CAB:消防阀口径:1,FLOOR_NUMS:楼房层数:1,USER_NUMS:供水户数:1,CLEAN_0RD:冲洗序号:1,FAC_GOODED:设施是否完好:1,CON_ENV:施工环境:1,STAIR_FORM:楼梯形式:1,STAIR_LCKED:楼梯是否上锁:1,BUILD_FIRE_QTY:楼内消防处数:1,PRO_MANEGED:有无物业管理:1,TRAN_PRESSURED:有无转压:1,HAD_BOX_LID:箱盖:1,HAD_BOX_LID_LCK:箱盖锁:1,IS_ANTIFREEZE:防冻:1,SIZE_INFO:大小:1,OUT_V_CAB:出水阀口径:1,TOP_H:高程:1,PRESS:压力:1,USTATE:使用状态:1,ADDR:安装地址:1">
+			</ftlayer>			
+		</ftlayers>
+		<tasks>
+			<task id="identifyTask" name="标识查询" tolerance="10" layers="*"/>				
+			<task id="queryTask" name="条件查询" tolerance="10" layers="1,2,3,4,5,6,7"/>
+			<task id="roadTask" name="路名查询" tolerance="10" layers="1,2"/>
+		</tasks>
+		<extservices>
+		    <extservice id="closetFeature" name="最近网络要素" local="http://10.10.10.28:8399/arcgis/rest/services/query/MapServer/exts/GeometricNetworkAnalyst/SDE.WATER_NETWORK_Net/js-leakpos" foreign="http://10.10.10.28:8399/arcgis/rest/services/query/MapServer/exts/GeometricNetworkAnalyst/SDE.WATER_NETWORK_Net/js-leakpos"/>
+		    <extservice id="offValveAna" name="关阀分析" local="http://10.10.10.28:8399/arcgis/rest/services/query/MapServer/exts/ClosedNetworkAnalyst/SDE.WATER_NETWORK_Net/leakanalysis" foreign="http://10.10.10.28:8399/arcgis/rest/services/query/MapServer/exts/ClosedNetworkAnalyst/SDE.WATER_NETWORK_Net/leakanalysis"/>
+		    <extservice id="offValveExtAna" name="扩大关阀分析" local="http://10.10.10.28:8399/arcgis/rest/services/query/MapServer/exts/ClosedNetworkAnalyst/SDE.WATER_NETWORK_Net/leakanalysis" foreign="http://10.10.10.28:8399/arcgis/rest/services/query/MapServer/exts/ClosedNetworkAnalyst/SDE.WATER_NETWORK_Net/leakanalysis"/>
+		</extservices>
+		<!-- 七参 -->
+		<coordTransform Coordinate="BJ54" 
+			SDx="-109.999016" SDy="241.019612" SDz="160.957851" SQx="-3.70086503312727" SQy="3.88029478808162" SQz="3.02091309933372" SScale="-0.000031609159" 
+			FDx="" FDy="" FScale="" FRotateangle="" PProjectiontype="3" 
+			PCentralmeridian="114.00" PScale="1" PConstantx="-50.00" PConstanty="499935.00" PBenchmarklatitude="0.00" Semimajor="6378245.000" Flattening="0.00335232986925913509889373114314">
+		</coordTransform>
+		<!-- 菜单 -->
+		<mapparentmenus>
+		    <mapparentmenu id="measure" name="测量" isdisplay="true">
+		    	<mapmenu  id="coord" name="坐标" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="distance" name="距离" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="area" name="面积" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="backout" name="撤销" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="redraw" name="重绘" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="back" name="返回" isdisplay="true"></mapmenu>
+			</mapparentmenu>
+			 <mapparentmenu id="draw" name="绘图" isdisplay="true">
+		    	<mapmenu  id="point" name="画点" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="straightline" name="画直线" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="rectangle" name="画矩型" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="circle" name="画圆型" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="polygon" name="多边型" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="freelinear" name="自由线" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="screenshot" name="截图" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="clear" name="清除" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="back" name="返回" isdisplay="true"></mapmenu>
+			</mapparentmenu>
+			<mapparentmenu id="pipebroanalysis" name="关阀分析" isdisplay="true">
+		    	<mapmenu  id="pipeline" name="管道" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="facility" name="设施" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="back" name="返回" isdisplay="true"></mapmenu>
+			</mapparentmenu>
+			<mapparentmenu id="screenshot" name="截图" isdisplay="true">
+			</mapparentmenu>
+			<mapparentmenu id="placesearch" name="地名搜索" isdisplay="true">
+			</mapparentmenu>
+			<mapparentmenu id="nearby" name="附近" isdisplay="true">
+			</mapparentmenu>
+		</mapparentmenus>
+	</map>
+
+	<mainmenu>
+	    <menu id="1" name="我的工作" enter="taskCenter" style="menu">
+	        
+	    </menu>
+	    <menu id="2" name="电子地图" enter="mapContain" style="contain">
+	        
+	    </menu>
+	    <menu id="3" name="应用中心" enter="appCenter" style="grid">
+	    </menu>
+		 <!--menu id="5" name="配合工作" enter="coordinateCenter" style="contain">
+	    </menu--> 
+	</mainmenu>
+	
+ 	<bizmodule>
+<!-- 		<module id="biz.accident" name="事故信息" formtype="xml" template="xmlgui3.xml" icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="true">
+		</module> -->
+		<module id="tsk.inspection" menu="1" name="巡检管理" formtype="menu" template="巡检管理"  icon="" layers="" ftlayer="" theme="1" canwrite="true">
+		</module>
+		<!--module id="tsk.dreging" menu="1" name="清疏管理" formtype="menu" template="清疏管理"  icon="" layers="" ftlayer="" theme="1" canwrite="false">
+		</module-->
+		<module id="tsk.repair" menu="1" name="维修管理" formtype="menu" template="维修管理"  icon="" layers="" ftlayer="" theme="1" canwrite="true">
+		</module>
+		<!--module id="tsk.valve" menu="1" name="阀门管理" formtype="menu" template="阀门管理"  icon="" layers="" ftlayer="" theme="1" canwrite="false">
+		</module-->
+		
+ 		<module id="biz.hiddenrpt" menu="3" name="设施隐患上报" formtype="xml" template="ins_hidden_trouble_form.xml"  icon="table_q" layers="" ftlayer="" theme="1" canwrite="true">
+		</module>
+		<module id="biz.insworkregedt" menu="3" name="巡查工作登记表" formtype="xml" template="ins_work_regedit_form.xml"  icon="" layers="" ftlayer="" theme="1" canwrite="false">
+		</module>
+		<module id="biz.insworklink" menu="3" name="巡查工作联系单" formtype="xml" template="ins_work_link_form.xml"  icon="" layers="" ftlayer="" theme="1" canwrite="false">
+		</module>			
+		<module id="biz.buiderrpt" menu="3" name="工地上报" formtype="xml" template="builder_site_form.xml"  icon="table_c" layers="" ftlayer="" theme="1" canwrite="true">
+		</module>
+		<module id="biz.construction" menu="3" name="工地巡检" formtype="xml" template="ins_construction_monitoring.xml"  icon="" layers="" ftlayer="" theme="1" canwrite="true">
+		</module>
+		<module id="biz.construction.track" menu="3" name="工地跟踪" formtype="xml" template="ins_construction_track.xml"  icon="" layers="" ftlayer="" theme="1" canwrite="true">
+		</module>
+		<module id="biz.keypoint" menu="3" name="关键点检查记录" formtype="xml" template="ins_key_point_form.xml"  icon="" layers="" ftlayer="" theme="1" canwrite="false">
+		</module>
+		<module id="biz.checkpoint" menu="3" name="签到点" formtype="xml" template="ins_check_point_from.xml"  icon="" layers="" ftlayer="" theme="1" canwrite="false">
+		</module>	
+		<module id="biz.repaircovert" menu="3" name="补盖记录" formtype="xml" template="repair_cover_form.xml"  icon="" layers="" ftlayer="" theme="1" canwrite="false">
+		</module>		
+		<module id="biz.giscorrect" menu="3" name="图形纠错" formtype="xml" template="map_error_report_form.xml"  icon="table_u" layers="" ftlayer="" theme="1" canwrite="true">
+		</module>	
+		<module id="biz.insdredgework" menu="3" name="管道清疏记录" formtype="xml" template="ins_dredge_work_form.xml"  icon="" layers="" ftlayer="" theme="1" canwrite="false">
+		</module>
+		
+		<module id="biz.repairrec_pipe" menu="3" name="管道事故记录" formtype="xml" template="ins_repair_pipe_form.xml"  icon="" layers="" ftlayer="" theme="1" canwrite="true">
+		</module>
+		<module id="biz.repairrec_valve" menu="3" name="阀门事故记录" formtype="xml" template="ins_repair_valve_form.xml"  icon="" layers="" ftlayer="" theme="1" canwrite="true">
+		</module>
+		<module id="biz.coordinate" menu="3" name="配合工作" formtype="xml" template="coordinate.xml"  icon="" layers="" ftlayer="" theme="1" canwrite="false">
+		</module>
+		<module id="biz.repairrec_fire" menu="3" name="消防栓任务记录" formtype="xml" template="xmlgui3.xml"  icon="" layers="" ftlayer="" theme="1" canwrite="true">
+		</module>
+		<module id="biz.repairrec_fac" menu="3" name="设施更换记录" formtype="xml" template="xmlgui3.xml"  icon="" layers="" ftlayer="" theme="1" canwrite="true">
+		</module>
+		<!--
+		<module id="biz.repairrec_well" menu="3" name="井座(箅)维修记录" formtype="xml" template="xmlgui3.xml"  icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="true">
+		</module>
+		
+		<module id="biz.floodfb" menu="3" name="洪涝反馈" formtype="xml" template="road_flooded_condition.xml"  icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="true">
+		</module> -->
+	</bizmodule>
+	
+
+
+	
+</configuration>

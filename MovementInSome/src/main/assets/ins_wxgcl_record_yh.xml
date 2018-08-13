@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_wxgcl_record_yh" name="外协工程量记录"  table="BS_WXGCL_RECORD" submitTo="loopback" page="one">
+	   	<params>
+			
+		</params>
+		 <rules>
+		    <rule id="mapfac">
+		        
+		    </rule>
+		</rules>
+
+		<page id="1" name="">
+			<group id="1" name="" display="Y" type="common">
+                <field name="gclType" label="工程量类型" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="0022" rule=""/>
+				<field name="prjName" label="项目名称" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="0023"/>
+				<field name="address" label="详细地址" type="memo" readOnly="N"  required="Y" maxLength="2000" defValue="" options="" listKey="" rule=""/>
+				<field name="unit" label="单位" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="quantity" label="数量" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="formula" label="计算公式" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="unitPrice" label="单价" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="remark" label="备注" type="memo" readOnly="N"  required="N" maxLength="2000" defValue="" options="" listKey=""/>
+			</group>	
+			 
+			<group id="2" name="系统信息" display="N" type="common">
+			    <field name="rrwoNum" label="工单编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":rrwoNum" options="" listKey="" rule=""/>
+			    <field name="rrwoType" label="工单类型" type="system" readOnly="N"  required="N" maxLength="20" defValue=":rrwoType" options="" listKey="" rule=""/>
+			    <field name="reportCoordinate" label="终端上报坐标" type="text" readOnly="N" required="N" maxLength="20" defValue="mapcoord()" options="" listKey=""/>
+			    <field name="uniqueCode" label="移动端唯一编码" type="text" readOnly="N" required="N" maxLength="20" defValue="guid()" options="" listKey=""/>
+			</group>
+		</page>
+	</form>
+</axf>

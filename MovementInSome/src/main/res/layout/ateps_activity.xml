@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/black_background"
+    android:orientation="vertical" >
+    <RelativeLayout style="@style/myPhoneLayoutTitleType" >
+
+        <Button
+            android:id="@+id/ateps_back"
+           	style="@style/myPhoneButtonBack" 
+           	android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/ateps_title"
+            android:layout_height="match_parent"
+            style="@style/myPhoneTvTitle"
+            android:text="任务步骤" />
+        <Button 
+            android:id="@+id/ataps_commit"
+            style="@style/myPhoneButtonSmall"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone"
+            android:text="完成"/>
+
+    </RelativeLayout>
+    <LinearLayout style="@style/myPhoneLayoutBgType" >
+        <ListView 
+            android:id="@+id/ateps_list"
+            android:layout_width="match_parent"
+    		android:layout_height="match_parent">
+            
+        </ListView>
+    </LinearLayout>
+
+</LinearLayout>

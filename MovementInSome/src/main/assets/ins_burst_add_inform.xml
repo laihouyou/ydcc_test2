@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_burst_add_inform" name="添加信息" table="BS_BURST_LEAK_HANDLE_INFO" submitTo="loopback" page="one">
+	   	<params>
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="deviceType" value="LayerName"/>
+		        <do filed="facilitiesNum" value="EID,设备编号,GID,业务编码"/>
+		        <do filed="facilitiesMaterial" value="MATERIAL,材质"/>
+		        <do filed="manageUnit" value="MANAGEDEPT,管理单位"/>
+		        <do filed="gid" value="GID,业务编码"/>
+		        <do filed="coordinate" value="shape"/>
+		        <do filed="facilitiesCaliber" value="D_S,口径"/>
+		    </rule>
+		</rules>
+	
+		<page id="1" name="添加信息">
+		    <group id="1" name="添加信息" display="Y" type="common">
+		        <field name="handleInfo" label="补充信息" type="memo" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" />
+				<field name="camera" label="现场照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>
+			
+		    <group id="2" name="系统信息" display="N" type="common">
+			     <field name="createUName" label="上报人" type="text" readOnly="N" required="N" maxLength="20" defValue="username()" options="" listKey=""/>
+			     <field name="createDate" label="接报时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="datetime()" options="" listKey="" rule=""/>
+			      <field name="arNum" label="档案号" type="text" readOnly="N" required="N" maxLength="20" defValue=":arNum" options="" listKey=""/>
+			</group>
+		    
+		</page>
+	</form>
+</axf>

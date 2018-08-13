@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="" name="关阀方案" table="" submitTo="loopback" page="one">
+	   	<params>
+			<param name="pid" type="c" required="Y" defValue="" io="i"/>	
+		</params>
+		
+		<rules>
+		    <rule id="mapfac">
+		        <do filed="bfNum" value="EID"/>
+		        <do filed="idvrMetre" value="MATERIAL"/>
+		        <do filed="idvrCab" value="MAINPIPE_DS"/>
+		    </rule>
+		</rules>
+		
+		<page id="1" name="填写信息">
+		    <group id="1" name="填写信息" display="Y" type="common">
+				<field name="bgfxEtNumber" label="申请编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="bgfxEtPlace" label="施工地点" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="bgfxEtTaskName" label="工程名称" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="bgfxEtReason" label="停水原因" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="bgfxEtCaptain" label="施工队长" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="bgfxEtType" label="停水类别" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			</group>
+			
+		</page>
+		
+		
+	</form>
+</axf>

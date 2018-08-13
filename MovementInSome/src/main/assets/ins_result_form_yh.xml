@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="BS_INS_RESULT" name="专项巡查记录" table="BS_INS_RESULT" submitTo="loopback" page="one">
+	   	<params>
+	    <param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+ 			<param name="workTaskNum" type="c" required="Y" defValue="" io="i"></param>
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="facilitiesNum" value="OBJECTID,EID,GID,唯一图形编"/>
+		        <do filed="facilitiesType" value="LayerName"/>
+		        <do filed="facilitiesCaliber" value="口径"/>
+		        <do filed="facilitiesMaterial" value="MATERIAL,材料"/>
+		        <do filed="coordinate" value="shape"/>
+		    </rule>
+		</rules>
+		<optionss>
+		    <options name="bsInsReportContentLists" value=""></options>
+		</optionss>
+	
+		<page id="1" name="专项巡查记录">
+		    <group id="1" name="专项巡查记录" display="Y" type="common">
+ 		    	<field name="bsInsReportContentLists" label="" type="checklist" readOnly="N" required="N" maxLength="20" defValue="" options="bsInsReportContentLists" listKey="" bsCheck="iroCheck" bsIcsName="iroName"/>
+ 		    	<field name="irRemarks" label="备注" type="memo" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+ 		    	<field name="camera" label="现场照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			</group>
+			<group id="2" name="系统信息" display="N" type="common">
+			    <field name="reportDateStr" label="上报时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="datetime()" options="" listKey="" rule=""/>
+			    <field name="reportPId" label="上报人ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userId()" options="" listKey="" rule=""/>
+			    <field name="reportPNum" label="上报人编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userNum()" options="" listKey="" rule=""/>
+			    <field name="reportPName" label="上报人名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="username()" options="" listKey="" rule=""/>
+			    <field name="rpDeptId" label="上报人部门ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteamId()" options="" listKey="" rule=""/>
+			    <field name="rpDeptNum" label="上报人部门编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteamNum()" options="" listKey="" rule=""/>
+			    <field name="rpDeptName" label="上报人部门名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteam()" options="" listKey="" rule=""/>
+			    <field name="rpTeamId" label="上报人班组ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupId()" options="" listKey="" rule=""/>
+			    <field name="rpTeamNum" label="上报人班组编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupNum()" options="" listKey="" rule=""/>
+			    <field name="rpTeamName" label="上报人班组名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupName()" options="" listKey="" rule=""/>
+			    
+			    <field name="pnitId" label="巡查任务ID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":pnitId" options="" listKey=""/>
+			    <field name="pnitNum" label="巡查任务编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":pnitNum" options="" listKey=""/>
+			    <field name="ifiId" label="巡查设施信息ID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":ifiId" options="" listKey=""/>
+			    <field name="gid" label="GID" type="text" readOnly="N"  required="N" maxLength="2000" defValue=":gid" options="" listKey="" rule=""/>
+			    
+			    
+			    <field name="irFacNum" label="设施编号" type="text" readOnly="N" required="N" maxLength="20" defValue=":ifiFacNum" options="" listKey="" rule="mapfac"/>
+ 		    	<field name="irFacType" label="设施名称" type="text" readOnly="N" required="N" maxLength="20" defValue=":ifiFacType" options="" listKey=""/>
+ 		    	<field name="irFacLaneWay" label="所在道路" type="text" readOnly="N" required="N" maxLength="20" defValue=":ifiFacLaneWay" options="" listKey=""/>
+ 		    	<field name="irFacAddr" label="安装地址" type="text" readOnly="N" required="N" maxLength="20" defValue=":ifiFacAddr" options="" listKey=""/>
+ 		    	<field name="irFacDs" label="口径" type="numeric" readOnly="N" required="N" maxLength="20" defValue=":ifiFacDs" options="" listKey=""/>
+ 		    	<field name="irFacCoordinate" label="设施坐标" type="text" readOnly="N" required="N" maxLength="20" defValue=":Coordinate" options="" listKey=""/>
+ 		    	<field name="manageUnit" label="管理单位" type="text" readOnly="N" required="N" maxLength="20" defValue=":manageUnit" options="" listKey=""/>
+ 			</group>
+		</page>
+	</form>
+</axf>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dip"
+    android:background="#d3dad4"
+    android:orientation="horizontal" >
+    
+    <LinearLayout 
+        android:layout_width="15dip"
+        android:layout_height="match_parent"/>
+    
+    <LinearLayout 
+        android:layout_width="25dip"
+        android:layout_height="match_parent">
+        
+        <TextView 
+            android:layout_gravity="center_vertical"
+            android:layout_height="25dip"
+            android:layout_width="25dip"
+            android:background="@drawable/smallbell"/>
+        
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="230dip"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="15dip"
+        android:layout_height="match_parent" >
+
+	    <TextView
+	        android:id="@+id/scada_hint_dialog_text"
+	        android:layout_width="235dip"
+	        android:layout_height="match_parent"
+	        android:layout_gravity="center_vertical"
+	        android:text="	15:10（赤溪）三路集团超高限，\n报警值5.6pa,参考值：4.6pa"
+	        android:textColor="@color/black" />
+
+    </ScrollView>
+    <RelativeLayout 
+        android:layout_width="match_parent"
+    	android:layout_height="70dip"
+    	android:paddingRight="15dip"
+    	android:gravity="center_vertical"
+    	android:paddingBottom="3dip">
+        <Button 
+            android:id="@+id/scada_hint_dialog_confirm"
+            android:layout_width="60dip"
+    		android:layout_height="30dip"
+    		android:background="@drawable/signin_di"
+    		android:text="确定"
+    		android:textColor="@color/black"
+    		android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+</LinearLayout>

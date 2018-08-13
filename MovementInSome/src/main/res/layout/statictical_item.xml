@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:orientation="horizontal"
+        android:background="#ffffff">
+        
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/stl_item_proName"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:text="工程名称一"
+            android:textColor="#484848"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="25dp"
+                android:background="#ff9518"
+                android:layout_marginLeft="120dp">
+                <TextView
+                    android:id="@+id/stl_item_proType"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="供水"
+                    android:textSize="14dp"
+                    android:textColor="#ffffff"/>
+            </LinearLayout>
+            
+            <TextView
+                android:id="@+id/stl_item_time"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textColor="#b0afba"
+                android:textSize="14dp"
+                android:text="2017/1/12"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="40dp">
+
+            <LinearLayout
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#b0afb5"
+                android:layout_alignTop="@+id/textView11"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/linearLayout6" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:gravity="center"
+                android:text="设施数量"
+                android:textColor="#b0afba"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:id="@+id/stl_item_facNum"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:textColor="#46aaff"
+                android:textSize="14dp"
+                android:text="4895个"
+                android:layout_marginLeft="110dp">
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:textColor="#b0afba"
+                android:text="管线长度"
+                android:id="@+id/textView11"
+                android:layout_toRightOf="@+id/linearLayout6"
+                android:layout_toEndOf="@+id/linearLayout6"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp" />
+            
+            <TextView
+                android:id="@+id/stl_item_faclength"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textColor="#46aaff"
+                android:textSize="14dp"
+                android:text="490m"
+                android:layout_alignParentBottom="true"
+                android:layout_toRightOf="@+id/textView11"
+                android:layout_toEndOf="@+id/textView11"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

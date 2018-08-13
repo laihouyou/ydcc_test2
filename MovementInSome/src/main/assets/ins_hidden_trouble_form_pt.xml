@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_hidden_trouble" name="设施隐患上报" table="BS_HIDDEN_DANGER_RECORD" submitTo="loopback" page="one">
+	   	<params>
+	    <param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+ 			<param name="workTaskNum" type="c" required="Y" defValue="" io="i"></param>
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="hdtFacNum" value="EID,设备编号"/>
+		        <do filed="hdtFacName" value="LayerName"/>
+		        <do filed="hdtFacMaterial" value="MATERIAL,材质"/>
+		        <do filed="manageUnit" value="MANAGEDEPT,管理单位"/>
+		        <do filed="gid" value="GID,业务编码"/>
+		        <do filed="hdtFacDs" value="D_S,口径"/>
+		        <do filed="hdrCoordinate" value="shape"/>
+		    </rule>
+		</rules>
+	
+		<page id="1" name="隐患信息">
+		    <group id="1" name="" display="Y" type="common">
+		        <field name="hdtFacNum" label="设施编号" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapfac()" options="" listKey="" rule="mapfac"/>
+		        <field name="hdtFacName" label="设施类型" type="choices" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="0014" id ="10001" cId ="10002" cName="隐患内容"/>
+		        <field name="hdtFacDs" label="设施口径" type="number" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		    	<field name="hdtFacMaterial" label="设施材质" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" />
+		        <field name="hdcContent" label="隐患内容" type="mselect" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" id ="10002" fId="10001" fName ="设施类型" mName="隐患内容"/>
+		    	<field name="hdcAddr" label="隐患地址" type="memo" readOnly="N" required="N" maxLength="2000" defValue="addr()" options="" listKey=""/>
+		    	<field name="isLeakStr" label="是否漏水" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="是|否" listKey=""/>
+		    	<!-- <field name="sceneSituation" label="现场处理情况" type="memo" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey=""/>
+		    	<field name="handleResult" label="处理结果" type="memo" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey=""/> -->
+		        <field name="hdrCoordinate" label="隐患坐标" type="maptext" readOnly="N"  required="Y" maxLength="20" defValue="mapcoord(N)" options="" listKey=""/>
+		        <field name="urgency" label="紧急程度" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="0006"/>
+		        <field name="manageDept" label="管理单位" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="0002"/>
+		        <field name="remark" label="隐患描述" type="memo" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey=""/>
+		        <field name="contact" label="联系方式" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="camera" label="现场照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>
+			
+			<group id="2" name="系统信息" display="N" type="common">
+			    <field name="gid" label="GID" type="text" readOnly="N"  required="N" maxLength="2000" defValue=":gid" options="" listKey="" rule=""/>
+			    <field name="pnitType" label="巡查任务类型" type="text" readOnly="N" required="N" maxLength="20" defValue=":pnitType" options="" listKey=""/>
+			    <field name="hdrStatus" label="隐患状态" type="number" readOnly="N" required="Y" maxLength="20" defValue="0" options="" listKey=""/>
+			    <field name="reportSource" label="上报来源" type="text" readOnly="N" required="Y" maxLength="20" defValue="巡查上报" options="" listKey=""/>
+			    <field name="pnitId" label="巡查任务ID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":pnitId" options="" listKey="" rule=""/>
+			    <field name="pnitNum" label="巡查任务编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":pnitNum" options="" listKey="" rule=""/>
+			    <field name="riaId" label="常规巡查区域ID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":riaId,:ifiId,:eiaId" options="" listKey="" rule=""/>
+			    <field name="reportCoordinate" label="终端上报坐标" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapcoord()" options="" listKey="" rule=""/>
+			    
+			    <field name="reportDateStr" label="上报时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="datetime()" options="" listKey="" rule=""/>
+			    <field name="reportPId" label="上报人ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userId()" options="" listKey="" rule=""/>
+			    <field name="reportPNum" label="上报人编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userNum()" options="" listKey="" rule=""/>
+			    <field name="reportPName" label="上报人名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="username()" options="" listKey="" rule=""/>
+			    <field name="rpDeptId" label="上报人部门ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteamId()" options="" listKey="" rule=""/>
+			    <field name="rpDeptNum" label="上报人部门编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteamNum()" options="" listKey="" rule=""/>
+			    <field name="rpDeptName" label="上报人部门名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteam()" options="" listKey="" rule=""/>
+			    <field name="rpTeamId" label="上报人班组ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupId()" options="" listKey="" rule=""/>
+			    <field name="rpTeamNum" label="上报人班组编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupNum()" options="" listKey="" rule=""/>
+			    <field name="rpTeamName" label="上报人班组名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupName()" options="" listKey="" rule=""/>
+			</group>
+		</page>
+	</form>
+</axf>

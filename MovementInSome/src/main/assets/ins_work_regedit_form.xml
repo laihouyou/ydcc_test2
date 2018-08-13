@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_work_regedit" name="巡查工作登记表"  table="INS_RESULT_INFO" submitTo="loopback" page="one">
+	   	<params>
+<!-- 			<param name="pid" type="c" required="Y" defValue="" io="i"/>
+ -->	    <param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+ 			<param name="workTaskNum" type="c" required="Y" defValue="" io="i"></param>
+ 
+			<param name="cfNum" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="cfSource" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="cfPeople" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="cfPhone" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="cfAddr" field="" type="c" required="Y" defValue="" io="i"></param>	
+			<param name="cfDateStr" field="" type="c" required="Y" defValue="" io="i"></param>
+				
+<!-- 			<param name="workday" field="" type="c" required="Y" defValue="" io="0"></param>
+ -->			<param name="results" field="results" type="c" required="Y" defValue="" io="o"></param>
+			<param name="beginHandlePeople" field="handlePeople" type="c" required="Y" defValue="" io="o"></param>
+			<param name="beginHandleDate" field="beginHandleDate" type="c" required="Y" defValue="" io="o"></param>
+			<param name="endHandlePeople" field="handlePeople" type="c" required="Y" defValue="" io="o"></param>
+			<param name="endHandleDate" field="handleDate" type="c" required="Y" defValue="" io="o"></param>
+		</params>
+
+		<page id="1" name="基本信息">
+			<group id="1" name="基本信息" display="N" type="common">
+				<field name="cfNum" label="投诉编号" type="text" readOnly="N" required="N" maxLength="20" defValue=":cfNum" options="" listKey=""/>
+				<field name="insTeam" label="巡查班组" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteam()" options="" listKey=""/>
+				<field name="workDate" label="作业日期" type="date" readOnly="N"  required="N" maxLength="20" defValue="date()" options="" listKey=""/>
+				<field name="weather" label="天气" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="晴|多云|阴|阵雨|雷阵雨|小雨|中雨|大雨|暴雨|大暴雨|特大暴雨|小到中雨|中到大雨|大到暴雨|暴雨到大暴雨|大暴雨到特大暴雨|雾|霾" listKey=""/>
+			</group>
+			<group id="2" name="信息来源" display="Y" type="common">
+				<field name="cfSource" label="信息来源" type="choice" readOnly="N"  required="Y" maxLength="20" defValue=":cfSource" options="客联中心|数字化城管|用户|自查|其他" listKey="0002"/>
+				<field name="cfPeople" label="报告人姓名" type="text" readOnly="N"  required="Y" maxLength="20" defValue=":cfPeople" options="" listKey=""/>
+				<field name="cfPHONE" label="电话" type="text" readOnly="N"  required="Y" maxLength="20" defValue=":cfPHONE" options="" listKey=""/>
+				<field name="cfAddr" label="作业地点" type="text" readOnly="N"  required="Y" maxLength="20" defValue=":cfAddr" options="" listKey=""/>
+				<field name="cfDATE" label="接报时间" type="datetime" readOnly="N"  required="Y" maxLength="20" defValue=":cfDateStr" options="" listKey=""/>
+				<field name="beginHandleDate" label="开始处理时间" type="datetime" readOnly="N"  required="Y" maxLength="20" defValue="datetime()" options="" listKey=""/>
+			</group>
+			
+		    <group id="3.1" name="任务描述-给水" display="Y" type="common">
+				<field name="waterPipe" label="管道" type="check" readOnly="N"  required="N" maxLength="20" defValue="" options="漏水|占压|损坏" listKey=""/>
+				<field name="waterValve" label="阀门" type="check" readOnly="N"  required="N" maxLength="20" defValue="" options="井冒水|井盖确损|井座坍塌" listKey=""/>
+				<field name="waterHydrant" label="消火栓" type="check" readOnly="N"  required="N" maxLength="20" defValue="" options="漏水|缺损" listKey=""/>
+				<field name="waterOther" label="其他" type="memo" readOnly="N"  required="N" maxLength="2000" defValue="" options="" listKey=""/>				
+			</group>
+		    <group id="3.2" name="任务描述-排水" display="Y"  type="common">
+  				<field name="String" label="管道" type="check" readOnly="N"  required="N" maxLength="20" defValue="" options="冒水|堵塞|路面坍塌" listKey=""/>
+  				<field name="drainInspectionWell" label="检查井" type="check" readOnly="N"  required="N" maxLength="20" defValue="" options="井盖缺损|井座坍塌|冒水" listKey=""/>
+  				<field name="drainGully" label="雨水口" type="check" readOnly="N"  required="N" maxLength="20" defValue="" options="箅子缺损|坍塌" listKey=""/>
+				<field name="drainOther" label="其他" type="memo" readOnly="N"  required="N" maxLength="2000" defValue="" options="" listKey=""/>				
+			</group>
+			<group id="3.3" name="任务描述-其他" display="Y" type="common">
+			    <field name="other" label="其他" type="memo" readOnly="N"  required="N" maxLength="2000" defValue="" options="" listKey=""/>				
+			</group>  
+			<group id="4" name="现场信息" display="Y" type="attach">
+			    <field name="reportedCoordinate" label="具体位置" type="maptext" readOnly="N"  required="Y" maxLength="20" defValue="mapcoord()" options="" listKey="" rule=""/>
+			    <field name="camera1" label="处理前照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule="attach"/>	
+			    <field name="camera2" label="处理后照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule="attach"/>
+			</group>
+			<group id="5" name="处理情况" display="Y" type="common">
+				<field name="results" label="处理结果" type="memo" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="handleDate" label="完成时间" type="datetime" readOnly="N"  required="Y" maxLength="20" defValue="datetime()" options="" listKey=""/>
+				<field name="handlePeople" label="处理人" type="text" readOnly="N"  required="Y" maxLength="20" defValue="username()" options="" listKey=""/>
+			</group>
+			<group id="6" name="系统信息" display="N" type="common">
+			    <field name="workTaskNum" label="任务编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":workTaskNum" options="" listKey="" rule=""/>
+			    <field name="serialNumber" label="流水号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":serialNumber" options="" listKey="" rule=""/>
+<!-- 			    <field name="pid" label="父记录ID" type="system" readOnly="N"  required="N" maxLength="20" defValue=":pid" options="" listKey="" rule=""/>
+ --> 			</group>
+		</page>
+	</form>
+</axf>

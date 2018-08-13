@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="abc_max_action_buttons">2</integer>
+    <integer name="config_slideAnimTime">300</integer>
+
+    <!-- 自定义页面使用 -->
+    <integer name="label_ems">4</integer>
+    
+</resources>

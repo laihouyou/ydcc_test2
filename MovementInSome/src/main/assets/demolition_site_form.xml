@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="demolition_site" name="拆迁工地上报" table="INS_SITE_REPORTING" submitTo="loopback" page="one">
+	   	<params>
+			<param name="pid" type="c" required="Y" defValue="" io="i"/>
+			<param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+			<param name="sections" field="" type="c" required="Y" defValue="" io="i"></param>	
+			<param name="sectionsNum" field="" type="c" required="Y" defValue="" io="i"></param>
+		</params>
+<!-- 		<rules>
+		    <rule id="mpafac">
+		        <do filed="bs_14" value="LayerName"/>
+		        <do filed="bs_15" value="EID,GID,唯一图形编"/>
+		        <do filed="bs_16" value="MATERIAL,材料"/>
+		    </rule>
+		</rules> -->
+	
+		<page id="1" name="工地信息">
+		    <group id="1" name="工地信息" display="Y" type="common">
+		        <field name="constructionNum" label="工地编号" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		        <field name="projectName" label="项目名称" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		    	<field name="constructionAddr" label="地点" type="text" readOnly="N" required="Y" maxLength="20" defValue="addr()" options="" listKey="" rule=""/>
+		        <field name="dangerLevel" label="危险级别" type="choice" readOnly="N" required="N" maxLength="20" defValue="低" options="高|中|低" listKey="" rule=""/>
+		        <field name="prjStartDate" label="起始日期" type="date" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="prjEndDate" label="终止日期" type="date" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			</group>
+			<group id="2" name="拆迁单位信息" display="Y" type="common">
+			    <field name="prjBuildUnit" label="单位名称" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="prjBuildLeader" label="负责人" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="prjBuildPhone" label="电话" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			</group>		
+			<group id="5" name="工地现场信息" display="Y" type="attach">
+			    <field name="prjBound" label="工地范围" type="maptext" readOnly="Y"  required="Y" maxLength="20" defValue="mapcoordbound()" options="" listKey="" rule=""/> 
+			    <field name="camera" label="现场照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule="attach"/>	
+			</group>	
+			<group id="6" name="系统信息" display="N" type="common">
+			    <field name="reportedCoordinate" label="上报坐标" type="maptext" readOnly="N"  required="Y" maxLength="20" defValue="mapcoord()" options="" listKey="" rule=""/>
+			    <field name="serialNumber" label="serialNumber" type="system" readOnly="N"  required="N" maxLength="20" defValue=":serialNumber" options="" listKey="" rule=""/>
+			    <field name="pid" label="pid" type="system" readOnly="N"  required="N" maxLength="20" defValue=":pid" options="" listKey="" rule=""/>
+			    <field name="projectType" label="projectType" type="system" readOnly="N"  required="N" maxLength="20" defValue="2" options="" listKey="" rule=""/>
+			    <field name="sectionsNum" label="路段编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":sectionsNum" options="" listKey="" rule=""/>
+			</group>
+ 			<group id="7" name="备注" display="Y" type="common">
+			    <field name="remarks" label="备注" type="memo" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>
+		</page>
+	</form>
+</axf>

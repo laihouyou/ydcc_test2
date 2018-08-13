@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/black_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout style="@style/myPhoneLayoutTitleType" >
+
+        <Button
+            android:id="@+id/showBtBack"
+             style="@style/myPhoneButtonBack"/>
+
+        <TextView
+            style="@style/myPhoneTvTitle"
+            android:text="照片预览" />
+
+        <Button
+            android:id="@+id/showBtDel"
+            android:layout_width="60dip"
+            android:layout_height="32dip"
+            android:background="@drawable/btn_icon"
+            android:text="删除"
+            android:textColor="#ddffffff" />
+    </LinearLayout>
+
+    <ImageSwitcher
+        android:id="@+id/showImageSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.25" >
+    </ImageSwitcher>
+
+    <LinearLayout
+        style="@style/myPhoneLayoutType"
+        android:visibility="gone"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip" >
+
+        <TextView
+            style="@style/myPhoneTvType"
+            android:text="图片名称"
+            android:textColor="#333333" >
+        </TextView>
+
+        <TextView
+            android:id="@+id/showTvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_bg"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dip"
+            android:textColor="#333333"/>
+    </LinearLayout>
+
+    <Gallery
+        android:id="@+id/showPictureGly"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.7"
+        android:spacing="16dp" />
+
+</LinearLayout>

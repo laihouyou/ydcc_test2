@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_55">
+
+    <ImageView
+        android:id="@+id/fac_im"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/valve_gray"
+        android:layout_above="@+id/centerTv"
+        android:layout_centerHorizontal="true"
+        />
+    
+    <TextView
+        android:id="@+id/centerTv"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_3"
+        android:layout_centerInParent="true"
+        />
+
+    <TextView
+        android:id="@+id/fac_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="消防栓"
+        android:textSize="@dimen/sp_10"
+        android:layout_below="@+id/centerTv"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="@dimen/dp_31"
+        android:layout_height="@dimen/dp_1"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        />
+
+</RelativeLayout>

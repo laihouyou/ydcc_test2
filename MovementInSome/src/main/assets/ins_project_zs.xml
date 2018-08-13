@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="BAS_T_PROJECT_ZS" name="工程信息单"  table="BAS_T_PROJECT_ZS" submitTo="loopback" page="one">
+	   	<params>
+			
+		</params>
+		 <rules>
+		    <rule id="mapfac">
+		        
+		    </rule>
+		</rules>
+
+		<page id="1" name="">
+			<group id="1" name="基本信息" display="Y" type="common">
+				<field name="workTaskNum" label="任务编号" type="text" readOnly="N" required="N" maxLength="20" defValue=":taskNum" options="" listKey=""/>
+				<field name="prjName" label="工程项目" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="修爆管|装拆表组|维修|装拆消防栓" listKey=""/>
+				<field name="facSpec" label="规格" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="materialNumber" label="数量" type="number" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="workTime" label="申请工数" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>
+			
+			<group id="2" name="系统信息" display="N" type="common">
+				<!-- <field name="facType" label="类型(材质)" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="checkWorkTime" label="审核工数" type="number" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="remarks" label="审核备注" type="number" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/> -->
+			    <field name="prjId" label="prjId" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":prjId" options="" listKey="" rule=""/>
+			    <field name="twoId" label="twoId" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":twoId" options="" listKey="" rule=""/>
+			 </group>	
+			
+		</page>
+	</form>
+</axf>

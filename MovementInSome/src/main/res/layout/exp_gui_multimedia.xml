@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+     <!-- 底部按钮以及 编辑框-->
+    <RelativeLayout
+        android:id="@+id/multimedia_rl_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/tob_title_bg"
+        android:paddingTop="3dip"
+        android:paddingBottom="3dip">
+
+        <ImageView
+            android:id="@+id/multimedia_play_voic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:src="@drawable/chatting_setmode_msg_btn" />
+        <TextView
+            android:id="@+id/multimedia_rcd_voic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_toRightOf="@+id/multimedia_play_voic"
+            android:background="@drawable/chat_send_btn"
+            android:gravity="center"
+            android:text="按住说话" />
+    </RelativeLayout>
+
+</RelativeLayout>

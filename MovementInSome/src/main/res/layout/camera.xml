@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        style="@style/myPhoneLayoutTitleType"  >
+
+        <ImageView
+            android:id="@+id/cImageExit"
+             style="@style/myPhoneButtonBack" />
+
+        <TextView
+            style="@style/myPhoneTvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="拍      照"
+            android:textColor="#ffffff"
+            android:textSize="18dip" />
+
+        <Button
+            android:id="@+id/cbtnSetParameter"
+            android:layout_width="wrap_content"
+            android:layout_height="30dip"
+            android:background="@drawable/btn_bg"
+            android:text="设    置"
+            android:textColor="#ddffffff"
+            android:textSize="16dip" />
+    </LinearLayout>
+
+    <SurfaceView
+        android:id="@+id/cameraSurfaceview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fg_bg"
+        android:gravity="center_vertical"
+        android:padding="5dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="4"
+            android:gravity="center_vertical"
+            android:text="照片名称"
+            android:textColor="#333333"
+            android:textSize="14dip" />
+
+        <TextView
+            android:id="@+id/cTvImagePath"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_bg"
+            android:gravity="center_vertical"
+            android:paddingBottom="5dip"
+            android:paddingLeft="10dip"
+            android:paddingTop="5dip"
+            android:textColor="#4f4f4f"
+            android:textSize="12dip" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fg_bg"
+        android:gravity="center"
+        android:padding="10dip" >
+
+        <Button
+            android:id="@+id/cbtnTaskPicture"
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_next_bg"
+            android:text="拍    照"
+            android:textColor="#ddffffff"
+            android:textSize="16dip" />
+
+        <Button
+            android:id="@+id/cbtnSave"
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_next_bg"
+            android:text="保    存"
+            android:textColor="#ddffffff"
+            android:textSize="16dip"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</LinearLayout>

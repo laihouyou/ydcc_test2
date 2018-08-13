@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/bg_gv"
+            android:gravity="center_vertical" 
+            android:orientation="vertical">
+            
+            <Button 
+                android:id="@+id/add_button2"
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/spinner_bg"
+                android:text="基站选择"/>
+
+            <Spinner
+                android:visibility="gone"
+                android:id="@+id/scada_editor_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/linearLayout1"
+            android:layout_marginLeft="4dip"
+            android:layout_marginTop="3dip"
+            android:text="报警配置"
+            android:textColor="#000000"
+            android:textSize="22dp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView1"
+            android:layout_marginTop="5dip"
+            android:background="#E3E3E3"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/linearLayout2"
+            android:layout_marginLeft="4dip"
+            android:layout_marginTop="4dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="85dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="报警方案"
+                    android:textColor="#000000" />
+
+                <EditText
+                    android:id="@+id/edName2"
+                    android:layout_width="220dip"
+                    android:layout_height="35dip"
+                    android:textSize="14dip"
+                    android:background="@drawable/input_bg"
+                    android:gravity="center_vertical" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="85dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="数据类型"
+                    android:textColor="#000000" />
+
+                <Spinner
+                    android:id="@+id/scada_editor_sslx_spinner"
+                    android:layout_width="220dip"
+                    android:layout_height="40dip"
+                    android:gravity="center_vertical" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="85dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="传感器类型"
+                    android:textColor="#000000" />
+
+                <Spinner
+                    android:id="@+id/scada_editor_cgqlx_spinner"
+                    android:layout_width="220dip"
+                    android:layout_height="40dip"
+                    android:gravity="center_vertical" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/linearLayout4"
+            android:layout_below="@+id/linearLayout4"
+            android:layout_marginTop="8dp"
+            android:text="报警类型"
+            android:textColor="#000000"
+            android:textSize="22dp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/textView2"
+            android:layout_marginTop="5dp"
+            android:background="#E3E3E3"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/linearLayout3"
+            android:layout_marginLeft="4dip"
+            android:layout_marginTop="4dp"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="90dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="限值报警"
+                    android:textSize="19dp"
+                    android:textColor="#000000" />
+
+                <Spinner
+                    android:visibility="gone"
+                    android:id="@+id/scada_editor_bjlx_spinner"
+                    android:layout_width="220dip"
+                    android:layout_height="40dip"
+                    android:gravity="center_vertical" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <TextView
+                    android:layout_width="85dip"
+                    android:layout_height="40dip"
+                    android:gravity="center"
+                    android:text="低限"
+                    android:textColor="#000000" />
+
+                <EditText
+                    android:id="@+id/ed_bj_dixian"
+                    android:layout_width="120dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:hint="0.000"
+                    android:inputType="numberDecimal"
+                    android:gravity="center"
+                    android:background="@drawable/input_bg" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dip" >
+
+                <TextView
+                    android:layout_width="85dip"
+                    android:layout_height="40dip"
+                    android:gravity="center"
+                    android:text="高限"
+                    android:textColor="#000000" />
+
+                <EditText
+                    android:id="@+id/ed_bj_gaoxian"
+                    android:layout_width="120dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:hint="0.000"
+                    android:inputType="numberDecimal"
+                    android:gravity="center"
+                    android:background="@drawable/input_bg" />
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_width="10dip"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF" >
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

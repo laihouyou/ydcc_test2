@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.esri.android.map.MapView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/arcMapView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" 
+         android:clickable="true">
+    </com.esri.android.map.MapView>
+    
+    <!--  com.baidu.lbsapi.panoramaview.PanoramaView
+        android:id="@+id/panorama"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_weight="1.0"
+        android:background="#00000000"
+        android:clickable="true" /-->
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="bottom" >
+
+        <RelativeLayout
+            android:id="@+id/zoomContainer"
+            android:layout_width="fill_parent"
+            android:layout_height="100.0dip"
+            android:layout_above="@+id/footerView"
+            android:layout_alignParentRight="true"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_marginBottom="@dimen/bottom_bar_margin"
+            android:layout_marginRight="4.5dip"
+            android:gravity="bottom" >
+
+            <ImageButton
+                android:id="@+id/zoominBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/zoomin_btn"
+                android:contentDescription="放大" />
+
+            <ImageButton
+                android:id="@+id/zoomoutBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/zoominBtn"
+                android:background="@drawable/zoomout_btn"
+                android:contentDescription="缩小" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:id="@+id/scale_container"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/footerView"
+            android:layout_marginBottom="@dimen/bottom_bar_margin" >
+
+            <RelativeLayout
+                android:id="@+id/topview_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="4.5dip"
+                android:layout_marginTop="4.5dip" >
+
+                <ImageButton
+                    android:id="@+id/locateBtn"
+                    android:layout_width="38.0dip"
+                    android:layout_height="38.0dip"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/main_map_button_bg"
+                    android:contentDescription="位置"
+                    android:gravity="center"
+                    android:src="@drawable/ft_loc_normal" />
+
+                <ProgressBar
+                    android:id="@+id/locProgress"
+                    style="@style/LocationProgressStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="32dip"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="48.0dip"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/btnScaleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="#ff000000"
+                    android:textSize="12.0sp" />
+
+                <Button
+                    android:id="@+id/btnScale"
+                    android:layout_width="9.0px"
+                    android:layout_height="9.0px"
+                    android:layout_margin="0.0px"
+                    android:background="@drawable/icon_scale"
+                    android:clickable="false"
+                    android:focusable="false"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/footerView"
+            android:layout_width="fill_parent"
+            android:layout_height="48.0dip"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/main_map_btn_bg"
+            android:gravity="bottom"
+            android:visibility="gone"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/setBtn"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1.0"
+                android:background="@drawable/main_map_btn_bg_item"
+                android:drawableTop="@drawable/main_map_icon_set"
+                android:text="功能面板"
+                android:textColor="@color/main_map_bottom_normal"
+                android:textSize="10.0dip"
+                android:visibility="gone" />
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/topContainer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/header_container"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mapLinearDraw"
+            android:layout_width="200dip"
+            android:layout_height="45dip"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/btn_next_bg"
+            android:gravity="center_vertical"
+            android:visibility="gone" >
+
+            <Button
+                android:id="@+id/drawMapbtnAgainDraw"
+                android:layout_width="wrap_content"
+                android:layout_height="40dip"
+                android:layout_weight="1.0"
+                android:background="#00000000"
+                android:text=" 重绘 "
+                android:textColor="#ddffffff" />
+
+            <Button
+                android:id="@+id/drawMapbtnRecall"
+                android:layout_width="wrap_content"
+                android:layout_height="40dip"
+                android:layout_weight="1.0"
+                android:background="#00000000"
+                android:text=" 撤消 "
+                android:textColor="#ddffffff" />
+
+            <Button
+                android:id="@+id/drawMapbtnConfirm"
+                android:layout_width="wrap_content"
+                android:layout_height="40dip"
+                android:layout_weight="1.0"
+                android:background="#00000000"
+                android:text=" 确定 "
+                android:textColor="#ddffffff" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/mapLinearPipeBro"
+            android:layout_width="200dip"
+            android:layout_height="45dip"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/btn_next_bg"
+            android:gravity="center_vertical"
+            android:visibility="gone" >
+            <Button
+                android:id="@+id/pipeBroMapClear"
+                android:layout_width="wrap_content"
+                android:layout_height="40dip"
+                android:layout_weight="1.0"
+                android:background="#00000000"
+                android:text=" 清除 "
+                android:textColor="#ddffffff" />
+
+            <Button
+                android:id="@+id/pipeBroMapConfirm"
+                android:layout_width="wrap_content"
+                android:layout_height="40dip"
+                android:layout_weight="1.0"
+                android:background="#00000000"
+                android:text=" 确定 "
+                android:textColor="#ddffffff" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/map_search_layout"
+            android:layout_width="match_parent"
+            android:layout_height="60dip"
+            android:gravity="center_vertical"
+            android:padding="5dip"
+            android:visibility="visible" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:background="@drawable/layout_down"
+                android:visibility="visible" >
+                <ImageView 
+                    android:id="@+id/map_search_img"
+                    android:layout_width="22dip"
+                	android:layout_height="22dip"
+                	android:layout_marginLeft="12dip"
+                	android:background="@drawable/magnifying"
+                	/>
+                <TextView 
+                    android:id="@+id/map_search_text"
+                    android:layout_width="match_parent"
+                	android:layout_height="wrap_content"
+                	android:layout_toLeftOf="@+id/map_search_divide"
+                	android:layout_toRightOf="@+id/map_search_img"
+                	android:layout_marginLeft="7dip"
+                	android:text="搜编号、地址、口径..."
+                	android:textSize="16sp"
+                	android:textColor="#BC8F8F"
+                	android:gravity="center_vertical"/>
+                <LinearLayout 
+                    android:id="@+id/map_search_divide"
+                    android:layout_toLeftOf="@+id/map_search_voice_img"
+                    android:visibility="gone"
+                    android:layout_width="1px"
+                	android:layout_height="25dip"
+                	android:orientation="vertical"
+                	android:background="#B3B3B3">
+                </LinearLayout>
+                <ImageView 
+                    android:id="@+id/map_search_voice_img"
+                    android:layout_width="14dip"
+                	android:layout_height="22dip"
+                	android:visibility="gone"
+                	android:layout_alignParentRight="true"
+                	android:layout_marginRight="14dip"
+                	android:layout_marginLeft="14dip"
+                	android:background="@drawable/icon_voice"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/notifyView"
+            android:layout_width="fill_parent"
+            android:layout_height="45.0dip"
+            android:layout_below="@+id/header_container"
+            android:background="#cc4c4c4c"
+            android:paddingLeft="@dimen/component_edge_margin"
+            android:visibility="gone" >
+
+            <TextView
+                android:id="@+id/notifyTV"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/naviButton"
+                android:padding="5.0dip"
+                android:text="TipString"
+                android:textColor="#ffffffff"
+                android:textSize="@dimen/text_size_small" />
+
+            <Button
+                android:id="@+id/naviButton"
+                android:layout_width="78.0dip"
+                android:layout_height="fill_parent"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/map_btn_navi"
+                android:text="导航"
+                android:textColor="#ffffffff"
+                android:textSize="14.0dip"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/main_map_map_area_icon_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/notifyView"
+            android:layout_marginRight="4.5dip"
+            android:layout_marginTop="60dip"
+            android:orientation="vertical" >
+
+            <ImageButton
+                android:id="@+id/layerButton"
+                android:layout_width="38.0dip"
+                android:layout_height="38.0dip"
+                android:background="@drawable/main_map_button_bg"
+                android:contentDescription="图层控制按钮"
+                android:src="@drawable/map_icon_layer"
+                android:visibility="visible" />
+
+            <ImageButton
+                android:id="@+id/clearButton"
+                android:layout_width="38.0dip"
+                android:layout_height="38.0dip"
+                android:background="@drawable/main_map_button_bg"
+                android:contentDescription="清除搜索结果"
+                android:src="@drawable/map_icon_clearlayer"
+                android:visibility="visible" />
+
+            <ImageButton
+                android:id="@+id/streetButton"
+                android:layout_width="38.0dip"
+                android:layout_height="38.0dip"
+                android:background="@drawable/main_map_button_bg"
+                android:contentDescription="全景"
+                android:src="@drawable/main_map_icon_streetscape"
+                android:visibility="gone" />
+            <ImageButton
+                android:id="@+id/memuButton"
+                android:layout_width="38.0dip"
+                android:layout_height="38.0dip"
+                android:background="@drawable/main_map_button_bg"
+                android:contentDescription="菜单"
+                android:src="@drawable/main_map_icon_menus"
+                android:visibility="visible" />
+            
+            <ImageButton
+                android:id="@+id/mianjButton"
+                android:layout_width="38.0dip"
+                android:layout_height="38.0dip"
+                android:background="@drawable/main_map_button_bg"
+                android:contentDescription="面积"
+                android:src="@drawable/main_map_icon_dbpoint"
+                android:visibility="gone" />
+            
+            <ImageButton
+                android:id="@+id/regionButton"
+                android:layout_width="38.0dip"
+                android:layout_height="38.0dip"
+                android:background="@drawable/main_map_button_bg"
+                android:contentDescription="框选"
+                android:src="@drawable/main_map_icon_region"
+                android:visibility="gone" />
+            
+            <ImageButton
+                android:id="@+id/pointButton"
+                android:layout_width="38.0dip"
+                android:layout_height="38.0dip"
+                android:background="@drawable/main_map_button_bg"
+                android:contentDescription="点选"
+                android:src="@drawable/main_map_icon_poind"
+                android:visibility="visible" />
+            
+            <ImageButton
+                android:id="@+id/valueButton"
+                android:layout_width="38.0dip"
+                android:layout_height="38.0dip"
+                android:background="@drawable/main_map_button_bg"
+                android:contentDescription="阀门"
+                android:src="@drawable/main_map_icon_poind2"
+                android:visibility="visible" />
+            
+            <ImageButton
+                android:id="@+id/selectButton"
+                android:layout_width="38.0dip"
+                android:layout_height="38.0dip"
+                android:background="@drawable/main_map_button_bg"
+                android:contentDescription="查询管线"
+                android:src="@drawable/main_map_icon_select"
+                android:visibility="gone" />
+            
+            <ImageButton
+                android:id="@+id/selectButton2"
+                android:layout_width="38.0dip"
+                android:layout_height="38.0dip"
+                android:background="@drawable/main_map_button_bg"
+                android:contentDescription="查询阀门"
+                android:src="@drawable/main_map_icon_select"
+                android:visibility="gone" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

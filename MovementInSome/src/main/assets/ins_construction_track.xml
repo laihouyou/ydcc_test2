@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+    <form id="construction_track" name="工地跟踪记录单"  table="INS_CONSTRUCTION_MONITORING" submitTo="loopback" page="one">
+         <params>
+            <param name="serialNumber" field="" type="c" required="Y" defValue="" io="i"></param>
+ 			<param name="constructionNum" field="" type="c" required="Y" defValue="" io="io"></param>
+ 			<param name="smId" field="" type="c" required="Y" defValue="" io="i"></param>
+        </params>
+        <page id="1" name="工地信息">
+            <group id="1" name="基本信息" display="Y" type="common">
+                <field name="patrolRecord" label="跟踪巡查" type="memo" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+                <field name="reportedPerson" label="记录人" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+                <field name="cmDate" label="记录日期" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+                </group>
+            </page>
+             <group id="7" name="系统信息" display="N" type="common">
+			    <field name="serialNumber" label="serialNumber" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":serialNumber" options="" listKey="" rule=""/>
+			    <field name="constructionNum" label="constructionNum" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":constructionNum" options="" listKey="" rule=""/>
+			    <field name="smId" label="smId" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":smId" options="" listKey="" rule=""/>
+			 </group>
+        </form>
+    </axf>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/black_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout style="@style/myPhoneLayoutTitleType" >
+
+        <ImageView
+            android:id="@+id/searchImageBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back" />
+
+        <TextView
+            style="@style/myPhoneTvTitle"
+            android:paddingRight="10dip"
+            android:text="地址查询" />
+
+        <Button
+            android:id="@+id/searchBtnSearch"
+            style="@style/myPhoneButtonSmall"
+            android:text="查询" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/myPhoneLayoutPType" >
+
+        <LinearLayout style="@style/myPhoneLayoutBgTypeFG" >
+
+            <AutoCompleteTextView
+                android:id="@+id/searchEtAdders"
+                style="@style/myPhoneEtType"
+                android:ems="10"
+                android:hint="请输入你要查询的地址……" >
+            </AutoCompleteTextView>
+
+            <ExpandableListView
+                android:id="@+id/searchExListView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="#00000000"
+                android:drawSelectorOnTop="true"
+                android:paddingTop="10dip" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

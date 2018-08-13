@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tlcPlinear"
+    android:background="#f5f3f3"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <!-- 任务列表中心 TaskListCentre (tlc(*)(*)) -->
+
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="#398fdc" >
+
+        <TextView
+            android:id="@+id/tlcTvtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="我的工作"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:layout_alignBaseline="@+id/tlcYWLX"
+            android:layout_alignBottom="@+id/tlcYWLX"
+            android:layout_alignRight="@+id/tlcYWLX" />
+
+        <Button
+            android:id="@+id/tlcYWLX"
+            style="@style/myPhoneButtonSmall"
+            android:layout_width="70dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="业务类型" />
+
+        <Button
+            android:id="@+id/tlcSelectTask"
+            style="@style/myPhoneButtonSmall"
+            android:layout_width="70dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="选择" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/tclLL_YW"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/wx_green_bg"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/tclTv_JH"
+            android:layout_width="60dip"
+            android:layout_weight="1.0"
+            android:layout_height="45dip"
+            android:textColor="#3f63ce"
+            android:background="@drawable/tv_green_bg"
+            android:gravity="center"
+            android:text="计划性"
+            android:textSize="16dip" />
+
+        <TextView
+            android:id="@+id/tclTv_YJ"
+            android:layout_weight="1.0"
+            android:layout_width="45dip"
+            android:layout_height="45dip"
+            android:textColor="#737373"
+            android:gravity="center"
+            android:text="应急"
+            android:textSize="16dip" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/tclLL_YW_YH"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/wx_green_bg"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/tclTv_NDL_YH"
+            android:layout_width="60dip"
+            android:layout_height="45dip"
+            android:textColor="#3f63ce"
+            android:layout_weight="1.0"
+            android:background="@drawable/tv_green_bg"
+            android:gravity="center"
+            android:text="未下载"
+            android:textSize="16dip" />
+        
+         <TextView
+            android:id="@+id/tclTv_YDL_YH"
+            android:layout_width="80dip"
+            android:layout_height="45dip"
+            android:textColor="#737373"
+            android:layout_weight="1.0"
+            android:background="@drawable/tv_green_bg"
+            android:gravity="center"
+            android:text="任务列表"
+            android:textSize="16dip" />
+         
+        <TextView
+            android:id="@+id/tclTv_JH_YH"
+            android:layout_width="60dip"
+            android:layout_height="45dip"
+            android:textColor="#3f63ce"
+            android:layout_weight="1.0"
+            android:background="@drawable/tv_green_bg"
+            android:gravity="center"
+            android:text="计划性"
+            android:textSize="16dip"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tclTv_YJ_YH"
+            android:layout_width="45dip"
+            android:layout_height="45dip"
+            android:textColor="#737373"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="应急"
+            android:textSize="16dip"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tclLL_YW_WS"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/wx_green_bg"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/tclTv_GWXC_WS"
+            android:layout_width="70dip"
+            android:layout_height="45dip"
+            android:textColor="#3f63ce"
+            android:layout_weight="1.0"
+            android:background="@drawable/tv_green_bg"
+            android:gravity="center"
+            android:text="管网巡查"
+            android:textSize="16dip" />
+
+        <TextView
+            android:id="@+id/tclTv_CQ_WS"
+            android:layout_width="70dip"
+            android:layout_height="45dip"
+            android:textColor="#737373"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="超期任务"
+            android:textSize="16dip" />
+
+        <TextView
+            android:id="@+id/tclTv_WX_WS"
+            android:layout_width="45dip"
+            android:layout_height="45dip"
+            android:textColor="#737373"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="维修"
+            android:textSize="16dip" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tclLL_XJGL"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/wx_green_bg"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/tclTv_XJGL_JH"
+            android:layout_width="60dip"
+            android:layout_height="45dip"
+            android:layout_weight="1.0"
+            android:textColor="#3f63ce"
+            android:background="@drawable/tv_green_bg"
+            android:gravity="center"
+            android:text="计划性"
+            android:textSize="16dip" />
+
+        <TextView
+            android:id="@+id/tclTv_XJGL_LSX"
+            android:layout_width="60dip"
+            android:layout_height="45dip"
+            android:textColor="#737373"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="临时性"
+            android:textSize="16dip" />
+
+        <TextView
+            android:id="@+id/tclTv_XJGL_YJ"
+            android:layout_width="45dip"
+            android:layout_height="45dip"
+            android:textColor="#737373"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="应急"
+            android:textSize="16dip" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tclLL_WBGL"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/wx_green_bg"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/tclTv_WBGL_JHX"
+            android:layout_width="70dip"
+            android:layout_height="45dip"
+            android:textColor="#3f63ce"
+            android:layout_weight="1.0"
+            android:background="@drawable/tv_green_bg"
+            android:gravity="center"
+            android:text="计划性"
+            android:textSize="16dip" />
+
+        <TextView
+            android:id="@+id/tclTv_WBGL_XCWB"
+            android:layout_width="90dip"
+            android:layout_height="45dip"
+            android:textColor="#737373"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="应急"
+            android:textSize="16dip" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tclLL_WXGL"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/wx_green_bg"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/tclTv_WXGL_JHXWX"
+            android:layout_width="110dip"
+            android:layout_height="45dip"
+            android:textColor="#3f63ce"
+            android:layout_weight="1.0"
+            android:background="@drawable/tv_green_bg"
+            android:gravity="center"
+            android:text="计划性维修"
+            android:textSize="16dip" />
+
+        <TextView
+            android:id="@+id/tclTv_WXGL_XCQX"
+            android:layout_width="90dip"
+            android:layout_height="45dip"
+            android:textColor="#737373"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="现场抢修"
+            android:textSize="16dip" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/tclLL_HMGL"
+        android:layout_width="fill_parent"
+        android:layout_height="45dip"
+        android:background="@drawable/wx_green_bg"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/tclTv_HMGL_JHXWX"
+            android:layout_width="110dip"
+            android:layout_height="45dip"
+            android:textColor="#3f63ce"
+            android:layout_weight="1.0"
+            android:background="@drawable/tv_green_bg"
+            android:gravity="center"
+            android:text="计划性维修"
+            android:textSize="16dip" />
+
+        <TextView
+            android:id="@+id/tclTv_HMGL_XCQX"
+            android:layout_width="90dip"
+            android:layout_height="45dip"
+            android:textColor="#737373"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="现场抢修"
+            android:textSize="16dip" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/tlcListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="#00000000"
+        android:divider="#00000000"
+        android:dividerHeight="10dip"
+        android:paddingTop="8dip" >
+    </ListView>
+
+    <ExpandableListView
+        android:id="@+id/tlcExListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="#00000000"
+        android:drawSelectorOnTop="true"
+        android:listSelector="#00000000"
+        android:paddingTop="2dip" />
+
+</LinearLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dip"
+    android:layout_height="wrap_content"
+    android:background="@drawable/map_layer_background"
+    android:orientation="vertical" >
+	<TextView 
+	    android:layout_width="150dip"
+    	android:layout_height="wrap_content"
+    	android:gravity="center"
+    	android:textColor="@color/white"
+    	android:background="@color/blue"
+    	android:text="书签管理"/>
+	<TextView 
+	    android:id="@+id/map_mark_msg"
+	    android:layout_width="150dip"
+    	android:layout_height="100dip"
+    	android:gravity="center"
+    	android:text="请点击添加"/>
+     <ListView 
+		android:id="@+id/map_mark_list"
+		android:layout_width="150dip"
+		android:visibility="gone"
+		android:layout_height="wrap_content">
+      </ListView>
+      <TextView 
+        android:id="@+id/map_mark_add"
+	    android:layout_width="150dip"
+    	android:layout_height="wrap_content"
+    	android:gravity="center"
+    	android:textColor="@color/white"
+    	android:background="@color/blue"
+    	android:text="添加"/>
+            
+</LinearLayout>

@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/show_patrol_data_rl"
+    style="@style/black_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="10dip" >
+
+    <RelativeLayout
+        android:id="@+id/show_task_title"
+        style="@style/myPhoneLayoutTitleType"
+        android:layout_alignParentTop="true"
+        android:visibility="visible" >
+
+        <ImageButton
+            android:id="@+id/show_patrol_data_back"
+            android:layout_width="28dip"
+            android:layout_height="20dip"
+            android:layout_centerVertical="true"
+            android:background="@drawable/back_icon" />
+
+        <TextView
+            android:id="@+id/show_task_ex_title"
+            style="@style/myPhoneTvTitle"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="巡检信息" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/data_model"
+                style="@style/myPhoneButtonSmall"
+                android:layout_width="50dip"
+                android:text="地图" />
+
+            <Button
+                android:id="@+id/show_patrol_data_write"
+                style="@style/myPhoneButtonSmall"
+                android:layout_width="50dip"
+                android:text="上报" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/show_qdd_msg_rl"
+        android:layout_below="@+id/show_task_title"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/show_work_message_ly"
+            style="@style/myPhoneLayoutType"
+            android:background="#f5f5f5" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dip"
+                android:layout_marginTop="2dip"
+                android:layout_marginLeft="5dip"
+                android:layout_marginRight="5dip"
+                android:background="@drawable/xj_frame"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/show_work_message"
+                    style="@style/myPhoneTvType"
+                    android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="15dip"
+                    android:layout_marginTop="10dip"
+                    android:text="温情提示：xxxxxxxxxxx"
+                    android:textColor="#6b3612"
+                    android:textSize="16dip" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dip"
+                    android:layout_marginLeft="15dip"
+                    android:orientation="horizontal" >
+
+                    <TextView
+                        android:id="@+id/show_work_content"
+                        style="@style/myPhoneTvType"
+                        android:layout_width="match_parent"
+                        android:text="XXX路段1：" />
+                </LinearLayout>
+
+                 <LinearLayout
+                     android:id="@+id/show_work_pause_ll"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentRight="true"
+                     android:layout_centerVertical="true"
+                     android:gravity="center_horizontal"
+                     android:layout_marginRight="5dip"
+                     android:orientation="vertical"
+                     android:visibility="gone" >
+
+                     <TextView
+                         android:id="@+id/show_work_pause_tv"
+                         style="@style/myPhoneTvType"
+                         android:ems="8"
+                         android:visibility="gone"
+                         android:text="点击暂停巡检：" />
+
+                     <Button
+                         android:id="@+id/show_work_pause"
+                         style="@style/myPhoneButtonSmall"
+                         android:layout_width="28dip"
+                         android:layout_height="28dip"
+                         android:background="@drawable/xj_pause" />
+                     
+                     <TextView 
+                         android:id="@+id/show_tv_pause"
+                         android:layout_width="50dip"
+                         android:layout_height="wrap_content"
+                         android:gravity="center_horizontal"
+                         android:textColor="#6b3612"
+                         android:text="暂停"/>
+                 </LinearLayout>
+
+                 <LinearLayout
+                     android:id="@+id/show_work_pause_ll_lyx"
+                     android:orientation="vertical"
+                     android:visibility="gone"
+                     android:layout_width="1dip"
+                     android:layout_height="45dip"
+                     android:layout_alignTop="@+id/show_work_pause_ll"
+                     android:layout_toLeftOf="@+id/show_work_pause_ll"
+                     android:background="#d5ccb9" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/patrolListModel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f5f5f5"
+            android:layout_weight="1.0"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/xj_type"
+                android:layout_marginLeft="8dip"
+                android:layout_marginRight="8dip"
+                android:orientation="horizontal" >
+                 
+                <TextView
+                    android:id="@+id/show_dx_title"
+                    android:layout_width="70dip"
+                    android:layout_height="40dip"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:text="待巡列表"
+                    android:visibility="gone"
+                    android:textColor="#3a5fcd"
+                    android:textSize="14dip" />
+
+                <TextView
+                    android:id="@+id/show_wx_title"
+                    android:layout_width="70dip"
+                    android:layout_height="40dip"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/tv_green_bg"
+                    android:gravity="center"
+                    android:text="未巡列表"
+                    android:textColor="#3a5fcd"
+                    android:textSize="14dip" />
+
+                <TextView
+                    android:id="@+id/show_yx_title"
+                    android:layout_width="70dip"
+                    android:layout_height="40dip"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:text="已巡列表"
+                    android:textColor="#737373"
+                    android:textSize="14dip" />
+                <TextView
+                    android:id="@+id/show_qdd_title"
+                    android:layout_width="70dip"
+                    android:layout_height="40dip"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:text="签到点列表"
+                    android:textColor="#737373"
+                    android:textSize="14dip" />
+                <TextView
+                    android:id="@+id/show_nearby_title"
+                    android:layout_width="70dip"
+                    android:layout_height="40dip"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:text="附近待巡列表"
+                    android:visibility="gone"
+                    android:textColor="#737373"
+                    android:textSize="14dip" />
+                 <TextView
+                    android:id="@+id/show_search_title"
+                    android:layout_width="70dip"
+                    android:layout_height="40dip"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:text="搜索"
+                    android:visibility="gone"
+                    android:textColor="#737373"
+                    android:textSize="14dip" />
+            </LinearLayout>
+
+			<LinearLayout
+			    android:id="@+id/show_search_ll"
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:visibility="gone"
+			    android:paddingLeft="10dp" >
+
+			    <EditText
+			        android:id="@+id/show_search_num"
+			        style="@style/myPhoneEtType"
+			        android:layout_weight="1"
+			        android:hint="请输入设施编号" />
+
+			    <Button
+			        android:id="@+id/show_search_btn"
+			        style="@style/myPhoneButtonSmall"
+			        android:text="搜索" />
+
+			    <Button
+			        android:id="@+id/show_search_code"
+			        style="@style/myPhoneButtonSmall"
+			        android:text="二维码" />
+			</LinearLayout>
+
+            <ListView
+                android:id="@+id/show_patrol_data_wx"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:dividerHeight="0dip"
+                android:divider="#000000"
+                android:layout_weight="1"
+                android:background="#f5f5f5" >
+            </ListView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/patrolMapModel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <com.movementinsome.map.view.MyMapView
+                android:id="@+id/insMapView"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/show_qdd_msg_rl"
+        android:layout_width="match_parent"
+        android:layout_height="70dip"
+        android:layout_alignParentBottom="true"
+        android:background="#d7ded8"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/show_qdd_msg"
+            style="@style/myPhoneTvType"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="58dip"
+            android:text="XXX路段1：" />
+
+        <Button
+            android:id="@+id/show_work_arrive"
+            style="@style/myPhoneButtonSmall"
+            android:layout_width="45dip"
+            android:layout_height="35dip"
+            android:layout_alignRight="@+id/show_qdd_msg"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:textColor="#232323"
+            android:background="@drawable/signin_di"
+            android:text="签到"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/show_work_im"
+            style="@style/myPhoneButtonSmall"
+            android:layout_width="45dip"
+            android:layout_height="35dip"
+            android:layout_alignRight="@+id/show_qdd_msg"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:textColor="#232323"
+            android:text="填单"
+            android:background="@drawable/signin_di"
+            android:visibility="visible" />
+
+        <TextView
+            android:layout_width="25dip"
+            android:layout_height="25dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/smallbell" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

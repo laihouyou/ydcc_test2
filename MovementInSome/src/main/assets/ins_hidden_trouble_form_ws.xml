@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_hidden_trouble" name="故障上报" table="WORK_TASK_ORDER" submitTo="loopback" page="one">
+	   	<params>
+	    <param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+ 			<param name="workTaskNum" type="c" required="Y" defValue="" io="i"></param>
+ 
+			<param name="cfNum" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="cfSource" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="cfAddr" field="" type="c" required="Y" defValue="" io="i"></param>	
+			<param name="sections" field="" type="c" required="Y" defValue="" io="i"></param>	
+			<param name="sectionsNum" field="" type="c" required="Y" defValue="" io="i"></param>
+				
+			<param name="results" field="" type="c" required="Y" defValue="上报其他部门处理" io="o"></param>
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="deviceNum" value="EID,设备编号,GID,业务编码"/>
+		        <do filed="deviceType" value="LayerName"/>
+		        <do filed="deviceDs" value="D_S,口径"/>
+		        <do filed="deviceMaterial" value="MATERIAL,材质"/>
+		        <do filed="coordinate" value="shape"/>
+		    </rule>
+		</rules>
+	
+		<page id="1" name="隐患信息">
+		    <group id="1" name="反映信息" display="Y" type="common">
+		    	<field name="transactionLevels" label="处理级别" type="choice" readOnly="N" required="Y" maxLength="20" defValue="1小时" options="30分钟|1小时|24小时" listKey="武汉+工单+处理级别"/>
+ 		        <field name="reportedCategory" label="反映类别" type="choice" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="武汉+工单+反映类别" id ="10001" cId ="10002"/>
+ 		    	<field name="reportedContent" label="反映内容" type="choice" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="0047" id ="10002" fId="10001" fName ="反映类别"/>
+ 		    	<field name="urgencyLevel" label="紧急程度" type="choice" readOnly="N" required="Y" maxLength="20" defValue="" options="特急|紧急|一般" listKey="武汉+工单+紧急程度"/>
+ 		    	<field name="influenceRemarks" label="上报事故描述" type="memo_check" readOnly="N" required="N" maxLength="20" defValue="" options="消防满水|闸门损害|消防漏水|阑门无盖|水表无盖|消防漏水" listKey=""/>
+			</group>
+			<group id="2" name="地理信息" display="Y" type="attach">
+			    <field name="happenAddr" label="发生地址" type="text" readOnly="N" required="Y" maxLength="20" defValue="addr()" options="" listKey=""/>
+			    <!--zoning(区) 表示不带区字  -->
+			    <field name="manageArea" label="所在区域" type="choice" readOnly="N"  required="Y" maxLength="20" defValue="" options="江岸|武昌|江汉|硚口|汉阳|青山|洪山|东西湖" listKey="武汉+工单+反应地区" rule=""/>
+			    <field name="reportedCoordinate" label="地理位置" type="maptext" readOnly="N"  required="Y" maxLength="20" defValue="mapcoord()" options="" listKey="" rule=""/>
+			    <field name="mapScreenshot" label="地图截图" qty="2" type="mapScreenshot" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			    <field name="camera1" label="现场照片" qty="8" type="camera" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>	
+<!-- 			    <field name="camera2" label="处理后照片" type="camera" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule="attach"/>
+ -->		</group>
+ 			<!-- <group id="3" name="设施信息" display="Y" type="common">
+				<field name="deviceNum" label="设施编号" type="maptext" readOnly="N" required="N" maxLength="20" defValue="mapfac()" options="" listKey="" rule="mapfac"/>
+				<field name="deviceType" label="设施类型" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="deviceDs" label="设施口径" type="number" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="deviceMaterial" label="设施材质" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group> -->
+			<group id="4" name="上报人员" display="Y" type="common">
+			    <field name="happenDate" label="上报时间" type="datetime" readOnly="N"  required="Y" maxLength="20" defValue="datetime()" options="" listKey=""/>
+			    <field name="reportedPerson" label="上报人员" type="text" readOnly="N"  required="Y" maxLength="20" defValue="username()" options="" listKey=""/>
+				<!-- <field name="callPhone" label="呼入电话" type="text" readOnly="N"  required="N" maxLength="20" defValue="userPhone()" options="" listKey=""/> -->
+				<field name="tel" label="联系电话" type="text" readOnly="N"  required="N" maxLength="20" defValue="userPhone()" options="" listKey=""/>
+			</group>
+			<group id="5" name="系统信息" display="N" type="common">
+			    <field name="sources" label="反映来源" type="text" readOnly="N" required="N" maxLength="20" defValue="管网巡维" options="" listKey="武汉+工单+反映来源"/>
+			    <field name="workTaskNum" label="任务编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":workTaskNum" options="" listKey="" rule=""/>
+			    <field name="serialNumber" label="流水号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":serialNumber" options="" listKey="" rule=""/>
+			    <field name="sections" label="所在路段" type="system" readOnly="N"  required="N" maxLength="20" defValue=":sections" options="" listKey="" rule=""/>
+			    <field name="sectionsNum" label="路段编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":sectionsNum" options="" listKey="" rule=""/>
+			    <field name="units" label="部门" type="system" readOnly="N"  required="N" maxLength="20" defValue="userteam()" options="" listKey="" rule=""/>
+ 			</group>
+		</page>
+	</form>
+</axf>

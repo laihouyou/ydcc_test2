@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ES_T_SQUIB_RECORD_INFO" name="维修单"  table="ES_T_SQUIB_RECORD_INFO" submitTo="loopback" page="one">
+	   	<params>
+			<param name="noPresentStr" field="noPresentStr" type="c" required="Y" defValue="" io="i,o"></param>
+		</params>
+		 <rules>
+		    <rule id="mapfac">
+		       <do filed="bfNum" value="OBJECTID,EID,GID,唯一图形编"/>
+		        <do filed="layerName" value="LayerName"/>
+		        <do filed="facilitiesCaliber" value="口径"/>
+		        <do filed="facilitiesMaterial" value="MATERIAL,材料"/>
+		        <do filed="coordinate" value="shape"/>
+		    </rule>
+		</rules>
+
+		<page id="1" name="维修信息">
+			<group id="1" name="维修前" display="Y" type="common">
+			    <field name="happenAddr" label="发生地址" type="text" readOnly="Y"  required="N" maxLength="20" defValue=":happenAddr" options="" listKey=""/>
+			 	<field name="departureDateStr" label="出发时间" type="datetime" readOnly="N"  required="Y" maxLength="20" defValue="datetime()" options="" listKey="" dateId="10007" timeId="10008"/>
+		        <field name="tel" label="联系电话" type="textCallUp" readOnly="N"  required="Y" maxLength="20" defValue=":tel,:callPhone" options="" listKey="" rule="mapfac"/>
+				<field name="linkerDateStr" label="联系到用户时间" type="datetime" readOnly="N"  required="Y" maxLength="20" defValue="datetime()" options="" listKey="" rule=""/>
+				<field name="noPresentStr" label="无需到场/延时到场" type="choice2" readOnly="N" required="N" maxLength="20" defValue="否" options="否|无需到场|延时到场|其他" listKey="无需到场类型" rule=""  id ="10011" cId ="10010" cTextId="10012" mName="无需到场类型" cName="无需到场原因"/>
+			    <field name="noPresentReason" label="无需到场原因" type="memo_check" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule="" id ="10010" fId="10011" textId="10012" fName ="无需到场类型" mName="无需到场原因"/>
+		    	<field name="arriveDateStr" label="到场时间" type="datetime" readOnly="N"  required="Y" maxLength="20" defValue="" options="" listKey="" photographAction="workBeforeAction" dateId="10003" timeId="10004" minorDateId="10007" minorTimeId="10008"/>
+		    	<field name="sceneRemarks" label="现场情况" type="memo_check" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="武汉+工单+现场情况" rule=""/>
+		       	<!--  <field name="srSite" label="事故类型" type="choice" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="武汉+工单+损管部位" rule=""/> -->
+		       	<field name="reportedCategory" label="反映类别" type="choice" readOnly="N" required="Y" maxLength="20" defValue=":reportedCategory" options="" listKey="武汉+工单+反映类别" id ="10001" cId ="10002"/>
+ 		    	<field name="reportedContent" label="反映内容" type="choice" readOnly="N" required="Y" maxLength="20" defValue=":reportedContent" options="" listKey="0047" id ="10002" fId="10001" fName ="反映类别"/>
+		    	<field name="roadType" label="路面种类" type="choice" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="武汉+工单+路面种类" rule=""/>
+		        <field name="camera1" label="施工前照片" type="camera" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule="" minNum="2" photographAction="workBeforeAction"/>	
+		        <field name="map_loc" label="地图定位" type="map_loc" readOnly="N" required="N" maxLength="20" defValue=":mapLocCoordinate" options="" listKey="" rule=""/>
+		        <!-- <field name="roadDLength" label="破路面积长" type="number" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+					 <field name="roadDWidth" label="破路面积宽" type="number" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+					 <field name="roadDHeight" label="破路面积高" type="number" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/> -->
+		    </group>
+		    <group id="2" name="维修中" display="Y" type="common">
+		        <field name="workTime" label="维修时间" type="datetime" readOnly="N"  required="Y" maxLength="20" defValue="" options="" listKey="" photographAction="workingAction" minorDateId="10003" minorTimeId="10004" dateId="10005" timeId="10006"/>
+		        
+		        <field name="sphereInfluence" label="影响范围" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+		    	<field name="srCoor" label="事故点坐标" type="maptext" readOnly="N"  required="Y" maxLength="20" defValue="mapcoord()" options="" listKey="" rule=""/>
+		       	<field name="camera2" label="施工中照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule="" minNum="2" photographAction="workingAction"/>
+		       	<field name="map_loc" label="地图定位" type="map_loc" readOnly="N" required="N" maxLength="20" defValue=":mapLocCoordinate" options="" listKey="" rule=""/>	
+		       	
+		       	<!-- <field name="repairMethods" label="处理措施" type="memo" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/> -->
+		    </group>	
+		    <group id="3" name="维修完成" display="Y" type="common">
+		    	<field name="srReason" label="事故原因" type="choice" readOnly="N"  required="Y" maxLength="20" defValue="" options="" listKey="武汉+工单+事故原因"/>
+		        <field name="repairMethods" label="处理措施" type="choice" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="武汉+工单+修理方式" rule=""/>
+		        <field name="isCloseValveStr" label="是否关阀" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="是|否" listKey="" />
+		    	<field name="applyCloseDate" label="申请关阀时间" type="datetime" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="beginDoDateStr" label="止水时间" type="datetime" readOnly="N" required="Y" maxLength="20" defValue="datetime()" options="" listKey="" rule=""/>
+				<field name="completionTime" label="完工时间" type="datetime" readOnly="N"  required="Y" maxLength="20" defValue="datetime()" options="" listKey="" photographAction="workAfterAction" minorDateId="10005" minorTimeId="10006" />
+		    	<field name="endDoDateStr" label="复水时间" type="datetime" readOnly="N" required="Y" maxLength="20" defValue="datetime()" options="" listKey="" rule=""/>
+		    	<field name="ds" label="口径" type="choice" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="武汉+工单+设施口径"/>
+		    	<field name="material" label="材质" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="武汉+工单+管材" />
+		    	<field name="srBrokenState" label="维修内容" type="choice" readOnly="N"  required="Y" maxLength="20" defValue="" options="" listKey="0032"/>
+		    	<field name="srRemark" label="备注" type="memo" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+		    	<field name="camera3" label="完工照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule="" minNum="2" photographAction="workAfterAction"/>
+		    	<field name="rapporteur" label="维修人员" type="text" readOnly="N"  required="Y" maxLength="20" defValue="username()" options="" listKey=""/>
+		    	<field name="map_loc" label="地图定位" type="map_loc" readOnly="N" required="N" maxLength="20" defValue=":mapLocCoordinate" options="" listKey="" rule=""/>
+		    	<!-- <field name="estimatedRepairCosts" label="抢修估费(元)" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/> -->
+		        <!-- <field name="waterDamage" label="估计水损(m³)" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/> -->
+				<!--  field name="srWater" label="停水类型" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="武汉+工单+停水类型"/-->
+		    </group>
+		    <!-- <group id="5" name="水质检测" display="Y" type="common">
+		        <field name="turbidity" label="浊度值" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="chlorine" label="余氯值" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+		    	<field name="isTwoWaterStr" label="是否二次供水" type="radio" readOnly="N" required="N" maxLength="20" defValue="否" options="是|否" listKey="" rule=""/>
+		    	<field name="map_loc" label="地图定位" type="map_loc" readOnly="N" required="N" maxLength="20" defValue=":mapLocCoordinate" options="" listKey="" rule=""/>
+		    </group>
+		    <group id="6" name="设施信息" display="Y" type="attach">	
+		        <field name="bfNum" label="设施编号" type="maptext" readOnly="N" required="N" maxLength="20" defValue="mapfac()" options="" listKey="" rule="mapfac"/>
+				<field name="layerName" label="设施类型" type="text" readOnly="N"  required="N" maxLength="20" defValue=":deviceType" options="" listKey=""/>
+				<field name="ds" label="设施口径" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="武汉+工单+普通给水管线口径"/>
+				<field name="cenDeep" label="埋深" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="material" label="设施材质" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="武汉+工单+普通给水管线材质"/>
+		        <field name="addr" label="发生地址" type="text" readOnly="N" required="Y" maxLength="20" defValue="addr()" options="" listKey=""/>
+		        <field name="reportedCoordinate" label="地理坐标" type="maptext" readOnly="N"  required="Y" maxLength="20" defValue="mapcoord()" options="" listKey="" rule=""/>
+		        <field name="isAccurateStr" label="图与现实不符" type="radio" readOnly="N"  required="Y" maxLength="20" defValue="否" options="是|否" listKey="" rule=""/>
+		        <field name="facCoordinate" label="新坐标" type="maptext" readOnly="N"  required="Y" maxLength="20" defValue="mapcoord()" options="" listKey="" rule=""/>
+		        <field name="map_loc" label="地图定位" type="map_loc" readOnly="N" required="N" maxLength="20" defValue=":mapLocCoordinate" options="" listKey="" rule=""/>
+			</group> -->
+			<!-- <group id="6" name="材料表" display="Y" type="common">
+				<field name="ES_T_TASK_MATERIAL_USE" label="材料表" type="childrentable" readOnly="N" required="N" maxLength="" defValue="" options="" listKey="" childrenTableAction="" childrenTableUpdateAction="materialUpdate" template="ins_material_form_ws.xml"/>
+			</group> -->
+			<!-- <group id="7" name="机械情况" display="Y" type="common">
+				<field name="ES_T_MECHANICAL_CONDITION" label="机械情况" type="childrentable" readOnly="N" required="N" maxLength="" defValue="" options="" listKey="" childrenTableAction="" childrenTableUpdateAction="mechanicalUpdate" template="ins_machine_form_ws.xml"/>
+			</group> -->
+			<!-- <group id="8" name="人员情况" display="Y" type="common">
+				<field name="ES_T_SCENE_SITUATION" label="人员到场表" type="childrentable" readOnly="N" required="N" maxLength="" defValue="" options="" listKey="" childrenTableAction="" childrenTableUpdateAction="sceneSituationUpdate" template="ins_scene_situation_form_ws.xml"/>
+			</group> -->
+			<!-- <group id="8" name="阀门操作" display="Y" type="common">
+				<field name="ES_T_SWITCH_VALVE_INFO" label="阀门操作单" type="childrentable" readOnly="N" required="N" maxLength="" defValue="" options="" listKey="" childrenTableAction="" childrenTableUpdateAction="switchValveUpdate" template="ins_switch_valve_form.xml"/>
+			</group> -->
+			<!-- <group id="5" name="开阀单" display="Y" type="common">
+				<field name="ES_T_TASK_OPEN_VALVE" label="开阀单" type="childrentable" readOnly="N" required="N" maxLength="" defValue="" options="" listKey="" childrenTableAction="" childrenTableUpdateAction="openValveUpdate" template="ins_open_valve_form_ws.xml"/>
+			</group> -->	
+			<group id="4" name="系统信息" display="N" type="common">
+			    <field name="serialNumber" label="serialNumber" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":serialNumber" options="" listKey="" rule=""/>
+			    <field name="pid" label="pid" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":pid" options="" listKey="" rule=""/>
+			 </group>  
+		</page>
+		 <atepss>
+		    <ateps groupid="1" name="维修前" state="0" startState="13" finishState="14"></ateps>
+		    <ateps groupid="2" name="维修中" state="0" startState="15" finishState="16"></ateps>
+		    <ateps groupid="3" name="维修完成" state="0" startState="17" finishState="18"></ateps>
+		    <!-- <ateps groupid="5" name="水质检测" state="0"></ateps>
+		    <ateps groupid="6" name="设施信息" state="0"></ateps>
+		    <ateps groupid="7" name="机械情况" state="0"></ateps>
+		    <ateps groupid="8" name="人员情况" state="0"></ateps>
+		    <ateps groupid="8" name="阀门操作" state="0"></ateps> -->
+		</atepss>
+	</form>
+</axf>

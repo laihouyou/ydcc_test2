@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0" >
+
+        <LinearLayout
+            android:id="@+id/idfLinearTitless"
+            android:layout_width="match_parent"
+            android:layout_height="50dip"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="5dip"
+            android:layout_marginTop="3dip"
+            android:background="@drawable/layout_top"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/idfbtnFin"
+                android:layout_width="50dip"
+                android:layout_height="50dip"
+                android:background="@drawable/yincang" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="13dip"
+                android:text="|"
+                android:textSize="23px" />
+
+            <TextView
+                android:id="@+id/tvNrong"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设施类型" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/idfLinearFacList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:orientation="vertical" >
+
+            <ViewFlipper
+                android:id="@+id/idfViewFlipperFac"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <com.movementinsome.map.view.IdentifyFacListView
+                    android:id="@+id/dentListview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_weight="1.0"
+                    android:fadingEdge="none"
+                    android:cacheColorHint="#00000000"     
+                    android:divider="#B0C4DE"
+                    android:dividerHeight="2px" >
+                </com.movementinsome.map.view.IdentifyFacListView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="#D3D3D3" >
+
+                    <LinearLayout
+                        android:id="@+id/idfLinearFacListTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dip"
+                        android:background="#0066FF"
+                        android:gravity="center" >
+
+                        <TextView
+                            android:id="@+id/tvChaxun"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="#FFFFFF" />
+                    </LinearLayout>
+                    
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="40dip"
+                        android:background="#FFFFFF" 
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="3dip">
+                        
+                        <TextView 
+                            android:id="@+id/tvImage"
+                            android:layout_width="wrap_content"
+                        	android:layout_height="wrap_content"
+                        	android:gravity="center"
+                        	android:textColor="#0066FF"
+                        	android:background="@drawable/tvimage"
+                        	android:text="图片"/>
+                        
+                        <TextView 
+                            android:layout_width="wrap_content"
+                        	android:layout_height="wrap_content"
+                        	android:text="|"/>
+                        
+                        <TextView 
+                            android:id="@+id/tvForms"
+                            android:layout_width="wrap_content"
+                        	android:layout_height="wrap_content"
+                        	android:gravity="center"
+                        	android:textColor="#0066FF"
+                        	android:background="@drawable/tvforms"
+                        	android:text="填单"/>
+                       
+                    </LinearLayout>
+
+                    <com.movementinsome.map.view.IdentifyFacMsgScrollView
+                        android:id="@+id/idfRlFacMsg"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#FFFFFF" 
+                        android:layout_marginLeft="3dip"
+                        android:layout_marginRight="3dip">
+                    </com.movementinsome.map.view.IdentifyFacMsgScrollView>
+                </LinearLayout>
+            </ViewFlipper>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/idfViewImgDaoZheLi"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/daozhequ" />
+        <RelativeLayout
+            android:id="@+id/identifyHeadLayout"
+	        android:layout_width="match_parent"
+	        android:layout_height="45dip"
+	        android:background="#0066FF"
+	        android:visibility="gone"
+	        android:gravity="center" >
+			
+            <Button 
+                android:id="@+id/identifyHeadLayoutButton"
+                android:layout_marginLeft="5dip"
+                android:layout_width="50dip"
+	            android:layout_height="45dip"
+	            android:background="@drawable/yincang_while"/>
+            
+	        <TextView
+	            android:id="@+id/identifyHeadLayoutText"
+	            android:layout_width="match_parent"
+	            android:layout_height="45dip"
+	            android:gravity="center"
+	            android:textColor="#FFFFFF" />
+	        
+	        <Button 
+	            android:id="@+id/identifyDaoLayoutButton"
+                android:layout_width="45dip"
+	            android:layout_height="45dip"
+	            android:visibility="gone"
+	            android:layout_alignParentRight="true" 
+	            android:background="@drawable/daozhequ_f"/>
+   		 </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

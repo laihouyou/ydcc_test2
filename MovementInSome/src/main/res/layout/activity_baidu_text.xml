@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tabhost"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+        <TextView
+            android:id="@+id/tvMoveTitle"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_centerInParent="true"
+            android:background="#398fdc"
+            android:gravity="center"
+            android:text="移动采测"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:id="@+id/layoutText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <RelativeLayout
+                android:id="@+id/reBMapview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <com.baidu.mapapi.map.MapView
+                    android:id="@+id/baiduMap"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible">
+
+                </com.baidu.mapapi.map.MapView>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    >
+
+                    <TextView
+                        android:id="@+id/projectNameTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="工程名称"
+                        android:textColor="@color/red"
+                        android:visibility="gone"
+                        android:gravity="center"
+                        android:background="@color/divider_left_bg"
+                        />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginLeft="10dp">
+
+                    <ImageButton
+                        android:id="@+id/locationBuon2"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/main_map_button_bg"
+                        android:src="@drawable/ft_loc_normal" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/fr3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="40dp"
+                    android:visibility="visible">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/arcgisMapButton"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:visibility="gone"
+                            android:background="@drawable/main_map_button_bg"
+                            android:src="@drawable/map_icon_layer" />
+
+                        <ImageButton
+                            android:id="@+id/valve"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/main_map_button_bg"
+                            android:src="@drawable/valve_gray" />
+
+                        <ImageButton
+                            android:id="@+id/mud_valve"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/main_map_button_bg"
+                            android:src="@drawable/mud_valve_gray" />
+
+                        <ImageButton
+                            android:id="@+id/vent_valve"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/main_map_button_bg"
+                            android:src="@drawable/vent_valve_gray" />
+
+                        <ImageButton
+                            android:id="@+id/water_meter"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/main_map_button_bg"
+                            android:src="@drawable/water_meter_gray" />
+
+                        <ImageButton
+                            android:id="@+id/fire_hydrant"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/main_map_button_bg"
+                            android:src="@drawable/fire_hydrant_gray" />
+                        <ImageButton
+                            android:id="@+id/discharge_outlet"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/main_map_button_bg"
+                            android:src="@drawable/discharge_outlet_black" />
+                        <ImageButton
+                            android:id="@+id/plug_seal"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/main_map_button_bg"
+                            android:src="@drawable/plug_seal_black" />
+                        <ImageButton
+                            android:id="@+id/node_black"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/main_map_button_bg"
+                            android:src="@drawable/node_black" />
+
+                        <!--<ImageButton
+                            android:id="@+id/initializeBtn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="20dp"
+                            android:visibility="gone"
+                            android:background="@drawable/main_map_button_bg"
+                            android:src="@drawable/fire_hydrant_gray" />-->
+
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="40dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageButton
+                            android:id="@+id/newProjectBtn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/main_map_button_bg"
+                            android:src="@drawable/create_project" />
+
+                        <ImageButton
+                            android:id="@+id/openProjectBtn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/main_map_button_bg"
+                            android:src="@drawable/open_project" />
+
+                        <ImageButton
+                            android:id="@+id/coverageBuon"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/main_map_button_bg"
+                            android:src="@drawable/map_icon_layer" />
+
+                        <ImageButton
+                            android:id="@+id/drawTypeBtn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:tag="gather"
+                            android:background="@drawable/main_map_button_bg"
+                            android:src="@drawable/darwstuas" />
+
+
+                        <ImageButton
+                            android:id="@+id/commintDateBtn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/main_map_button_bg"
+                            android:src="@drawable/commitdate" />
+
+                        <ImageButton
+                            android:id="@+id/deleteDateBtn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/main_map_button_bg"
+                            android:src="@drawable/delete_data" />
+
+                        <ImageButton
+                            android:id="@+id/statisticsBtn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/main_map_button_bg"
+                            android:src="@drawable/statistics" />
+
+                        <ImageButton
+                            android:id="@+id/moveLonding"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/main_map_button_bg"
+                            android:gravity="center"
+                            android:src="@drawable/ft_loc_normal"
+                            android:text=""
+                            android:visibility="gone"
+                            android:textColor="@color/red" />
+
+                        <ImageButton
+                            android:id="@+id/errorTv"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/main_map_button_bg"
+                            android:gravity="center"
+                            android:src="@drawable/retransmission"
+                            android:text=""
+                            android:textColor="@color/red" />
+
+                        <!--<ImageButton-->
+                            <!--android:id="@+id/pointTypeLine"-->
+                            <!--android:layout_width="40dp"-->
+                            <!--android:layout_height="40dp"-->
+                            <!--android:layout_marginTop="20dp"-->
+                            <!--android:background="@drawable/main_map_button_bg"-->
+                            <!--android:src="@drawable/gather_line"-->
+                            <!--android:tag="point" />-->
+
+                        <ImageButton
+                            android:id="@+id/collectPointBtn"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/main_map_button_bg"
+                            android:src="@drawable/gather_point_blue"
+                            android:visibility="visible"
+                            android:tag="true"/>
+
+                        <ImageButton
+                            android:id="@+id/ordinaryTypeLine"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/main_map_button_bg"
+                            android:src="@drawable/gather_line"
+                            android:visibility="visible"
+                            android:tag="false"/>
+
+
+
+                        <!--<ImageButton-->
+                            <!--android:id="@+id/collectLineBtn"-->
+                            <!--android:layout_width="40dp"-->
+                            <!--android:layout_height="40dp"-->
+                            <!--android:background="@drawable/main_map_button_bg"-->
+                            <!--android:src="@drawable/gather_line"-->
+                            <!--android:visibility="visible"-->
+                            <!--android:tag="ordinary"/>-->
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <com.movementinsome.map.view.MyMapView
+            android:id="@+id/moveMapView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible" />
+
+
+
+</LinearLayout>

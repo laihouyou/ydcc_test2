@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="100dip"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="6.0dip"
+    android:layout_marginRight="6.0dip"
+    android:layout_marginTop="-0.5dip"
+    android:background="@drawable/map_layer_background"
+    android:orientation="vertical"
+     >
+
+    <TextView
+        android:layout_width="220dip"
+        android:layout_height="60dip"
+        android:background="#000000"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textColor="#FFFFFF"
+        android:text="选择工作类型" />
+
+   	 		<ListView 
+		        android:id="@+id/tasklist_yhxj_List"
+		        android:layout_width="220dip"
+		        android:layout_height="match_parent">
+            </ListView>
+
+</LinearLayout>

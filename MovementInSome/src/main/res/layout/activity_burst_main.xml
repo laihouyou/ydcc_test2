@@ -1,0 +1,119 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.gddst.activity.MainActivity" 
+    >
+
+    
+     <!-- 导航栏 -->
+    
+    
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="#398fdc" >
+
+        <ImageView
+            android:id="@+id/image_back_main"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="17dp"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="爆漏应急管理"
+            android:textColor="#ffffff"
+            android:textSize="17sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_mian_partition"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:background="#ffffff"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/rl_title" >
+
+      
+        <TextView
+            android:id="@+id/tv_mian_partition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="17dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tv_handerview_archives_partition"
+            android:text="南区"
+            android:textColor="#5a5a5a" />
+
+        <TextView
+            android:id="@+id/tv_main_change"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_file_number_text"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="14dp"
+            android:drawableRight="@drawable/i"
+            android:drawablePadding="3dp"
+            android:layout_centerVertical="true"
+            android:text="切换"
+            android:textColor="#999999"
+            android:textSize="11sp"
+             />
+        <include 
+            layout="@layout/textview_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            />
+        
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_mian"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/rl_mian_partition" 
+        android:layout_above="@+id/include"
+        android:transcriptMode="alwaysScroll"
+        android:scrollbars="none"
+        android:background="#ffffff"
+        android:cacheColorHint="#00000000"
+      >
+    </ListView> 
+    
+        <include 
+            android:id="@+id/include"
+            layout="@layout/textview_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_above="@+id/tv_main_add"
+            />
+        
+       <TextView 
+           android:id="@+id/tv_main_add"
+           android:layout_width="match_parent"
+           android:layout_height="48dp"
+           android:layout_alignParentBottom="true"
+           android:text="新增"
+           android:gravity="center"
+           android:textColor="#333333"
+           android:background="#ffffff"
+           android:layout_centerHorizontal="true"
+           android:layout_centerVertical="true"
+           />
+        
+    
+
+</RelativeLayout>

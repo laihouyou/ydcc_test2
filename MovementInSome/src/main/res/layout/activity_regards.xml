@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/color_f5f3f3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/longquan"
+        app:layout_constraintTop_toTopOf="@+id/frameLayout"
+        android:layout_marginTop="11dp"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="@+id/frameLayout"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/frameLayout" />
+
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="13dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.006">
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="19dp"
+        android:text="移动"
+        android:textSize="@dimen/sp_17"
+        app:layout_constraintLeft_toLeftOf="@+id/frameLayout"
+        app:layout_constraintRight_toRightOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+    <TextView
+        android:id="@+id/tvVersionNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="12dp"
+        android:text="当前版本号:22222222222"
+        android:textColor="@color/point_facility3"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintLeft_toLeftOf="@+id/frameLayout"
+        app:layout_constraintRight_toRightOf="@+id/frameLayout"
+        app:layout_constraintTop_toBottomOf="@+id/tvAppName" />
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        app:layout_constraintVertical_bias="0.0"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@color/white"
+        android:id="@+id/linearLayout8">
+
+        <TextView
+            android:id="@+id/tvTermsService"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_47"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:gravity="center|left"
+            android:text="服务条款" />
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0d5"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:layout_marginRight="@dimen/dp_14"
+            layout="@layout/textview_horizontal"
+            ></include>
+
+        <TextView
+            android:id="@+id/tvUpdateData"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_47"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:gravity="center|left"
+            android:text="更新内容" />
+
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_0d5"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:layout_marginRight="@dimen/dp_14"
+            layout="@layout/textview_horizontal"
+            ></include>
+
+        <TextView
+            android:id="@+id/tvCheckver"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_47"
+            android:layout_marginLeft="@dimen/dp_14"
+            android:gravity="center|left"
+            android:text="检查新版本" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="101dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="55535" />
+
+    </LinearLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>

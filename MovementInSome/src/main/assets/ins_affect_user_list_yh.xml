@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_affect_user_list_yh" name="影响用户列表"  table="BS_AFFECT_USER_LIST" submitTo="loopback" page="one">
+	   	<params>
+			
+		</params>
+		 <rules>
+		    <rule id="mapfac">
+		        <do filed="waterMeterNum" value="EID,设备编号"/>
+		        <do filed="waterMeterDs" value="D_S,口径"/>
+		        
+		    </rule>
+		</rules>
+
+		<page id="1" name="">
+			<group id="1" name="" display="Y" type="common">
+			    <field name="waterMeterNum" label="水表编号" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapfac()" options="" listKey="" rule="mapfac"/>
+			    <field name="aulUserName" label="用户名称" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="tel" label="联系电话" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="waterMeterDs" label="水表口径" type="number" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="useWaterProperty" label="用水性质" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>	
+			 
+			<group id="2" name="系统信息" display="N" type="common">
+                <field name="aulId" label="影响用户ID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":aulId" options="" listKey="" rule=""/>
+                <field name="rrwoNum" label="工单编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":rrwoNum" options="" listKey="" rule=""/>
+                <field name="rrwoType" label="工单类型" type="text" readOnly="N"  required="N" maxLength="20" defValue=":rrwoType" options="" listKey="" rule=""/>
+                <field name="wssID" label="停水方案ID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":wssID" options="" listKey="" rule=""/>
+                <field name="wssNum" label="停水方案编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":wssNum" options="" listKey="" rule=""/>
+			</group>
+		</page>
+	</form>
+</axf>

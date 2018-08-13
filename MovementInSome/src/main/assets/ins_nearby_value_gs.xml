@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_nearby_value_gs" name="阀门情况" table="INS_CHECK_VALVE" submitTo="loopback" page="one">
+	   	<params>
+	    <param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+ 			
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="deviceNum" value="OBJECTID,EID,GID,唯一图形编"/>
+		        <do filed="deviceType" value="LayerName"/>
+		        <do filed="facilitiesMaterial" value="MATERIAL,材料"/>
+		        <do filed="coordinate" value="shape"/>
+		    </rule>
+		</rules>
+	   
+		<page id="1" name="隐患信息">
+		    <group id="1" name="反映信息" display="Y" type="common">
+		        <field name="roadName" label="道路名称" qty="8" type="text" readOnly="N" required="N" maxLength="20" defValue="addr()" options="" listKey=""/>
+		        <field name="checkItemType" label="阀门情况" qty="8" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="阀门情况"/>
+		        <field name="buildingType" label="井室状况" qty="8" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="井室状况"/>
+		       	<field name="guid" label="现场照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+                <field name="remarks" label="备注" type="memo" readOnly="N" required="N" maxLength="200" defValue="" options="" listKey=""/>
+			</group>
+			
+			<group id="2" name="系统信息" display="N" type="common">
+			    <field name="pipeId" label="设施ID" type="text" readOnly="N" required="N" maxLength="20" defValue=":pipeId" options="" listKey=""/>
+			    <field name="guid" label="GUID" type="text" readOnly="N" required="N" maxLength="20" defValue=":guid" options="" listKey=""/>
+			    <field name="buildingCoordinate" label="上报坐标点" type="text" readOnly="N" required="N" maxLength="20" defValue=":buildingCoordinate" options="" listKey=""/>
+			    <field name="id" label="ID码" type="text" readOnly="N" required="N" maxLength="20" defValue=":id" options="" listKey=""/>
+			    <field name="gid" label="设施唯一码" type="text" readOnly="N" required="N" maxLength="20" defValue=":gid" options="" listKey=""/>
+			    <field name="areaId" label="片区ID" type="text" readOnly="N" required="N" maxLength="20" defValue=":areaId" options="" listKey=""/>
+			    <field name="workTaskNum" label="任务编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":workTaskNum" options="" listKey="" rule=""/>
+ 			</group>
+		</page>
+	</form>
+</axf>

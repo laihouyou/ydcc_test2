@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="repair_cover" name="修补盖记录" table="INS_UP_COVER" submitTo="loopback" page="one">
+	   	<params>
+			<param name="pid" type="c" required="Y" defValue="" io="i"/>
+			<param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+			<param name="sections" field="" type="c" required="Y" defValue="" io="i"></param>	
+			<param name="sectionsNum" field="" type="c" required="Y" defValue="" io="i"></param>
+		</params>
+<!-- 		<rules>
+		    <rule id="attach">
+		        <do filed="bs_14" value="LayerName"/>
+		    </rule>
+		</rules> -->
+	
+		<page id="1" name="修补盖记录">
+		    <group id="1" name="修补盖信息" display="Y" type="common">
+		    	<field name="ucDate" label="日期" type="date" readOnly="N" required="Y" maxLength="20" defValue="date()" options="" listKey="" rule=""/>
+		        <field name="addr" label="位置" type="text" readOnly="N" required="Y" maxLength="20" defValue="addr()" options="" listKey="" rule=""/>
+		    	<field name="specification" label="规格" type="choice" readOnly="N" required="Y" maxLength="20" defValue="" options="450*750|400*700|其他" listKey="0008" rule=""/>
+		    </group>
+		    <group id="2" name="数量(个)" display="Y" type="common">	
+		        <field name="rainCover" label="雨水盖" type="numeric" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		        <field name="sewageCover" label="污水盖" type="numeric" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>	
+		        <field name="waterCover" label="给水盖" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		        <field name="rainGrate" label="雨水箅" type="numeric" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		    </group>
+		    <group id="3" name="现场信息" display="Y" type="attach">
+		        <field name="reportedCoordinate" label="具体位置" type="maptext" readOnly="N"  required="Y" maxLength="20" defValue="mapcoord()" options="" listKey="" rule=""/>
+			    <field name="camera1" label="修补前照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>	
+			    <field name="camera2" label="修补后照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			</group>
+		    <group id="4" name="原因说明" display="Y" type="common">	
+		        <field name="reason" label="原因" type="choice" readOnly="N" required="Y" maxLength="20" defValue="" options="破损|丢失" listKey="0009" rule=""/>	
+		        <field name="remarks" label="备注" type="memo" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>	
+			</group>
+			<group id="5" name="处理信息" display="N" type="common">
+			    <field name="serialNumber" label="serialNumber" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":serialNumber" options="" listKey="" rule=""/>
+			    <field name="pid" label="pid" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":pid" options="" listKey="" rule=""/>
+			     <field name="sections" label="所在路段" type="system" readOnly="N"  required="N" maxLength="20" defValue=":sections" options="" listKey="" rule=""/>
+			    <field name="sectionsNum" label="路段编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":sectionsNum" options="" listKey="" rule=""/>
+<!-- 			    <field name="guid" label="GUID" type="system" readOnly="N"  required="Y" maxLength="20" defValue="guid()" options="" listKey="" rule=""/>
+ -->			</group>
+		</page>
+	</form>
+</axf>

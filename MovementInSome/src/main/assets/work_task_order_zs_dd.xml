@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="work_task_order_zs_dd" name="维修记录上报" table="BS_HIDDEN_DANGER_RECORD" submitTo="loopback" page="one">
+	   	<params>
+	    
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="deviceNum" value="EID,设备编号"/>
+		        <do filed="deviceType" value="LayerName"/>
+		        <do filed="gid" value="GID,业务编码"/>
+		        <do filed="deviceDs" value="D_S,口径"/>
+		    </rule>
+		</rules>
+	
+		<page id="1" name="维修信息">
+		    <group id="1" name="维修信息" display="Y" type="common">
+		        <field name="happenDateStr" label="发生时间" type="datetime" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" />
+		        <field name="deviceNum" label="设施编号" type="maptext" readOnly="N" required="N" maxLength="20" defValue="mapfac()" options="" listKey="" rule="mapfac"/>
+		        <field name="deviceType" label="设施类型" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="工单+设施类型"/>
+		        <field name="deviceDs" label="口径" type="number" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="happenAddr" label="发生地址" type="text" readOnly="N" required="N" maxLength="20" defValue="addr()" options="" listKey=""/>
+		    	<field name="reportedCategory" label="问题类型" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="工单+问题类型" id ="10001" cId ="10002"/>
+		    	<field name="reportedContent" label="问题内容" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="工单+问题内容" id ="10002" fId="10001" fName ="问题类型"/>
+		    	<field name="reportedPerson" label="上报人" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		    	<field name="tel" label="联系电话" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		    	<field name="camera" label="现场照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>
+			
+			<group id="2" name="系统信息" display="N" type="common">
+			    <field name="checkUser" label="审核人" type="text" readOnly="N" required="N" maxLength="20" defValue="username()" options="" listKey=""/>
+			    <field name="checkDate" label="审核时间" type="datetime" readOnly="N" required="N" maxLength="20" defValue="datetime()" options="" listKey=""/>
+			    <field name="linkedNum" label="关联巡查任务编号" type="text" readOnly="N" required="N" maxLength="20" defValue=":linkedNum" options="" listKey=""/>
+			</group>
+		</page>
+	</form>
+</axf>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--工程导出界面-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/title_re"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:background="#333237">
+
+        <Button
+            android:id="@+id/resubmit_back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/black_while"
+            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="导出工程"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+
+    </RelativeLayout>
+    
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_20"
+        android:background="@color/point_facility7"
+        ></View>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_46">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="工程名称"
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/point_facility6"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/dp_20"
+            />
+
+        <TextView
+            android:id="@+id/projcet_name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="请选择相应任务"
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/point_facility6"
+            android:gravity="center"
+            android:layout_marginRight="20dp"
+            android:drawableRight="@drawable/right_arrow"
+            android:drawablePadding="@dimen/dp_5"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_20"
+        android:background="@color/point_facility7"
+        ></View>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_46">
+
+        <TextView
+            android:id="@+id/select_time"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="时间选择"
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/point_facility6"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/dp_20"
+            />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/selectIm"
+            android:layout_toRightOf="@+id/select_time"
+            >
+
+            <TextView
+                android:id="@+id/start_time"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:hint="开始时间"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/point_facility3"
+                android:gravity="center"
+                android:layout_toLeftOf="@+id/dimen"
+                android:layout_marginRight="@dimen/dp_26"
+                />
+
+            <TextView
+                android:id="@+id/dimen"
+                android:layout_width="@dimen/dp_1"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/dp_10"
+                android:layout_marginBottom="@dimen/dp_10"
+                android:layout_centerInParent="true"
+                android:background="@color/point_facility8"
+                />
+
+            <TextView
+                android:id="@+id/end_time"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:hint="结束时间"
+                android:textSize="@dimen/sp_14"
+                android:textColor="@color/point_facility3"
+                android:gravity="center"
+                android:layout_toRightOf="@+id/dimen"
+                android:layout_marginLeft="@dimen/dp_26"
+                />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/selectIm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/select"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_20"
+            />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_20"
+        android:background="@color/point_facility7"
+        ></View>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_46">
+
+        <TextView
+            android:id="@+id/facType_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:gravity="center"
+            android:text="数据类型"
+            android:textColor="@color/point_facility6"
+            android:textSize="@dimen/sp_14" />
+
+        <!--<RadioGroup-->
+            <!--android:id="@+id/radioGroup"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_marginRight="@dimen/dp_20"-->
+            <!--android:gravity="center"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<RadioButton-->
+                <!--android:id="@+id/radioButtonPoint"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginRight="@dimen/dp_40"-->
+                <!--style="@style/RadioButtonStyles"-->
+                <!--android:checked="true"-->
+                <!--android:paddingLeft="@dimen/dp_8"-->
+                <!--android:text="点" />-->
+
+            <!--<RadioButton-->
+                <!--android:id="@+id/radioButtonLine"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--style="@style/RadioButtonStyles"-->
+                <!--android:paddingLeft="@dimen/dp_8"-->
+                <!--android:text="线" />-->
+
+        <!--</RadioGroup>-->
+
+        <Spinner
+            android:id="@+id/facType_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_bg2"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/facType_tv"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_marginLeft="@dimen/dp_20"
+            ></Spinner>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_20"
+        android:background="@color/point_facility7"
+        ></View>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_46">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:gravity="center"
+            android:text="坐标类型"
+            android:textColor="@color/point_facility6"
+            android:textSize="@dimen/sp_14" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_20"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioButtonWg84"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/dp_40"
+                style="@style/RadioButtonStyles"
+                android:checked="true"
+                android:paddingLeft="@dimen/dp_8"
+                android:text="@string/wgs84" />
+
+            <RadioButton
+                android:id="@+id/radioButtonArc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/RadioButtonStyles"
+                android:paddingLeft="@dimen/dp_8"
+                android:text="地方坐标" />
+
+        </RadioGroup>
+
+    </RelativeLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/point_facility7">
+
+        <TextView
+            android:id="@+id/exportSingleTable"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:layout_gravity="center|bottom"
+            android:layout_marginBottom="@dimen/dp_90"
+            android:layout_marginLeft="@dimen/dp_60"
+            android:layout_marginRight="@dimen/dp_60"
+            android:background="@drawable/shape_btn"
+            android:visibility="gone"
+            android:gravity="center"
+            android:text="导出单表"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14" />
+
+        <TextView
+            android:id="@+id/exportTv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:layout_gravity="center|bottom"
+            android:layout_marginBottom="@dimen/dp_30"
+            android:layout_marginLeft="@dimen/dp_60"
+            android:layout_marginRight="@dimen/dp_60"
+            android:background="@drawable/shape_btn"
+            android:gravity="center"
+            android:text="导出"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_14" />
+
+    </FrameLayout>
+
+
+</LinearLayout>

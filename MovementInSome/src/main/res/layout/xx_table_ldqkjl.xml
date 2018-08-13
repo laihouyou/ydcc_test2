@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/black_background"
+    android:orientation="vertical" >
+     <LinearLayout style="@style/myPhoneLayoutTitleType" >
+
+        <Button
+            android:id="@+id/xx_ldqkjl_Back"
+           style="@style/myPhoneButtonBack" />
+
+        <TextView
+            android:id="@+id/xxQtv_Table_Title"
+            style="@style/myPhoneTvTitle"
+            android:text="路段受淹情况记录" />
+
+        <Button
+            android:id="@+id/xx_ldqkjl_Commit"
+             style="@style/myPhoneButtonSmall" 
+            android:text="提交" />
+    </LinearLayout>
+    <ScrollView
+        style="@style/myPhoneLayoutPType"
+        android:layout_weight="1.0"
+        android:scrollbars="none" >
+
+        <LinearLayout style="@style/myPhoneLayoutBgType" >
+
+      <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="采集编号" />
+
+                <TextView
+                    android:id="@+id/xx_ldqkjl_TaskNumber"
+                    style="@style/myPhoneEtType"
+                    android:hint="自动获取"
+                    android:singleLine="true" />
+            </LinearLayout>
+             <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="开始时间" />
+
+                <TextView
+                    android:id="@+id/xx_ldqkjl_kssj"
+                    style="@style/myPhoneEtType"
+                    android:layout_weight="1.0"
+                    android:hint="点击获取"
+                    android:singleLine="true" />
+                <TextView
+                    android:id="@+id/xx_ldqkjl_ksrq"
+                    style="@style/myPhoneEtType"
+                    android:layout_weight="1.0"
+                    android:hint="点击获取"
+                    android:singleLine="true" />
+            </LinearLayout>
+             <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="终止时间" />
+
+                <TextView
+                    android:id="@+id/xx_ldqkjl_zzsj"
+                    style="@style/myPhoneEtType"
+                    android:layout_weight="1.0"
+                    android:hint="点击获取"
+                    android:singleLine="true" />
+                <TextView
+                    android:id="@+id/xx_ldqkjl_zzrq"
+                    style="@style/myPhoneEtType"
+                    android:layout_weight="1.0"
+                    android:hint="点击获取"
+                    android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="天气" />
+
+                <EditText
+                    android:id="@+id/xx_ldqkjl_tq"
+                    style="@style/myPhoneEtType"
+                 
+                    android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="受淹点位置" />
+
+                <EditText
+                    android:id="@+id/xx_ldqkjl_sadwz"
+                    style="@style/myPhoneEtType"
+                    
+                    android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="受淹面积" />
+
+                <EditText
+                    android:id="@+id/xx_ldqkjl_sadmj"
+                    style="@style/myPhoneEtType"
+                    android:hint="单位：m^2"
+                    android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="受淹深度" />
+
+                <EditText
+                    android:id="@+id/xx_ldqkjl_sasd"
+                    style="@style/myPhoneEtType"
+                    android:hint="单位：cm"
+                    android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="受淹历时" />
+
+                <EditText
+                    android:id="@+id/xx_ldqkjl_sals"
+                    style="@style/myPhoneEtType"
+                    android:hint="单位：h"
+                    android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="受淹原因" />
+
+                <EditText
+                    android:id="@+id/xx_ldqkjl_sayy"
+                    style="@style/myPhoneEtType"
+                    
+                    android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="处理人员" />
+
+                <EditText
+                    android:id="@+id/xx_ldqkjl_clr"
+                    style="@style/myPhoneEtType"
+                    
+                    android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="处理措施" />
+
+                <EditText
+                    android:id="@+id/xx_ldqkjl_clcs"
+                    style="@style/myPhoneEtType"
+                    
+                    android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="参加车辆" />
+
+                <EditText
+                    android:id="@+id/xx_ldqkjl_cjcl"
+                    style="@style/myPhoneEtType"
+                    android:inputType="number"
+                    android:hint="台次"
+                    android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="参加人员" />
+
+                <EditText
+                    android:id="@+id/xx_ldqkjl_cjry"
+                    style="@style/myPhoneEtType"
+                    android:inputType="number"
+                    android:hint="人次"
+                    android:singleLine="true" />
+            </LinearLayout>
+            </LinearLayout>
+            </ScrollView>
+</LinearLayout>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+    <!--       名字                                                                                                                     数据库名                                               -->
+	<form id="ins_blast_leakage" name="新增表单" table="BS_BURST_LEAK_ARCHIVE" submitTo="loopback" page="one">
+	   	<params>
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="blaFacName" value="LayerName"/>
+		        <do filed="blaFacNum" value="EID,设备编号,GID,业务编码"/>
+		        <do filed="pipeMaterial" value="MATERIAL,材质"/>
+		        <do filed="deNum" value="MANAGEDEPT,管理单位"/>
+		        <do filed="gid" value="GID,业务编码"/>
+		        <do filed="coordinate" value="shape"/>
+		        <do filed="facilitiesCaliber" value="D_S,口径"/>
+		    </rule>
+		</rules>
+	
+		<page id="1" name="表单信息">
+		    <group id="1" name="表单信息" display="Y" type="common">
+		        <field name="receivedDate" label="接报时间" type="datetime" readOnly="N"  required="Y" maxLength="20" defValue="datetime()" options="" listKey="" rule=""/>
+		        <field name="siteHead" label="现场负责人" type="text" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" />
+		        <field name="contactTel" label="联系电话" type="number" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey=""/>
+		    	<field name="blaAddr" label="爆漏地址" type="text" readOnly="N" required="Y" maxLength="20" defValue=":address" options="" listKey="" />
+		        <field name="blaFacNum" label="设施编号" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapfac(),:GID" options="" listKey="" rule="mapfac"/>
+				<field name="blaFacName" label="设施类型" type="text" readOnly="N"  required="N" maxLength="20" defValue=":SUBTYPE" options="" listKey="" rule=""/>
+		        <field name="pipeDs" label="管径" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="50|80|100|200|1000" listKey="" />
+		    	<field name="pipeMaterial" label="管材" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="阀门|消防栓|水表|排气阀" listKey=""/>
+		    	<field name="etSituation" label="影响交通情况" type="text" readOnly="N" required="Y" maxLength="2000" defValue="" options="" listKey=""/>
+		        <field name="leakSituation" label="漏水情况" type="text" readOnly="N"  required="Y" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="repairUnit" label="抢修单位" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="抢修队|巡检队|维护队" listKey=""/>
+		        <field name="rpSituation" label="抢修人员情况" type="memo" readOnly="N" required="Y" maxLength="2000" defValue="分公司管网部副部长X名，主任X名，修漏工X名，关制工X名，技服代表X名，焊工X名，民工X名" options="" listKey=""/>
+		        <field name="reSituation" label="抢修机具情况" type="memo" readOnly="N" required="Y" maxLength="2000" defValue="抢修车X台，水泵X台，发电机X台" options="" listKey=""/>
+		        <field name="ecDate" label="预计完成时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="datetime()" options="" listKey="" rule=""/>
+			 	<field name="remark" label="备注" type="memo" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="camera" label="现场照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>
+			 <group id="2" name="分区信息" display="N" type="common">
+			    <field name="gid" label="GID" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+			    <field name="manageUnit" label="分区信息" type="text" readOnly="N" required="N" maxLength="20" defValue=":partition" options="" listKey=""/>
+			    <field name="gpsCoordinate" label="终端GPS坐标" type="text" readOnly="N" required="N" maxLength="20" defValue=":gpscoordinates" options="" listKey=""/>
+			    <field name="reportCoordinate" label="终端上报坐标" type="maptext" readOnly="N"  required="Y" maxLength="20" defValue="mapcoord()" options="" listKey="" rule=""/>			    
+				<field name="coordinate" label="爆漏点平面坐标" type="text" readOnly="N" required="N" maxLength="20" defValue=":coordinate" options="" listKey=""/>
+			</group>
+		</page>
+	</form>
+</axf>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="INS_HIDDEN_DANGER_REPORT2" name="漏点确定单"  table="INS_HIDDEN_DANGER_REPORT2" submitTo="loopback" page="one">
+	   	<params>
+			
+		</params>
+		 <rules>
+		    <rule id="mapfac">
+		        
+		    </rule>
+		</rules>
+
+		<page id="1" name="">
+			<group id="1" name="" display="Y" type="common">
+			    <field name="leakageDate" label="确认时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="isDoubt" label="是否漏点" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="是|否" listKey=""/>
+				<field name="leakageCoordinate" label="漏点位置" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapcoord(N)" options="" listKey="" />
+			</group>	
+			
+		</page>
+	</form>
+</axf>

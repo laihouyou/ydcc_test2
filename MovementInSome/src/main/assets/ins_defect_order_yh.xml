@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_defect_order_yh" name="缺陷记录" table="BS_DEFECT_ORDER" submitTo="loopback" page="one">
+	   	<params>
+	    
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="doFacNum" value="EID,设备编号"/>
+		        <do filed="doFacType" value="LayerName"/>
+		        <do filed="doFacMaterial" value="MATERIAL,材质"/>
+		        <do filed="doFacDs" value="D_S,口径"/>
+		        <do filed="gid" value="GID,业务编码"/>
+		        <do filed="doCoordinate" value="shape"/>
+		    </rule>
+		</rules>
+	
+		<page id="1" name="缺陷信息">
+		    <group id="1" name="缺陷信息" display="Y" type="common">
+		        <field name="doFacNum" label="设施编号" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapfac(),:EID" options="" listKey="" rule="mapfac"/>
+		        <field name="doFacType" label="设施类型" type="choice" readOnly="N" required="N" maxLength="20" defValue=":LayerName" options="" listKey="0014" id ="10001" cId ="10002" cName="缺陷小类"/>
+		        <field name="doFacDs" label="口径" type="number" readOnly="N" required="N" maxLength="20" defValue=":D_S" options="" listKey=""/>
+		    	<field name="doFacMaterial" label="材质" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" />
+		    	<field name="isLeakStr" label="是否漏水" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="是|否" listKey=""/>
+		    	<field name="doSmallCategory" label="缺陷类型" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="0034" id ="10002" fId="10001" fName ="设施类型" cName="缺陷小类"/>
+		    	<field name="happenDateStr" label="发生时间" type="datetime" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="happenAddr" label="详细地址" type="memo" readOnly="N"  required="Y" maxLength="2000" defValue="addr(),:ADDR" options="" listKey=""/>
+		        <field name="urgency" label="紧急程度" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="0006"/>
+		        <field name="doDesc" label="缺陷现象描述" type="memo" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey=""/>
+		        <field name="liabilityPerson" label="现场联系人" type="memo" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey=""/>
+		        <field name="tel" label="联系电话" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="doCoordinate" label="缺陷坐标" type="maptext" readOnly="N" required="N" maxLength="20" defValue="mapcoord(N)" options="" listKey=""/>
+		        <field name="camera" label="现场照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>
+			
+			<group id="2" name="系统信息" display="N" type="common">
+			    <field name="doSources" label="信息来源" type="text" readOnly="N" required="Y" maxLength="20" defValue="移动端主动上报" options="" listKey=""/>
+			    <field name="reportCoordinate" label="终端上报坐标" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapcoord()" options="" listKey="" rule=""/>
+			    <field name="gid" label="GID" type="text" readOnly="N"  required="N" maxLength="2000" defValue=":gid" options="" listKey="" rule=""/>
+			    <field name="guid" label="GUID" type="text" readOnly="N"  required="N" maxLength="200" defValue="guid()" options="" listKey="" rule=""/>
+			    <field name="reportPId" label="上报人ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userId()" options="" listKey="" rule=""/>
+			    <field name="reportPNum" label="上报人编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userNum()" options="" listKey="" rule=""/>
+			    <field name="reportPName" label="上报人名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="username()" options="" listKey="" rule=""/>
+			    <field name="rpDeptId" label="上报人部门ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteamId()" options="" listKey="" rule=""/>
+			    <field name="rpDeptNum" label="上报人部门编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteamNum()" options="" listKey="" rule=""/>
+			    <field name="rpDeptName" label="上报人部门名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteam()" options="" listKey="" rule=""/>
+			    <field name="rpTeamId" label="上报人班组ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupId()" options="" listKey="" rule=""/>
+			    <field name="rpTeamNum" label="上报人班组编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupNum()" options="" listKey="" rule=""/>
+			    <field name="rpTeamName" label="上报人班组名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupName()" options="" listKey="" rule=""/>
+			</group>
+		</page>
+	</form>
+</axf>

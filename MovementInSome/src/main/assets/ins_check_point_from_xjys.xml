@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+    <form id="BS_CHECK_POINT_REPORT" name="打卡点记录"  table="BS_CHECK_POINT_REPORT" submitTo="loopback" page="one">
+        <params>
+ 				<param name="bsFacNum" type="c" required="Y" defValue="" io="i"></param>		
+             </params>
+        <page id="1" name="打卡点信息">
+			<group id="1" name="打卡点信息" display="Y" type="common">
+			    <field name="bsIpsNum" label="巡检编号" type="code" readOnly="N"  required="Y" maxLength="20" defValue=":bsFacNum" options="" listKey="" rule=""/>
+			    <field name="remarks" label="备注" type="memo" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			    <field name="camera1" label="照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			  </group>
+			  <group id="2" name="系统信息" display="N" type="common">
+			    <field name="checkDate" label="检查时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="datetime()" options="" listKey=""/>
+			 </group>
+		</page>
+      </form>
+</axf>

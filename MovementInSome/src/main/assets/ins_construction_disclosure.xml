@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+    <form id="INS_SITE_DISCLOSURE" name="施工工地交底" table="INS_SITE_DISCLOSURE" submitTo="loopback" page="one">
+        <params>
+            <param name="serialNumber" field="" type="c" required="Y" defValue="" io="i"></param>
+ 			<param name="constructionNum" field="" type="c" required="Y" defValue="" io="io"></param>
+ 			<param name="smId" field="" type="c" required="Y" defValue="" io="i"></param>
+        </params>
+        <page id="1" name="施工工地交底">
+            <group id="1" name="悬挂警示标志" display="Y" type="common">
+                <!-- 是否悬挂警示标志 -->
+		    	<field name="checkItem1" label="" type="choice" readOnly="N" required="N" maxLength="20" defValue="已挂" options="已挂|未挂|其他" listKey="" rule=""/>
+		    	<field name="checkDate1" label="悬挂时间" type="date" readOnly="N" required="Y" maxLength="20" defValue="date()" options="" listKey="" rule=""/>
+		    	<field name="camera" label="警示标志照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>	
+		    </group>
+		    <group id="2" name="递交联系函" display="Y" type="common">
+		        <!-- 是否递交联系函 -->
+		    	<field name="checkItem3" label="" type="choice" readOnly="N" required="N" maxLength="20" defValue="已递交" options="已递交|未递交|其他" listKey="" rule=""/>
+		    	<field name="checkDate2" label="递交时间" type="date" readOnly="N" required="Y" maxLength="20" defValue="date()" options="" listKey="" rule=""/>
+		    	<field name="checkItem4" label="收函人" type="text" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		    	<field name="camera" label="联系函照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>	
+		    </group>
+		    <group id="3" name="管线走向告知" display="Y" type="common">
+		        <!-- 是否告知管线走向 -->
+		    	<field name="checkItem6" label="" type="choice" readOnly="N" required="N" maxLength="20" defValue="已告知" options="已告知|未告知|其他" listKey="" rule=""/>
+		    	<field name="checkDate3" label="告知时间" type="date" readOnly="N" required="Y" maxLength="20" defValue="date()" options="" listKey="" rule=""/>
+		    	<field name="checkItem7" label="告知对象" type="text" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		    	<field name="camera" label="管线走向标识照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>	
+		    </group>
+		    <group id="4" name="系统信息" display="N" type="common">
+			    <field name="serialNumber" label="serialNumber" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":serialNumber" options="" listKey="" rule=""/>
+			    <field name="constructionNum" label="constructionNum" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":constructionNum" options="" listKey="" rule=""/>
+			    <field name="smId" label="smId" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":smId" options="" listKey="" rule=""/>
+			 </group>
+       	</page>
+            
+    </form>
+</axf>

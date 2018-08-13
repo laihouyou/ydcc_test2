@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">移动采测</string>
+    <string name="app_name2">移 动 采 测</string>
+    <string name="sharedUserId">com.gddst.movementinsome</string>
+
+    <string name="urlGeodata">mobileDetectionResource/pioCreate</string>
+    <string name="urlPointListview">/mobileDetectionResource/pioList</string>
+    <string name="urlPointListUserId">/mobileDetectionResource/getPioListByUserId</string>
+    <string name="urlPoint">mobileDetectionResource/pioDetail</string>
+    <string name="urlUpdatePoint">mobileDetectionResource/pioUpdate</string>
+    <string name="urlDeletePoint">mobileDetectionResource/pioDelete</string>
+    <string name="subAllData">mobileDetectionResource/clean</string>
+
+    <string name="creatProject">mobileDetectionResource/projectCreate</string>
+    <string name="listProject">mobileDetectionResource/projectList</string>
+    <string name="detailProject">mobileDetectionResource/projectDetail</string>
+    <string name="updateProject">mobileDetectionResource/projectUpdate</string>
+    <string name="deleteProject">mobileDetectionResource/projectDelete</string>
+    <string name="shareProject">mobileDetectionResource/projectShare</string>
+
+    <string name="YDCE">4560</string>
+    <string name="APP_NAME">ydcc</string>
+
+
+    <string name="APP_TYPE">0</string>
+
+</resources>

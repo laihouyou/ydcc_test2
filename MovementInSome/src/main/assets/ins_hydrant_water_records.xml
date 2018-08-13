@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_hydrant_water_records" name="消防栓排放水量记录" table="INS_HYDRANT_WATER_RECORDS" submitTo="loopback" page="one">
+	   	<params>
+	    
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="facNum" value="OBJECTID,EID,GID,唯一图形编"/>
+		        <do filed="facName" value="LayerName"/>
+		        <do filed="coordinate" value="shape"/>
+		        <do filed="gid" value="gid"/>
+		    </rule>
+		</rules>
+	
+		<page id="1" name="信息">
+		    <group id="1" name="填写信息" display="Y" type="common">
+		        <field name="hwrDate" label="排放日期" type="datetime" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		    	<field name="sectionsName" label="路段或小区名称" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="quantity" label="消防栓数量" type="number" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="emissionDuration" label="排放时长" type="number" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="emissionWater" label="排放水量" type="number" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="emissionPerson" label="排放人" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/> 
+		        <field name="responsiblePerson" label="负责人" type="text" readOnly="N"  required="N" maxLength="20" defValue="username()" options="" listKey=""/>
+		        <field name="remarks" label="备注" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>
+			<group id="5" name="系统信息" display="N" type="common">
+			    <field name="workTaskNum" label="任务编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":workTaskNum" options="" listKey="" rule=""/>
+ 			</group>
+		</page>
+	</form>
+</axf>

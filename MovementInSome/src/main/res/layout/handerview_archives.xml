@@ -1,0 +1,624 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.aaa.ArchivesActivity" >
+
+   
+    <!-- 菜单栏 -->
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout_handerview_archives"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/rl_title" >
+
+        <TextView
+            android:id="@+id/tv_file_number_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="17dp"
+            android:text="档案编号:"
+            android:textColor="#197cd4"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tv_file_number_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/tv_file_number_text"
+            android:text=""
+            android:textColor="#197cd4"
+            android:textSize="12sp" />
+        
+		<ImageView 
+		    android:id="@+id/image_location"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:src="@drawable/maplocation"
+		    android:layout_alignParentRight="true"
+		    android:layout_marginRight="20dp"
+		    android:layout_centerVertical="true"
+		    />
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            layout="@layout/textview_horizontal" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/relativeLayout_handerview_archives" >
+
+        <!-- 排名 -->
+
+        <TextView
+            android:id="@+id/tv_handerview_archives_ranking"
+            android:layout_width="36dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="17dp"
+            android:text="1." />
+
+        <!--
+             <include
+            android:id="@+id/ic_vertical"
+            android:layout_width="0.5dp"
+            android:layout_height="fill_parent"
+            android:layout_toRightOf="@+id/tv_number"
+            layout="@layout/textview_vertical" />
+        -->
+
+
+        <!-- 上报人与时间 -->
+
+        <RelativeLayout
+            android:id="@+id/rl_time_people"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:layout_toRightOf="@+id/tv_handerview_archives_ranking" >
+
+            <include
+                android:id="@+id/ic_vertical"
+                android:layout_width="0.5dp"
+                android:layout_height="fill_parent"
+                android:layout_alignParentLeft="true"
+                layout="@layout/textview_vertical" />
+
+            <TextView
+                android:id="@+id/tv_handerview_archives_people"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:text="上报人:"
+                android:textColor="#333333"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_handerview_archives_people_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/tv_handerview_archives_people"
+                android:text=""
+                android:textColor="#333333"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_handerview_archives_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:text=""
+                android:textColor="#333333"
+                android:textSize="12sp" />
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="6dp"
+                layout="@layout/textview_horizontal" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rl_time_people"
+            android:layout_toRightOf="@+id/tv_handerview_archives_ranking" >
+
+            <include
+                android:id="@+id/ic_vertical"
+                android:layout_width="0.5dp"
+                android:layout_height="140dp"
+                android:layout_alignParentLeft="true"
+                layout="@layout/textview_vertical" />
+
+            <LinearLayout
+                android:id="@+id/rl_handerview_archives__images"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="5dp" >
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/handerview_archives_imageView_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:src="@drawable/icon_voice"
+                    />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/handerview_archives_imageView_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/handerview_archives_imageView_1"
+                    android:src="@drawable/icon_voice"
+                    />
+
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/handerview_archives_imageView_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/handerview_archives_imageView_2"
+                    android:src="@drawable/icon_voice"
+                     />
+                <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/handerview_archives_imageView_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@+id/handerview_archives_imageView_3"
+                    android:src="@drawable/icon_voice"
+                     />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_handerview_archives_receive"
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_handerview_archives_burst"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="爆漏地址:"
+                    android:textColor="#5a5a5a" />
+
+                <TextView
+                    android:id="@+id/tv_handerview_archives_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_toRightOf="@id/tv_handerview_archives_burst"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="#5a5a5a" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_telephone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_address"
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_handerview_archives_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="联系电话:"
+                    android:textColor="#5a5a5a" />
+
+                <TextView
+                    android:id="@+id/tv_handerview_archives_phone_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_toRightOf="@+id/tv_handerview_archives_phone"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="#5a5a5a" />
+
+                <TextView
+                    android:id="@+id/tv_handerview_archives_unfold"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginRight="14dp"
+                    android:text="展开"
+                    android:textColor="#197cd4"
+                    android:textSize="20sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_handerview_archives_receive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rl_handerview_archives__images"
+                android:layout_marginTop="10dp" >
+
+                <TextView
+                    android:id="@+id/tv_handerview_archives_receive"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="接报时间:"
+                    android:textColor="#5a5a5a" />
+
+                <TextView
+                    android:id="@+id/tv_handerview_archives_receive_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_toRightOf="@+id/tv_handerview_archives_receive"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text=""
+                    android:textColor="#5a5a5a" />
+            </RelativeLayout>
+              <!-- 最下面的细线 -->
+
+            <include
+                android:id="@+id/include"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignBottom="@+id/ic_vertical"
+                android:layout_marginRight="10dp"
+                layout="@layout/textview_horizontal" />
+            
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_gong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/rl_details"
+            android:layout_below="@+id/rl_details"
+            android:visibility="gone" >
+
+            <include
+                android:id="@+id/ic_vertical"
+                android:layout_width="0.5dp"
+                android:layout_height="280dp"
+                android:layout_alignParentLeft="true"
+                layout="@layout/textview_vertical" />
+
+            <LinearLayout
+                android:id="@+id/li_gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <RelativeLayout
+                    android:id="@+id/rl_scene"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:id="@+id/tv_scene"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="现场负责人:"
+                        android:textColor="#5a5a5a" />
+
+                    <TextView
+                        android:id="@+id/tv_handerview_archives_scene"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:layout_toRightOf="@+id/tv_scene"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="#5a5a5a" />
+                </RelativeLayout>
+                
+                <RelativeLayout
+                    android:id="@+id/rl_partition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:id="@+id/tv_partition"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="所选分区:"
+                        android:textColor="#5a5a5a" />
+
+                    <TextView
+                        android:id="@+id/tv_handerview_archives_partition"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:layout_toRightOf="@+id/tv_partition"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="#5a5a5a" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_pipe_diameter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:id="@+id/tv_pipe_diameter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="管径:"
+                        android:textColor="#5a5a5a" />
+
+                    <TextView
+                        android:id="@+id/tv_handerview_archives_pipe_diameter"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="68dp"
+                        android:layout_toRightOf="@+id/tv_pipe_diameter"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="#5a5a5a" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_pipe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:id="@+id/tv_pipe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="管材:"
+                        android:textColor="#5a5a5a" />
+
+                    <TextView
+                        android:id="@+id/tv_hander_pipe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="68dp"
+                        android:layout_toRightOf="@+id/tv_pipe"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="#5a5a5a" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_traffic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:id="@+id/tv_traffic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="影响交通情况:"
+                        android:textColor="#5a5a5a" />
+
+                    <TextView
+                        android:id="@+id/tv_hander_traffic"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_toRightOf="@+id/tv_traffic"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="#5a5a5a" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_leakage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:id="@+id/tv_leakage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="漏水情况:"
+                        android:textColor="#5a5a5a" />
+
+                    <TextView
+                        android:id="@+id/tv_hander_leakage"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:layout_toRightOf="@+id/tv_leakage"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="#5a5a5a" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_company"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:id="@+id/tv_company"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="抢修单位:"
+                        android:textColor="#5a5a5a" />
+
+                    <TextView
+                        android:id="@+id/tv_hander_company"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="40dp"
+                        android:layout_toRightOf="@+id/tv_company"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="#5a5a5a" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_personnel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:id="@+id/tv_personnel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="抢修人员情况:"
+                        android:textColor="#5a5a5a" />
+
+                    <TextView
+                        android:id="@+id/tv_hander_personnel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_toRightOf="@+id/tv_personnel"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="#5a5a5a" />
+                </RelativeLayout>
+                
+                <RelativeLayout
+                    android:id="@+id/rl_machinery"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:id="@+id/tv_machinery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="抢修机械情况:"
+                        android:textColor="#5a5a5a" />
+
+                    <TextView
+                        android:id="@+id/tv_hander_machinery"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_toRightOf="@+id/tv_machinery"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="#5a5a5a" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_completion_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:id="@+id/tv_completion_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="计划完成时间:"
+                        android:textColor="#5a5a5a" />
+
+                    <TextView
+                        android:id="@+id/tv_hander_completion_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="12dp"
+                        android:layout_toRightOf="@+id/tv_completion_time"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="#5a5a5a" />
+                </RelativeLayout>
+                
+                <RelativeLayout
+                    android:id="@+id/rl_remark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp" >
+
+                    <TextView
+                        android:id="@+id/tv_remark"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="备注:"
+                        android:textColor="#5a5a5a" />
+
+                    <TextView
+                        android:id="@+id/tv_hander_remark"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="68dp"
+                        android:layout_toRightOf="@+id/tv_remark"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text=""
+                        android:textColor="#5a5a5a" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!-- 最下面的细线 -->
+
+            <include
+                android:id="@+id/include"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_alignBottom="@+id/ic_vertical"
+                android:layout_marginRight="10dp"
+                layout="@layout/textview_horizontal" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

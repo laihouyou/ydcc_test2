@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--工程统计页面-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#f5f3f3">
+
+	<RelativeLayout
+		android:layout_width="fill_parent"
+		android:layout_height="45dp"
+		android:background="#333237">
+
+        <Button
+			android:id="@+id/stl_break"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/black_while"
+			android:layout_marginLeft="18dp"
+			android:layout_marginStart="18dp"
+			android:layout_centerVertical="true"
+			android:layout_alignParentLeft="true"
+			android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="工程统计"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+	</RelativeLayout>
+
+	<ListView
+		android:id="@+id/stl_listview"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_marginTop="15dp"
+		android:background="#ffffff">
+
+	</ListView>
+
+	<TextView
+		android:id="@+id/noDateTv"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:text="暂无数据"
+		android:gravity="center"
+		android:visibility="gone"
+		/>
+
+</LinearLayout>

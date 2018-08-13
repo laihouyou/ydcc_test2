@@ -1,0 +1,16 @@
+[{"id":1,"month":"2014年5月","team":"清疏队一班","monitor":"黄国强","sewagepipe":"","rainpipe":"","sewagewell":"","rainwell":"","raininlet":"",
+"dreroads":[
+{"rid":1,"name":"红桂二街","sewagepipe":"","rainpipe":"","sewagewell":"15","rainwell":"5","raininlet":"","lvl":"1级","state":"正在执行",
+"drerecords":[
+{"rid":1,"workdate":"2014年6月18日","worktype":"检查井、雨水口","stime":"9点25分","etime":"11点25分","sewagepipe":"","rainpipe":"","sewagewell":"","rainwell":"","raininlet":"","qty":""},
+{"rid":2,"workdate":"2014年6月18日","worktype":"检查井、雨水口","stime":"15点25分","etime":"16点25分","sewagepipe":"","rainpipe":"","sewagewell":"","rainwell":"","raininlet":"","qty":""},
+{"rid":3,"workdate":"2014年6月19日","worktype":"检查井、雨水口","stime":"9点25分","etime":"11点25分","sewagepipe":"","rainpipe":"","sewagewell":"","rainwell":"","raininlet":"","qty":""},
+{"rid":4,"workdate":"2014年6月19日","worktype":"检查井、雨水口","stime":"9点25分","etime":"11点25分","sewagepipe":"","rainpipe":"","sewagewell":"","rainwell":"","raininlet":"","qty":""}
+]},
+{"rid":2,"name":"松园西街","sewagepipe":"","rainpipe":"","sewagewell":"9","rainwell":"23","raininlet":"","lvl":"1级","state":"等待执行","drerecords":[]},
+{"rid":3,"name":"布吉联检广场","sewagepipe":"","rainpipe":"","sewagewell":"34","rainwell":"45","raininlet":"","lvl":"1级","state":"等待执行","drerecords":[]},
+{"rid":4,"name":"银湖路北段","sewagepipe":"","rainpipe":"","sewagewell":"69","rainwell":"20","raininlet":"","lvl":"1级","state":"等待执行","drerecords":[]},
+{"rid":5,"name":"蔡屋围南街","sewagepipe":"","rainpipe":"","sewagewell":"20","rainwell":"29","raininlet":"","lvl":"2级","state":"等待执行","drerecords":[]},
+{"rid":6,"name":"和平路","sewagepipe":"","rainpipe":"","sewagewell":"80","rainwell":"116","raininlet":"","lvl":"1级","state":"等待执行","drerecords":[]}
+]
+}]

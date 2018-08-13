@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--城市列表子布局-->
+<RelativeLayout
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   android:layout_width="match_parent"
+   android:layout_height="50dp"
+    android:layout_margin="@dimen/dp_5"
+   android:orientation="horizontal"
+   android:minHeight="?android:attr/listPreferredItemHeight"  
+   >
+
+    <TextView 
+        android:id="@+id/tv_city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_centerVertical="true"
+        android:text="北京"
+        android:textColor="@color/black"
+        />
+    
+    <TextView 
+        android:id="@+id/tv_in_the_download"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tv_city"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:text="下载中"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/download_man_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/tv_in_the_download"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:text="30%"
+        android:textColor="@color/black"
+        />
+
+    <TextView
+        android:id="@+id/download_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/download_icon"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:text="100M"
+        android:textColor="@color/black"
+        />
+
+
+    <ImageView 
+        android:id="@+id/download_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/download"
+        />
+    
+</RelativeLayout>
+   

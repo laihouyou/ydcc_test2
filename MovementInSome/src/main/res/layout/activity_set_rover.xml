@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--移动站设置-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/layout_server_type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/app_margin"
+        android:layout_marginBottom="@dimen/app_padding"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/app_set_rover_net_type"
+            style="@style/AppText" />
+
+        <Spinner
+            android:id="@+id/spinner_network_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_server_vrs"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btn_set_rover"
+        android:layout_below="@+id/layout_server_type"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/app_set_rover_net_address"
+                style="@style/AppText" />
+
+            <EditText
+                android:id="@+id/et_vrs_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:hint="@string/app_set_rover_net_address_hint"
+                android:imeOptions="actionNext"
+                android:inputType="textUri"
+                android:singleLine="true"
+                android:text="@string/app_set_rover_default_vrs_address"
+                style="@style/AppTextValue" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/app_set_rover_net_port"
+                style="@style/AppText" />
+
+            <EditText
+                android:id="@+id/et_vrs_port"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:hint="@string/app_set_rover_net_port_hint"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="5"
+                android:singleLine="true"
+                android:text="@string/app_set_rover_default_vrs_port"
+                style="@style/AppTextValue" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/app_set_rover_vrs_username"
+                style="@style/AppText" />
+
+            <EditText
+                android:id="@+id/et_vrs_username"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:singleLine="true"
+                android:text="@string/app_set_rover_default_vrs_username"
+                style="@style/AppTextValue" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="@string/app_set_rover_vrs_password"
+                style="@style/AppText" />
+
+            <EditText
+                android:id="@+id/et_vrs_password"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:imeOptions="actionNext"
+                android:inputType="textPassword"
+                android:singleLine="true"
+                android:text="@string/app_set_rover_default_vrs_password"
+                style="@style/AppTextValue" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="@string/app_set_rover_vrs_mountpoint"
+                style="@style/AppText" />
+
+            <EditText
+                android:id="@+id/et_vrs_mountpoint"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:imeOptions="actionDone"
+                android:inputType="textVisiblePassword"
+                android:text="@string/app_set_rover_default_vrs_mountpoint"
+                style="@style/AppTextValue" />
+
+            <Button
+                android:id="@+id/btn_vrs_get_mountpoint"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.3"
+                android:text="@string/app_set_rover_get_mountpoint"
+                android:textColor="@color/app_textColor" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_server_zhd"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/layout_server_type"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="@string/app_set_rover_net_address"
+                style="@style/AppText"/>
+
+            <EditText
+                android:id="@+id/et_zhd_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:hint="@string/app_set_rover_net_address_hint"
+                android:imeOptions="actionNext"
+                android:inputType="textUri"
+                android:singleLine="true"
+                style="@style/AppTextValue" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="@string/app_set_rover_net_port"
+                style="@style/AppText" />
+
+            <EditText
+                android:id="@+id/et_zhd_port"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:hint="@string/app_set_rover_net_port_hint"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:singleLine="true"
+                style="@style/AppTextValue" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="@string/app_set_rover_zhd_user_group"
+                style="@style/AppText" />
+
+            <EditText
+                android:id="@+id/et_zhd_user_group"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:hint="@string/app_set_rover_user_group_hint"
+                android:imeOptions="actionNext"
+                android:inputType="number"
+                android:maxLength="7"
+                android:singleLine="true"
+                style="@style/AppTextValue" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:gravity="center"
+                android:text="@string/app_set_rover_zhd_work_group"
+                style="@style/AppText" />
+
+            <EditText
+                android:id="@+id/et_zhd_work_group"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:hint="@string/app_set_rover_work_group_hint"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLength="3"
+                android:singleLine="true"
+                style="@style/AppTextValue"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_set_rover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/app_set_rover_connect"
+        style="@style/AppButton" />
+
+</RelativeLayout>

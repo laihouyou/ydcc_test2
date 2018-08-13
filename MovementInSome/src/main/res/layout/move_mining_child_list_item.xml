@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#f0f0f0"
+    android:layout_height="match_parent" >
+
+    <Button
+        android:id="@+id/moveBtnSave3"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/moveBtnDelete3"
+        android:text="查看" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_toLeftOf="@+id/moveBtnSave3"
+        >
+
+        <TextView
+            android:id="@+id/moveTv3"
+            android:layout_width="0dp"
+            android:layout_height="35dip"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textColor="@color/blue"
+            android:textSize="10sp"
+            android:text="工程名称" />
+
+        <TextView
+            android:id="@+id/moveType3"
+            android:layout_width="0dp"
+            android:layout_height="35dip"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:text="工程类型"
+            android:textColor="@color/blue"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/moveUpdatatime3"
+            android:layout_width="0dp"
+            android:layout_height="35dip"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textColor="@color/blue"
+            android:textSize="10sp"
+            android:text="更新时间" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/moveBtnDelete3"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text="删除"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <!--<Button-->
+        <!--android:id="@+id/moveBtnGather"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="采测"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentEnd="true" />-->
+
+</RelativeLayout>

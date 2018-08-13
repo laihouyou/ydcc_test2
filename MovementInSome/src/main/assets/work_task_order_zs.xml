@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="work_task_order_zs" name="维修任务单" table="WORK_TASK_ORDER" submitTo="loopback" page="one">
+	   	<params>
+	    
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="deviceNum" value="EID,设备编号"/>
+		        <do filed="deviceType" value="LayerName"/>
+		        <do filed="gid" value="GID,业务编码"/>
+		    </rule>
+		</rules>
+	
+		<page id="1" name="维修信息">
+		    <group id="1" name="维修信息" display="Y" type="common">
+			    <field name="isPublicProjectStr" label="是否公用工程" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="否|是" listKey=""/>
+		        <field name="deviceNum" label="设施编号" type="maptext" readOnly="N" required="N" maxLength="20" defValue=":deviceNum,mapfac()" options="" listKey="" rule="mapfac"/>
+		        <field name="deviceType" label="设施类型" type="choice" readOnly="N" required="N" maxLength="20" defValue=":deviceType" options="" listKey="工单+设施类型"/>
+		        <field name="happenAddr" label="发生地址" type="text" readOnly="N" required="N" maxLength="20" defValue=":happenAddr" options="" listKey=""/>
+		    	<field name="reportedCategory" label="问题类型" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="工单+问题类型" id ="10001" cId ="10002"/>
+		    	<field name="reportedContent" label="问题内容" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="工单+问题内容" id ="10002" fId="10001" fName ="问题类型"/>
+		    	<field name="tel" label="联系电话" type="text" readOnly="N" required="N" maxLength="20" defValue=":tel" options="" listKey=""/>
+		    	<field name="pubArriveDate" label="公用到场时间" type="datetime" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="arriveDate" label="到场时间" type="datetime" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="workTime" label="维修时间" type="datetime" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="finishDate" label="完工时间" type="datetime" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="isCloseValveStr" label="是否关阀" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="否|是" listKey=""/>
+		        <field name="beginDoDate" label="关阀时间" type="datetime" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="endDoDate" label="开阀时间" type="datetime" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="workers" label="维修人员" type="memo" readOnly="N" required="N" maxLength="20" defValue="username()" options="" listKey=""/>
+		        <field name="reportedCoordinate" label="上报坐标" type="maptext" readOnly="N" required="N" maxLength="20" defValue="mapcoord(N)" options="" listKey=""/>
+		        <field name="remarks" label="处理备注" type="memo" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="repairMethods" label="维修方式" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="camera1" label="到场照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="camera2" label="维修照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="camera3" label="完工照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>
+			
+			<group id="2" name="系统信息" display="N" type="common">
+			    <field name="checkUser" label="审核人" type="text" readOnly="N" required="N" maxLength="20" defValue="username()" options="" listKey=""/>
+			    <field name="checkDate" label="审核时间" type="datetime" readOnly="N" required="N" maxLength="20" defValue="datetime()" options="" listKey=""/>
+			    <field name="linkedNum" label="关联巡查任务编号" type="text" readOnly="N" required="N" maxLength="20" defValue=":linkedNum" options="" listKey=""/>
+			    
+			    <!-- <field name="reportDateStr" label="上报时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="datetime()" options="" listKey="" rule=""/>
+			    <field name="reportPId" label="上报人ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userId()" options="" listKey="" rule=""/>
+			    <field name="reportPNum" label="上报人编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userNum()" options="" listKey="" rule=""/>
+			    <field name="reportPName" label="上报人名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="username()" options="" listKey="" rule=""/>
+			    <field name="rpDeptId" label="上报人部门ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteamId()" options="" listKey="" rule=""/>
+			    <field name="rpDeptNum" label="上报人部门编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteamNum()" options="" listKey="" rule=""/>
+			    <field name="rpDeptName" label="上报人部门名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteam()" options="" listKey="" rule=""/>
+			    <field name="rpTeamId" label="上报人班组ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupId()" options="" listKey="" rule=""/>
+			    <field name="rpTeamNum" label="上报人班组编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupNum()" options="" listKey="" rule=""/>
+			    <field name="rpTeamName" label="上报人班组名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupName()" options="" listKey="" rule=""/> -->
+			</group>
+			
+			<group id="3" name="材料表" display="Y" type="common">
+				<field name="ES_T_TASK_MATERIAL_USE" label="维修工程结算单" type="childrentable" readOnly="N" required="N" maxLength="" defValue="" options="" listKey="" childrenTableAction="" childrenTableUpdateAction="materialUpdate" template="ins_material_form_zs.xml"/>
+				<field name="BAS_T_PROJECT_ZS" label="工程信息单" type="childrentable" readOnly="N" required="N" maxLength="" defValue="" options="" listKey="" childrenTableAction="" childrenTableUpdateAction="projectUpdate" template="ins_project_zs.xml"/>
+			</group> 
+		</page>
+	</form>
+</axf>

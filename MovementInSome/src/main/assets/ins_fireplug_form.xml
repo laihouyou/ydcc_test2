@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_fireplug" name="消火栓巡查记录" table="INS_FAC_CENSUS_RECORD" submitTo="loopback" page="one">
+	   	<params>
+			<param name="pid" type="c" required="Y" defValue="" io="i"/>
+			<param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+			<param name="sections" field="" type="c" required="Y" defValue="" io="i"></param>	
+			<param name="sectionsNum" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="bfNum" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="facType" field="" type="c" required="Y" defValue="" io="i"></param>
+		</params>
+		
+		<rules>
+		    <rule id="mapfac">
+		        <do filed="bfNum" value="EID"/>
+		        <do filed="idvrMetre" value="MATERIAL"/>
+		        <do filed="idvrCab" value="MAINPIPE_DS"/>
+		    </rule>
+		</rules>
+		
+		<page id="1" name="消火栓巡查记录">
+		    <group id="1" name="设施信息" display="Y" type="common">
+				<field name="bfNum" label="设施编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":bfNum" options="" listKey="" rule="mapfac"/>
+				<field name="facType" label="设施类型" type="text" readOnly="N" required="N" maxLength="20" defValue=":facType" options="" listKey="" rule=""/>
+				<!--  field name="facCaliber" label="设施口径" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="facMaterial" label="设施材质" type="text" readOnly="N"  required="N" maxLength="2000" defValue="" options="" listKey="" rule=""/-->
+			</group>
+			<group id="2" name="消火栓状况" display="Y" type="common">
+		    	<field name="recordDate" label="检查时间" type="datetime" readOnly="N" required="Y" maxLength="20" defValue="datetime()" options="" listKey="" rule=""/>
+		    	<field name="checkItem1" label="有无漏水" type="choice" readOnly="N" required="Y" maxLength="20" defValue="无" options="有|无" listKey="" rule=""/>
+		        <field name="checkItem2" label="是否围压" type="choice" readOnly="N" required="Y" maxLength="20" defValue="否" options="是|否" listKey="" rule=""/>
+		    	<field name="checkItem3" label="闸门是否正常" type="choice" readOnly="N" required="Y" maxLength="20" defValue="正常" options="正常|异常" listKey="" rule=""/>
+		        <field name="checkItem4" label="外观是否完好" type="choice" readOnly="N" required="Y" maxLength="20" defValue="完好" options="完好|老旧" listKey="" rule=""/>
+		        <field name="checkItem5" label="配件是否缺失" type="choice" readOnly="N" required="Y" maxLength="20" defValue="完好" options="完好|缺大盖|缺小盖" listKey="" rule=""/>
+		        <field name="otherRemarks" label="其他情况" type="memo" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		    </group>
+		    <group id="3" name="吐水操作" display="Y" type="common">
+		    	<field name="checkItem6" label="吐水时间" type="time" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		        <field name="checkSum1" label="吐水时长(分钏)" type="numeric" readOnly="N" required="N" maxLength="20" defValue="12" options="" listKey="" rule=""/>
+		    	<field name="checkSum2" label="吐水量(m3)" type="numeric" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		    </group>
+		    <group id="4" name="测压信息" display="Y" type="common">
+		        <field name="checkItem7" label="测压时间" type="time" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		    	<field name="checkSum3" label="压力值(Mpa)" type="numeric" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		    	<field name="checkSum4" label="地面标高" type="numeric" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		    	<field name="checkSum5" label="压力标高" type="numeric" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		    </group>
+		    <group id="5" name="地理信息" display="Y" type="attach">		        
+		        <field name="isAccurateStr" label="图与现实不符" type="choice" readOnly="N"  required="N" maxLength="20" defValue="否" options="是|否" listKey="" rule=""/>
+		        <!--  field name="facCoordinate" label="新坐标" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapcoord()" options="" listKey="" rule=""/>
+		        <field name="checkItem8" label="地理坐标" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapCoord()" options="" listKey="" rule=""/-->
+			    <field name="camera" label="现场照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>	
+			</group>
+			<group id="6" name="处理信息" display="N" type="common">
+			    <field name="serialNumber" label="serialNumber" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":serialNumber" options="" listKey="" rule=""/>
+			    <field name="pid" label="pid" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":pid" options="" listKey="" rule=""/>
+			     <field name="sections" label="所在路段" type="system" readOnly="N"  required="N" maxLength="20" defValue=":sections" options="" listKey="" rule=""/>
+			    <field name="sectionsNum" label="路段编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":sectionsNum" options="" listKey="" rule=""/>
+<!-- 			    <field name="guid" label="GUID" type="system" readOnly="N"  required="Y" maxLength="20" defValue="guid()" options="" listKey="" rule=""/>
+ -->			</group>
+		</page>
+		
+		<!-- <atepss>
+		    <ateps groupid="1" name="设施信息" state="0"></ateps>
+		    <ateps groupid="2" name="消火栓状况" state="0"></ateps>
+		    <ateps groupid="3" name="吐水操作" state="0"></ateps>
+		    <ateps groupid="4" name="测压信息" state="0"></ateps>
+		    <ateps groupid="5" name="地理信息" state="0"></ateps>
+		</atepss> -->
+	</form>
+</axf>

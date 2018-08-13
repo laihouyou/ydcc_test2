@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#f0f0f0"
+    android:layout_height="50dip" >
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_toLeftOf="@+id/moveBtnSave2"
+        >
+
+        <TextView
+            android:id="@+id/moveTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:ellipsize="end"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:lines="1"
+            android:textColor="@color/blue"
+            android:textSize="11sp"
+            android:text="工程名称" />
+
+        <TextView
+            android:id="@+id/moveType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/moveTv"
+            android:gravity="center"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textColor="@color/blue"
+            android:textSize="11sp"
+            android:text="工程类型" />
+
+        <TextView
+            android:id="@+id/moveUpdatatime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/moveTv"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:ellipsize="end"
+            android:lines="1"
+            android:textColor="@color/blue"
+            android:textSize="11sp"
+            android:text="更新时间" />
+
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/moveBtnSave2"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:gravity="center"
+        android:layout_marginRight="5dp"
+        android:layout_centerVertical="true"
+        android:background="@color/help_button_view"
+        android:textColor="@color/activity_bg_color_night"
+        android:layout_toLeftOf="@+id/moveBtnDelete"
+        android:text="查看" />
+
+    <TextView
+        android:id="@+id/moveBtnDelete"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:gravity="center"
+        android:background="@color/help_button_view"
+        android:textColor="@color/activity_bg_color_night"
+        android:text="删除"
+        android:layout_toLeftOf="@+id/moveBtnGather"
+        />
+    <TextView
+        android:id="@+id/moveBtnGather"
+        android:layout_width="40dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:background="@color/help_button_view"
+        android:textColor="@color/activity_bg_color_night"
+        android:text="采测"
+        android:gravity="center"
+        android:layout_alignParentRight="true"
+        />
+
+
+</RelativeLayout>

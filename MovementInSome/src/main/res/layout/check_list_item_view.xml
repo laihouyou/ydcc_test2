@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/map_layer_background"
+    android:orientation="horizontal"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp" >
+
+    <TextView
+        android:id="@+id/check_list_item_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/check_list_item_values"
+        android:textColor="@color/black"
+        android:textSize="14dp" />
+
+    <LinearLayout
+        android:id="@+id/check_list_item_values"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:orientation="vertical" >
+
+        <Spinner
+            android:id="@+id/check_list_item_msg_spinner"
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:background="@drawable/spinner_bg"
+            android:visibility="gone" />
+        <EditText 
+            android:id="@+id/check_list_item_msg_textview"
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_bg"
+            android:visibility="gone"/>
+        <EditText 
+            android:id="@+id/check_list_item_msg_numview"
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:background="@drawable/input_bg"
+            android:visibility="gone"/>
+        <EditText 
+            android:id="@+id/check_list_item_msg_numericview"
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:background="@drawable/input_bg"
+            android:visibility="gone"/>
+        
+        <Button 
+            android:id="@+id/check_list_item_msg_button"
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:background="@drawable/spinner_bg"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/check_list_item_msg_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone" >
+
+            <CheckBox
+                android:id="@+id/check_list_item_msg_y"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="是"
+                android:textColor="@color/black"
+                android:textSize="14dp" >
+            </CheckBox>
+
+            <CheckBox
+                android:id="@+id/check_list_item_msg_n"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="否"
+                android:textColor="@color/black"
+                android:textSize="14dp" >
+            </CheckBox>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

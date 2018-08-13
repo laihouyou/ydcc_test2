@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_fireplug" name="消火栓吐水记录" table="ES_T_GUTTATION_RECORD_INFO" submitTo="loopback" page="one">
+	   	<params>
+			<param name="pid" type="c" required="Y" defValue="" io="i"/>
+			<param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+			<param name="sections" field="" type="c" required="Y" defValue="" io="i"></param>	
+			<param name="sectionsNum" field="" type="c" required="Y" defValue="" io="i"></param>
+		</params>
+		
+		<rules>
+		    <rule id="mapfac">
+		        <do filed="bfNum" value="EID"/>
+		        <do filed="idvrMetre" value="MATERIAL"/>
+		        <do filed="idvrCab" value="MAINPIPE_DS"/>
+		    </rule>
+		</rules>
+		
+		<page id="1" name="消火栓巡查记录">
+		    <group id="1" name="设施信息" display="Y" type="common">
+				<field name="bfNum" label="设施编号" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapfac()" options="" listKey="" rule="mapfac"/>
+				<field name="idvrCab" label="设施口径" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="idvrMetre" label="设施材质" type="text" readOnly="N"  required="N" maxLength="2000" defValue="" options="" listKey="" rule=""/>
+			</group>
+			<group id="2" name="吐水信息" display="Y" type="common">
+			    <field name="REASON" label="吐水原因" type="memo" readOnly="N" required="Y" maxLength="20" defValue="date()" options="" listKey="" rule=""/>
+		    	<field name="START_WATER_DATE" label="开始吐水时间" type="date" readOnly="N" required="Y" maxLength="20" defValue="date()" options="" listKey="" rule=""/>
+		        <field name="WATER_DATE_LEN" label="吐水时长" type="check" readOnly="N" required="Y" maxLength="20" defValue="0" options="" listKey="" rule=""/>
+		    	<field name="WATER_DAMAGE" label="吐水量" type="memo" readOnly="N" required="Y" maxLength="20" defValue="" options="450*750|400*700|其他" listKey="0008" rule=""/>
+		    	<field name="PRESSURE" label="压力(Mpa)" type="memo" readOnly="N" required="Y" maxLength="20" defValue="" options="450*750|400*700|其他" listKey="0008" rule=""/>
+		    	<field name="EFFECT_EVALUACTION" label="效果评价" type="memo" readOnly="N" required="Y" maxLength="20" defValue="" options="450*750|400*700|其他" listKey="0008" rule=""/>
+		    </group>
+		    <group id="3" name="地理信息" display="Y" type="attach">
+		        <field name="reportedCoordinate" label="地理坐标" type="maptext" readOnly="N"  required="Y" maxLength="20" defValue="mapcoord()" options="" listKey="" rule=""/>
+			    <field name="camera" label="现场照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>	
+			</group>
+			<group id="4" name="处理信息" display="N" type="common">
+			    <field name="serialNumber" label="serialNumber" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":serialNumber" options="" listKey="" rule=""/>
+			    <field name="pid" label="pid" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":pid" options="" listKey="" rule=""/>
+			     <field name="sections" label="所在路段" type="system" readOnly="N"  required="N" maxLength="20" defValue=":sections" options="" listKey="" rule=""/>
+			    <field name="sectionsNum" label="路段编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":sectionsNum" options="" listKey="" rule=""/>
+<!-- 			    <field name="guid" label="GUID" type="system" readOnly="N"  required="Y" maxLength="20" defValue="guid()" options="" listKey="" rule=""/>
+ -->			</group>
+		</page>
+	</form>
+</axf>

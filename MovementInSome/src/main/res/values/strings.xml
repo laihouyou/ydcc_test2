@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="rememberpassword">记住帐户</string>
+    <string name="aulog">自动登录</string>
+    <string name="left_drawer_no_login_tip">登录后，将推荐给你更多感兴趣的文章</string>
+    <string name="left_drawer_item_search">搜索</string>
+    <string name="left_drawer_item_favorite">收藏</string>
+    <string name="left_drawer_item_message">消息</string>
+    <string name="left_drawer_item_offdata">表单记录</string>
+    <string name="left_drawer_item_upload">上报记录</string>
+    <string name="left_drawer_item_receive_msg">消息记录</string>
+    <string name="left_drawer_item_offline">离线</string>
+    <string name="left_drawer_item_offline_cancel">取消离线</string>
+    <string name="left_drawer_item_activity">活动</string>
+    <string name="left_drawer_item_setting">设置</string>
+    <string name="left_drawer_item_feedback">反馈</string>
+    <string name="left_drawer_item_appstore">精彩应用</string>
+    <string name="left_drawer_item_gps">卫星信号</string>
+    <string name="left_drawer_item_password">更改密码</string>
+    <string name="left_drawer_item_down">离线地图下载</string>
+    <string name="action_night_mode">夜间模式</string>
+    <string name="action_day_mode">日间模式</string>
+    <string name="dislike_dlg_lable_speech">读文章</string>
+    <string name="favorite_btn_delete">删除</string>
+    <string name="favorite_btn_edit">编辑</string>
+    <string name="favorite_btn_cancel">取消</string>
+    <!-- table_Activity 表单填写页面 -->
+    <string name="btnTitle">表   单  上  报</string>
+    <string name="btnQ">隐患上报</string>
+    <string name="btnU">GIS数据纠错</string>
+    <string name="btnLD">暗漏上报</string>
+    <string name="btnC">施工上报</string>
+    <string name="btnBGFX">关阀分析</string>
+    <string name="btnHistory">历史记录</string>
+    <string name="btnDL">现场定漏单</string>
+    <!--<string name="_">上班时间</string>   -->
+    
+    <string name="EASYFORM_Title">动态页面测试</string>
+    
+    
+     <!-- 系统功能设置 -->
+    <string name="systemTitle">系统功能设置</string>
+    <string name="systemTvGpsNumber">GPS颗数</string>
+    <string name="systemBtnGpsUpdata"> 刷新 </string>
+    <string name="systemBtnLight">屏幕亮度</string>
+    <string name="systemBtnLightAuto">自动</string>
+    <string name="systemBtnLightSet">设置</string>
+    <string name="systemBtnEndCall">屏蔽通话</string>
+    <string name="systemBtnWifi">无线网络</string>
+    <string name="systemBtnAPN">3G 网络</string>
+    <string name="systemBtnGPS">GPS 定位</string>
+    <string name="systemInitDataT">原始数据</string>
+    <string name="systemInitData">重新初始化</string>
+    <string name="systemUpdateDataT">系统还原</string>
+    <string name="systemUpdateData">清除数据</string>
+    <string name="systemRestUrl">网络设置</string>
+    <string name="systemRestnet">内网</string>
+    <string name="systemRestOuterNet">外网</string>
+    <string name="systemUpdateApkT">检测更新</string>
+    <string name="systemUpdateApk">系统升级</string>
+    <string name="systemBtnOff">关闭</string>
+    <string name="systemBtnOn">启动</string>
+    <string name="systemBtnFlowMon">流量监控</string>
+    <string name="version">版本号</string>
+
+
+     <string name="panorama_tips">\t\t百度地图SDK为您免费提供全景图的功能。\n
+        \t\t利用接口，可查询、开启并操作更丰富的全景图。\n
+        \t\t以下三个示例分别向您展示了三种调启全景图的入口，您可在实际操作中灵活运用。\n
+        \t\t全景图还提供了Item绘制能力，您可在第三个示例中查看具体使用方法。</string>
+
+    <string name="demo_title_panorama">打开全景</string>
+    <string name="demo_desc_panorama1">通过pid获取全景</string>
+    <string name="demo_desc_panorama2">通过位置信息经纬度获取全景</string>
+    <string name="demo_desc_panorama3">通过位置信息墨卡托坐标获取全景</string>
+    <string name="demo_desc_panorama4">添加标注到全景图</string>
+    <string name="demo_desc_panorama5">内景图展示</string>
+    <string name="demo_desc_panorama6">测试</string>
+
+    <string name="navigation_options">导航选择</string>
+    <string name="nokia_drivers">驾车导航</string>
+    <string name="cycling_navigation">骑行导航</string>
+    <string name="pedestrian_navigation">步行导航</string>
+
+    <string name="return_code">141025</string>
+    <string name="appName">appName</string>
+
+    
+    <!-- 初始化地址 -->
+    <string name="systemUrl">123.160.220.35</string>
+    <string name="systemUrlHR">121.15.248.10</string>
+    <string name="systemUrlPT">59.58.111.58</string>
+    <string name="systemUrlGIS">183.62.7.42</string>
+    <string name="systemUrlCE">172.16.100.3</string>
+    <!-- 阿里云服务器地址 -->
+    <string name="systemUrlYDCE">123.160.220.35</string>
+    <!-- 公司服务器地址 -->
+    <!--<string name="systemUrlYDCE">gddst.wicp.net</string>-->
+    <!--<string name="systemUrlYDCE">172.16.1.40</string>-->
+
+    <!-- 初始化端口号 -->
+    <string name="systemPortNumber">30101</string>
+    <!--<string name="systemPortNumber">8091</string>-->
+
+    <string name="systemPortNumberPT">58093</string>
+    <string name="systemPortNumberGIS">8093</string>
+
+    <!--主界面，功能列表-->
+    <string name="app_activity_main">中海达通讯库Demo</string>
+    <string name="app_connect_device">蓝牙配对，连接</string>
+    <string name="app_connected_device">已连接到: %s</string>
+    <string name="app_disconnect_device">断开设备连接</string>
+    <string name="app_disconnecting_device">正在断开设备连接...</string>
+    <string name="app_get_device_info">查看设备的工作模式、固件版本、过期时间等</string>
+    <string name="app_regist_device">输入注册码，注册设备</string>
+    <string name="app_get_gps_point">实时获取位置、解状态、中误差等信息</string>
+    <string name="app_get_satellites_info">实时获取卫星号、方位角、高度角、信噪比等</string>
+    <string name="app_show_data">查看和请求NMEA数据</string>
+    <string name="app_set_rover">连接差分服务器，设置移动站</string>
+    <string name="app_static_collection">开始/停止静态采集、静态文件管理</string>
+
+    <!-- 蓝牙连接-->
+    <string name="app_activity_bluetooth_connect">连接设备（Qbox 8）</string>
+    <string name="app_activity_bluetooth_open">开启蓝牙</string>
+    <string name="app_activity_bluetooth_paired">已配对的设备</string>
+    <string name="app_activity_bluetooth_unpaired">可用设备</string>
+    <string name="app_activity_bluetooth_find">搜索设备</string>
+    <string name="app_activity_bluetooth_no_support">当前设备不支持蓝牙！</string>
+    <string name="app_activity_bluetooth_unknown">未知设备</string>
+    <string name="app_activity_bluetooth_opening">正在打开蓝牙...</string>
+    <string name="app_activity_bluetooth_closing">正在关闭蓝牙...</string>
+    <string name="app_activity_bluetooth_pairing">正在与"%s"配对...</string>
+    <string name="app_activity_bluetooth_discovery_none">未发现设备！</string>
+    <string name="app_activity_bluetooth_bond_failed">与"%s"配对失败！</string>
+
+    <!-- 设备连接过程 -->
+    <string name="app_connectting_to_decice">正在连接设备%1$s...</string>
+    <string name="app_getting_version">正在读取固件版本...</string>
+    <string name="app_getting_setting">正在获取主机设置...</string>
+    <string name="app_connectting_oem">正在连接主板...</string>
+    <string name="app_getting_oeminfo">正在获取主板信息...</string>
+    <string name="app_getting_support_zhd_command">正在检测中海达命令...</string>
+    <string name="app_getting_datalink">正在获取数据链信息...</string>
+    <string name="app_getting_update">正在获取更新信息...</string>
+    <string name="app_init_device">正在初始化设备...</string>
+    <string name="app_getting_endday">正在获取注册日期...</string>
+    <string name="app_connect_failed">连接失败！</string>
+    <string name="app_connect_success">连接成功！</string>
+
+    <!-- 设备信息 -->
+    <string name="app_activity_device_info">设备信息</string>
+    <string name="app_device_type">设备类型：</string>
+    <string name="app_device_id">设备ID：</string>
+    <string name="app_work_pattern">工作模式：</string>
+    <string name="app_data_version">数据版本：</string>
+    <string name="app_firmware_version">固件版本：</string>
+    <string name="app_expiration_time">过期日期：</string>
+
+    <!-- 设备注册-->
+    <string name="app_activity_regist_device">注册设备</string>
+    <string name="app_regist_hint">请输入24位注册码</string>
+    <string name="app_regist">注册</string>
+    <string name="app_registing">正在注册仪器%1$s...</string>
+    <string name="app_regist_success">注册成功！</string>
+    <string name="app_regist_failed">注册失败！</string>
+
+    <!-- GPS信息-->
+    <string name="app_activity_gps_piont">GPS信息</string>
+    <string name="app_gps_longitude">经度：</string>
+    <string name="app_gps_latitude">纬度：</string>
+    <string name="app_gps_altitude">高程：</string>
+    <string name="app_gps_used_satellites">卫星数：</string>
+    <string name="app_gps_quality">解状态：</string>
+    <string name="app_gps_hdop">HDOP：</string>
+    <string name="app_gps_diff_station_id">基站ID：</string>
+    <string name="app_gps_diff_age">差分龄期：</string>
+    <string name="app_gps_rms_x">中误差（x）：</string>
+    <string name="app_gps_rms_y">中误差（y）：</string>
+    <string name="app_gps_rms_h">中误差（h）：</string>
+    <string name="app_gps_time">UTC时间：</string>
+
+    <string name="app_toast">提示</string>
+    <string name="app_cancel">取消</string>
+
+    <!-- 静态文件管理-->
+    <string name="app_activity_static_file">静态文件管理</string>
+    <string name="app_static_file_id">序号</string>
+    <string name="app_static_file_name">文件名</string>
+    <string name="app_static_file_size">文件大小</string>
+    <string name="app_static_file_date">日期</string>
+    <string name="app_static_file_format">格式化</string>
+    <string name="app_static_file_delete_first">删除第一个</string>
+    <string name="app_static_file_reading">正在读取静态文件列表...</string>
+    <string name="app_static_file_read_failed">读取静态文件列表失败！</string>
+    <string name="app_static_file_formating">正在格式化静态文件...</string>
+    <string name="app_static_file_deleting">正在删除静态文件...</string>
+    <string name="app_static_file_delete_failed">静态文件删除失败！</string>
+
+    <!-- 移动站设置-->
+    <string name="app_activity_set_rover">移动站设置</string>
+    <string name="app_set_rover_net_type">网络类型</string>
+    <string name="app_set_rover_net_type_vrs">VRS参考站</string>
+    <string name="app_set_rover_net_type_zhd">中海达网络</string>
+    <string name="app_set_rover_net_address">网络地址</string>
+    <string name="app_set_rover_net_port">端口号</string>
+    <string name="app_set_rover_vrs_username">用户名</string>
+    <string name="app_set_rover_vrs_password">密码</string>
+    <string name="app_set_rover_vrs_mountpoint">源节点</string>
+    <string name="app_set_rover_get_mountpoint">获取</string>
+    <string name="app_set_rover_zhd_user_group">用户组</string>
+    <string name="app_set_rover_zhd_work_group">工作组</string>
+    <string name="app_set_rover_net_address_hint">192.168.100.119</string>
+    <string name="app_set_rover_net_port_hint">0~65535</string>
+    <string name="app_set_rover_user_group_hint">0000000~9999999</string>
+    <string name="app_set_rover_work_group_hint">0~255</string>
+    <string name="app_set_rover_default_vrs_address">rtk.ntrip.qxwz.com</string>
+    <string name="app_set_rover_default_vrs_port">8001</string>
+    <string name="app_set_rover_default_vrs_username">zhdgis1</string>
+    <string name="app_set_rover_default_vrs_password">d72cee4</string>
+    <string name="app_set_rover_default_vrs_mountpoint">RTCM32_GGB</string>
+    <string name="app_set_rover_getting_mountpoint">正在获取源节点...</string>
+    <string name="app_set_rover_get_mountpoint_failed">获取源节点失败！</string>
+    <string name="app_set_rover_choose_mountpoint">请选择源节点</string>
+    <string name="app_set_rover_mountpoint">源节点</string>
+    <string name="app_set_rover_mountpoint_Identifier">标识</string>
+    <string name="app_set_rover_mountpoint_format">电文格式</string>
+    <string name="app_set_rover_net_address_empty">网络地址不能为空！</string>
+    <string name="app_set_rover_net_port_empty">网络端口不能为空！</string>
+    <string name="app_set_rover_user_name_empty">用户名不能为空！</string>
+    <string name="app_set_rover_password_empty">密码不能为空！</string>
+    <string name="app_set_rover_mountpoint_empty">请选择源节点！</string>
+    <string name="app_set_rover_user_group_empty">用户组不能为空！</string>
+    <string name="app_set_rover_work_group_empty">工作组不能为空！</string>
+    <string name="app_set_rover_connect">连接</string>
+    <string name="app_set_rover_disconnect">断开</string>
+    <string name="app_set_rover_checking_network">正在检查网络</string>
+    <string name="app_set_rover_connecting_server">正在连接服务器...</string>
+    <string name="app_set_rover_logining">连接服务器成功，正在登录...</string>
+    <string name="app_set_rover_setting">登录成功，正在设置接收机...</string>
+    <string name="app_set_rover_success">设置成功！</string>
+    <string name="app_set_rover_failed">设置失败！</string>
+    <string name="app_set_rover_disconnect_success">断开成功</string>
+
+    <!-- 解类型-->
+    <string name="gnss_position_type_unknown">未知</string>
+    <string name="gnss_position_type_invalid">无效</string>
+    <string name="gnss_position_type_single">单点定位</string>
+    <string name="gnss_position_type_rtd">伪距差分</string>
+    <string name="gnss_position_type_rtkfixed">固定解</string>
+    <string name="gnss_position_type_rtkfloat">浮动解</string>
+    <string name="gnss_position_type_drm">航位推测模式</string>
+    <string name="gnss_position_type_fixedpos">固定位置</string>
+    <string name="gnss_position_type_simulator">模拟模式</string>
+    <string name="gnss_position_type_sbas">广域差分</string>
+    <string name="gnss_position_type_pppfixed">PPP固定解</string>
+    <string name="gnss_position_type_pppfloat">PPP浮动解</string>
+    <string name="gnss_position_type_indoor">室内位置</string>
+
+
+
+    <string name="move_msg">至少采集两个点才能继续操作</string>
+
+    <string name="wgs84">WGS84</string>
+    <string name="gcj02">GCJ02</string>
+
+    <string name="share_account">共享账号:</string>
+    <string name="share_code">共享密码:</string>
+    <string name="please_enter_share_account">请输入共享账号</string>
+    <string name="is_share">是否共享:</string>
+    <string name="qican_pulldown">七参选择:</string>
+    <string name="share_yes">共享</string>
+    <string name="share_no">不共享</string>
+    <string name="previous_page">上一页</string>
+    <string name="next_page">下一页</string>
+    <string name="qican_write">七参填写</string>
+    <string name="manual_write">手动填写</string>
+
+    <string name="record_name">记录名称:</string>
+    <string name="please_enter_record_name">请输入记录名称</string>
+    <string name="please_enter_all_parameters">请输入全部参数</string>
+
+    <!-- 七参数 -->
+
+    <!-- X平移(米) -->
+    <string name="SDx">SDx:</string>
+    <!-- Y平移(米) -->
+    <string name="SDy">SDy:</string>
+    <!-- Z平移(米) -->
+    <string name="SDz">SDz:</string>
+    <!-- X轴旋转(秒) -->
+    <string name="SQx">SQx:</string>
+    <!-- Y轴旋转(秒) -->
+    <string name="SQy">SQy:</string>
+    <!-- Z轴旋转(秒) -->
+    <string name="SQz">SQz:</string>
+    <!-- 尺度ppm -->
+    <string name="SScale">SScale:</string>
+
+    <!-- 四参数 -->
+
+    <!-- X平移(米) -->
+    <string name="FDx">FDx:</string>
+    <!-- Y平移(米) -->
+    <string name="FDy">FDy:</string>
+    <!-- 尺度K -->
+    <string name="FScale">FScale:</string>
+    <!-- 旋转角度T(弧度) -->
+    <string name="FRotateangle">FRotateangle:</string>
+
+    <!-- 投影参数 -->
+
+    <!-- 3度带、6度带 -->
+    <string name="area">度带:</string>
+    <!-- 中央子午线 -->
+    <string name="PCentralmeridian">PCentralmeridian:</string>
+    <!-- 尺度 -->
+    <string name="PScale">PScale:</string>
+    <!-- X常数 -->
+    <string name="PConstantx">PConstantx:</string>
+    <!-- Y常数 -->
+    <string name="PConstanty">PConstanty:</string>
+    <!-- 基准纬度 -->
+    <string name="PBenchmarklatitude">PBenchmarklatitude:</string>
+    <!-- 椭球长半轴 -->
+    <string name="Semimajor">Semimajor:</string>
+    <!-- 椭球扁率 -->
+    <string name="Flattening">Flattening:</string>
+
+    <string name="x_translation_s">X平移(米) 七参</string>
+    <string name="y_translation_s">Y平移(米) 七参</string>
+    <string name="z_translation_s">Z平移(米) 七参</string>
+    <string name="x_rotate">X轴旋转(秒) 七参</string>
+    <string name="y_rotate">Y轴旋转(秒) 七参</string>
+    <string name="z_rotate">Z轴旋转(秒) 七参</string>
+    <string name="ppm_measure">尺度ppm 七参</string>
+
+    <string name="x_translation_f">X平移(米) 四参</string>
+    <string name="y_translation_f">Y平移(米) 四参</string>
+    <string name="k_measure">尺度K 四参</string>
+    <string name="t_rotation_angle">旋转角度T(弧度) 四参</string>
+
+    <string name="central_meridian">中央子午线 投影参数</string>
+    <string name="x_constant">X常数 投影参数</string>
+    <string name="y_constant">Y常数 投影参数</string>
+    <string name="measure">尺度 投影参数</string>
+    <string name="latitude_reference">基准纬度 投影参数</string>
+    <string name="semimajor_axis_of_ellipsoid">椭球长半轴 投影参数</string>
+    <string name="flattening_of_ellipsoid">椭球扁率 投影参数</string>
+
+    <string-array name="area">
+        <item>3</item>
+        <item>6</item>
+    </string-array>
+
+    <!-- 登入界面 -->
+    <string name="forget_password">忘记密码</string>
+    <string name="change_password">修改密码</string>
+    <string name="login">登入</string>
+    <string name="account">账号</string>
+    <string name="email">邮箱</string>
+    <string name="email_code">邮箱验证码</string>
+    <string name="get_email_code">获取验证码</string>
+    <string name="account_email_no_null">账号跟邮箱不能为空</string>
+    <string name="please_enter_new_password">请输入新密码</string>
+    <string name="please_enter_new_password_again">请再次输入新密码</string>
+    <string name="error_of_account_format">账号格式错误</string>
+    <string name="email_of_account_format">邮箱格式错误</string>
+    <string name="code_no_null">验证码不能为空</string>
+    <string name="user_name">姓名</string>
+    <string name="phone">手机号码</string>
+    <string name="company_name">公司名称</string>
+
+    <string name="undone">未完成</string>
+    <string name="completed">已完成</string>
+
+
+    <string name="login_msg">用户所在班组没有权限</string>
+    <string name="exit_login">退出登入</string>
+    <string name="personal_center">个人中心</string>
+    <string name="determine">确定</string>
+    <string name="error_message">请求失败,服务端错误</string>
+
+    <string name="error_message2">无法连接服务器,请检查网络连接</string>
+
+    <string name="project_name">工程名字:</string>
+    <string name="project_num">工程编号:</string>
+    <string name="project_type">工程类型:</string>
+    <string name="project_cDate">创建时间:</string>
+    <string name="project_uDate">更新时间:</string>
+    <string name="project_shareCode">共享码:</string>
+    <string name="project_cityName">七参城市名字:</string>
+    <string name="project_lineLenght">管线长度(米):</string>
+    <string name="project_pointNumber">设施点数量(个):</string>
+    <string name="project_share_QEcode">共享二维码</string>
+
+
+    <string name="input_data">导入</string>
+    <string name="input_select">导入选择</string>
+    <string name="facilities">设施点表</string>
+    <string name="pipeline_table">管线表</string>
+    <string name="manual_import">手动导入</string>
+
+    <string name="input_error">该工程七参数据为空,无法导入</string>
+    <string name="input_city_name">该工程的七参城市为:</string>
+
+    <string name="imported_successfully">条数据导入成功</string>
+    <string name="imported_error">条数据导入失败</string>
+    <string name="imported_error2">导入失败</string>
+    <string name="comma">,</string>
+
+    <string name="error_msg">数据格式错误,请检查数据格式</string>
+    <string name="error_msg2">文件格式不支持,请导出Excel 97_2003(*.xls) 格式在重试</string>
+    <string name="error_msg3">数据库错误,导入失败</string>
+    <string name="error_msg4">共享失败</string>
+
+    <string name="load_msg">数据加载中,请稍等!</string>
+    <string name="load_msg2">数据加载完成</string>
+    <string name="load_error_mag">数据加载失败</string>
+    <string name="load_msg3">数据上传中  </string>
+
+    <string name="code_msg">扫一扫与其他工程共享数据</string>
+    <string name="complete_msg">请同步数据后在进行操作</string>
+
+    <string name="input_msg">请选择txt文本导入</string>
+
+
+</resources>

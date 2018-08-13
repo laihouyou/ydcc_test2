@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/black_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="25dip"
+    android:layout_marginLeft="25dip"
+    android:layout_marginRight="25dip"
+    android:layout_marginTop="25dip"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0" >
+
+        <ViewFlipper
+            android:id="@+id/idfFlipper"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:inAnimation="@anim/push_left_in"
+            android:outAnimation="@anim/push_left_out"
+            android:persistentDrawingCache="animation" >
+
+            <LinearLayout
+                android:id="@+id/idfLinearFlipper1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/idfLinearTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dip"
+                    android:background="@drawable/tob_title_bg"
+                    android:gravity="center"
+                    android:orientation="horizontal" >
+                </LinearLayout>
+
+                <ListView
+                    android:id="@+id/idfListview"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0"
+                    android:cacheColorHint="#00000000"
+                    android:padding="10dip" >
+                </ListView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/idfLinearFlipper2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/idfTvMessage"
+                    style="@style/myPhoneButtonBig"
+                    android:layout_height="80dip"
+                    android:text="详  细  信  息" >
+                </TextView>
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.0" >
+
+                    <LinearLayout
+                        android:id="@+id/idfLinearMessage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical" >
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+        </ViewFlipper>
+
+        <LinearLayout
+            android:id="@+id/idfLinearWTable"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/white_bg"
+            android:orientation="vertical"
+            android:padding="10dip"
+            android:visibility="gone" >
+
+            <LinearLayout
+                style="@style/myPhoneLayoutType"
+                android:background="@drawable/fg_bg" >
+
+                <TextView
+                    android:id="@+id/textView2"
+                    style="@style/myPhoneTvTypeT"
+                    android:text="表单选项"
+                    android:textSize="16dip" />
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/idfRadioGroupBUQ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <RadioButton
+                    android:id="@+id/idfRadioTableU"
+                    style="@style/myPhoneRadioRM"
+                    android:layout_height="50dip"
+                    android:checked="true"
+                    android:text="一.图与现场不符表单"
+                    android:textSize="14dip" />
+
+                <RadioButton
+                    android:id="@+id/idfRadioTableQ"
+                    style="@style/myPhoneRadioRM"
+                    android:layout_height="50dip"
+                    android:text="二.设施或其他问题表单"
+                    android:textSize="14dip" />
+                <RadioButton
+                    android:id="@+id/idfRadioTableL"
+                    style="@style/myPhoneRadioRM"
+                    android:layout_height="50dip"
+                    android:text="三.漏点上报表单"
+                    android:textSize="14dip" />
+            </RadioGroup>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/idfLinearButton2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <Button
+            android:id="@+id/idfBtnBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_next_bg"
+            android:text="返    回"
+            android:textColor="#ddffffff"
+            android:textSize="18dip" />
+
+        <Button
+            android:id="@+id/idfBtnConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0"
+            android:background="@drawable/btn_next_bg"
+            android:text="确    定"
+            android:textColor="#ddffffff"
+            android:textSize="18dip" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/idfLinearButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:visibility="visible" >
+
+        <Button
+            android:id="@+id/idfbtnFinish"
+            style="@style/myPhoneButtonBig"
+            android:text="关闭" />
+
+        <Button
+            android:id="@+id/idfbtnGoMap"
+            style="@style/myPhoneButtonBig"
+            android:text="定位" />
+
+        <Button
+            android:id="@+id/idfbtnFlipper"
+            style="@style/myPhoneButtonBig"
+            android:text="详情" />
+
+        <Button
+            android:id="@+id/idfbtnWTable"
+            style="@style/myPhoneButtonBig"
+            android:text="填表"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/idfbtnGoto"
+            style="@style/myPhoneButtonBig"
+            android:text="到这去"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+</LinearLayout>

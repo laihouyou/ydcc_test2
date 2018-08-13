@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dip"
+    style="@style/black_background"
+    android:orientation="vertical" >
+     <LinearLayout 
+         style="@style/myPhoneLayoutPType" 
+         android:layout_height="60dip">
+    	<LinearLayout 
+    	    style="@style/myPhoneLayoutType" 
+    	    android:layout_height="60dip">
+
+                <TextView
+                    android:id="@+id/return_table_reason_title"
+                    style="@style/myPhoneTvType"
+                    android:text="退单原因" />
+
+                <EditText
+                    android:id="@+id/return_table_reason_et"
+                    style="@style/myPhoneEtType"
+                    android:singleLine="true" />
+         </LinearLayout>
+     </LinearLayout>
+
+</LinearLayout>

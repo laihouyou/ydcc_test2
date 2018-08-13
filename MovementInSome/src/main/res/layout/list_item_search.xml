@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wx_bg"
+    android:padding="5dp"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/item_device_num"
+            style="@style/myPhoneTvType"
+            android:layout_width="match_parent"
+            android:text="设施编号" />
+
+        <TextView
+            android:id="@+id/item_device_name"
+            style="@style/myPhoneTvType"
+            android:layout_width="match_parent"
+            android:text="设施名称" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/item_write_btn"
+            android:layout_width="60dip"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_bg"
+            android:text="填单"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/item_detail_btn"
+            android:layout_width="60dip"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_bg"
+            android:text="详细"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</LinearLayout>

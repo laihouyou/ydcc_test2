@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">探漏通</string>
+    <string name="app_name2">探  漏  通</string>
+    <string name="sharedUserId">com.gddst.leak</string>
+
+    <string name="urlGeodata">mobileDetectionLeakResource/pioCreate</string>
+    <string name="urlPointListview">mobileDetectionLeakResource/pioList</string>
+    <string name="urlPoint">mobileDetectionLeakResource/pioDetail</string>
+    <string name="urlUpdatePoint">mobileDetectionLeakResource/pioUpdate</string>
+    <string name="urlDeletePoint">mobileDetectionLeakResource/pioDelete</string>
+
+    <string name="creatProject">mobileDetectionLeakResource/projectCreate</string>
+    <string name="listProject">mobileDetectionLeakResource/projectList</string>
+    <string name="detailProject">mobileDetectionLeakResource/projectDetail</string>
+    <string name="updateProject">mobileDetectionLeakResource/projectUpdate</string>
+    <string name="deleteProject">mobileDetectionLeakResource/projectDelete</string>
+
+    <string name="YDCE">4562</string>
+    <string name="APP_NAME">ydtl</string>
+
+    <string name="APP_TYPE">1</string>
+
+</resources>

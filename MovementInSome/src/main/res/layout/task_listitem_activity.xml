@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/black_background"
+    android:orientation="vertical" >
+     <LinearLayout style="@style/myPhoneLayoutTitleType" >
+
+        <Button
+            android:id="@+id/wbjh_btn_Back"
+           style="@style/myPhoneButtonBack" />
+
+        <TextView
+            style="@style/myPhoneTvTitle"
+            android:text="任务子列表" />
+
+        <Button
+            android:id="@+id/wbjh_btn_add"
+            style="@style/myPhoneButtonSmall" 
+            android:text="添加" />
+    </LinearLayout>
+   
+
+        <RelativeLayout style="@style/myPhoneLayoutBgType" 
+             android:layout_width="match_parent"
+        		android:layout_height="match_parent">
+             <ListView
+        android:id="@+id/wbjhListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/wbjh_btn_down"
+        android:cacheColorHint="#00000000"
+        android:divider="#00000000"
+        android:dividerHeight="10dip"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:paddingTop="8dip" />
+             <Button
+                android:id="@+id/wbjh_btn_down"
+                android:visibility="gone"
+                style="@style/myPhoneButtonBig"
+                android:layout_alignParentBottom="true"
+                android:text="下载任务" />
+        </RelativeLayout>
+ 
+
+</LinearLayout>

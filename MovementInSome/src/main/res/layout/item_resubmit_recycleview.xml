@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_10"
+        android:background="@color/point_facility5"
+        />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/dp_120">
+
+        <ImageView
+            android:id="@+id/projcet_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gather_water_supply"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/dp_20"
+            />
+
+        >
+
+        <LinearLayout
+            android:id="@+id/data_Lin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_5"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:layout_toRightOf="@+id/projcet_type"
+            android:layout_marginTop="@dimen/dp_14"
+            android:layout_toLeftOf="@+id/resubmit_date_re"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/projcet_type_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="工程类型：电力"
+                android:textColor="@color/point_facility4"
+                android:textSize="@dimen/sp_14" />
+
+            <TextView
+                android:id="@+id/projcet_fac_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:text="编号：gddst123"
+                android:textColor="@color/point_facility3"
+                android:textSize="@dimen/sp_13" />
+
+            <TextView
+                android:id="@+id/point_type_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_5"
+                android:text="类型：点"
+                android:textColor="@color/point_facility3"
+                android:textSize="@dimen/sp_13" />
+
+        </LinearLayout>
+
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/data_Lin"
+            android:layout_toRightOf="@+id/projcet_type"
+            >
+
+            <TextView
+                android:id="@+id/adder_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:text="地址：广州市海珠科技园0000000"
+                android:textColor="@color/point_facility3"
+                android:textSize="@dimen/sp_13" />
+
+        </FrameLayout>
+
+        <RelativeLayout
+            android:id="@+id/resubmit_date_re"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_13"
+            >
+
+            <TextView
+                android:id="@+id/resubmit_date_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="时间日期"
+
+                />
+
+            <CheckBox
+                android:id="@+id/resubmit_checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/check_state"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

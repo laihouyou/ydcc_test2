@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_hidden_trouble_form_gs" name="问题上报" table="WORK_TASK_ORDER" submitTo="loopback" page="one">
+	   	<params>
+	    <param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+ 			
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="deviceNum" value="EID,设备编号,GID,业务编码"/>
+		        <do filed="deviceType" value="LayerName"/>
+		        <do filed="deviceDs" value="D_S,口径"/>
+		        <do filed="deviceMaterial" value="MATERIAL,材质"/>
+		        <do filed="coordinate" value="shape"/>
+		    </rule>
+		</rules>
+	
+		<page id="1" name="隐患信息">
+		    <group id="1" name="隐患信息" display="Y" type="common">
+		        <field name="deviceNum" label="设施编号" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="deviceType" label="设施类型" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="阀门|消火栓|管线|排气阀|其它" listKey="广水+设施类型" id ="10001" cId ="10002"/>
+ 		        <field name="reportedCategory" label="反映类别" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="广水+反映类别" id ="10002" cId ="10003" fId="10001" fName ="设施类型"/>
+ 		    	<field name="reportedContent" label="反映内容" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="广水+反映内容" id ="10003" fId="10002" fName ="反映类别"/>
+ 		    	<field name="happenAddr" label="发生地址" type="text" readOnly="N" required="N" maxLength="20" defValue="addr()" options="" listKey=""/>
+ 		    	<field name="urgencyLevel" label="紧急程度" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="特急|紧急|一般" listKey="广水+紧急程度"/>
+ 		    	<field name="reportedPerson" label="巡线员" type="text" readOnly="N"  required="N" maxLength="20" defValue="username()" options="" listKey=""/>
+				<field name="tel" label="联系电话" type="text" readOnly="N"  required="N" maxLength="20" defValue="userPhone()" options="" listKey=""/>
+				<field name="remarks" label="备注" type="memo" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="camera" label="现场照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>
+			<group id="2" name="系统信息" display="N" type="common">
+			   
+ 			</group>
+		</page>
+	</form>
+</axf>

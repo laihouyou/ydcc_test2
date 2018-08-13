@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_data_entry_water_meter" name="水表" table="" submitTo="loopback" page="one">
+	   	<params>
+	    <param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+ 			
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="deviceNum" value="设备编号,管线编号,站点编号"/>
+		        <do filed="deviceType" value="LayerName"/>
+		        <do filed="facilitiesMaterial" value="MATERIAL,材料"/>
+		        <do filed="deviceDs" value="D_S,口径,主管口径"/>
+		        <do filed="coordinate" value="shape"/>
+		    </rule>
+		</rules>
+		<!-- 问题上报
+			表INS_HIDDEN_DANGER_REPORT
+			
+			workOrder 紧急程度
+			reportedType 问题类型
+			reportedContent 问题内容
+			addr 发生地址
+			remarks 描述
+			reportedDate 发现时间
+			leakageQuantity 漏水量
+			problemCoordinate 问题位置
+			depth 埋深
+			facilitiesType 设施类型
+			facilitiesCaliber 口径
+			facilitiesMaterial 管材
+			phone 上报人电话 -->
+	   
+		<page id="1" name="基本信息">
+		    <group id="1" name="显示信息" display="Y" type="common">
+
+				<field name="userNumber" label="用户号" type="text" readOnly="N" required="N" maxLength="20" defValue=":" options="" listKey=""/>
+				<field name="userName" label="用户名" type="text" readOnly="N" required="N" maxLength="20" defValue=":" options="" listKey=""/>
+				<field name="facNumber" label="表号" type="text" readOnly="N" required="Y" maxLength="20" defValue=":facName" options="" listKey=""/>
+				<field name="allCopies" label="统册号" type="text" readOnly="N" required="N" maxLength="20" defValue=":" options="" listKey=""/>
+
+				<field name="longitudeWg84" label="经度" type="numeric" readOnly="N" required="Y" maxLength="20" defValue=":longitudeWg84" options="" listKey=""/>
+				<field name="latitudeWg84" label="纬度" type="numeric" readOnly="N" required="Y" maxLength="20" defValue=":latitudeWg84" options="" listKey=""/>
+
+
+				<field name="waterMeterAdder" label="装表地址" type="text" readOnly="N" required="N" maxLength="20" defValue=":happenAddr" options="" listKey=""/>
+				<field name="adder" label="地址" type="text" readOnly="N" required="N" maxLength="20" defValue=":happenAddr" options="" listKey=""/>
+				<field name="waterNature" label="用水性质" type="text" readOnly="N" required="N" maxLength="20" defValue=":" options="" listKey=""/>
+				<field name="landlordTelephone" label="业主电话" type="numeric" readOnly="N" required="N" maxLength="20" defValue=":" options="" listKey=""/>
+				<field name="contactNumber" label="联系电话" type="numeric" readOnly="N" required="N" maxLength="20" defValue=":" options="" listKey=""/>
+				<field name="trellisCodes" label="网格编码" type="text" readOnly="N" required="N" maxLength="20" defValue=":" options="" listKey=""/>
+				<field name="caliber" label="口径" type="edit_check" readOnly="N" required="N" maxLength="20" defValue=":caliber"
+					options="20|50|100|120|150|200|250|300|350|350|400|450|500|600|700|800|900" listKey="" />
+				<field name="waterMeterClassification" label="（一级）表分类" type="text" readOnly="N" required="N" maxLength="20" defValue=":" options="" listKey=""/>
+				<field name="userSystematicName" label="用户分类名称" type="text" readOnly="N" required="N" maxLength="20" defValue=":" options="" listKey=""/>
+				<field name="waterMeterTime" label="装表时间" type="text" readOnly="N" required="N" maxLength="20" defValue=":" options="" listKey=""/>
+
+				<field name="camera" label="现场照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+
+
+				<!--<field name="facName" label="物探点号" type="text" readOnly="N" required="Y" maxLength="20" defValue=":facName" options="" listKey=""/>-->
+				<!--<field name="implementorName" label="设备名" type="edit_check" readOnly="N" required="N" maxLength="20" defValue=":implementorName"-->
+					<!--options="阀门|消防栓|节点|堵头封板|出水口|压力点|水表|水表组|排气阀|排水阀|排气口|排泥阀|检查井" listKey=""/>-->
+				<!--<field name="caliber" label="口径" type="edit_check" readOnly="N" required="N" maxLength="20" defValue=":caliber"-->
+					<!--options="20|50|100|120|150|200|250|300|350|350|400|450|500|600|700|800|900" listKey="" />-->
+				<!--<field name="type" label="类型" type="edit_check" readOnly="N" required="N" maxLength="20" defValue=":type"-->
+					<!--options="变材点|测压点|蝶阀|多通点|阀门|阀门井|非测区|非普查|检查井|节点|排泥阀|排泥口|排气阀|排气井|三通点|水表|水表井|水表组|弯头|消防井|压力表|预留口" listKey="" />-->
+				<!--<field nalongitudeWg84tude" label="经度" type="text" readOnly="N" required="Y" maxLength="20" defValue=":log" options="" listKey=""/>-->
+				<!--<field nalatitudeWg84tude" label="纬度" type="text" readOnly="N" required="Y" maxLength="20" defValue=":lat" options="" listKey=""/>-->
+				<!--<field name="groundElevation" label="地面高程" type="numeric" readOnly="N" required="N" maxLength="20" defValue=":groundElevation" options="" listKey=""/>-->
+				<!--<field name="burialDepth" label="埋深" type="numeric" readOnly="N" required="N" maxLength="20" defValue=":burialDepth" options="" listKey=""/>-->
+				<!--<field name="happenAddr" label="发生地址" type="text" readOnly="N" required="N" maxLength="20" defValue=":happenAddr" options="" listKey=""/>-->
+				<!--<field name="administrativeRegion" label="行政区" type="text" readOnly="N" required="N" maxLength="20" defValue=":administrativeRegion" options="" listKey=""/>-->
+				<!--<field name="camera" label="现场照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>-->
+
+
+
+				<!--<field name="manageArea" label="巡检片区" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" listTableName=""/>-->
+		        <!--<field name="hydrantArea" label="消防栓管理区" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="石岐区|南区|东区|西区|市政处|五桂山" listKey="" listTableName=""/>-->
+		        <!--<field name="hydrantNum" label="市政编码" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>-->
+		        <!--<field name="deviceMaterial" label="管材" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="工单+管材"/>-->
+		        <!--<field name="cenDeep" label="埋深" type="numeric" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>-->
+		        <!--<field name="sceneRemarks" label="漏水点状况" type="edit_check" readOnly="N" required="N" maxLength="20" defValue="" options="锈蚀|人为|其它" listKey=""/>-->
+		        <!--<field name="waterDamage" label="时漏量（M3/h)" type="numeric" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>-->
+		        <!--<field name="reportedCategory" label="问题类型" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="工单+问题类型" id ="10001" cId ="10002"/>-->
+		    	<!--<field name="reportedContent" label="问题内容" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="工单+问题内容" id ="10002" fId="10001" fName ="问题类型"/>-->
+ 		        <!--<field name="sceneRemarks" label="现场情况" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>-->
+ 		        <!--<field name="reportedPerson" label="反映人" type="text" readOnly="N"  required="N" maxLength="20" defValue="username()" options="" listKey=""/>-->
+ 		        <!--<field name="happenDateStr" label="发现时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>-->
+ 		        <!--<field name="deviceNum" label="设施编号" type="maptext" readOnly="N" required="N" maxLength="20" defValue="mapfac()" options="" listKey="" rule="mapfac"/>-->
+ 		        <!--<field name="deviceDs" label="设施口径" type="number" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>-->
+ 		        <!--<field name="deviceType" label="设施类型" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="工单+设施类型"/>-->
+				<!--<field name="happenAddr" label="发生地址" type="text" readOnly="N" required="N" maxLength="20" defValue="addr()" options="" listKey=""/>-->
+				<!--<field name="tel" label="联系电话" type="number" readOnly="N"  required="N" maxLength="20" defValue="userPhone()" options="" listKey=""/>-->
+				<!--<field name="camera" label="现场照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>-->
+				<!--<field name="voice" label="语音" type="voice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>	-->
+			</group>
+			
+			<group id="2" name="隐藏信息" display="N" type="common">
+				<field name="facName" label="物探点号" type="text" readOnly="N" required="N" maxLength="20" defValue=":facName" options="" listKey=""/>
+				<field name="implementorName" label="设备名" type="edit_check" readOnly="N" required="N" maxLength="20" defValue=":implementorName"
+					options="水表" listKey=""/>
+ 			</group>
+		</page>
+	</form>
+</axf>

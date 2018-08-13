@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/black_background"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:id="@+id/show_task_title"
+        style="@style/myPhoneLayoutTitleType"
+        android:layout_alignParentTop="true"
+        android:visibility="visible" >
+
+        <ImageView
+            android:id="@+id/dredge_plan_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+            android:src="@drawable/back" />
+
+        <TextView
+            style="@style/myPhoneTvTitle"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="清梳信息" />
+        <Button
+            android:id="@+id/dredge_plan_commit"
+            style="@style/myPhoneButtonSmall" 
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:text="提交" />
+    </RelativeLayout>
+    <ScrollView
+        style="@style/myPhoneLayoutPType"
+        android:layout_weight="1.0"
+        android:scrollbars="none" >
+
+        <LinearLayout style="@style/myPhoneLayoutBgType" >
+            <TextView
+                android:id="@+id/dredge_plan_ysjcj_msg"
+                style="@style/myPhoneTvType"
+                android:layout_width="match_parent"
+                 android:text="雨水检查井(口):" />
+			<LinearLayout style="@style/myPhoneLayoutType" >
+                <EditText
+                    android:id="@+id/dredge_plan_ysjcj"
+                    style="@style/myPhoneEtType"
+                    android:inputType="number"
+                    android:layout_weight="4.0"
+                    />
+                <Button
+		            android:id="@+id/dredge_plan_ysjcj_zy"
+		            style="@style/myPhoneButtonSmall" 
+		            android:layout_weight="1.0"
+		            android:text="加一" />
+		        <Button
+		            android:id="@+id/dredge_plan_ysjcj_jy"
+		            style="@style/myPhoneButtonSmall" 
+		            android:layout_weight="1.0"
+		            android:text="减一" />
+                </LinearLayout>
+                 <TextView
+                     android:id="@+id/dredge_plan_wsjcj_msg"
+                    style="@style/myPhoneTvType"
+                    android:layout_width="match_parent"
+                    android:text="污水检查井(口):" />
+			<LinearLayout style="@style/myPhoneLayoutType" >
+                <EditText
+                    android:id="@+id/dredge_plan_wsjcj"
+                    style="@style/myPhoneEtType"
+                    android:inputType="number"
+                    android:layout_weight="4.0"
+                    />
+                <Button
+		            android:id="@+id/dredge_plan_parent_zy"
+		            style="@style/myPhoneButtonSmall" 
+		            android:layout_weight="1.0"
+		            android:text="加一" />
+		        <Button
+		            android:id="@+id/dredge_plan_parent_jy"
+		            style="@style/myPhoneButtonSmall" 
+		            android:layout_weight="1.0"
+		            android:text="减一" />
+                </LinearLayout>
+                 <TextView
+                    android:id="@+id/dredge_plan_ysk_msg"
+                    style="@style/myPhoneTvType"
+                    android:layout_width="match_parent"
+                    android:text="雨水口(口):" />
+			<LinearLayout style="@style/myPhoneLayoutType" >
+                <EditText
+                    android:id="@+id/dredge_plan_ysk"
+                    style="@style/myPhoneEtType"
+                    android:inputType="number"
+                    android:layout_weight="4.0"
+                    />
+                <Button
+		            android:id="@+id/dredge_plan_ysk_zy"
+		            style="@style/myPhoneButtonSmall" 
+		            android:layout_weight="1.0"
+		            android:text="加一" />
+		        <Button
+		            android:id="@+id/dredge_plan_ysk_jy"
+		            style="@style/myPhoneButtonSmall" 
+		            android:layout_weight="1.0"
+		            android:text="减一" />
+                </LinearLayout>
+                
+
+                <TextView
+                    android:id="@+id/dredge_plan_yskgqct_msg"
+                    style="@style/myPhoneTvType"
+                    android:layout_width="match_parent"
+                    android:text="雨水管渠尺寸" />
+
+                <EditText
+                    android:id="@+id/dredge_plan_yskgqct"
+                    style="@style/myPhoneEtType"
+                    android:inputType="number"
+                    android:singleLine="true" />
+           
+           
+
+                <TextView
+                    android:id="@+id/dredge_plan_ysgqc_msg"
+                    style="@style/myPhoneTvType"
+                    android:layout_width="match_parent"
+                    android:text="雨水管渠长(m):" />
+
+                <EditText
+                    android:id="@+id/dredge_plan_ysgqc"
+                    style="@style/myPhoneEtType"
+                    android:inputType="number"
+                    android:singleLine="true" />
+   
+                <TextView
+                    android:id="@+id/dredge_plan_wsgqct_msg"
+                    style="@style/myPhoneTvType"
+                    android:layout_width="match_parent"
+                    android:text="污水管渠尺寸:" />
+
+                <EditText
+                    android:id="@+id/dredge_plan_wsgqct"
+                    style="@style/myPhoneEtType"
+                    android:inputType="number"
+                    android:singleLine="true" />
+      
+                <TextView
+                    android:id="@+id/dredge_plan_wsgqc_msg"
+                    style="@style/myPhoneTvType"
+                    android:layout_width="match_parent"
+                    android:text="污水管渠长(m):" />
+                <EditText
+                    android:id="@+id/dredge_plan_wsgqc"
+                    style="@style/myPhoneEtType"
+                    android:inputType="number"
+                    android:singleLine="true" />
+                 <TextView
+                    style="@style/myPhoneTvType"
+                    android:layout_width="match_parent"
+                    android:text="淤泥量(m3):" />
+                <EditText
+                    android:id="@+id/dredge_plan_ynl"
+                    style="@style/myPhoneEtType"
+                    android:inputType="number"
+                    android:singleLine="true" />
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:layout_width="match_parent"
+                    android:text="参加人员:" />
+                <EditText
+                    android:id="@+id/dredge_plan_cyry"
+                    style="@style/myPhoneEtType"
+                    android:layout_height="90dip"
+                    />
+            
+        </LinearLayout>
+     </ScrollView>
+    
+
+</LinearLayout>

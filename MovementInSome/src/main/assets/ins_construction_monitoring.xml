@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+    <form id="construction_monitoring" name="工地巡查表" table="INS_CONSTRUCTION_MONITORING" submitTo="loopback" page="one">
+        <params>
+            <param name="serialNumber" field="" type="c" required="Y" defValue="" io="i"></param>
+ 			<param name="constructionNum" field="" type="c" required="Y" defValue="" io="i,o"></param>
+ 			<param name="smId" field="" type="c" required="Y" defValue="" io="i"></param>
+ 			<param name="state" field="state" type="c" required="Y" defValue="" io="i,o"></param>
+        </params>
+        <page id="1" name="工地巡查表记录">
+<!--             <group id="1" name="临时排水许可证" display="Y" type="common">
+		    	<field name="checkItem1" label="" type="mselect" readOnly="N" required="N" maxLength="20" defValue="" options="未办证|申办中|有证|其他" listKey="" rule=""/>
+		    </group>
+		    <group id="2" name="钻桩、挖掘工程或其他施工产生的泥浆" display="Y" type="common">
+		    	<field name="checkItem2" label="" type="check" readOnly="N" required="N" maxLength="20" defValue="" options="合格|不合格" listKey="" rule=""/>
+		    </group>
+		    <group id="3" name="冲洗运输车辆污水" display="Y" type="common">
+		    	<field name="checkItem3" label="" type="check" readOnly="N" required="N" maxLength="20" defValue="" options="合格|不合格" listKey="" rule=""/>
+		    </group>
+		    <group id="4" name="工地内部食堂及厕所排放的生活污水" display="Y" type="common">
+		    	<field name="checkItem4" label="" type="check" readOnly="N" required="N" maxLength="20" defValue="" options="合格|不合格" listKey="" rule=""/>
+		    </group>
+		    <group id="5" name="施工现场是否靠近我司供排水管线？有无供排水管线图" display="Y" type="common">
+		    	<field name="checkItem5" label="" type="mselect" readOnly="N" required="N" maxLength="20" defValue="" options="是靠近我司供排水管线|否靠近我司供排水管线|有供排水管线图|无供排水管线图" listKey="" rule=""/>
+		    </group> -->
+		    <group id="6" name="巡检结果" display="Y" type="common">
+		        <field name="prjProgress" label="工程进度" type="text" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="0051" rule=""/>
+		        <field name="hazardsDesc" label="巡检结果" type="text" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		        <field name="reportedPerson" label="填表人" type="text" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		        <field name="cmDate" label="填表日期" type="datetime" readOnly="N" required="Y" maxLength="20" defValue="datetime()" options="" listKey="" rule=""/>
+		        <field name="remarks" label="备注" type="memo" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		        <field name="camera" label="巡查照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		    </group>
+		    <group id="7" name="系统信息" display="N" type="common">
+			    <field name="serialNumber" label="serialNumber" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":serialNumber" options="" listKey="" rule=""/>
+			    <field name="constructionNum" label="constructionNum" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":constructionNum" options="" listKey="" rule=""/>
+			    <field name="smId" label="smId" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":smId" options="" listKey="" rule=""/>
+			    <field name="state" label="state" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":state" options="" listKey="" rule=""/>
+			 </group>
+       	</page>
+            
+    </form>
+</axf>

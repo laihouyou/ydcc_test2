@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--设施列表详情item-->
+<com.movementinsome.caice.view.SwipeMenuView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:paddingBottom="1dp"
+    >
+
+    <LinearLayout
+        android:id="@+id/swipe_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="@dimen/dp_10"-->
+            <!--android:background="@color/point_facility5"-->
+            <!--/>-->
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_120"
+            android:visibility="visible">
+
+            <ImageView
+                android:id="@+id/projcet_type_fac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="@dimen/dp_20"
+                android:background="@drawable/point_left" />
+
+            <LinearLayout
+                android:id="@+id/data_Lin_fac"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dp_5"
+                android:layout_marginLeft="@dimen/dp_12"
+                android:layout_marginTop="@dimen/dp_14"
+                android:layout_toRightOf="@+id/projcet_type_fac"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/projcet_fac_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="编号：gddst123"
+                    android:textColor="@color/point_facility3"
+                    android:textSize="@dimen/sp_13" />
+
+                <TextView
+                    android:id="@+id/gather_type_fac"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_5"
+                    android:text="采集方式：精准点"
+                    android:textColor="@color/point_facility3"
+                    android:textSize="@dimen/sp_13" />
+
+                <TextView
+                    android:id="@+id/resubmit_date_tv_fac"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_8"
+                    android:text="采集时间:2015-6-3"
+                    android:textColor="@color/point_facility3"
+                    android:textSize="@dimen/sp_13" />
+
+
+            </LinearLayout>
+
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/data_Lin_fac"
+                android:layout_toRightOf="@+id/projcet_type_fac">
+
+                <TextView
+                    android:id="@+id/adder_tv_fac"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_12"
+                    android:text="地址：广州市海珠科技园0000000"
+                    android:textColor="@color/point_facility3"
+                    android:textSize="@dimen/sp_13" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/dp_13"
+                android:layout_marginRight="@dimen/dp_15"
+                android:layout_marginTop="@dimen/dp_13"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:id="@+id/newest_item_fac"
+                        android:layout_width="@dimen/dp_60"
+                        android:layout_height="@dimen/dp_20"
+                        android:layout_alignParentTop="true"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="@dimen/dp_10"
+                        android:layout_marginTop="@dimen/dp_10"
+                        android:background="@drawable/shape_blue"
+                        android:text="最新"
+                        android:textColor="#46aaff"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/location_text_fac"
+                        android:layout_width="@dimen/dp_60"
+                        android:layout_height="@dimen/dp_20"
+                        android:layout_centerInParent="true"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/shape_btn"
+                        android:gravity="center"
+                        android:text="定位"
+                        android:textColor="@color/point_facility3" />
+
+                </RelativeLayout>
+
+
+                <CheckBox
+                    android:id="@+id/resubmit_checkBox_fac"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/dp_10"
+                    android:button="@drawable/check_state"
+                    android:visibility="gone" />
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnTop"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:background="#d9dee4"
+        android:visibility="gone"
+        android:text="置顶"
+        android:textColor="@android:color/white"/>
+
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="60dp"
+        android:layout_height="match_parent"
+        android:background="@color/color_ff4a57"
+        android:paddingTop="@dimen/dp_10"
+        android:text="删除"
+        android:textColor="@android:color/white"/>
+
+
+</com.movementinsome.caice.view.SwipeMenuView>

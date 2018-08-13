@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_without_water_apply_yh" name="停水申请单"  table="BS_WITHOUT_WATER_APPLY" submitTo="loopback" page="one">
+	   	<params>
+			
+		</params>
+		 <rules>
+		    <rule id="mapfac">
+		        
+		    </rule>
+		</rules>
+
+		<page id="1" name="">
+			<group id="1" name="" display="Y" type="common">
+			    <field name="wsTitle" label="停水标题" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			    <field name="wsReason" label="停水原因" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			    <field name="wsRange" label="停水范围" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			    <field name="affectWaterSales" label="影响售水量" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			    <field name="affectUsers" label="影响用户" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="planEwaterDateStr" label="停水时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="planSwaterDateStr" label="复水时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="advisoryTel" label="咨询电话" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="applyDept" label="申请部门" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="applyDateStr" label="申请日期" type="date" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="remark" label="备注" type="memo" readOnly="N"  required="N" maxLength="2000" defValue="" options="" listKey=""/>
+			</group>	
+			 
+			<group id="2" name="系统信息" display="N" type="common">
+                <field name="wwaId" label="停水申请单ID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":wwaId" options="" listKey="" rule=""/>
+                <field name="wssId" label="停水方案ID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":wssId" options="" listKey="" rule=""/>
+                <field name="rrwoNum" label="工单编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":rrwoNum" options="" listKey="" rule=""/>
+                <field name="rrwoType" label="工单类型" type="text" readOnly="N"  required="N" maxLength="20" defValue=":rrwoType" options="" listKey="" rule=""/>
+			   	<field name="wssNum" label="停水方案编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":wssNum" options="" listKey="" rule=""/>
+			   	<field name="wwaNum" label="停水通知单号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":wwaNum" options="" listKey="" rule=""/>
+			</group>
+		</page>
+	</form>
+</axf>

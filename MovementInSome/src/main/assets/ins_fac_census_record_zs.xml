@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_fac_census_record_zs" name="设施巡查记录" table="INS_FAC_CENSUS_RECORD" submitTo="loopback" page="one">
+	   	<params>
+	    <param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+ 			
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="bfNum" value="EID,设备编号,GID,业务编码"/>
+		        <do filed="facType" value="LayerName"/>
+		        <do filed="gid" value="GID"/>
+		        <do filed="facCaliber" value="D_S,口径"/>
+		        <do filed="deviceMaterial" value="MATERIAL,材质"/>
+		        <do filed="coordinate" value="shape"/>
+		    </rule>
+		</rules>
+		<!-- 1、设施巡查记录
+			表INS_FAC_CENSUS_RECORD
+			
+			wpdId 巡检数据表ID
+			taskNum 任务编号
+			//设施唯一码
+			private String gid;
+			//设施编号
+			private String bfNum;
+			//设施类型
+			private String facType;
+			//是否图与现实不符
+			private Long isAccurate;
+			//图与现实不符新坐标
+			private String facCoordinate;
+			//操作时间
+			private Date operTime;
+			//备注
+			private String remarks;
+			//正常、异常
+			private String checkItem1;
+			//异常说明
+			private String checkItem2; -->
+	   
+	
+		<page id="1" name="巡查信息">
+		    <group id="1" name="巡查信息" display="Y" type="common">
+		        <field name="bfNum" label="设施编号" type="maptext" readOnly="N" required="N" maxLength="20" defValue="mapfac()" options="" listKey="" rule="mapfac"/>
+				<field name="facType" label="设施类型" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="工单+设施类型"/>
+				<field name="facCaliber" label="口径" type="number" readOnly="N"  required="N" maxLength="20" defValue="" options="正常|异常" listKey=""/>
+		    	<field name="isAccurate" label="图与现实不符" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="是|否" listKey=""/>
+		    	<field name="facCoordinate" label="新坐标" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapcoord(N)" options="" listKey="" rule=""/>
+		    	<field name="operTime" label="操作时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="datetime()" options="" listKey=""/>
+		    	<field name="checkItem1" label="状态" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="正常|异常" listKey=""/>
+		    	<field name="checkItem2" label="现场情况" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+		    	<field name="facAddr" label="地址" type="memo" readOnly="N"  required="N" maxLength="2000" defValue="addr()" options="" listKey=""/>
+		    	<field name="checkItem3" label="联系电话" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		    	<field name="checkItem4" label="标记" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		    	<field name="checkItem5" label="处理方法" type="memo" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey=""/>
+		    	<field name="remarks" label="备注" type="memo" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey=""/>
+		    	<field name="camera" label="照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>
+			
+			<group id="2" name="系统信息" display="N" type="common">
+			   <field name="taskNum" label="任务编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":workTaskNum" options="" listKey="" rule=""/>
+			   <field name="wpdId" label="巡检数据表" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsIpsNum" options="" listKey="" rule=""/>
+			   <field name="gid" label="gid" type="system" readOnly="N"  required="N" maxLength="20" defValue=":gid" options="" listKey="" rule=""/>
+ 			</group>
+		</page>
+	</form>
+</axf>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_water_situation_record_yh" name="耗水情况记录"  table="BS_WATER_TITUATION_RECORD" submitTo="loopback" page="one">
+	   	<params>
+			
+		</params>
+		 <rules>
+		    <rule id="mapfac">
+		        
+		    </rule>
+		</rules>
+
+		<page id="1" name="耗水情况信息" display="Y" type="common">
+			<group id="1" name="" display="Y" type="common">
+			    <field name="pressure" label="压力" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			    <field name="ds" label="耗水口径" type="number" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			    <field name="velocityOfFlow" label="流速" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			    <field name="leakType" label="漏点类型" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="0025" rule=""/>
+			    <field name="wsType" label="耗水类型" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="0026" rule=""/>
+			    <field name="wsFeePayer" label="耗水费用支付方" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			    <field name="waterConsumption" label="耗水量" type="numeric" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			    <field name="leakSituation" label="漏失情况" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			    <field name="leakCauses" label="漏点成因" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="remark" label="备注" type="memo" readOnly="N"  required="N" maxLength="2000" defValue="" options="" listKey=""/>
+			</group>	
+			 
+			<group id="2" name="系统信息" display="N" type="common">
+                <field name="rrwoNum" label="工单编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":rrwoNum" options="" listKey="" rule=""/>
+                <field name="rrwoType" label="工单类型" type="text" readOnly="N"  required="N" maxLength="20" defValue=":rrwoType" options="" listKey="" rule=""/>
+                <field name="reportCoordinate" label="终端上报坐标" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapcoord()" options="" listKey="" rule=""/>
+			    <field name="uniqueCode" label="移动端唯一编码" type="text" readOnly="N" required="N" maxLength="20" defValue="guid()" options="" listKey=""/>
+			</group>
+		</page>
+	</form>
+</axf>

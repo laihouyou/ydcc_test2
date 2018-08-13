@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--系统初始化-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/black_background"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout style="@style/myPhoneLayoutTitleType" >
+
+        <TextView
+            style="@style/myPhoneTvTitle"
+            android:text="系统初始化 " />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/myPhoneLayoutPType"
+        android:layout_height="match_parent"
+        android:layout_weight="1.0" >
+
+        <LinearLayout
+            style="@style/myPhoneLayoutType"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/myPhoneTvTypeT"
+                android:layout_height="wrap_content"
+                android:text="终端名称" />
+
+            <EditText
+                android:id="@+id/sysInitEtName"
+                style="@style/myPhoneEtType"
+                android:hint="请为您的终端创建一个名称(可以为空)"
+                android:textColorHint="#55ff0000" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/myPhoneLayoutType"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/sysInitTvUrl"
+                style="@style/myPhoneTvTypeT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="服务地址" />
+
+            <LinearLayout
+            style="@style/myPhoneLayoutType" >
+            <TextView
+                android:id="@+id/sysInitEtUrl_H"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="http://"/>
+            <!-- gddst2013.no-ip.org -->
+            <!-- 183.63.138.51：8093 开发区-->
+            <!-- 173.1.2.11:8093 武汉-->
+           	<!--  120.196.122.138：8193 西江引水 -->
+           	<!-- 183.62.7.44:8093 广水 -->
+           	<!-- 59.33.37.170:9003 中山 -->
+           	<!-- http://58.61.147.120:8095/fisds/rest 粤海常平 -->
+           	<!-- http://58.61.147.120:8097/fisds/rest 粤海肇庆 -->
+           	<!-- http://172.16.0.181:8193/fisds/rest 乌水 -->
+           	<!-- http://59.58.111.58:58093/fisds/rest 莆田 -->
+           	<!-- http://gddst.wicp.net:27700/fisds 智慧水务-->
+           	<!-- http://121.15.248.10:8090/fisds 惠州燃气 -->
+           	<!-- http://123.160.220.35:8090/fisds 广水排查-->
+           	<!-- http://gddst.wicp.net:8090   移动采测-->
+           	<!-- http://123.160.220.35:30101   移动采测  阿里云服务器-->
+            <EditText
+                android:id="@+id/sysInitEtUrl"
+                style="@style/myPhoneEtType"
+                android:layout_width="150dip"
+                android:text="@string/systemUrlYDCE"
+                android:textColorHint="#55ff0000" />
+            <TextView
+                android:id="@+id/sysInitEtUrl_M"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text=":"/>
+            <!-- 9018 -->
+            <EditText
+                android:id="@+id/sysInitEtUrl_P"
+                style="@style/myPhoneEtType"
+                android:layout_width="50dip"
+                android:text="@string/systemPortNumber"
+                android:textColorHint="#55ff0000" />
+            <TextView
+                android:id="@+id/sysInitEtUrl_J"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="/fisds"/>
+            </LinearLayout>
+        </LinearLayout>
+        
+        <LinearLayout
+            android:id="@+id/layout_url2"
+            android:visibility="visible"
+            style="@style/myPhoneLayoutType"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/sysInitTvUrl2"
+                style="@style/myPhoneTvTypeT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="服务地址（备用）" />
+
+            <LinearLayout
+            style="@style/myPhoneLayoutType" >
+            <TextView
+                android:id="@+id/sysInitEtUrl_H2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="http://"/>
+            <!-- gddst2013.no-ip.org -->
+            <!-- 183.63.138.51：8093 开发区-->
+            <!-- 173.1.2.11:8093  219.140.182.14:8093武汉-->
+           	<!--  120.196.122.138：8193 西江引水 -->
+           	<!-- 183.62.7.44:8093 广水 -->
+           	<!-- 58.61.147.120:8097肇庆 -->
+            <EditText
+                android:id="@+id/sysInitEtUrl2"
+                style="@style/myPhoneEtType"
+                android:layout_width="150dip"
+                android:text="@string/systemUrlYDCE"
+                android:textColorHint="#55ff0000" />
+            <TextView
+                android:id="@+id/sysInitEtUrl_M2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text=":"/>
+            <!-- 9018 -->
+                <EditText
+                    android:id="@+id/sysInitEtUrl_P2"
+                    style="@style/myPhoneEtType"
+                    android:layout_width="50dip"
+                    android:text="@string/systemPortNumber"
+                    android:textColorHint="#55ff0000" />
+
+                <TextView
+                android:id="@+id/sysInitEtUrl_J2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="/fisds"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/myPhoneLayoutType"
+            android:orientation="vertical" >
+
+            <TextView
+                style="@style/myPhoneTvTypeT"
+                android:layout_height="wrap_content"
+                android:text="失败因素" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/input_bg"
+                android:padding="5dip"
+                android:text="一.服务地址错误；   二.网络不用；    三.信号弱"
+                android:textColor="#aa4d4d4d"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/myPhoneLayoutType"
+            android:orientation="vertical" >
+
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvTypeT"
+                    android:layout_width="wrap_content"
+                    android:text="更新进度" />
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/myPhoneLayoutType"
+                android:background="@drawable/input_bg"
+                android:orientation="vertical"
+                android:padding="5dip" >
+
+                <LinearLayout
+                    android:id="@+id/sysInitLinearHint"
+                    style="@style/myPhoneLayoutType"
+                    android:visibility="gone" >
+
+                    <TextView
+                        style="@style/myPhoneTvTypeT"
+                        android:gravity="right"
+                        android:text="正在更新"
+                        android:textColor="#aaff0000" />
+
+                    <ProgressBar
+                        android:layout_width="25dip"
+                        android:layout_height="25dip"
+                        android:indeterminate="true"
+                        android:indeterminateDrawable="@drawable/mapprogressbar" />
+
+                    <TextView
+                        style="@style/myPhoneTvTypeT"
+                        android:gravity="left"
+                        android:text="请勿退出"
+                        android:textColor="#aaff0000" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/sysInitTvMsg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:hint="等待连接……"
+                    android:lineSpacingMultiplier="1.0"
+                    android:lines="10"
+                    android:textColor="#88ff0000"
+                    android:textColorHint="#55ff0000"
+                    android:textSize="12dip" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dip"
+                android:text="(为保证能正常初始化,请输入正确URL地址)"
+                android:textColor="#aa4d4d4d"
+                android:textSize="12dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/myPhoneLayoutType"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:gravity="bottom"
+            android:paddingBottom="10dip" >
+
+            <Button
+                android:id="@+id/sysInitBtnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/btn_next_bg"
+                android:text="取    消"
+                android:textColor="#ddffffff" />
+
+            <Button
+                android:id="@+id/sysInitBtnClear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/btn_next_bg"
+                android:text="清    空"
+                android:textColor="#ddffffff" />
+
+            <Button
+                android:id="@+id/sysInitBtnInit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:background="@drawable/btn_next_bg"
+                android:text="初始化"
+                android:textColor="#ddffffff" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ES_T_SWITCH_VALVE_INFO" name="阀门操作表"  table="ES_T_SWITCH_VALVE_INFO" submitTo="loopback" page="one">
+	   	<params>
+			
+		</params>
+		  <rules>
+		    <rule id="mapfac">
+		        <do filed="deviceType" value="LayerName"/>
+		        <do filed="facilitiesNum" value="OBJECTID,EID,GID,唯一图形编"/>
+		        <do filed="facilitiesMaterial" value="MATERIAL,材料"/>
+		        <do filed="managedept" value="MANAGEDEPT"/>
+		        <do filed="gid" value="gid"/>
+		        <do filed="reportedCoordinate" value="shape"/>
+		        <do filed="stoppageCaliber" value="口径"/>
+		    </rule>
+		</rules>
+
+		<page id="1" name="">
+			<group id="1" name="" display="Y" type="common">
+			    <field name="valveNum" label="设施编号" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapfac()" options="" listKey="" rule="mapfac"/>
+			    <field name="stoppageCaliber" label="停水管径" type="number" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			    <field name="stopBefPressure" label="操作前压力(Mpa)" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			    <field name="stopAftPressure" label="操作后压力(Mpa)" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="actualOpenDate" label="开启时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="actualCloseDate" label="关阀时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="operator" label="操作人" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>
+			<group id="2" name="" display="Y" type="common">	
+			    <field name="reportedCoordinate" label="设施位置" type="text" readOnly="N"  required="N" maxLength="20" defValue="mapcoord(N)" options="" listKey="" rule=""/>
+			</group>
+		</page>
+	</form>
+</axf>

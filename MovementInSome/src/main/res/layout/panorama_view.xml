@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/popup_pointer_button"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/mainViewPana"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="3.0dip"
+        android:layout_marginRight="3.0dip"
+        android:clickable="true"
+        android:orientation="vertical"
+        android:paddingBottom="5.0dip"
+        android:paddingLeft="4.0sp"
+        android:paddingRight="4.0sp"
+        android:paddingTop="5.0dip" >
+
+        <com.baidu.lbsapi.panoramaview.PanoramaView
+            android:id="@+id/viewPanoramaPop"
+            android:layout_width="120dip"
+            android:layout_height="60dip"
+            android:clickable="false" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mainBtnView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="3.0dip"
+        android:layout_marginRight="3.0dip"
+        android:clickable="true"
+        android:orientation="vertical"
+        android:paddingBottom="5.0dip"
+        android:paddingLeft="4.0sp"
+        android:paddingRight="4.0sp"
+        android:paddingTop="5.0dip" >
+
+        <TextView
+            android:id="@+id/txtViewParno"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查看全景图>" />
+
+    </LinearLayout>
+
+</LinearLayout>

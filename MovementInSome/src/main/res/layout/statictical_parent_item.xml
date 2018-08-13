@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--工程统计详情父布局-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_90">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/centerView"
+        >
+
+        <TextView
+            android:id="@+id/week_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_30"
+            android:text="周一"
+            android:textSize="@dimen/sp_16"
+            android:textColor="@color/point_facility10"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_centerHorizontal="true"
+            android:text="管线长度(米)"
+            android:textSize="@dimen/sp_16"
+            android:textColor="@color/point_facility10"
+            />
+
+        <TextView
+            android:id="@+id/lineLenght_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_alignParentRight="true"
+            android:text="5123"
+            android:textSize="@dimen/sp_16"
+            android:textColor="@color/point_facility10"
+            />
+
+    </RelativeLayout>
+    
+    <View
+        android:id="@+id/centerView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_12"
+        android:layout_centerInParent="true"
+        >
+    </View>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/centerView"
+        >
+
+        <TextView
+            android:id="@+id/date_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_30"
+            android:text="5-20"
+            android:textSize="@dimen/sp_16"
+            android:textColor="@color/point_facility10"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_centerHorizontal="true"
+            android:text="设备点数量(个)"
+            android:textSize="@dimen/sp_16"
+            android:textColor="@color/point_facility10"
+            />
+
+        <TextView
+            android:id="@+id/pointNum_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp_20"
+            android:layout_alignParentRight="true"
+            android:text="520"
+            android:textSize="@dimen/sp_16"
+            android:textColor="@color/point_facility10"
+            />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/arrows_im"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:background="@drawable/main_mine_arrows"
+        />
+
+</RelativeLayout>

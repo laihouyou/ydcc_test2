@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp" >
+
+    <LinearLayout
+        android:id="@+id/ptdLinearP"
+        android:layout_width="match_parent"
+        android:layout_height="65dip"
+        android:background="@drawable/dialog_up"
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="15dp" >
+
+        <Button
+            android:id="@+id/ptdsbtn_WriteT"
+            android:layout_width="80dip"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_next_bg"
+            android:text="接  单"
+            android:textColor="#ffffffff" />
+         <Button
+            android:id="@+id/ptdsbtn_Loc"
+            android:background="@drawable/btn_next_bg"
+            android:textColor="#ffffffff"
+            android:layout_width="80dip"
+            android:layout_height="40dp"
+            android:text="定   位"/>
+    </LinearLayout>
+
+</LinearLayout>

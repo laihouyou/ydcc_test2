@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_predictable_loss_form_gs" name="可预见损失因素" table="INS_CHECK_ITEM_RECORD" submitTo="loopback" page="one">
+	   	<params>
+	    <param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+ 			
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        
+		    </rule>
+		</rules>
+	   
+		<page id="1" name="隐患信息">
+		    <group id="1" name="反映信息" display="Y" type="common">
+		       	<field name="influence" label="影响范围" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="可预见损失+社会影响+对周边影响损失"/>
+                <field name="livingArea" label="密集生活区 " type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="可预见损失+直接经济损失+密集生活区损失"/>
+                <field name="paking" label="地下停车场" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="可预见损失+直接经济损失+地下停车场损失"/>
+                <field name="market" label="商铺" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="可预见损失+直接经济损失+商铺或商场损失"/>
+                <field name="areaInfo" label="人流或物流密集处" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="可预见损失+直接经济损失+人流或物流密集处损失"/>
+                <field name="publicInfluence" label="社会影响" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="可预见损失+社会影响+对周边影响损失"/>
+                <field name="repairInfluence" label="维修难度" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="可预见损失+社会影响+维修难度"/>
+                <field name="repairPipeCost" label="管段维修费" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="可预见损失+公司运营损失+管道维修和路面修复所需费用"/>
+                <field name="repairRoadCost" label="路面维修费" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="可预见损失+公司运营损失+管道维修和路面修复所需费用"/>
+                <field name="waterCost" label="停水爆漏水耗" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="可预见损失+公司运营损失+停水与爆漏产生的水量损失"/>
+			</group>
+			
+			<group id="2" name="系统信息" display="N" type="common">
+			    <field name="gid" label="设施唯一码" type="text" readOnly="N" required="N" maxLength="20" defValue=":gid" options="" listKey=""/>
+			    <field name="areaId" label="片区ID" type="text" readOnly="N" required="N" maxLength="20" defValue=":areaId" options="" listKey=""/>
+			    <field name="workTaskNum" label="任务编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":workTaskNum" options="" listKey="" rule=""/>
+ 			</group>
+		</page>
+	</form>
+</axf>

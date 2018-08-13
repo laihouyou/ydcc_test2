@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF" >
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="40dip"
+            android:background="@drawable/bg_gv"
+            android:gravity="center_vertical" >
+
+            <Button
+                android:id="@+id/scada_tybj_tj"
+                android:layout_width="wrap_content"
+                android:layout_height="30dip"
+                android:text="添加"
+                android:textSize="14dip"
+                android:textColor="#FFFFFF"
+                android:layout_marginLeft="5dip"
+                android:background="@drawable/scada_tj" />
+
+            <Button
+                android:id="@+id/scada_tybj_bj"
+                android:layout_width="wrap_content"
+                android:layout_height="30dip"
+                android:text="编辑"
+                android:textSize="14dip"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/scada_bj" />
+
+            <Button
+                android:id="@+id/scada_tybj_sc"
+                android:layout_width="wrap_content"
+                android:layout_height="30dip"
+                android:text="删除"
+                android:textSize="14dip"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/scada_sc" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="40dip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/linearLayout1"
+            android:background="#CAE1FF"
+            android:gravity="center_vertical" >
+
+            <LinearLayout
+                android:layout_width="1dip"
+                android:layout_height="40dip"
+                android:background="#6CA6CD" >
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="40dip"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="报警方案"
+                android:textSize="14dip"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="1dip"
+                android:layout_height="40dip"
+                android:background="#6CA6CD" >
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="40dip"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="数据类型"
+                android:textSize="14dip"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="1dip"
+                android:layout_height="40dip"
+                android:background="#6CA6CD" >
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="40dip"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="低限值"
+                android:textSize="14dip"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="1dip"
+                android:layout_height="40dip"
+                android:background="#6CA6CD" >
+            </LinearLayout>
+            
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="40dip"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="高限值"
+                android:textSize="14dip"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="1dip"
+                android:layout_height="40dip"
+                android:background="#6CA6CD" >
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="0dip"
+                android:layout_height="40dip"
+                android:layout_weight="1.0"
+                android:gravity="center"
+                android:text="操作"
+                android:textSize="14dip"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="1dip"
+                android:layout_height="40dip"
+                android:background="#6CA6CD" >
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:layout_alignBottom="@+id/linearLayout1"
+            android:layout_alignParentLeft="true"
+            android:background="#6CA6CD" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout3"
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/linearLayout2"
+            android:background="#6CA6CD"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/linearLayout3"
+            android:background="#FFFFFF"
+            android:orientation="vertical" >
+
+            <ListView
+                android:id="@+id/listView_tybj"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fadingEdge="none"
+                android:cacheColorHint="#00000000"
+                android:divider="#00FFFFFF"
+        		android:dividerHeight="0.0px" >
+            </ListView>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

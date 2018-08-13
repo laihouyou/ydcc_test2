@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+    
+
+    <CheckedTextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/regionChecked"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_centerInParent="true"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+        android:text="kjalfj" 
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        />
+
+

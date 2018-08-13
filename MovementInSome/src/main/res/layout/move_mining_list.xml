@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:id="@+id/move_list_heard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/moveTv"
+                android:layout_width="0dp"
+                android:layout_height="35dip"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:ellipsize="end"
+                android:lines="1"
+                android:textColor="@color/red"
+                android:textSize="13sp"
+                android:text="名称" />
+
+            <TextView
+                android:id="@+id/moveType"
+                android:layout_width="0dp"
+                android:layout_height="35dip"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:ellipsize="end"
+                android:lines="1"
+                android:textColor="@color/red"
+                android:textSize="13sp"
+                android:text="类型" />
+
+            <TextView
+                android:id="@+id/moveUpdatatime"
+                android:layout_width="0dp"
+                android:layout_height="35dip"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:ellipsize="end"
+                android:lines="1"
+                android:textColor="@color/red"
+                android:textSize="13sp"
+                android:text="更新时间" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="35dip"
+                android:layout_weight="3"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/moveGone_all"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dip"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:lines="1"
+                    android:text="查看全部"
+                    android:textColor="@color/blue"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/moveList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="3dip"></ListView>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

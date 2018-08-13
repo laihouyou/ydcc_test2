@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/scada_tybj_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="48dip"
+        android:background="@drawable/frame_white"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/scada_tybj_item_bjfa"
+            android:layout_width="60dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="时间 "
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:layout_width="1.0px"
+            android:layout_height="48dip"
+            android:background="#6490ED" >
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/scada_tybj_item_sjlx"
+            android:layout_width="60dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="今日"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="1.0px"
+            android:layout_height="48dip"
+            android:background="#6490ED"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/scada_tybj_item_dixian"
+            android:layout_width="60dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="昨日"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="1.0px"
+            android:layout_height="48dip"
+            android:background="#6490ED"
+            android:orientation="vertical" >
+        </LinearLayout>
+        
+        <TextView
+            android:id="@+id/scada_tybj_item_gaoxian"
+            android:layout_width="60dip"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="前日"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="1.0px"
+            android:layout_height="48dip"
+            android:background="#6490ED"
+            android:orientation="vertical" >
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="60dip"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1.0" >
+
+            <Button
+                android:id="@+id/scada_tybj_item_qd"
+                android:layout_width="55dip"
+                android:background="@drawable/scada_stop"
+                android:layout_height="35dip"
+                android:text="启动"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

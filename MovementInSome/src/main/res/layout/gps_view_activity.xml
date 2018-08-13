@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff1f1f1"
+	android:orientation="vertical" >
+     <RelativeLayout style="@style/myPhoneLayoutTitleType" >
+
+        <Button
+            android:id="@+id/nearby_Back"
+           style="@style/myPhoneButtonBack" 
+           android:layout_centerVertical="true"/>
+
+        <TextView
+            style="@style/myPhoneTvTitle"
+            android:layout_height="match_parent"
+            android:text="卫星信号" />
+
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/tvLocaleText1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@layout/v1_bk_head_splitbar"
+        android:text="位置信息"
+        android:textColor="#ff000000" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0" >
+
+            <TextView
+                android:id="@+id/tv_sd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="速度：0.0 km/h"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#ff000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0" >
+
+            <TextView
+                android:id="@+id/tv_gc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="高程：0 米"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#ff000000" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0" >
+
+            <TextView
+                android:id="@+id/tv_pos_jd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="精度：0.0 米"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#ff000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0" >
+
+            <TextView
+                android:id="@+id/tv_pos_zt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="状态：未锁定"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#ff000000" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0" >
+
+            <TextView
+                android:id="@+id/tv_jd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="经度：000:000000 E"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#ff000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0" >
+
+            <TextView
+                android:id="@+id/tv_wd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="纬度：00:000000 N"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#ff000000" />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/tvLocaleText2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@layout/v1_bk_head_splitbar"
+        android:text="卫星信息"
+        android:textColor="#ff000000" />
+        <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0" >
+
+            <TextView
+                android:id="@+id/tv_kjwx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="可见卫星：0 颗"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#ff000000" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.0" >
+
+            <TextView
+                android:id="@+id/tv_jswx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="解算卫星：0 颗"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="#ff000000" />
+        </LinearLayout>
+    </LinearLayout>
+    <com.movementinsome.kernel.gpswidget.SatellitesView
+        android:id="@+id/satellitesView"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" />
+
+</LinearLayout>

@@ -1,0 +1,30 @@
+#
+# generated on 2012/06/06 05:55:57
+#
+# --table-start--
+dataClass=com.gddst.app.vo.SecDepartmentVO
+tableName=secdepartmentvo
+# --table-fields-start--
+# --field-start--
+fieldName=dtId
+unique=true
+# --field-end--
+# --field-start--
+fieldName=dtParentid
+#indexName=simpledata_string_idx
+# --field-end--
+# --field-start--
+fieldName=dtName
+# --field-end--
+# --field-start--
+fieldName=dtNum
+# --field-end--
+# --field-start--
+fieldName=isChildren
+# --field-end--
+# --field-start--
+fieldName=dtOrder
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################

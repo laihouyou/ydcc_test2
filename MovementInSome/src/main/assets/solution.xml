@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" ?>
+<!--
+	////////////////////////////////////////////////////////////////////////////////
+	//
+	// Copyright (c) 2009 DRAGONSPRING
+	//
+	//
+	////////////////////////////////////////////////////////////////////////////////
+-->
+<solutions default="0" >
+	<!-- <sub id="0" name="罗湖管网所" file="solution_szwater.xml"/> -->
+	<sub id="0" name="广州开发区" file="solution_gzkfq.xml" />
+	<!-- <sub id="2" name="武汉市水务集团" file="solution_wswater.xml"/>
+	<sub id="3" name="长江供水" file="solution_cgwater.xml"/> -->
+	
+	<!-- <sub id="1" name="西江原水" file="solution_xjyswater.xml"/> -->
+	<!-- <sub id="2" name="瑞安" file="solution_rawater.xml"/>	
+ --></solutions>

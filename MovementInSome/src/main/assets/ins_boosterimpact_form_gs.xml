@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_boosterimpact_form_gs" name="影响度因素" table="INS_CHECK_ITEM_RECORD" submitTo="loopback" page="one">
+	   	<params>
+	    <param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+ 			
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="deviceNum" value="OBJECTID,EID,GID,唯一图形编"/>
+		        <do filed="deviceType" value="LayerName"/>
+		        <do filed="facilitiesMaterial" value="MATERIAL,材料"/>
+		        <do filed="coordinate" value="shape"/>
+		    </rule>
+		</rules>
+	   
+		<page id="1" name="隐患信息">
+		    <group id="1" name="反映信息" display="Y" type="common">
+                <field name="pipeRust" label="管内腐蚀" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="管内腐蚀"/>
+                <field name="publicRust" label="环境腐蚀" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="环境腐蚀"/>
+                <field name="publicInfluence" label="社会影响" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="社会影响"/>
+                <field name="repairPipeCost" label="公司运营损失" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="公司运营损失"/>
+                <field name="areaInfo" label="人流或物流" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="人流或物流"/>
+                <field name="camera1" label="党政机关拍照" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="党政机关拍照"/>
+                <field name="camera2" label="起点拍照" qty="8" type="camera" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="起点拍照"/>
+                <field name="camera3" label="终点拍照" qty="8" type="camera" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="终点拍照"/>
+			</group>
+			
+			<group id="2" name="系统信息" display="N" type="common">
+			    <field name="gid" label="设施唯一码" type="text" readOnly="N" required="N" maxLength="20" defValue=":gid" options="" listKey=""/>
+			    <field name="guid" label="GUID" type="text" readOnly="N" required="N" maxLength="20" defValue=":guid" options="" listKey=""/>
+			    <field name="buildingCoordinate" label="上报坐标点" type="text" readOnly="N" required="N" maxLength="20" defValue=":buildingCoordinate" options="" listKey=""/>
+			    <field name="pipeId" label="设施ID" type="text" readOnly="N" required="N" maxLength="20" defValue=":pipeId" options="" listKey=""/>
+			    <field name="areaId" label="片区ID" type="text" readOnly="N" required="N" maxLength="20" defValue=":areaId" options="" listKey=""/>
+			    <field name="workTaskNum" label="任务编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":workTaskNum" options="" listKey="" rule=""/>
+ 			</group>
+		</page>
+	</form>
+</axf>

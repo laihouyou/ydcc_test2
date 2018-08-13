@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--中海达蓝牙连接界面-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f3f3">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btn_find"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="8dp"
+                    android:text="@string/app_activity_bluetooth_open"
+                    style="@style/AppText" />
+
+                <ToggleButton
+                    android:id="@+id/tb_bluetooth_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@android:color/transparent"
+                    android:button="@drawable/btn_toggle_button"
+                    android:layout_marginRight="5dp"
+                    android:textOff=""
+                    android:textOn=""
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_divider_width"
+            android:background="@color/app_divider_lineColor" />
+
+        <LinearLayout
+            android:id="@+id/layout_paired"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/app_padding"
+                android:text="@string/app_activity_bluetooth_paired"
+                style="@style/AppTextValue"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/app_divider_width"
+                android:background="@color/app_divider_lineColor" />
+
+            <ListView
+                android:id="@+id/lv_paired"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_divider_width"
+            android:background="@color/app_divider_lineColor" />
+
+        <LinearLayout
+            android:id="@+id/layout_unpaired"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:padding="@dimen/app_padding"
+                    android:text="@string/app_activity_bluetooth_unpaired"
+                    style="@style/AppTextValue"/>
+
+                <ProgressBar
+                    android:id="@+id/progressBar_unpaired"
+                    style="?android:attr/progressBarStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:visibility="visible" />
+            </RelativeLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/app_divider_width"
+                android:background="@color/app_divider_lineColor" />
+
+            <ListView
+                android:id="@+id/lv_unpaired"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_find"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:text="@string/app_activity_bluetooth_find"
+        style="@style/AppButton"
+        android:visibility="gone" />
+    
+</RelativeLayout>

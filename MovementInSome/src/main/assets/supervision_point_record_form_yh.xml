@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="BS_SUPERVISION_POINT_RECORD" name="签到记录" table="BS_SUPERVISION_POINT_RECORD" submitTo="loopback" page="one">
+	   	<params>
+	    <param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+ 			<param name="workTaskNum" type="c" required="Y" defValue="" io="i"></param>
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="facilitiesNum" value="OBJECTID,EID,GID,唯一图形编"/>
+		        <do filed="facilitiesType" value="LayerName"/>
+		        <do filed="facilitiesCaliber" value="口径"/>
+		        <do filed="facilitiesMaterial" value="MATERIAL,材料"/>
+		        <do filed="coordinate" value="shape"/>
+		    </rule>
+		</rules>
+	
+		<page id="1" name="签到记录">
+		    <group id="1" name="" display="Y" type="common">
+		        <field name="sprDesc" label="巡查描述" type="memo" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="camera" label="照片" type="camera" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>
+			<group id="2" name="系统信息" display="N" type="common">
+			    <field name="sprUName" label="上报人名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="username()" options="" listKey=""/>
+			    <field name="sprUId" label="上报人ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userId()" options="" listKey=""/>
+			    <field name="sprUNum" label="上报人编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userNum()" options="" listKey=""/>
+			    <field name="sprDeptId" label="上报人部门ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteamId()" options="" listKey=""/>
+			    <field name="sprDeptNum" label="上报人部门编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteamNum()" options="" listKey=""/>
+			    <field name="sprDeptName" label="上报人部门名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteam()" options="" listKey=""/>
+			    <field name="sprTeamId" label="上报人班组ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupId()" options="" listKey=""/>
+			    <field name="sprTeamNum" label="上报人班组编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupNum()" options="" listKey=""/>
+			    <field name="sprTeamName" label="上报人班组名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupName()" options="" listKey=""/>
+			    
+			    <field name="pnitId" label="巡查任务ID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":pnitId" options="" listKey=""/>
+			    <field name="spId" label="监督点ID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":spId" options="" listKey=""/>
+			    <field name="pnitNum" label="巡查任务编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":pnitNum" options="" listKey=""/>
+			    <field name="sprDateStr" label="巡查时间" type="text" readOnly="N"  required="N" maxLength="20" defValue=":sprDateStr" options="" listKey=""/>
+			    <field name="sprCoordinate" label="签到坐标" type="text" readOnly="N"  required="N" maxLength="20" defValue=":sprCoordinate" options="" listKey=""/>
+ 			</group>
+		</page>
+	</form>
+</axf>

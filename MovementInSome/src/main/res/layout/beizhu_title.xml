@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+	   	android:layout_height="80dip"
+	   	android:orientation="horizontal"
+	   	android:layout_marginLeft="18dip"
+	   	android:layout_marginRight="26dip">
+	   	
+	   	<TextView 
+	   	    android:id="@+id/text_beizhu"
+	   	    android:layout_width="wrap_content"
+	   		android:layout_height="80dip"
+	   		android:textSize="19dip"
+	   		android:textColor="@color/white"
+	   		android:text="备注:"/>
+
+	   	<EditText
+	   	    android:id="@+id/edit_beizhu"
+	   	    android:layout_width="match_parent"
+	   	    android:hint="请填写同号编号"
+	   	    android:layout_height="80dip" />
+   	
+    </LinearLayout>
+
+</LinearLayout>

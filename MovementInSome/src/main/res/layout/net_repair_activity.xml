@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/black_background"
+    android:orientation="vertical" >
+     <LinearLayout style="@style/myPhoneLayoutTitleType" >
+
+        <Button
+            android:id="@+id/xx_fmjl_btn_Back"
+           style="@style/myPhoneButtonBack" />
+
+        <TextView
+            style="@style/myPhoneTvTitle"
+            android:text="管网抢（维）修工单" />
+
+        <Button
+            android:id="@+id/xx_fmjl_btn_Commit"
+            style="@style/myPhoneButtonSmall" 
+            android:text="提交" />
+    </LinearLayout>
+    <ScrollView
+        style="@style/myPhoneLayoutPType"
+        android:scrollbars="none" >
+
+        <LinearLayout style="@style/myPhoneLayoutBgType" >
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="编号" />
+
+                <EditText
+                    android:id="@+id/xx_fmjl_fmwz"
+                    style="@style/myPhoneEtType"
+                    android:hint="填写"
+                    android:singleLine="true" />
+             </LinearLayout>
+             <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="投诉号" />
+
+                <Spinner
+                    android:id="@+id/xx_fmjl_spin_fjjg"
+                    style="@style/myPhoneSpinnerBG" />
+            </LinearLayout>
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="作业单位" />
+
+                <Spinner
+                    android:id="@+id/xx_fmjl_spin_jnjs"
+                    style="@style/myPhoneSpinnerBG" />
+            </LinearLayout>
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="时间" />
+
+                <Spinner
+                    android:id="@+id/xx_fmjl_spin_sbxz"
+                    style="@style/myPhoneSpinnerBG" />
+            </LinearLayout>
+	       <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="泄漏检查" />
+
+                <Spinner
+                    android:id="@+id/xx_fmjl_spin_xljc"
+                    style="@style/myPhoneSpinnerBG" />
+            </LinearLayout>
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="阀门启闭情况" />
+
+                <Spinner
+                    android:id="@+id/xx_fmjl_spin_fmqbqk"
+                    style="@style/myPhoneSpinnerBG" />
+            </LinearLayout>
+
+	   </LinearLayout>
+            
+     </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/black_background"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout 
+        android:id="@+id/xxP_Rl_Title"
+        style="@style/myPhoneLayoutTitleType" >
+
+        <Button
+            android:id="@+id/xxPbtn_Back"
+            style="@style/myPhoneButtonBack" />
+
+        <TextView
+            android:id="@+id/xxPtv_Table_Title"
+            style="@style/myPhoneTvTitle"
+            android:layout_alignLeft="@+id/xxPbtn_Back"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="计划性巡检" />
+
+    </RelativeLayout>
+
+    <!-- <ScrollView
+        style="@style/myPhoneLayoutPType"
+        android:layout_below="@+id/xxP_Rl_Title"
+        android:scrollbars="none" > -->
+
+        <LinearLayout
+            style="@style/myPhoneLayoutBgType"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/dyqtclinearB"
+            android:layout_below="@+id/xxP_Rl_Title" >
+        <!-- 任务信息 -->
+
+            <ScrollView
+                android:id="@+id/xxQtv_Msg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dip" >
+            </ScrollView>
+
+			<LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    android:id="@+id/xxTaskInfo"
+                    style="@style/myPhoneTvType"
+                    android:layout_width="match_parent"
+                    android:text="任务信息" />
+
+            </LinearLayout>
+            <LinearLayout 
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:id="@+id/XxPLd"
+                    android:layout_width="70dip"
+                    android:layout_height="30dip"
+                    android:layout_weight="1.0"
+                    android:background="@drawable/wx_bg"
+                    android:gravity="center"
+                    android:text="路段/小区"
+                    android:textColor="@color/black"
+                    android:textSize="12dip" />
+
+                <TextView
+                    android:id="@+id/XxPQdd"
+                    android:layout_width="70dip"
+                    android:layout_height="30dip"
+                    android:layout_weight="1.0"
+                    android:gravity="center"
+                    android:text="签到点"
+                    android:textColor="@color/black"
+                    android:textSize="12dip" />
+
+            </LinearLayout>
+             <LinearLayout
+                    android:id="@+id/addLinearLD"
+                    style="@style/myPhoneLayoutType"
+                    android:background="@drawable/wx_bg"
+                    android:orientation="vertical" >
+
+                 <ListView
+                     android:id="@+id/xxLvRoad"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1" >
+                 </ListView>
+                
+              </LinearLayout>
+
+             <LinearLayout
+                 android:id="@+id/addLinearGD"
+                 style="@style/myPhoneLayoutType"
+                 android:layout_height="match_parent"
+                 android:background="@drawable/wx_bg"
+                 android:orientation="vertical" >
+
+                 <ListView
+                     android:id="@+id/xxLvGd"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1" >
+                 </ListView>
+             </LinearLayout>
+
+             <LinearLayout
+                 android:id="@+id/addLvGJD"
+                 style="@style/myPhoneLayoutType"
+                 android:layout_height="match_parent"
+                 android:background="@drawable/wx_bg"
+                 android:orientation="vertical" >
+
+                 <ListView
+                     android:id="@+id/xxLvGjd"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:layout_weight="1" >
+                 </ListView>
+             </LinearLayout>
+
+               <LinearLayout
+                    android:id="@+id/addLinearQDD"
+                    style="@style/myPhoneLayoutType"
+                    android:background="@drawable/wx_bg"
+                    android:orientation="vertical"
+                    android:visibility="gone" >
+                  <LinearLayout style="@style/myPhoneLayoutType" >
+                    <TextView
+                    style="@style/myPhoneTvType"
+                    android:ems="8"
+                    android:text="XXX签到点1：" />
+                     <Button
+           				 android:id="@+id/xxPbtn_Commit1"
+            			style="@style/myPhoneButtonSmall" 
+            			android:text="签到"/>
+
+
+                 </LinearLayout>
+                 <LinearLayout style="@style/myPhoneLayoutType" >
+                    <TextView
+                    style="@style/myPhoneTvType"
+                    android:ems="8"
+                    android:text="XXX签到点2：" />
+                     <Button
+           				 android:id="@+id/xxPbtn_Commit2"
+            			style="@style/myPhoneButtonSmall" 
+            			android:text="签到"/>
+                    
+                 </LinearLayout>
+                 <LinearLayout style="@style/myPhoneLayoutType" >
+                    <TextView
+                    style="@style/myPhoneTvType"
+                    android:ems="8"
+                    android:text="XXX签到点3：" />
+                     <Button
+           				 android:id="@+id/xxPbtn_Commit3"
+            			style="@style/myPhoneButtonSmall" 
+            			android:text="签到"/>
+                    
+                 </LinearLayout>
+                 
+                 
+                </LinearLayout>
+            
+        </LinearLayout>
+   <!--  </ScrollView> -->
+
+    
+     <LinearLayout
+        	 android:id="@+id/dyqtclinearB"
+      		 style="@style/myPhoneLayoutTitleType"
+      		 android:layout_alignParentBottom="true"
+      		  >
+
+         			<Button
+                        android:id="@+id/XxPYHSB"
+                         style="@style/myPhoneButtonSmall"
+                         android:layout_width="52dip"
+                         android:textSize="9sp"
+                        android:text="隐患上报" />
+                      <Button
+                        android:id="@+id/XxPGDSB"
+                         
+                         style="@style/myPhoneButtonSmall"
+                         android:layout_width="52dip"
+                         android:textSize="9sp"
+                        android:text="工地上报" />
+
+                      <Button
+                          android:id="@+id/XxPNDJL"
+                          style="@style/myPhoneButtonSmall"
+                          android:layout_width="52dip"
+                          android:text="补盖记录"
+                          android:textSize="9sp" />
+
+                      <Button
+                          android:id="@+id/XxPSSJC"
+                          style="@style/myPhoneButtonSmall"
+                          android:layout_width="52dip"
+                          android:text="设施检查"
+                          android:textSize="9sp"
+                          android:visibility="gone" />
+
+                      <Button
+                        android:id="@+id/XxPSJJC"
+                         
+                        style="@style/myPhoneButtonSmall"
+                         android:layout_width="65dip"
+                         android:textSize="9sp"
+                        android:text="GIS数据纠错" />
+
+                      <Button
+                          android:visibility="gone"
+                          android:id="@+id/XxPZBSS"
+                          style="@style/myPhoneButtonSmall"
+                          android:layout_width="65dip"
+                          android:text="周边设施"
+                          android:textSize="9sp" />
+                       
+         </LinearLayout>
+    
+</RelativeLayout>

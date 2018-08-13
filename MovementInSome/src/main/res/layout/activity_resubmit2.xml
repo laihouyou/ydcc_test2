@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/title_re"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:background="#333237">
+
+        <Button
+            android:id="@+id/resubmit_back"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:background="@drawable/black_while"
+            android:layout_marginLeft="18dp"
+            android:layout_marginStart="18dp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/title_fac"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="断网重提"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="取消"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_12"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/check_all"
+            android:layout_marginRight="@dimen/dp_10"
+            android:tag="tv_cancel"
+            android:visibility="gone"
+            />
+        <TextView
+            android:id="@+id/check_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="全选"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_12"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_20"
+            android:tag="check_all"
+            android:visibility="gone"
+            />
+
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/submit_recy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_re"
+        android:layout_above="@+id/submitFr"
+        >
+    </ListView>
+
+    <TextView
+        android:id="@+id/noDate_resub"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="暂无数据"
+        android:gravity="center"
+        android:visibility="gone"
+        />
+
+    <RelativeLayout
+        android:id="@+id/submitFr"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_80"
+        android:layout_alignParentBottom="true"
+        android:background="@color/point_facility5"
+        android:visibility="gone"
+        >
+
+        <TextView
+            android:id="@+id/submitTv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40"
+            android:layout_marginLeft="@dimen/dp_60"
+            android:layout_marginRight="@dimen/dp_60"
+            android:layout_marginBottom="@dimen/dp_20"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@drawable/shape_btn"
+            android:text="提交"
+            />
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

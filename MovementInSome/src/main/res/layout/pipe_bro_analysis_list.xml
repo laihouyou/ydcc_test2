@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout style="@style/myPhoneLayoutTitleType" >
+
+        <Button
+            android:id="@+id/pipe_bro_list_close"
+            style="@style/myPhoneButtonSmall"
+            android:text="关闭" />
+
+        <TextView
+            android:id="@+id/xxQtv_Table_Title"
+            style="@style/myPhoneTvTitle"
+            android:text="分析列表" />
+
+        <Button
+            android:id="@+id/pipe_bro_list_project"
+            style="@style/myPhoneButtonSmall"
+            android:text="方案" />
+
+        <Button
+            android:id="@+id/pipe_bro_list_pack_up"
+            style="@style/myPhoneButtonSmall"
+            android:text="收起" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/pipe_bro_list_ll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff" >
+
+        <ListView
+            android:id="@+id/pipe_bro_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:dividerHeight="0dip"
+            android:layout_above="@+id/pipe_bro_enlarge_ll" >
+        </ListView>
+        <LinearLayout 
+            android:id="@+id/pipe_bro_enlarge_ll"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:background="@drawable/frame_white2"
+            android:layout_height="50dip"
+            android:layout_alignParentBottom="true">
+            <TextView 
+                android:id="@+id/pipe_bro_enlarge_count"
+                android:layout_width="match_parent"
+            	android:layout_height="match_parent"
+            	android:textColor="#000000"
+            	android:gravity="center_vertical"
+            	android:textSize="16sp"
+            	android:layout_marginLeft="15dip"
+            	android:layout_weight="1.0"/>
+             <Button 
+                android:id="@+id/pipe_bro_enlarge_btn"
+                android:layout_width="100dip"
+            	android:layout_height="match_parent"
+            	android:gravity="center"
+            	android:textColor="#ffffff"
+            	android:text="扩大分析"
+            	android:textSize="16sp"
+            	android:background="#398fdc"/>
+            
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

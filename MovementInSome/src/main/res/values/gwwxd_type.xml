@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+     <string name="gwwxd_rwxx">任务信息</string>
+     <string name="gwwxd_rwtx">任务填写</string>
+     <string name="gwwxd_gdsg">管道事故</string>
+     <string name="gwwxd_fmsg">阀门事故</string>
+     <string name="gwwxd_xfsrw">消防栓任务</string>
+     <string name="gwwxd_plghl">批量更换类</string>
+     <string name="gwwxd_jzwx">井坐维修</string>
+     <string name="gwwxd_lmxf">路面修复</string>
+     <string name="gwwxd_tscl">投诉处理</string>
+     <string name="gwwxd_zxphl">专项,配合类</string>
+     <string name="gwwxd_qtrw">其它任务</string>
+     <string name="gwwxd_cljg">处理结果</string>
+     
+     <string name="fmwxd_fmgz">阀门故障</string>
+     
+     <string-array name="gwwxdType">
+        
+        <item>任务填写</item>
+        <item>管道事故</item>
+        <item>阀门事故</item>
+        <item>消防栓任务</item>
+        <item>批量更换类</item>
+        <item>井坐维修</item>
+        <item>路面修复</item>
+        <item>投诉处理</item>
+        <item>专项,配合类</item>
+        <item>其它任务</item>
+        <item>处理结果</item>
+    </string-array>
+    <string-array name="fmwxdType">
+     
+        <item>任务填写</item>
+        <item>阀门故障</item>
+        <item>专项,配合类</item>
+        <item>其它任务</item>
+        <item>处理结果</item>
+   </string-array>
+</resources>

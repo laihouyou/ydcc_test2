@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_work_link" name="工作联系单"  table="INS_WORK_CONTACT" submitTo="loopback" page="one">
+	   	<params>
+<!-- 			<param name="pid" type="c" required="Y" defValue="" io="i"/>
+ -->	    <param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+ 			<param name="workTaskNum" type="c" required="Y" defValue="" io="i"></param>
+ 
+			<param name="cfNum" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="cfSource" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="cfAddr" field="" type="c" required="Y" defValue="" io="i"></param>	
+			<param name="sections" field="" type="c" required="Y" defValue="" io="i"></param>	
+			<param name="sectionsNum" field="" type="c" required="Y" defValue="" io="i"></param>
+				
+			<param name="results" field="" type="c" required="Y" defValue="上报其他部门处理" io="o"></param>
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="facNum" value="OBJECTID,EID,GID,唯一图形编"/>
+		    </rule>
+		</rules>
+		
+		<page id="1" name="基本信息">
+			<group id="1" name="联系信息" display="Y" type="common">
+				<field name="insTeam" label="班组" type="text" readOnly="N"  required="Y" maxLength="20" defValue="userteam()" options="" listKey=""/>
+				<field name="workTaskNum" label="编号" type="text" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="addr" label="位置描述" type="text" readOnly="N"  required="Y" maxLength="20" defValue=":cfAddr,addr()" options="" listKey=""/>
+				<field name="facNum" label="GIS内部编号" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapfac()" options="" listKey="" rule="mapfac"/>
+			</group>
+			<group id="2" name="管网类型及来源" display="Y" type="common">
+				<field name="facType" label="管网类型" type="radio" readOnly="N"  required="Y" maxLength="20" defValue="雨水" options="雨水|污水|给水" listKey=""/>
+				<field name="cfSource" label="信息来源" type="radio" readOnly="N"  required="Y" maxLength="20" defValue=":cfSource,巡查发现" options="巡查发现|维修发现|投诉处理" listKey=""/>
+			</group>
+			<group id="3" name="发现问题" display="Y" type="common">
+				<field name="findProblem" label="发现问题" type="mselect" readOnly="N"  required="Y" maxLength="20" defValue="" options="井座断裂|井座周边破损|井座周边破损|座盖不配套|井盖有异响|雨水口规格不符|雨水口破损|雨水口无箅座框|雨水口箅座框断裂|雨水口内淤积堵塞|管道内淤积或堵塞|管道或渠内破损|井内淤积或较大杂物|井内被倒泥浆、粪渣|检查井冒水|井座或流槽损坏|井壁破损|路面渗水|路面塌陷|消防栓漏水|消防栓配件缺失|阀门漏水|爆管漏水|检查井大量清水|违章排放待查|违章接管待查|占压管道|占压井位|施工影响|新开工地待查" listKey=""/>
+				<field name="otherProblem" label="发现其他问题" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+<!-- 				<field name="c5" label="示意图" type="photo" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+ -->		</group>
+			<group id="4" name="现场信息" display="Y" type="attach">
+			    <field name="reportedCoordinate" label="具体位置" type="maptext" readOnly="N"  required="Y" maxLength="20" defValue="mapcoord()" options="" listKey="" rule=""/>
+			    <field name="camera1" label="现场照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>	
+<!-- 			    <field name="camera2" label="处理后照片" type="camera" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule="attach"/>
+ -->			</group>
+			<group id="5" name="现场人员" display="Y" type="common">
+			    <field name="insPeople" label="现场处理员" type="text" readOnly="N"  required="Y" maxLength="20" defValue="username()" options="" listKey=""/>
+				<field name="insDate" label="上反日期" type="datetime" readOnly="N"  required="Y" maxLength="20" defValue="datetime()" options="" listKey=""/>
+			</group>
+			<group id="6" name="系统信息" display="N" type="common">
+			    <field name="workTaskNum" label="任务编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":workTaskNum" options="" listKey="" rule=""/>
+			    <field name="serialNumber" label="流水号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":serialNumber" options="" listKey="" rule=""/>
+			     <field name="sections" label="所在路段" type="system" readOnly="N"  required="N" maxLength="20" defValue=":sections" options="" listKey="" rule=""/>
+			    <field name="sectionsNum" label="路段编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":sectionsNum" options="" listKey="" rule=""/>
+ 			</group>
+		</page>
+	</form>
+</axf>

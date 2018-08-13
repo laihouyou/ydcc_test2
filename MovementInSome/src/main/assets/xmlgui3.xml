@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="form1" name="actTemplate" submitTo="loopback" page="one">
+	   	<params>
+			<param name="pid" type="c" required="Y" defValue="" io="i"/>
+			<param name="uid" type="c" required="Y" defValue="" io="i"/>
+		</params>
+		<map>
+		    <load></load>
+		</map>
+	
+		<page id="1" name="基本信息">
+			<group id="1" name="基本信息" display="Y" type="common">
+				<field name="fname" label="姓名" type="text" readOnly="Y" required="Y" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="sex" label="姓别" type="radio" readOnly="Y"  required="Y" maxLength="20" defValue="" options="男|女" listKey=""/>
+			</group>
+			<group id="2" name="最高学历" display="Y" type="common">
+				<field name="edu" label="学历" type="choice" readOnly="Y"  required="Y" maxLength="20" defValue="" options="高中或中专|大专|本科|研究生s" listKey=""/>
+				<field name="grad" label="毕业时间" type="date" readOnly="Y"  required="Y" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="pwd" label="密码" type="password" readOnly="Y"  required="Y" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="memo" label="备注" type="memo" readOnly="N"  required="N" maxLength="2000" defValue="" options="" listKey=""/>				
+			</group>
+			<group id="3" name="专长" display="Y"  type="common">
+  				<field name="pro" label="专业方向" type="check" readOnly="Y"  required="Y" maxLength="20" defValue="" options="编程|项目管理|测试" listKey=""/>
+  				<field name="photo" label="到场照片" type="camera" readOnly="Y"  required="Y" maxLength="20" defValue="" options="" listKey=""/>
+			</group>
+			<group id="4" name="隐藏信息" display="N" type="common">
+				<field name="pid" label="主表记录ID" type="system" readOnly="Y"  required="N" maxLength="20" defValue=":pid" options="编程|项目管理|测试" listKey=""/>
+				<field name="createDate" label="创建日期" type="system" readOnly="Y"  required="N" maxLength="20" defValue="date()" options="" listKey=""/>
+				<field name="uid" label="用户ID" type="system" readOnly="Y"  required="N" maxLength="20" defValue=":uid" options="" listKey=""/>
+				<field name="gps" label="定位位置" type="system" readOnly="Y"  required="N" maxLength="20" defValue="curlcate()" options="" listKey=""/>
+			</group>
+			<group id="5" name="地图信息" display="Y" type="map">
+			    <filed name="layer" label="设施列表" type="choice" readOnly="Y" required="Y" maxLength="20" defValue="maplayerlist()" options="" listKey=""/>
+			    <filed name="eid" label="设施编号" type="maptext" readOnly="Y" required="N" maxLength="20" defValue="mapfacinfo(@layer).eid" options="" listKey=""/>
+			    <filed name="xy" label="坐标位置" type="text" readOnly="Y" required="N" maxLength="20" defValue="mapfacinfo(@layer).xy" options="" listKey=""/>
+			</group>
+		</page>
+	</form>
+</axf>

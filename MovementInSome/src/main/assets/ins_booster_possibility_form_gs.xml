@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_booster_possibility_form_gs" name="爆管可能因素" table="INS_CHECK_ITEM_RECORD" submitTo="loopback" page="one">
+	   	<params>
+	    <param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+ 			
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		    </rule>
+		</rules>
+	   
+		<page id="1" name="隐患信息">
+            <group id="1" name="爆管可能因素" display="Y" type="common">
+                <field name="material" label="管段材质" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="爆管可能性+管本体原因+管段材质"/>
+                <field name="pipeAge" label="管龄" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="爆管可能性+管本体原因+管龄"/>
+                <field name="repairInfo" label="过往爆漏情况" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="爆管可能性+管本体原因+管段过往爆露及维修情况"/>
+                <field name="groundPressInfo" label="管道受到骑压" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="爆管可能性+环境影响+受到骑压"/>
+                <field name="disturbedTimes" label="受到扰动次数" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="爆管可能性+环境影响+受到多次施工扰动"/>
+                <field name="overpass" label="立交桥距离" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="爆管可能性+环境影响+处于立交桥附近"/>
+                <field name="depth" label="管道埋深" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="爆管可能性+环境影响+管道埋深"/>
+                <field name="pipeRust" label="管内腐蚀" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="爆管可能性+腐蚀+管内腐蚀"/>
+                <field name="publicRust" label="环境腐蚀" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="爆管可能性+腐蚀+环境腐蚀"/>
+                <field name="designDefect" label="安装设计缺陷" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="爆管可能性+设计施工+管段安装设计缺陷"/>
+                <field name="buildDefect" label="施工质量缺陷" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="爆管可能性+设计施工+管段施工质量缺陷"/>
+                <field name="baseDefect" label="管段基础缺陷" type="choicezh" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="爆管可能性+设计施工+管段基础缺陷"/>
+			</group>
+			
+			<group id="2" name="系统信息" display="N" type="common">
+			    <field name="gid" label="设施唯一码" type="text" readOnly="N" required="N" maxLength="20" defValue=":gid" options="" listKey=""/>
+			    <field name="areaId" label="片区ID" type="text" readOnly="N" required="N" maxLength="20" defValue=":areaId" options="" listKey=""/>
+			    <field name="workTaskNum" label="任务编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":workTaskNum" options="" listKey="" rule=""/>
+ 			</group>
+		</page>
+	</form>
+</axf>

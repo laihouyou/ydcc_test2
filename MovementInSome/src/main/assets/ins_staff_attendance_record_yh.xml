@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_staff_attendance_record_yh" name="人员出勤记录"  table="BS_STAFF_ATTENDANCE_RECORD" submitTo="loopback" page="one">
+	   	<params>
+			
+		</params>
+		 <rules>
+		    <rule id="mapfac">
+		        
+		    </rule>
+		</rules>
+
+		<page id="1" name="">
+			<group id="1" name="" display="Y" type="common">
+			    <field name="saName" label="出勤人员" type="memo" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey="" rule=""/>
+				<field name="saDateStr" label="出勤时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				</group>	
+			 
+			<group id="2" name="系统信息" display="N" type="common">
+                <field name="planPrjNum" label="工程计划编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":planPrjNum" options="" listKey="" rule=""/>
+			   	<field name="rrwoNum" label="工单编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":rrwoNum" options="" listKey="" rule=""/>
+			   	<field name="rrwoType" label="工单类型" type="text" readOnly="N"  required="N" maxLength="20" defValue=":rrwoType" options="" listKey="" rule=""/>
+			    <field name="uniqueCode" label="移动端唯一编码" type="text" readOnly="N" required="N" maxLength="20" defValue="guid()" options="" listKey=""/>
+			</group>
+		</page>
+	</form>
+</axf>

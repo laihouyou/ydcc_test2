@@ -1,0 +1,15 @@
+
+    <menu xmlns:android="http://schemas.android.com/apk/res/android">
+        
+        <item android:id="@+id/itemNearBy" android:title="附近设施">
+        </item>
+        <item android:id="@+id/itemDraw" android:title="草图绘制">
+            <menu>
+                <item android:id="@+id/item1"/>
+                <item android:id="@+id/item2"/>
+                <item android:id="@+id/item3"/>
+            </menu>
+        </item>
+        <item android:id="@+id/itemMeaure" android:title="地图量测"></item>
+        <item android:id="@+id/itemOffValve" android:title="关阀分析"></item>
+    </menu>

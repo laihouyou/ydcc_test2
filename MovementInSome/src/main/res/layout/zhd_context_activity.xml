@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.movementinsome.app.zhd.zhdactivity.ZhdMainActivity" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_connect_device"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_connect_device"
+                android:textAllCaps="false"
+                style="@style/AppButton_zhd"/>
+
+            <Button
+                android:id="@+id/btn_disconnect_device"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_disconnect_device"
+                style="@style/AppButton_zhd" />
+
+            <Button
+                android:id="@+id/btn_get_device_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_get_device_info"
+                style="@style/AppButton_zhd" />
+
+            <Button
+                android:id="@+id/btn_regist_device"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_regist_device"
+                style="@style/AppButton_zhd" />
+
+            <Button
+                android:id="@+id/btn_get_gps_point"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_get_gps_point"
+                style="@style/AppButton_zhd" />
+
+
+            <Button
+                android:id="@+id/btn_set_rover"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/app_set_rover"
+                style="@style/AppButton_zhd" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

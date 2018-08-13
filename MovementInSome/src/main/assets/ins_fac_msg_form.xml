@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_fac_msg_form" name="设施信息表" table="BS_INS_REPORT_RESULT" submitTo="loopback" page="one">
+	   	<params>
+	    	<param name="bsTaskNum" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="bsIrsNum" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="bsFacNum" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="bsFacName" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="bsFacType" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="bsFacAddr" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="bsFacCaliber" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="bsFacMaterial" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="bsFacDepth" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="bsFacMap" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="bsFacRiName" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="gid" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="bsReportDate" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="bsReportId" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="bsReportNum" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="bsReportName" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="bsReportDeptId" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="bsReportDeptNum" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="bsReportDeptName" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="bsReportTeamId" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="bsReportTeamNum" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="bsReportTeamName" type="c" required="Y" defValue="" io="i"></param>
+	    	<param name="imei" type="c" required="Y" defValue="" io="i"></param>
+		</params>
+		<optionss>
+		    <options name="bsInsReportContentLists" value=""></options>
+		</optionss>
+	
+		<page id="1" name="信息">
+		    <group id="1" name="填写信息" display="Y" type="common">
+		        <field name="bsInsReportContentLists" label="" type="checklist" readOnly="N" required="N" maxLength="20" defValue="" options="bsInsReportContentLists" listKey="" bsCheck="bsCheck" bsIcsName="bsIcsName"/>  
+		        <field name="bsRemarks" label="备注" type="memo" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/> 
+		        <field name="camera1" label="处理照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>	
+			</group>
+			<group id="5" name="系统信息" display="N" type="common">
+			    <field name="bsTaskNum" label="任务编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsTaskNum" options="" listKey="" rule=""/>
+			    <field name="bsIrsNum" label="路段编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsIrsNum" options="" listKey="" rule=""/>
+			    <field name="bsFacNum" label="设施编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsFacNum" options="" listKey="" rule=""/>
+			    <field name="bsFacName" label="设施名称" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsFacName" options="" listKey="" rule=""/>
+			    <field name="bsFacType" label="设施类型" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsFacType" options="" listKey="" rule=""/>
+			    <field name="bsFacAddr" label="设施所在位置" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsadd" options="" listKey="" rule=""/>
+			    <field name="bsFacCaliber" label="设施口径" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsFacCaliber" options="" listKey="" rule=""/>
+			    <field name="bsFacMaterial" label="设施材质" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsFacMaterial" options="" listKey="" rule=""/>
+			    <field name="bsFacDepth" label="设施埋深" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsFacDepth" options="" listKey="" rule=""/>
+			    <field name="bsFacRiName" label="设施所在路段" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsFacRiName" options="" listKey="" rule=""/>
+			    <field name="gid" label="设施GID" type="system" readOnly="N"  required="N" maxLength="20" defValue=":gid" options="" listKey="" rule=""/>
+			    <field name="bsReportDate" label="上报时间" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsReportDate" options="" listKey="" rule=""/>
+			    <field name="bsReportId" label="上报人Id" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsReportId" options="" listKey="" rule=""/>
+			    <field name="bsReportNum" label="上报人编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsReportNum" options="" listKey="" rule=""/>
+			    <field name="bsReportName" label="上报人名称" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsReportName" options="" listKey="" rule=""/>
+			    <field name="bsReportDeptId" label="上报人部门ID" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsReportDeptId" options="" listKey="" rule=""/>
+			    <field name="bsReportDeptNum" label="上报人部门编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsReportDeptNum" options="" listKey="" rule=""/>
+			    <field name="bsReportDeptName" label="上报人部门名称" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsReportDeptName" options="" listKey="" rule=""/>
+			    <field name="bsReportTeamId" label="上报人班组ID" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsReportTeamId" options="" listKey="" rule=""/>
+			    <field name="bsReportTeamNum" label="上报人班组编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsReportTeamNum" options="" listKey="" rule=""/>
+			    <field name="bsReportTeamName" label="上报人班组名称" type="system" readOnly="N"  required="N" maxLength="20" defValue=":bsReportTeamName" options="" listKey="" rule=""/>
+			    <field name="imei" label="imei" type="system" readOnly="N"  required="N" maxLength="20" defValue=":imei" options="" listKey="" rule=""/>
+ 			</group>
+		</page>
+	</form>
+</axf>

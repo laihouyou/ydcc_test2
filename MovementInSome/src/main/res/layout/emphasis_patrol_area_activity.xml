@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/black_background"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:id="@+id/emphasis_patrol_area_title"
+        style="@style/myPhoneLayoutTitleType"
+        android:layout_alignParentTop="true"
+        android:visibility="visible" >
+
+        <ImageView
+            android:id="@+id/emphasis_patrol_area_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+            android:src="@drawable/back" />
+
+        <TextView
+            style="@style/myPhoneTvTitle"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="重点巡查区域" />
+        <Button
+            android:id="@+id/emphasis_patrol_area_commit"
+            style="@style/myPhoneButtonSmall" 
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:text="提交" />
+    </RelativeLayout>
+    <ScrollView
+        style="@style/myPhoneLayoutPType"
+        android:layout_weight="1.0"
+        android:scrollbars="none" >
+        <LinearLayout style="@style/myPhoneLayoutBgType" >
+            <LinearLayout style="@style/myPhoneLayoutType">
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="*重要级别" />
+
+                <Spinner
+                    android:id="@+id/emphasis_patrol_area_zyjb"
+                    style="@style/myPhoneSpinnerBG" />
+            </LinearLayout>
+             <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="*有效状态" />
+
+                <Spinner
+                    android:id="@+id/emphasis_patrol_area_yxzt"
+                    style="@style/myPhoneSpinnerBG" />
+            </LinearLayout>
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="*区域名称" />
+
+                <EditText
+                    android:id="@+id/emphasis_patrol_area_qrmq"
+                    style="@style/myPhoneEtType"
+                    android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="*施工单位" />
+
+                <EditText
+                    android:id="@+id/emphasis_patrol_area_sgdw"
+                    style="@style/myPhoneEtType"
+                    android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="*工地负责人" />
+
+                <EditText
+                    android:id="@+id/emphasis_patrol_area_gdfzr"
+                    style="@style/myPhoneEtType"
+                    android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="施工方电话" />
+
+                <EditText
+                    android:id="@+id/emphasis_patrol_area_sgfdh"
+                    style="@style/myPhoneEtType"
+                    android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="*详细位置" />
+
+                <EditText
+                    android:id="@+id/emphasis_patrol_area_xxwz"
+                    style="@style/myPhoneEtType"
+                    android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="施工计划开始日期" />
+
+                <TextView
+                    android:id="@+id/emphasis_patrol_area_ksrq"
+                    style="@style/myPhoneEtType"
+                    android:singleLine="true" />
+            </LinearLayout>
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="施工计划结束日期" />
+
+                <TextView
+                    android:id="@+id/emphasis_patrol_area_jsrq"
+                    style="@style/myPhoneEtType"
+                    android:singleLine="true" />
+            </LinearLayout>
+           
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="*工程进度" />
+
+                <EditText
+                    android:id="@+id/emphasis_patrol_area_gcjd"
+                    style="@style/myPhoneEtType"
+                    android:singleLine="true" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/emphasis_patrol_area_qrxq"
+                android:layout_width="match_parent"
+                android:layout_height="40dip"
+                android:background="@drawable/btn_next_bg"
+                android:paddingLeft="5dip"
+                android:paddingRight="5dip"
+                android:text="区域选取"
+                android:textColor="#ddffffff"
+                android:visibility="visible" />
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="备注" />
+
+                <EditText
+                    android:id="@+id/emphasis_patrol_area_bz"
+                    style="@style/myPhoneEtType"
+                    android:singleLine="true" />
+            </LinearLayout>
+            
+        </LinearLayout>
+        </ScrollView>
+
+</LinearLayout>

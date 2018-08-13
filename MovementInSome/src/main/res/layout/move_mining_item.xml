@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--新建工程-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+	android:background="@color/transparent"
+    android:layout_height="match_parent" >
+
+	<RelativeLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_centerVertical="true">
+
+		<LinearLayout
+			android:id="@+id/croutLin"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="@dimen/dp_30"
+			android:layout_marginRight="@dimen/dp_30"
+			android:background="@drawable/shape_whate"
+			android:orientation="vertical">
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/dp_50"
+				android:layout_gravity="center_horizontal"
+				android:background="@drawable/shape_blue2"
+				android:gravity="center"
+				android:text="新建工程"
+				android:textColor="@color/cornflowerblue6"
+				android:textSize="@dimen/sp_20" />
+
+			<com.movementinsome.caice.view.MyScrollView
+				android:id="@+id/projcet_scrollview"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+                >
+
+				<LinearLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="3dip"
+                    android:layout_marginBottom="@dimen/dp_5"
+					android:orientation="vertical">
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="40dip"
+						android:orientation="horizontal">
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:gravity="center"
+							android:text="工程名称:"
+							android:textColor="@color/black" />
+
+
+						<EditText
+							android:id="@+id/moveName"
+							android:layout_width="match_parent"
+							android:layout_height="match_parent"
+							android:background="@drawable/input_bg"
+							android:maxLines="1"
+							android:singleLine="true"
+							android:hint="请输入工程名称" />
+
+					</LinearLayout>
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="40dip"
+						android:layout_marginTop="5dp"
+						android:orientation="horizontal"
+						android:visibility="visible">
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:gravity="center"
+							android:text="工程编号:"
+                            android:maxLines="1"
+                            android:singleLine="true"
+							android:textColor="@color/black" />
+
+
+						<EditText
+							android:id="@+id/moveType"
+							android:layout_width="match_parent"
+							android:layout_height="match_parent"
+							android:background="@drawable/input_bg"
+							android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ
+				abcdefghijklmnopqrstuvwxyz0123456789"
+							android:hint="请输入工程编号" />
+
+					</LinearLayout>
+
+					<LinearLayout
+						android:id="@+id/lineGone"
+						android:layout_width="match_parent"
+						android:layout_height="40dip"
+						android:layout_marginTop="5dp"
+						android:orientation="horizontal"
+						android:visibility="gone">
+
+						<TextView
+							android:layout_width="80dp"
+							android:layout_height="match_parent"
+							android:gravity="center"
+							android:text=""
+							android:textColor="@color/black" />
+
+
+						<TextView
+							android:id="@+id/moveGone"
+							android:layout_width="match_parent"
+							android:layout_height="match_parent"
+							android:gravity="center_vertical"
+							android:text="任务编号重复,请重新输入"
+							android:textColor="@color/red"
+							android:textSize="17sp" />
+
+					</LinearLayout>
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="40dip"
+						android:layout_marginTop="5dp"
+						android:orientation="horizontal">
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:gravity="center"
+							android:text="工程类型:"
+							android:textColor="@color/black" />
+
+
+						<Spinner
+							android:id="@+id/moveSpinnerType"
+							android:layout_width="match_parent"
+							android:layout_height="match_parent"
+							android:background="@drawable/input_bg2" />
+
+					</LinearLayout>
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="40dip"
+						android:layout_marginTop="5dp"
+						android:orientation="horizontal"
+						android:visibility="visible">
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:gravity="center"
+							android:text="@string/is_share"
+							android:textColor="@color/black" />
+
+						<RadioGroup
+							android:id="@+id/share_radiogroup"
+							android:layout_width="match_parent"
+							android:layout_height="match_parent"
+							android:layout_alignParentRight="true"
+							android:gravity="center"
+							android:orientation="horizontal">
+
+							<RadioButton
+								android:id="@+id/radioButton_share_no"
+								android:layout_width="0dp"
+								android:layout_height="wrap_content"
+								android:layout_weight="1"
+								android:checked="true"
+								android:isScrollContainer="false"
+								android:paddingLeft="@dimen/dp_8"
+								android:text="@string/share_no"
+								android:textColor="@color/black" />
+
+							<RadioButton
+								android:id="@+id/radioButton_share_yes"
+								android:layout_width="0dp"
+								android:layout_height="wrap_content"
+								android:layout_weight="1"
+								android:paddingLeft="@dimen/dp_8"
+								android:text="@string/share_yes"
+								android:textColor="@color/black" />
+
+						</RadioGroup>
+
+					</LinearLayout>
+
+					<!--<LinearLayout-->
+						<!--android:id="@+id/share_lin_account"-->
+						<!--android:layout_width="match_parent"-->
+						<!--android:layout_height="40dip"-->
+						<!--android:layout_marginTop="5dp"-->
+						<!--android:orientation="horizontal"-->
+						<!--android:visibility="gone">-->
+
+						<!--<TextView-->
+							<!--android:layout_width="wrap_content"-->
+							<!--android:layout_height="match_parent"-->
+							<!--android:gravity="center"-->
+							<!--android:text="@string/share_account"-->
+							<!--android:textColor="@color/black" />-->
+
+
+						<!--<EditText-->
+							<!--android:id="@+id/moveSharedAccount"-->
+							<!--android:layout_width="match_parent"-->
+							<!--android:layout_height="match_parent"-->
+							<!--android:background="@drawable/input_bg"-->
+							<!--android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ-->
+				<!--abcdefghijklmnopqrstuvwxyz0123456789"-->
+							<!--android:hint="@string/please_enter_share_account" />-->
+
+					<!--</LinearLayout>-->
+
+					<!--<LinearLayout-->
+						<!--android:id="@+id/share_lin_code"-->
+						<!--android:layout_width="match_parent"-->
+						<!--android:layout_height="40dip"-->
+						<!--android:layout_marginTop="5dp"-->
+						<!--android:orientation="horizontal"-->
+						<!--android:visibility="gone">-->
+
+						<!--<TextView-->
+							<!--android:layout_width="wrap_content"-->
+							<!--android:layout_height="match_parent"-->
+							<!--android:gravity="center"-->
+							<!--android:text="@string/share_code"-->
+							<!--android:textColor="@color/black" />-->
+
+
+						<!--<EditText-->
+							<!--android:id="@+id/moveSharedCode"-->
+							<!--android:layout_width="match_parent"-->
+							<!--android:layout_height="match_parent"-->
+							<!--android:background="@drawable/input_bg"-->
+							<!--android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ-->
+				<!--abcdefghijklmnopqrstuvwxyz0123456789"-->
+							<!--android:hint="请输入密码" />-->
+
+					<!--</LinearLayout>-->
+
+					<LinearLayout
+						android:layout_width="match_parent"
+						android:layout_height="40dip"
+						android:layout_marginTop="5dp"
+						android:orientation="horizontal">
+
+						<TextView
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:gravity="center"
+							android:text="@string/qican_pulldown"
+							android:textColor="@color/black" />
+
+
+						<Spinner
+							android:id="@+id/qican_pulldown"
+							android:layout_weight="1"
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:background="@drawable/input_bg2" />
+
+						<Button
+							android:id="@+id/manual_write_btn"
+							android:layout_width="wrap_content"
+							android:layout_height="match_parent"
+							android:gravity="center"
+							android:text="@string/manual_write"
+							android:textColor="@color/black" />
+
+					</LinearLayout>
+
+
+				</LinearLayout>
+
+			</com.movementinsome.caice.view.MyScrollView>
+
+
+			<TextView
+				android:id="@+id/confirmBtn"
+				android:layout_width="match_parent"
+				android:layout_height="@dimen/dp_40"
+				android:layout_gravity="center_horizontal"
+				android:layout_marginBottom="@dimen/dp_15"
+				android:layout_marginLeft="@dimen/dp_35"
+				android:layout_marginRight="@dimen/dp_35"
+				android:layout_marginTop="@dimen/dp_15"
+				android:background="@drawable/shape_blue"
+				android:gravity="center"
+				android:text="确定"
+				android:textColor="@color/cornflowerblue6"
+				android:textSize="@dimen/sp_18" />
+
+		</LinearLayout>
+
+		<ImageView
+			android:id="@+id/cancelIm"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/croutLin"
+			android:layout_centerHorizontal="true"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginTop="@dimen/dp_33"
+			android:background="@drawable/close_btn" />
+
+	</RelativeLayout>
+
+
+
+</RelativeLayout>

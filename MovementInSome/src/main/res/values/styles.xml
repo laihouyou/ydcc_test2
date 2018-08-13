@@ -1,0 +1,411 @@
+<resources>
+    
+    <style name="myPhoneTvType">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textColor">#333333</item>
+        <item name="android:textSize">14dip</item>
+        <item name="android:ems">4</item>
+    </style>
+    
+        <!-- 二： LinearLayout背景样式：所有属性控件容器 -->
+    <style name="myPhoneLayoutBgType">
+        <item name="android:gravity">center_vertical|top</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@drawable/white_bg_2</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingBottom">15dip</item>
+        <item name="android:paddingLeft">12dip</item>
+        <item name="android:paddingRight">12dip</item>
+    </style>
+    
+        <!-- 一： LinearLayout最外层样式：跟父LinearLayout相隔10dip -->
+    <style name="myPhoneLayoutPType">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingTop">8dip</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:paddingLeft">10dip</item>
+        <item name="android:paddingRight">10dip</item>
+    </style>
+    
+    <!-- EditText输入框 样式 -->
+    <style name="myPhoneEtType">
+        <item name="android:background">@drawable/input_bg</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingRight">5dp</item>
+        <item name="android:textColor">#333333</item>
+        <item name="android:textSize">12dip</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_height">35dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    
+    <!-- 定位图片样式 -->
+    <style name="myPhoneImageLoc">
+        <item name="android:layout_height">25dip</item>
+        <item name="android:layout_width">30dip</item>
+        <item name="android:background">@drawable/maplocation</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">5dp</item>
+    </style>
+    
+    <!-- 定义Spinner样式 -->
+    <style name="myPhoneSpinnerBG">
+        <item name="android:layout_height">35dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@drawable/spinner_bg</item>
+        <item name="android:paddingLeft">3dip</item>
+        <item name="android:drawSelectorOnTop">true</item>
+    </style>
+    
+    <!-- 定义单选按钮的样式(wrap_content) -->
+    <style name="myPhoneRadioLC">
+        <item name="android:drawableLeft">@anim/myradio_button</item>
+        <item name="android:layout_height">30dip</item>
+        <item name="android:layout_width">30dip</item>
+        <item name="android:background">#00000000</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:textColor">#333333</item>
+        <item name="android:textSize">12dip</item>
+        <item name="android:button">@null</item>
+    </style>
+    
+        
+    <!-- 四： LinearLayout样式 :每个属性容器 -->
+    <style name="myHDLayoutType">
+        <item name="android:paddingTop">8dip</item>
+        <item name="android:paddingBottom">8dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>    
+    
+    <!-- 功能图片按钮容器样式 -->
+    <style name="myPhoneLinearLayoutFunction">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:gravity">center|top</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+    
+    <!-- 功能图片按钮样式 -->
+    <style name="myPhoneButtonFunction">
+        <item name="android:layout_height">65dip</item>
+        <item name="android:layout_width">65dip</item>
+    </style>
+    
+        <!-- 描述字体样式 -->
+    <style name="myPhoneTextViewDescribe">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">12dip</item>
+    </style>    
+    
+    <!-- 二： LinearLayout背景样式2：所有属性控件容器带分割标题 -->
+    <style name="myPhoneLayoutBgTypeFG">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@drawable/white_bg</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingLeft">12dip</item>
+        <item name="android:paddingBottom">10dip</item>
+        <item name="android:paddingRight">12dip</item>
+    </style>    
+    <!-- 背景 -->
+    <style name="black_background">
+        <item name="android:background">@drawable/bg</item>
+    </style>
+
+    <style name="LocationProgressStyle" parent="@android:style/Widget.ProgressBar">
+        <item name="android:maxWidth">20.0dip</item>
+        <item name="android:maxHeight">20.0dip</item>
+        <item name="android:indeterminateOnly">true</item>
+        <item name="android:indeterminateDrawable">@drawable/loc_progress_bar</item>
+        <item name="android:indeterminateDuration">1200</item>
+        <item name="android:indeterminateBehavior">repeat</item>
+        <item name="android:minWidth">20.0dip</item>
+        <item name="android:minHeight">20.0dip</item>
+    </style>
+
+    <!-- 定义大类型Button按钮 -->
+    <style name="myPhoneButtonBig">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">30dip</item>
+        <item name="android:background">@drawable/btn_next_bg</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#ddffffff</item>
+    </style>
+    <!-- 定义小类型Button按钮 -->
+    <style name="myPhoneButtonSmall">
+        <item name="android:layout_width">60dip</item>
+        <item name="android:layout_height">30dip</item>
+        <item name="android:background">@drawable/btn_icon</item>
+        <item name="android:paddingLeft">5dip</item>
+        <item name="android:paddingRight">5dip</item>
+        <item name="android:textColor">#ffffffff</item>
+    </style>
+    <!-- 四： LinearLayout样式 :每个属性容器 -->
+    <style name="myPhoneLayoutType">
+        <item name="android:paddingTop">3dip</item>
+        <item name="android:paddingBottom">5dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <!-- TextView说明样式2 表单内容分类的标题描述 跟myPhoneLayoutBgTypeFG共用 -->
+    <style name="myPhoneTvTypeT">
+        <item name="android:layout_height">20dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:textColor">#333333</item>
+        <item name="android:textSize">14dip</item>
+    </style>
+
+    <!-- 定义单选按钮的样式(match_parent) -->
+    <style name="myPhoneRadioRM">
+        <item name="android:drawableRight">@anim/myradio_button</item>
+        <item name="android:layout_height">40dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">#00000000</item>
+        <item name="android:button">@null</item>
+        <item name="android:textColor">#333333</item>
+        <item name="android:textSize">12dip</item>
+    </style>
+
+    <style name="myPhoneLayoutTitleType">
+        <item name="android:layout_height">45dip</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">#398fdc</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">13dip</item>
+        <item name="android:paddingRight">10dip</item>
+    </style>
+
+    <style name="myPhoneButtonBack">
+        <item name="android:layout_height">20dip</item>
+        <item name="android:layout_width">20dip</item>
+        <item name="android:background">@drawable/back_icon</item>
+    </style>
+
+    <style name="myPhoneTvTitle">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">18dip</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:layout_weight">1.0</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="mapLayerRadioButton">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/map_layer_2d</item>
+        <item name="android:button">@drawable/transparent</item>
+    </style>
+
+    <style name="mapLayerTextView">
+        <item name="android:layout_width">89.32999dip</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">#ff333333</item>
+        <item name="android:textSize">12.0dip</item>
+    </style>
+
+    <style name="title_bar_style">
+        <item name="android:background">@drawable/bg_titlebar</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/title_bar_height</item>
+    </style>
+
+    <style name="top_update_count">
+        <item name="android:textSize">10.0sp</item>
+        <item name="android:textColor">#ffcc3131</item>
+        <item name="android:gravity">center</item>
+        <item name="android:height">15.0dip</item>
+        <item name="android:width">15.0dip</item>
+    </style>
+
+    <style name="title_text_style">
+        <item name="android:textSize">20.0sp</item>
+        <item name="android:textColor">@color/title_text_color</item>
+    </style>
+
+    <style name="left_drawer_item_line">
+        <item name="android:background">@color/left_drawer_item_line</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">0.5dip</item>
+    </style>
+
+    <style name="left_drawer_item_layout">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/left_drawer_item_bg</item>
+        <item name="android:paddingLeft">40.0dip</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">50.0dip</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="left_drawer_item_text">
+        <item name="android:textSize">15.0sp</item>
+        <item name="android:textColor">@color/left_drawer_item_text</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingTop">9.0dip</item>
+        <item name="android:paddingBottom">9.0dip</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">25.0dip</item>
+    </style>
+
+    <style name="left_drawer_count" parent="@style/top_update_count">
+        <item name="android:textSize">8.0sp</item>
+        <item name="android:textColor">#ff000000</item>
+    </style>
+
+    <style name="item_title">
+        <item name="android:textSize">17.0sp</item>
+        <item name="android:textColor">@color/item_title</item>
+    </style>
+
+    <style name="item_secondary_text">
+        <item name="android:textSize">11.0sp</item>
+        <item name="android:textColor">@color/ss_comment_time</item>
+    </style>
+
+    <style name="item_local">
+        <item name="android:textSize">10.0sp</item>
+        <item name="android:textColor">@color/item_local</item>
+        <item name="android:background">@drawable/list_item_local_bg</item>
+    </style>
+
+    <style name="item_abstract">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">@color/item_abstract</item>
+    </style>
+
+    <style name="item_image">
+        <item name="android:background">@drawable/small_image_holder_listpage</item>
+        <item name="android:layout_width">@dimen/item_image_width</item>
+        <item name="android:layout_height">@dimen/item_image_height</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
+    <style name="item_image_gap">
+        <item name="android:layout_width">15.0dip</item>
+        <item name="android:layout_height">1.0dip</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+
+    <style name="item_comment_content">
+        <item name="android:textSize">12.0sp</item>
+        <item name="android:textColor">@color/default_text_night</item>
+    </style>
+
+    <style name="favorite_del_btn">
+        <item name="android:textSize">15.0sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/favorite_delete_btn</item>
+        <item name="android:paddingLeft">10.0dip</item>
+        <item name="android:paddingTop">6.0dip</item>
+        <item name="android:paddingRight">10.0dip</item>
+        <item name="android:paddingBottom">6.0dip</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:text">@string/favorite_btn_delete</item>
+    </style>
+
+    <style name="dislike_text">
+        <item name="android:textSize">13.0sp</item>
+        <item name="android:textColor">@color/dialog_listpage_text</item>
+    </style>
+
+    <style name="PopMenuAnimation" parent="@android:style/Animation">
+        <item name="android:windowEnterAnimation">@anim/slide_left_in</item>
+        <item name="android:windowExitAnimation">@anim/slide_right_out</item>
+    </style>
+
+    <style name="top_category_scroll_view_item_text">
+        <item name="android:textStyle">bold</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
+    <!--标题文本-->
+    <style name="AppText">
+        <item name="android:textColor">#000000</item>
+        <item name="android:textSize">15dip</item>
+    </style>
+
+    <!--值文本-->
+    <style name="AppTextValue">
+        <item name="android:textSize">15dip</item>
+    </style>
+
+    <!--按钮-->
+    <style name="AppButton">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">15dip</item>
+    </style>
+
+    <style name="RadioButtonStyles">
+        <item name="android:button">@drawable/radio_group</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppTitle" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <!--<item name="colorPrimary">@color/colorPrimary</item>-->
+        <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
+        <!--<item name="colorAccent">@color/colorAccent</item>-->
+        <item name="actionMenuTextColor">@color/white</item>
+    </style>
+
+    <!--按钮-->
+    <style name="AppButton_zhd">
+        <item name="android:textColor">@color/app_textColor</item>
+        <item name="android:textSize">@dimen/app_textSize</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="Bubble.TextAppearance.Dark" parent="android:TextAppearance.Medium">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">#ff7f7f7f</item>
+    </style>
+
+    <style name="Bubble.TextAppearance.Light" parent="Bubble.TextAppearance.Dark">
+        <item name="android:textColor">#ffeeeeee</item>
+    </style>
+
+    <style name="ClusterIcon.TextAppearance" parent="android:TextAppearance">
+        <item name="android:textColor">#ffeeeeee</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+</resources>

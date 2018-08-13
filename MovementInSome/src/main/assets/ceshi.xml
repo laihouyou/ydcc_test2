@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="builder_site" name="测试" table="INS_SITE_REPORTING" submitTo="loopback" page="one">
+	   	<params>
+			<param name="pid" type="c" required="Y" defValue="" io="i"/>
+			<param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+			<param name="sections" field="" type="c" required="Y" defValue="" io="i"></param>	
+			<param name="sectionsNum" field="" type="c" required="Y" defValue="" io="i"></param>
+		</params>
+<!-- 		<rules>
+		    <rule id="mpafac">
+		        <do filed="bs_14" value="LayerName"/>
+		        <do filed="bs_15" value="EID,GID,唯一图形编"/>
+		        <do filed="bs_16" value="MATERIAL,材料"/>
+		    </rule>
+		</rules> -->
+	
+		<page id="1" name="工地信息">
+		    <group id="1" name="工地信息" display="Y" type="common">
+		        <!--<field name="constructionNum" label="工地编号" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>-->
+		        <!--<field name="projectName" label="工地名称" type="text" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>-->
+
+
+				 <field name="projectName0" label="工地名称0" type="textCallUp" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				 <field name="projectName1" label="工地名称1" type="memo" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				 <field name="projectName2" label="工地名称2" type="password" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				 <field name="projectName3" label="工地名称3" type="numeric" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				 <field name="projectName4" label="工地名称4" type="number" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				  <!--<field name="projectName5" label="工地名称5" type="radio" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>-->
+				  <field name="projectName6" label="工地名称6" type="voice" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				  <field name="projectName7" label="工地名称7" type="camera" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				  <!--<field name="projectName8" label="工地名称8" type="mapScreenshot" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>-->
+				  <!--<field name="projectName9" label="工地名称9" type="check" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>-->
+				  <field name="projectName10" label="工地名称10" type="checklist" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				  <field name="projectName11" label="工地名称11" type="mselect" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				  <field name="projectName12" label="工地名称12" type="time" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				  <field name="projectName13" label="工地名称13" type="date" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				  <field name="projectName14" label="工地名称14" type="datetime" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				 <field name="projectName15" label="工地名称15" type="choice" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				 <!--<field name="projectName16" label="工地名称16" type="choicezh" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>-->
+				 <!--<field name="projectName17" label="工地名称17" type="pgtext" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>-->
+				 <!--<field name="projectName18" label="工地名称18" type="choice_zs" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>-->
+				 <!--<field name="projectName19" label="工地名称19" type="choices" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>-->
+				  <!--<field name="projectName20" label="工地名称20" type="choice2" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>-->
+				  <!--<field name="projectName21" label="工地名称21" type="pipeBroAnalysisBtn" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>-->
+				  <field name="projectName22" label="工地名称22" type="maptext" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				  <!--<field name="projectName23" label="工地名称23" type="childrentable" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				  <field name="projectName24" label="工地名称24" type="edit_check" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>-->
+				  <field name="projectName25" label="工地名称25" type="memo_check" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				  <!--<field name="projectName26" label="工地名称26" type="map_loc" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>-->
+				  <field name="projectName27" label="工地名称27" type="code" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				  <!--<field name="projectName28" label="工地名称28" type="multimedia" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>-->
+				 
+				
+				
+				
+				
+		    	<field name="constructionAddr" label="地址" type="text" readOnly="N" required="Y" maxLength="20" defValue="addr()" options="" listKey="" rule=""/>
+		        <field name="sections" label="所处路段" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		        <field name="prjStartDate" label="开工日期" type="date" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="prjEndDate" label="完工日期" type="date" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			</group>
+			<group id="2" name="建设单位信息" display="Y" type="common">
+			    <field name="prjBuildUnit" label="单位名称" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="prjBuildLeader" label="负责人" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="prjBuildPhone" label="电话" type="text" readOnly="N"  required="N" maxLength="20" defValue="userPhone()" options="" listKey="" rule=""/>
+			</group>
+			<group id="3" name="施工单位信息" display="Y" type="common">
+			    <field name="constructionUnit" label="单位名称" type="text" readOnly="N" required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="projectLeader" label="负责人" type="text" readOnly="N"  required="Y" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="constructionPhone" label="电话" type="text" readOnly="N"  required="Y" maxLength="20" defValue="userPhone()" options="" listKey="" rule=""/>
+			</group>
+			<group id="4" name="监理单位信息" display="Y" type="common">
+			    <field name="supervisionUnit" label="单位名称" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="supervisionLeader" label="负责人" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="supervisionPhone" label="电话" type="text" readOnly="N"  required="N" maxLength="20" defValue="userPhone()" options="" listKey="" rule=""/>
+			</group>		
+			<group id="5" name="工地现场信息" display="Y" type="attach">
+		        <field name="prjBound" label="工地范围" type="maptext" readOnly="Y"  required="Y" maxLength="20" defValue="mapcoordbound()" options="" listKey="" rule=""/>
+			    <field name="camera" label="现场照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule="attach"/>	
+			</group>	
+			<group id="6" name="系统信息" display="N" type="common">
+			    <field name="reportedCoordinate" label="具体位置" type="system" readOnly="N"  required="Y" maxLength="20" defValue="mapcoord()" options="" listKey="" rule=""/>
+			    <field name="serialNumber" label="serialNumber" type="system" readOnly="N"  required="N" maxLength="20" defValue=":serialNumber" options="" listKey="" rule=""/>
+			    <field name="pid" label="pid" type="system" readOnly="N"  required="N" maxLength="20" defValue=":pid" options="" listKey="" rule=""/>
+			    <field name="projectType" label="projectType" type="system" readOnly="N"  required="N" maxLength="20" defValue="1" options="" listKey="" rule=""/>
+			    <field name="sectionsNum" label="路段编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":sectionsNum" options="" listKey="" rule=""/>
+			</group>
+ 			<group id="7" name="备注" display="Y" type="common">
+			    <field name="remarks" label="备注" type="memo" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>
+		</page>
+	</form>
+</axf>

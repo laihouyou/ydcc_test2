@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <ListView 
+        android:id="@+id/scada_lsbj_list"
+        android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:fadingEdge="none"
+        android:cacheColorHint="#00000000"
+    	android:divider="@color/line"
+        android:dividerHeight="1.0px">
+    </ListView>
+
+</RelativeLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#FFFFFF">
+    
+    <RelativeLayout style="@style/myPhoneLayoutTitleType" >
+		<Button 
+		    android:id="@+id/gridButton"
+		    style="@style/myPhoneButtonBack"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/gridButton"
+            android:layout_alignBottom="@+id/gridButton"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="选择填单类型"
+            android:textColor="#ffffff"
+            android:textSize="18dip" />
+
+    </RelativeLayout>
+    
+    <GridView
+        android:id="@+id/gridViewApp2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:columnWidth="90dp"
+        android:gravity="center"
+		android:divider="@color/olive"
+		android:dividerHeight="2dp"
+		android:verticalSpacing="0.0px" 
+        android:horizontalSpacing="0.0px"
+        android:listSelector="@null"
+        android:numColumns="3"
+       	android:scrollbars="none"
+        android:stretchMode="columnWidth" >
+    </GridView>
+
+</LinearLayout>

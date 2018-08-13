@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_water_supply_valve_list_yh" name="关闭阀门"  table="BS_WATER_SUPPLY_VALVE_LIST" submitTo="loopback" page="one">
+	   	<params>
+			
+		</params>
+		 <rules>
+		    <rule id="mapfac">
+		        <do filed="valveNum" value="EID,设备编号"/>
+		        <do filed="gid" value="GID,业务编码"/>
+		        <do filed="valveDs" value="D_S,口径"/>
+		    </rule>
+		</rules>
+		
+		<page id="1" name="">
+			<group id="1" name="" display="Y" type="common">
+			    <field name="valveNum" label="阀门编号" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapfac()" options="" listKey="" rule="mapfac"/>		
+				<field name="valveDs" label="阀门口径" type="number" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="switchStatus" label="开关状态 " type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="开|关" listKey="" rule=""/>
+				<field name="valveAddr" label="阀门地址" type="text" readOnly="N"  required="Y" maxLength="20" defValue="addr()" options="" listKey="" rule=""/>	
+				<field name="belongArea" label="所属区域" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+				<field name="mustBeClosed" label="必须关闭  " type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="是|否" listKey="" rule=""/>
+				<field name="isAbnormal" label="是否异常  " type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="是|否" listKey="" rule=""/>
+				<field name="workStats" label="运行状态" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			</group>	
+			 
+			<group id="2" name="系统信息" display="N" type="common">
+                <field name="wssId" label="停水方案ID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":wssId" options="" listKey="" rule=""/>
+                <field name="wssNum" label="停水方案编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":wssNum" options="" listKey="" rule=""/>
+                <field name="rrwoNum" label="工单编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":rrwoNum" options="" listKey="" rule=""/>
+                <field name="rrwoType" label="工单类型" type="text" readOnly="N"  required="N" maxLength="20" defValue=":rrwoType" options="" listKey="" rule=""/>
+                <field name="gid" label="GID" type="text" readOnly="N"  required="N" maxLength="20" defValue=":gid" options="" listKey="" rule=""/>
+			</group>
+		</page>
+	</form>
+</axf>

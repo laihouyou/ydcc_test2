@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="inspect_the_project" name="巡查项目" table="" submitTo="inspect_the_project" page="one">
+
+
+		<page id="1" name="基本信息">
+		    <group id="1" name="显示信息" display="Y" type="common">
+				<field name="checkdate" defValue="" label="上报日期" listKey="" maxLength="20"
+					options="" readOnly="N" required="Y" type="date" />
+
+				<field name="checkcontent" defValue="" label="检查内容" listKey="" maxLength="2000"
+					options="" readOnly="N" required="N" type="memo" />
+
+				<field name="problem" defValue="" label="问题描述" listKey="" maxLength="2000"
+					options="" readOnly="N" required="N" type="memo" />
+
+				<field name="esdate" defValue="" label="预计完成时间" listKey="" maxLength="20"
+					options="" readOnly="N" required="Y" type="date" />
+
+				<field name="suggestion" defValue="" label="整改建议" listKey="" maxLength="2000"
+					options="" readOnly="N" required="N" type="memo" />
+
+				<field name="action" defValue="" label="采取措施" listKey="" maxLength="2000"
+					options="" readOnly="N" required="N" type="memo" />
+
+				<!--<field name="reason" defValue="" label="未完成原因" listKey="" maxLength="2000"-->
+					<!--options="" readOnly="N" required="N" type="memo" />-->
+
+				<field name="nexplan" defValue="" label="下一步整改计划" listKey="" maxLength="2000"
+					options="" readOnly="N" required="N" type="memo" />
+
+				<field name="description" defValue="" label="备注" listKey="" maxLength="2000"
+					options="" readOnly="N" required="N" type="memo" />
+
+				<field name="camera" defValue="" label="整改前图片" listKey="" maxLength="20" options=""
+					qty="1" readOnly="N" required="N" type="camera" />
+
+
+				<field name="loaction" defValue="mapcoord(N)" label="位置" listKey="" maxLength="20"
+					options="" readOnly="N" required="Y" type="maptext" />
+
+
+			</group>
+			
+			<group id="2" name="隐藏信息" display="N" type="common">
+				<!--<field name="status" defValue="-1" label="设备名字" listKey="" maxLength="20"-->
+					<!--options="" readOnly="N" required="N" type="text" />-->
+				<field name="guid" label="GUID" type="text" readOnly="N"  required="N" maxLength="20" defValue="guid()" options="" listKey="" rule=""/>
+				<field name="programname" defValue=":programname" label="设备名字" listKey="" maxLength="20"
+					options="" readOnly="N" required="N" type="text" />
+			</group>
+		</page>
+	</form>
+</axf>

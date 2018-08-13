@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/scada_live_data_scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                android:id="@+id/scada_live_data_rlPT"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" >
+
+                <ImageView
+                    android:id="@+id/img_indicator_pt"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/rightarrow" />
+
+                <TextView
+                    android:id="@+id/scada_live_data_tvPT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/img_indicator_pt"
+                    android:text="莆田各水厂出厂水"
+                    android:textColor="#012321"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <ListView
+                android:id="@+id/scada_live_data_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cacheColorHint="#00000000"
+                android:divider="@color/line"
+                android:dividerHeight="1.0px"
+                android:fadingEdge="none"
+                android:visibility="gone" >
+            </ListView>
+
+            <RelativeLayout
+                android:id="@+id/scada_live_data_rlNY"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" >
+
+                <ImageView
+                    android:id="@+id/img_indicator_ny"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/rightarrow" />
+
+                <TextView
+                    android:id="@+id/scada_live_data_tvNY"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/img_indicator_ny"
+                    android:text="莆田市自来水公司"
+                    android:textColor="#012321"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <ListView
+                android:id="@+id/scada_live_data_list_ny"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cacheColorHint="#00000000"
+                android:divider="@color/line"
+                android:dividerHeight="1.0px"
+                android:fadingEdge="none"
+                android:visibility="gone" >
+            </ListView>
+
+            <RelativeLayout
+                android:id="@+id/scada_live_data_rlLZ"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" >
+
+                <ImageView
+                    android:id="@+id/img_indicator_lz"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/rightarrow" />
+
+                <TextView
+                    android:id="@+id/scada_live_data_tvLZ"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@id/img_indicator_lz"
+                    android:text="南洋自来水公司"
+                    android:textColor="#012321"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <ListView
+                android:id="@+id/scada_live_data_list_lz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:cacheColorHint="#00000000"
+                android:divider="@color/line"
+                android:dividerHeight="1.0px"
+                android:fadingEdge="none"
+                android:visibility="gone" >
+            </ListView>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

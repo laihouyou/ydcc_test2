@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<axf>
+    <form id="ins_burst_new_form" name="新增表单" table="BS_HIDDEN_DANGER_RECORD" submitTo="loopback" page="one">
+     	 	<params>
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="deviceType" value="LayerName"/>
+		        <do filed="facilitiesNum" value="EID,设备编号,GID,业务编码"/>
+		        <do filed="facilitiesMaterial" value="MATERIAL,材质"/>
+		        <do filed="manageUnit" value="MANAGEDEPT,管理单位"/>
+		        <do filed="gid" value="GID,业务编码"/>
+		        <do filed="coordinate" value="shape"/>
+		        <do filed="facilitiesCaliber" value="D_S,口径"/>
+		    </rule>
+		</rules>
+        
+        <page id="1" name="表单信息">
+            <group id="1" name="表单信息" display="Y" type="common">
+                <field name="problemType" label="接报时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="datetime()" options="" listKey="" rule=""/>
+		        <field name="problemType" label="现场负责人" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" />
+		        <field name="problemType" label="联系电话" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		    	<field name="problemType" label="爆漏地址" type="text" readOnly="N" required="N" maxLength="20" defValue="addr()" options="" listKey="" />
+		        <field name="problemType" label="管径" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="50|80|100|200|1000" listKey="" />
+		    	<field name="problemType" label="管材" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="金|银|铁|铜" listKey=""/>
+		    	<field name="problemType" label="影响交通情况" type="memo" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey=""/>
+		        <field name="problemType" label="漏水情况" type="text" readOnly="N"  required="Y" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="problemType" label="抢修单位" type="choice" readOnly="N" required="N" maxLength="20" defValue="" options="抢修队|巡检队|维护队|援救队" listKey=""/>
+		        <field name="problemType" label="抢修人员情况" type="memo" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey=""/>
+		        <field name="facilitiesNum" label="坐标" type="text" readOnly="N" required="N" maxLength="20" defValue=":facilitiesNum" options="" listKey=""/>
+            </group>
+        </page>
+    </form>
+</axf>

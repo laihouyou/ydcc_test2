@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/show_patrol_data_rl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+     style="@style/black_background"
+     android:paddingBottom="10dip"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:id="@+id/show_task_title"
+        style="@style/myPhoneLayoutTitleType"
+        android:layout_alignParentTop="true"
+        android:visibility="visible" >
+
+        <ImageView
+            android:id="@+id/show_patrol_data_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:layout_centerVertical="true"
+            android:background="@drawable/back" />
+
+        <TextView
+            style="@style/myPhoneTvTitle"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:gravity="center"
+            android:text="巡检信息" />
+        <Button
+            android:id="@+id/show_patrol_data_write"
+            style="@style/myPhoneButtonSmall" 
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:text="填单" />
+    </RelativeLayout>
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/show_task_title"
+        android:layout_above="@+id/show_qdd_msg_rl"
+        android:orientation="vertical">
+    <LinearLayout
+        android:id="@+id/show_work_message_ly" 
+        style="@style/myPhoneLayoutType" 
+        android:background="@drawable/wx_bg">
+           <LinearLayout  
+            android:layout_width="match_parent"
+    		android:layout_height="wrap_content"
+  			android:orientation="vertical">
+  				<TextView 
+  				    android:id="@+id/show_work_message"
+  				    style="@style/myPhoneTvType"
+  				    android:textSize="18dip"
+  				    android:layout_width="match_parent"
+  				    android:gravity="center"
+    				android:text="温情提示：xxxxxxxxxxx"/>
+              <LinearLayout  
+                android:layout_width="match_parent"
+    			android:layout_height="wrap_content"
+  				android:orientation="horizontal">
+  				 <TextView
+                        android:id="@+id/show_work_content"
+                    	style="@style/myPhoneTvType"
+                    	android:layout_width="match_parent"
+                    	android:text="XXX路段1：" />
+  				</LinearLayout>      
+		</LinearLayout>
+     </LinearLayout>
+    		<LinearLayout 
+    		    android:layout_width="match_parent"
+            	android:layout_height="match_parent" 
+            	android:orientation="vertical"
+    		    android:layout_weight="1.0">
+           <LinearLayout 
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+               <TextView
+	            android:id="@+id/show_wx_title"
+	              android:layout_width="70dip"
+	            android:layout_height="30dip"
+	           android:layout_weight="1.0"
+	            android:background="@drawable/wx_bg"
+	            android:text="未巡列表："
+	            android:textSize="12dip" 
+	            android:textColor="@color/black"
+	            android:gravity="center"/>
+               <TextView
+	            android:id="@+id/show_dx_title"
+	              android:layout_width="70dip"
+	            android:layout_height="30dip"
+	           android:layout_weight="1.0"
+	            android:background="@drawable/wx_bg"
+	            android:text="待巡列表："
+	            android:textSize="12dip" 
+	            android:visibility="gone"
+	            android:textColor="@color/black"
+	            android:gravity="center"/>
+                <TextView
+	            android:id="@+id/show_yx_title"
+	              android:layout_width="70dip"
+	            android:layout_height="30dip"
+	          
+	           android:layout_weight="1.0"
+	            android:text="已巡列表："
+	            android:textSize="12dip" 
+	            android:textColor="@color/black"
+	            android:gravity="center"/>
+                 <TextView
+	            	android:id="@+id/show_qdd_title"
+	              	android:layout_width="70dip"
+	            	android:layout_height="30dip"
+	           		android:layout_weight="1.0"
+	            	android:text="签到点列表："
+	            	android:textSize="12dip" 
+	            	android:textColor="@color/black"
+	            	android:gravity="center"/>
+             
+            </LinearLayout>
+             <ListView
+                     android:id="@+id/show_patrol_data_wx"
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content"
+                     android:background="@drawable/wx_bg"
+                     android:layout_weight="1" >
+                 </ListView>  
+    </LinearLayout>
+    </LinearLayout>
+    <RelativeLayout 
+        android:id="@+id/show_qdd_msg_rl" 
+        android:visibility="gone"
+        android:background="@drawable/map_layer_background"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+    	android:layout_height="70dip">
+  		<TextView
+           android:id="@+id/show_qdd_msg"
+           style="@style/myPhoneTvType"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:text="XXX路段1：" />
+
+  		<Button
+  		    android:id="@+id/show_work_arrive"
+  		    style="@style/myPhoneButtonSmall"
+  		    android:visibility="gone"
+  		    android:layout_width="45dip"
+  		    android:layout_height="25dip"
+  		    android:layout_alignRight="@+id/show_qdd_msg"
+  		    android:layout_centerVertical="true"
+  		    android:layout_marginRight="20dp"
+  		    android:text="签到" />
+  		<Button
+  		    android:id="@+id/show_work_im"
+  		    style="@style/myPhoneButtonSmall"
+  		    android:visibility="gone"
+  		    android:layout_width="45dip"
+  		    android:layout_height="25dip"
+  		    android:layout_alignRight="@+id/show_qdd_msg"
+  		    android:layout_centerVertical="true"
+  		    android:layout_marginRight="20dp"
+  		    android:text="填单" />
+
+  	</RelativeLayout>       
+ 
+</RelativeLayout>

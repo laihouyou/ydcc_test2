@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" ?>
+<!--
+	////////////////////////////////////////////////////////////////////////////////
+	//
+	// Copyright (c) 2009 DRAGONSPRING
+	//
+	//
+	////////////////////////////////////////////////////////////////////////////////
+-->
+<configuration>
+
+	<app>
+		<!-- 定位上报频率和距离 rate=毫秒 distance=米 -->
+		<locate rate="5000" distance="5"></locate>
+		<!-- 推送服务IP、端口-->
+		<push local="gddst2013.no-ip.org:5222"
+			foreign="gddst2013.no-ip.org:5222">
+		</push>
+			<!-- 中间数据交互服务-->
+		<commuservice local="http://gddst2013.no-ip.org:9018/fisds/rest"
+			foreign="http://gddst2013.no-ip.org:9018/fisds/rest">
+		</commuservice>
+		<!-- FTP上的照片展现URL -->
+		<fileservice local="http://gddst2013.no-ip.org:9015/fileService"
+		foreign="http://gddst2013.no-ip.org:9015/fileService"  compress="true" type="size" config="1024"></fileservice>	
+				<!-- boot是否为开机启动系统;timing设置为定时启动时间,格式为时:分 ,不填值为不定时启动-->
+		<autostart boot="1" timing="8:30">
+		</autostart>	
+	</app>
+	
+	<!-- 地图信息-->
+	<map extent="503069.06645,3364001.7833000002,522489.53455000004,3380325.5127" srid="2435" >
+		<basemap default="1">
+			<mapservice id="1" name="navigation" label="影像图" 
+				type="dynamic" visible="true" alpha="1" format="png8" uery="false"
+				local="http://123.85.195.5:8399/arcgis/rest/services/cg_ground_msd/MapServer"
+				foreign="http://123.85.195.5:8399/arcgis/rest/services/cg_ground_msd/MapServer">
+			</mapservice>
+			<mapservice id="2" name="basicteerain" label="基础地形" 
+				type="dynamic" visible="true" alpha="1" format="png8" query="false"
+				local="http://123.85.195.5:8399/arcgis/rest/services/cg_ground_msd/MapServer"
+				foreign="http://123.85.195.5:8399/arcgis/rest/services/cg_ground_msd/MapServer">
+			</mapservice>
+		</basemap>
+		<bizmap>
+			<mapservice id="1" name="ws_wgis_cf" label="管网设施" 
+				type="dynamic" visible="true" alpha="1" format="png8" query="true"
+				local="http://123.85.195.5:8399/arcgis/rest/services/cg_wgis_msd/MapServer"
+				foreign="http://123.85.195.5:8399/arcgis/rest/services/cg_wgis_msd/MapServer">
+			</mapservice>  
+		</bizmap>
+		<ftlayers>
+			<ftlayer id="1" name="泵站" mapservice="1" tablename="泵站" keyfield="OBJECTID"
+				fields="OBJECTID:OBJECTID:0,EID:设备编号:1,SUBTYPE:类型:1">
+			</ftlayer>
+			<ftlayer id="2" name="遥测点" mapservice="1" tablename="遥测点" keyfield="OBJECTID"
+				fields="OBJECTID:OBJECTID:0,EID:站点编号:1,ADDR:安装地址:1,MODEL:站点规格型号:1,WORK_STATS:运行状态:1,FNAME:站点名称:1,COMMUN_TYPE:通讯方式:1,SITE_SIM_NO:SIM号:1,POWER_TYPE:电源类型:1,TRAN_WEEK:传输周期:1">
+			</ftlayer>
+			<ftlayer id="3" name="排水阀" mapservice="1" tablename="排水阀" keyfield="要素编码"
+				fields="OBJECTID:要素编码:0,EID:设备编号:1,D_S:主管口径:1,LANE_WAY:所在道路:1,ADDR:安装地址:1,WORK_STATS:运行状态:1">
+			</ftlayer>			
+			<ftlayer id="4" name="阀门" mapservice="1" tablename="阀门" keyfield="要素编码"
+				fields="OBJECTID:要素编码:0,EID:设备编号:1,D_S:主管口径:1,CEN_DEEP:埋深:1,FINISH_DATE:竣工日期:1,ADDR:安装地址:1,WORK_STATS:运行状态:1">
+			</ftlayer>
+			<ftlayer id="5" name="消防栓" mapservice="1" tablename="消防栓" keyfield="要素编码"
+				fields="OBJECTID:要素编码:0,EID:设备编号:1,MAINPIPE_DS:主管口径:1,IN_DS:进水口径:1,OUT_DS:出水口径:1,LANE_WAY:所在道路:1,ADDR:安装地址:1,ARCHIVE_ID:归档号:1">
+			</ftlayer>
+			<ftlayer id="6" name="排气阀 " mapservice="1" tablename="排气阀 " keyfield="要素编码"
+				fields="OBJECTID:要素编码:0,EID:设备编号:1,D_S:主管口径:1,LANE_WAY:所在道路:1,ADDR:安装地址:1,FINISH_DATE:竣工日期:1">
+			</ftlayer>	
+			<ftlayer id="7" name="水表单表" mapservice="1" tablename="水表单表" keyfield="要素编码"
+				fields="OBJECTID:OBJECTID:0,SID:部件编号:1,D_S:主管口径:1,USERID:客户编号:1,USERNAME:业主名称:1,USE_QUALITY:用水性质:1,WORK_STATS:运行状态:1,MAINPIPE_DS:主管口径:1,GCMC:工程名称:1,LANE_WAY:所在道路:1,ADDR:安装地址:1">
+			</ftlayer>	
+ 			<ftlayer id="8" name="普通给水管线" mapservice="1" tablename="普通给水管线" keyfield="OBJECTID"
+				fields="OBJECTID:要素编码:0,EID:管道编号,D_S:口径:1,FINISH_DATE:竣工日期:1,MATERIAL:材质:1,SUBTYPE:供水类型:1,LANE_WAY:所在道路:1,ADDR:安装地址:1">
+			</ftlayer>					
+		</ftlayers>
+		<tasks>
+			<task id="identifyTask" name="标识查询" tolerance="10" layers="*"/>				
+			<task id="queryTask" name="条件查询" tolerance="10" layers="1,2,3,4,5,6,7"/>
+			<task id="roadTask" name="路名查询" tolerance="10" layers="1,2"/>
+		</tasks>
+		<extservices>
+		    <extservice id="closetFeature" name="最近网络要素" local="http://123.85.195.5:8081/dstgis/rest/extanalysis/js-leakpos" foreign="http://123.85.195.5:8081/dstgis/rest/extanalysis/js-leakpos"/>
+		    <extservice id="offValveAna" name="关阀分析" local="http://123.85.195.5:8081/dstgis/rest/extanalysis/leakanalysis" foreign="http://123.85.195.5:8081/dstgis/rest/extanalysis/leakanalysis"/>
+		    <extservice id="offValveExtAna" name="扩大关阀分析" local="http://123.85.195.5:8081/dstgis/rest/extanalysis/extleakanalysis" foreign="http://123.85.195.5:8081/dstgis/rest/extanalysis/extleakanalysis"/>
+		</extservices>
+		<!-- 七参 -->
+		<coordTransform Coordinate="BJ54" 
+			SDx="-109.999016" SDy="241.019612" SDz="160.957851" SQx="-3.70086503312727" SQy="3.88029478808162" SQz="3.02091309933372" SScale="-0.000031609159" 
+			FDx="" FDy="" FScale="" FRotateangle="" PProjectiontype="3" 
+			PCentralmeridian="114.00" PScale="1" PConstantx="0.00" PConstanty="500000.00" PBenchmarklatitude="0.00" Semimajor="6378245.000" Flattening="0.00335281065983501543">
+		</coordTransform>
+		<!-- 菜单 -->
+		<mapparentmenus>
+		    <mapparentmenu id="measure" name="测量" isdisplay="true">
+		    	<mapmenu  id="coord" name="坐标" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="distance" name="距离" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="area" name="面积" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="backout" name="撤销" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="redraw" name="重绘" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="back" name="返回" isdisplay="true"></mapmenu>
+			</mapparentmenu>
+			 <mapparentmenu id="draw" name="绘图" isdisplay="true">
+		    	<mapmenu  id="point" name="画点" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="straightline" name="画直线" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="rectangle" name="画矩型" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="circle" name="画圆型" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="polygon" name="多边型" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="freelinear" name="自由线" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="screenshot" name="截图" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="clear" name="清除" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="back" name="返回" isdisplay="true"></mapmenu>
+			</mapparentmenu>
+			<mapparentmenu id="pipebroanalysis" name="关阀分析" isdisplay="true">
+		    	<mapmenu  id="pipeline" name="管道" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="facility" name="设施" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="back" name="返回" isdisplay="true"></mapmenu>
+			</mapparentmenu>
+			<mapparentmenu id="screenshot" name="截图" isdisplay="true">
+			</mapparentmenu>
+			<mapparentmenu id="placesearch" name="地名搜索" isdisplay="false">
+			</mapparentmenu>
+			<mapparentmenu id="nearby" name="附近" isdisplay="false">
+			</mapparentmenu>
+		</mapparentmenus>
+	</map>
+
+	<mainmenu>
+	    <menu id="1" name="我的工作" enter="taskCenter">
+	        
+	    </menu>
+	    <menu id="2" name="电子地图" enter="mapContain">
+	        
+	    </menu>
+	    <menu id="3" name="应用中心" enter="appCenter">
+	        
+	    </menu>
+	    <menu id="4" name="防洪排涝" enter="floodCenter">
+	        
+	    </menu>
+	</mainmenu>
+	
+ 	<bizmodule>
+<!-- 		<module id="biz.accident" name="事故信息" formtype="xml" template="xmlgui3.xml" icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="1">
+		</module> -->
+ 		<module id="biz.hiddenrpt" menu="3" name="设施隐患上报" formtype="xml" template="ins_hidden_trouble_form.xml"  icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="1">
+		</module>
+		<!-- <module id="biz.insworkregedt" menu="3" name="巡查工作登记表" formtype="xml" template="ins_work_regedit_form.xml"  icon="" layers="" ftlayer="" theme="1" canwrite="1">
+		</module>
+		<module id="biz.insworklink" menu="3" name="巡查工作联系单" formtype="xml" template="ins_work_link_form.xml"  icon="" layers="" ftlayer="" theme="1" canwrite="1">
+		</module> -->			
+		<module id="biz.buiderrpt" menu="3" name="工地上报" formtype="xml" template="builder_site_form.xml"  icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="1">
+		</module>
+		<!-- <module id="biz.construction" menu="3" name="工地巡检" formtype="xml" template="builder_site_form.xml"  icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="1">
+		</module> -->	
+		<module id="biz.repaircovert" menu="3" name="补盖记录" formtype="xml" template="repair_cover_form.xml"  icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="1">
+		</module>		
+		<module id="biz.giscorrect" menu="3" name="图形纠错" formtype="xml" template="map_error_report_form.xml"  icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="1">
+		</module>	
+		<!-- <module id="biz.insdredgework" menu="3" name="管道清疏记录" formtype="xml" template="ins_dredge_work_form.xml"  icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="1">
+		</module> -->
+		
+		<!-- <module id="biz.repairrec_pipe" menu="3" name="管道事故记录" formtype="xml" template="ins_repair_pipe_form.xml"  icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="1">
+		</module>
+		<module id="biz.repairrec_valve" menu="3" name="阀门事故记录" formtype="xml" template="ins_repair_valve_form.xml"  icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="1">
+		</module>
+		<module id="biz.repairrec_fire" menu="3" name="消防栓任务记录" formtype="xml" template="xmlgui3.xml"  icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="1">
+		</module>
+		<module id="biz.repairrec_fac" menu="3" name="设施更换记录" formtype="xml" template="xmlgui3.xml"  icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="1">
+		</module>
+		<module id="biz.repairrec_well" menu="3" name="井座(箅)维修记录" formtype="xml" template="xmlgui3.xml"  icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="1">
+		</module>
+		
+		<module id="biz.floodfb" menu="4" name="洪涝反馈" formtype="xml" template="road_flooded_condition_form.xml"  icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="1">
+		</module> -->
+	</bizmodule>
+	
+
+
+	
+</configuration>

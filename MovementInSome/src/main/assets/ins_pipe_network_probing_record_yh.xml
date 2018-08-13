@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_pipe_network_probing_record_yh" name="管线定位记录" table="BS_PIPE_NETWORK_PROBING_RECORD" submitTo="loopback" page="one">
+	   	<params>
+	    
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        <do filed="pnprFacNum" value="EID,设备编号"/>
+		        <do filed="pnprFacName" value="LayerName"/>
+		        <do filed="pnprFacMaterial" value="MATERIAL,材质"/>
+		        <do filed="gid" value="GID,业务编码"/>
+		        <do filed="pnprFacDs" value="D_S,口径"/>
+		        <do filed="pnprCoordinate" value="shape"/>
+		    </rule>
+		</rules>
+	
+		<page id="1" name="管线定位信息">
+		    <group id="1" name="管线定位信息" display="Y" type="common">
+		        <field name="pnprFacNum" label="设施编号" type="maptext" readOnly="N"  required="N" maxLength="20" defValue="mapfac()" options="" listKey="" rule="mapfac"/>
+		        <field name="pnprFacName" label="设施名称" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+		        <field name="pnprFacDs" label="口径" type="number" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		    	<field name="pnprFacMaterial" label="材质" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="pnprFacDepth" label="深埋" type="numeric" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="pnprFacLength" label="长度" type="numeric" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="entrustUnit" label="委托单位" type="memo" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey=""/>
+		        <field name="entrustPerson" label="委托人" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="entrustTel" label="委托人电话" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="workLocation" label="工作地点" type="text" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey=""/>
+		        <field name="workSubject" label="工作事由" type="memo" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey=""/>
+		        <field name="workType" label="工作类型" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		        <field name="pnprCoordinate" label="坐标点" type="maptext" readOnly="N"  required="Y" maxLength="20" defValue="mapcoord(N)" options="" listKey=""/>
+		        <field name="remark" label="备注" type="memo" readOnly="N" required="N" maxLength="2000" defValue="" options="" listKey=""/>
+		        <field name="camera" label="现场照片" qty="8" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			</group>
+			
+			<group id="2" name="系统信息" display="N" type="common">
+			    <field name="gid" label="GID" type="text" readOnly="N"  required="N" maxLength="2000" defValue=":gid" options="" listKey="" rule=""/>
+			    
+			    <field name="reportDateStr" label="上报时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="datetime()" options="" listKey="" rule=""/>
+			    <field name="reportPId" label="上报人ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userId()" options="" listKey="" rule=""/>
+			    <field name="reportPNum" label="上报人编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userNum()" options="" listKey="" rule=""/>
+			    <field name="reportPName" label="上报人名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="username()" options="" listKey="" rule=""/>
+			    <field name="rpDeptId" label="上报人部门ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteamId()" options="" listKey="" rule=""/>
+			    <field name="rpDeptNum" label="上报人部门编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteamNum()" options="" listKey="" rule=""/>
+			    <field name="rpDeptName" label="上报人部门名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="userteam()" options="" listKey="" rule=""/>
+			    <field name="rpTeamId" label="上报人班组ID" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupId()" options="" listKey="" rule=""/>
+			    <field name="rpTeamNum" label="上报人班组编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupNum()" options="" listKey="" rule=""/>
+			    <field name="rpTeamName" label="上报人班组名称" type="text" readOnly="N"  required="N" maxLength="20" defValue="userGroupName()" options="" listKey="" rule=""/>
+			    
+ 			</group>
+		</page>
+	</form>
+</axf>

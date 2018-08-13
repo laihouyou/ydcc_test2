@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f5"
+    android:orientation="vertical" >
+     <LinearLayout 
+         android:id="@+id/planning_work_item"
+         android:layout_width="match_parent"
+         android:layout_height="90dip"
+         android:background="@drawable/whine_di">
+           <LinearLayout  
+            android:layout_width="match_parent"
+    		android:layout_height="wrap_content"
+  			android:orientation="vertical">
+  			
+               <RelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_marginTop="10dip"
+                   android:orientation="horizontal" >
+
+                   <TextView
+                       android:id="@+id/shuxian"
+                       android:layout_width="3dip"
+                       android:layout_height="17dip"
+                       android:layout_marginLeft="10dip"
+                       android:background="@drawable/blue_xian" />
+
+                   <TextView
+                       android:id="@+id/textView1"
+                       android:layout_width="17dip"
+                       android:layout_height="17dip"
+                       android:layout_marginLeft="15dip"
+                       android:layout_toRightOf="@+id/shuxian"
+                       android:background="@drawable/clock" />
+
+                   <RelativeLayout
+                       android:id="@+id/relativeLayout1"
+                       android:layout_width="wrap_content"
+                       android:layout_height="70dip"
+                       android:layout_alignParentTop="true"
+                       android:layout_marginLeft="10dip"
+                       android:layout_toRightOf="@+id/textView1"
+                       android:orientation="vertical" >
+
+                       <TextView
+                           android:id="@+id/blastTimeData"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_alignParentTop="true"
+                           android:text="2016-05-10   003"
+                           android:textColor="#3f3e3e" />
+
+                       <TextView
+                           android:id="@+id/blastDistance"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_alignParentLeft="true"
+                           android:layout_centerVertical="true"
+                           android:text="1200米"
+                           android:textColor="#737373"
+                           android:textSize="12dp" />
+
+                       <TextView
+                           android:id="@+id/blastAdd"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_alignParentBottom="true"
+                           android:layout_alignParentLeft="true"
+                           android:text="广州大道中11号 对开"
+                           android:textColor="#737373"
+                           android:textSize="12dp" />
+                   </RelativeLayout>
+
+                   <TextView
+                       android:id="@+id/blastXq"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_centerVertical="true"
+                       android:layout_alignParentRight="true"
+                       android:layout_marginRight="15dip"
+                       android:textSize="16dp"
+                       android:textColor="#2e72b0"
+                       android:text="详情" />
+
+               </RelativeLayout>
+                  
+		</LinearLayout>
+     </LinearLayout>
+
+</LinearLayout>

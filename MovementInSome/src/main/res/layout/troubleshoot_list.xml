@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/troubleshoot_btn_ll"
+        android:layout_width="155dip"
+        android:layout_height="wrap_content"
+        android:background="#ffffff" >
+
+        <ListView
+            android:id="@+id/troubleshoot_listview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:dividerHeight="0dip"
+            android:layout_above="@+id/pipe_bro_enlarge_ll" >
+        </ListView>
+
+    </RelativeLayout>
+    
+            <LinearLayout 
+            android:id="@+id/troubleshoot_ll"
+            android:layout_width="155dip"
+            android:orientation="horizontal"
+            android:background="@drawable/frame_white2"
+            android:layout_height="30dip"
+            android:layout_alignParentBottom="true">
+            
+            <Button 
+                android:id="@+id/troubleshoot_shouqi_btn"
+                android:layout_width="77dip"
+            	android:layout_height="match_parent"
+            	android:gravity="center"
+            	android:textColor="#ffffff"
+            	android:text="收起"
+            	android:textSize="13sp"
+            	android:background="#398fdc"/>
+            
+            <LinearLayout 
+                android:layout_width="1dip"
+                android:layout_height="25dip"
+                android:background="#ffffff"/>
+            
+             <Button 
+                android:id="@+id/troubleshoot_tijiao_btn"
+                android:layout_width="77dip"
+            	android:layout_height="match_parent"
+            	android:gravity="center"
+            	android:textColor="#ffffff"
+            	android:text="提交"
+            	android:textSize="13sp"
+            	android:background="#398fdc"/>
+            
+        </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.0" >
+        
+        <LinearLayout
+           android:id="@+id/idfLinearTitless"
+           android:layout_width="match_parent"
+           android:layout_height="45dip"
+           android:layout_marginTop="3dip"
+           android:layout_marginLeft="5dip"
+           android:layout_marginRight="5dip"
+           
+           android:background="@drawable/layout_top"
+           android:orientation="horizontal" >
+           
+	            <Button
+		            android:id="@+id/idfbtnFin"
+		            android:layout_width="45dip"
+		          	android:layout_height="45dip"
+		          	android:background="@drawable/yincang" />
+
+	            <TextView
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_marginRight="13dip"
+	                android:textSize="23px"
+	                android:text="|" />
+
+	            <TextView
+	                android:id="@+id/tvNrong"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:text="设施类型" />
+            
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/idfLinearFacList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            
+            android:orientation="vertical" >
+	        <LinearLayout
+	            android:id="@+id/idfLinearFacListTitle"
+	            android:layout_width="match_parent"
+            	android:layout_height="45dip"
+            	android:background="#0066FF"
+            	android:gravity="center">
+
+	            <TextView
+	                android:id="@+id/tvChaxun"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:textColor="#FFFFFF"
+	                android:text="" />
+            	
+	        </LinearLayout>
+
+	        <ViewFlipper 
+	            android:id="@+id/idfViewFlipperFac"
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent">
+	            <ListView
+	                android:id="@+id/dentListview"
+	                android:layout_width="match_parent"
+	                android:layout_height="match_parent"
+	                android:layout_alignParentLeft="true"
+	                android:layout_weight="1.0"
+	                android:divider="#B0C4DE"
+	                android:dividerHeight="2px"
+	                android:background="#FFFFFF"
+	                android:cacheColorHint="#00000000" >
+	            </ListView>
+	            <ScrollView 
+	                android:id="@+id/idfRlFacMsg"
+	                android:background="#FFFFFF"
+	            	android:layout_width="match_parent"
+	            	android:layout_height="match_parent">
+	                
+	            </ScrollView>
+            </ViewFlipper>
+        </LinearLayout>
+        <ImageView
+    	        android:id="@+id/idfViewImgDaoZheLi" 
+    	        android:layout_width="60dip"
+    			android:layout_height="60dip"
+    			android:layout_alignParentRight="true"
+    			android:background="@drawable/daozhequ"
+    	        />
+        
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+    <form id="ins_reach_record" name="签到点记录"  table="Ins_Reach_Record" submitTo="loopback" page="one">
+        <params>
+ 				<param name="irrDate" type="c" required="Y" defValue="" io="i"></param>
+				<param name="irrName" field="" type="c" required="Y" defValue="" io="i"></param>
+				<param name="irrPosition" type="c" required="Y" defValue="" io="i"></param>
+ 				<param name="reportedCoordinate" type="c" required="Y" defValue="" io="i"></param>
+				<param name="sections" field="" type="c" required="Y" defValue="" io="i"></param>
+				<param name="sectionsNum" field="" type="c" required="Y" defValue="" io="i"></param>		
+             </params>
+        <page id="1" name="签到点信息">
+			<group id="1" name="照片" display="Y" type="common">
+			    <field name="camera1" label="签到照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			  </group>
+			  <group id="2" name="系统信息" display="N" type="common">
+			    <field name="irrDate" label="签到时间" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":irrDate" options="" listKey="" rule=""/>
+			    <field name="irrName" label="签到人名称" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":irrName" options="" listKey="" rule=""/>
+			    <field name="irrPosition" label="签到位置" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":irrPosition" options="" listKey="" rule=""/>
+			    <field name="reportedCoordinate" label="上报坐标点" type="system" readOnly="N"  required="N" maxLength="20" defValue=":reportedCoordinate" options="" listKey="" rule=""/>
+			    <field name="sections" label="所在路段" type="system" readOnly="N"  required="N" maxLength="20" defValue=":sections" options="" listKey="" rule=""/>
+			    <field name="sectionsNum" label="路段编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":sectionsNum" options="" listKey="" rule=""/>
+			 </group>
+		</page>
+      </form>
+</axf>

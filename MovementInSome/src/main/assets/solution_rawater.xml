@@ -1,0 +1,185 @@
+<?xml version="1.0" ?>
+<!--
+	////////////////////////////////////////////////////////////////////////////////
+	//
+	// Copyright (c) 2009 DRAGONSPRING
+	//
+	//
+	////////////////////////////////////////////////////////////////////////////////
+-->
+<configuration>
+	
+	<app>
+		<!-- 定位上报频率和距离 rate=毫秒 distance=米 -->
+		<locate rate="5000" distance="5"></locate>
+		<!-- 推送服务IP、端口-->
+		<push local="172.16.0.77:5222"
+			foreign="gddst2013.no-ip.org:5222">
+		</push>
+			<!-- 中间数据交互服务-->
+		<commuservice local="http://172.16.0.77:8093/fisds/rest"
+			foreign="http://gddst2013.no-ip.org:9018/fisds/rest">
+		</commuservice>
+		<!-- FTP上的照片展现URL -->
+		<fileservice local="http://172.16.0.77:8091/fileService"
+		foreign="http://gddst2013.no-ip.org:9015/fileService"  compress="true" type="size" config="1024"></fileservice>		
+				<!-- boot是否为开机启动系统;timing设置为定时启动时间,格式为时:分 ,不填值为不定时启动-->
+		<autostart boot="1" timing="8:30">
+		</autostart>
+	</app>
+	
+	<map extent="492385.6120497616,3072013.1657991954,496600.4329794034,3074029.2948314487" srid="2437" wkt='PROJCS["wenzhou",GEOGCS["GCS_Beijing_1954",DATUM["D_Beijing_1954",SPHEROID["Krasovsky_1940",6378245.0,298.3]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]],PROJECTION["Transverse_Mercator"],PARAMETER["false_easting",500000.0],PARAMETER["false_northing",0.0],PARAMETER["central_meridian",120.666666666667],PARAMETER["scale_factor",1.0],PARAMETER["latitude_of_origin",0.0],UNIT["Meters",1.0]]' >
+		<basemap default="1">
+			<mapservice id="1" name="erweiditu_RA" label="矢量地形" 
+				type="tiled" visible="true" alpha="1" format="png16" uery="false"
+				local="http://180.180.180.110:8080/arcgis/rest/services/ggpt/erweiditu_RA/MapServer"
+				foreign="http://180.180.180.110:8080/arcgis/rest/services/ggpt/erweiditu_RA/MapServer">
+			</mapservice>
+			<mapservice id="2" name="yingxiang_RA" label="影像图" 
+				type="tiled" visible="true" alpha="1" format="png16" query="false"
+				local="http://180.180.180.110:8080/arcgis/rest/services/ggpt/yingxiang_RA/MapServer"
+				foreign="http://180.180.180.110:8080/arcgis/rest/services/ggpt/yingxiang_RA/MapServer">
+			</mapservice>
+		</basemap>
+		<bizmap>
+			<!--mapservice id="1" name="erweiditu_RA" label="基础地形" 
+				type="tiled" visible="true" alpha="1" format="png16" query="true"
+				local="http://60.190.70.158:6002/arcgis/rest/services/ggpt/erweiditu_RA/MapServer/tile"
+					foreign="http://60.190.70.158:6002/arcgis/rest/services/ggpt/erweiditu_RA/MapServer/tile">
+			</mapservice--> 
+			<mapservice id="3" name="water_sq_msd" label="管网设施" 
+				type="dynamic" visible="true" alpha="1" format="png16" query="true"
+				local="http://60.190.70.158:6004/arcgis/rest/services/water_sq_msd/MapServer"
+					foreign="http://60.190.70.158:6004/arcgis/rest/services/water_sq_msd/MapServer">
+			</mapservice> 
+		</bizmap>
+		<ftlayers>
+			<ftlayer id="1" layerids="2,3,4,5" name="消火栓" mapservice="3" tablename="SDE.GS_VALVE_ZY" keyfield="OBJECTID"
+				fields="OBJECTID:OBJECTID:0,GID:系统ID:0,SID:设施编号:1,D_S:口径:1,FINISH_DATE:竣工日期:1,ADDR:安装地址:1">
+			</ftlayer>
+			<ftlayer id="2" name="排气阀" layerids="10" mapservice="3" tablename="SDE.GS_VALVE_ZY" keyfield="OBJECTID"
+				fields="OBJECTID:OBJECTID:0,GID:系统ID:0,SID:设施编号:1,D_S:口径:1,FINISH_DATE:竣工日期:1,ADDR:安装地址:1">
+			</ftlayer>
+			<ftlayer id="3" name="堵头" layerids="14" mapservice="3" tablename="SDE.GS_VALVE_ZY" keyfield="OBJECTID"
+				fields="OBJECTID:OBJECTID:0,GID:系统ID:0,SID:设施编号:1,D_S:口径:1,FINISH_DATE:竣工日期:1,ADDR:安装地址:1">
+			</ftlayer>			
+			<ftlayer id="4" name="阀门" layerids="16,17,18,19"  mapservice="3" tablename="SDE.GS_VALVE_ZY" keyfield="OBJECTID"
+				fields="OBJECTID:OBJECTID:0,GID:系统ID:0,SID:设施编号:1,D_S:口径:1,FINISH_DATE:竣工日期:1,ADDR:安装地址:1">
+			</ftlayer>
+			<ftlayer id="5" name="水表组" layerids="12" mapservice="3" tablename="SDE.GS_VALVE_ZY" keyfield="OBJECTID"
+				fields="OBJECTID:OBJECTID:0,GID:系统ID:0,SID:设施编号:1,D_S:口径:1,FINISH_DATE:竣工日期:1,ADDR:安装地址:1">
+			</ftlayer>
+			<ftlayer id="6" name="普通给水管线" layerids="22,23,24,25,26" mapservice="3" tablename="SDE.GS_VALVE_ZY" keyfield="OBJECTID"
+				fields="OBJECTID:OBJECTID:0,GID:系统ID:0,SID:设施编号:1,D_S:口径:1,FINISH_DATE:竣工日期:1,ADDR:安装地址:1">
+			</ftlayer>	 	
+		</ftlayers>
+		<tasks>
+			<task id="identifyTask" name="标识查询" tolerance="10" layers="*"/>				
+			<task id="queryTask" name="条件查询" tolerance="10" layers="1,2,3,4,5,6"/>
+			<task id="roadTask" name="路名查询" tolerance="10" layers="1,2"/>
+		</tasks>
+		<extservices>
+		    <extservice id="closetFeature" name="最近网络要素" local="http://190.168.88.28:8399/arcgis/rest/services/SOE/MapServer/exts/GeometricNetworkAnalyst/SDE.WATER_NETWORK_Net/js-leakpos" foreign="http://60.190.70.158:8399/arcgis/rest/services/SOE/MapServer/exts/GeometricNetworkAnalyst/SDE.WATER_NETWORK_Net/js-leakpos"/>
+		    <extservice id="offValveAna" name="关阀分析" local="http://190.168.88.28:8399/arcgis/rest/services/SOE/MapServer/exts/ClosedNetworkAnalyst/SDE.WATER_NETWORK_Net/leakanalysis" foreign="http://60.190.70.158:8399/arcgis/rest/services/SOE/MapServer/exts/ClosedNetworkAnalyst/SDE.WATER_NETWORK_Net/leakanalysis"/>
+		    <extservice id="offValveExtAna" name="扩大关阀分析" local="http://190.168.88.28:8399/arcgis/rest/services/SOE/MapServer/exts/ClosedNetworkAnalyst/SDE.WATER_NETWORK_Net/leakanalysis" foreign="http://60.190.70.158:8399/arcgis/rest/services/SOE/MapServer/exts/ClosedNetworkAnalyst/SDE.WATER_NETWORK_Net/leakanalysis"/>
+		</extservices>
+		<!-- 七参 -->
+		<coordTransform Coordinate="" 
+			SDx="-59.887984" SDy="101.913933" SDz="64.80318" SQx="0.746162936598869" SQy="-1.26027796616976" SQz="2.11638004449833" SScale="-0.000004110919" 
+			FDx="" FDy="" FScale="" FRotateangle="" 
+			PProjectiontype="3" PCentralmeridian="120.666667" PScale="1" PConstantx="0" PConstanty="500000" PBenchmarklatitude="0.0" Semimajor="6378245.000" Flattening="0.00335281065983501543">
+		</coordTransform>
+		<!-- 菜单 -->
+		<mapparentmenus>
+		    <mapparentmenu id="measure" name="测量" isdisplay="true">
+		    	<mapmenu  id="coord" name="坐标" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="distance" name="距离" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="area" name="面积" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="backout" name="撤销" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="redraw" name="重绘" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="back" name="返回" isdisplay="true"></mapmenu>
+			</mapparentmenu>
+			 <mapparentmenu id="draw" name="绘图" isdisplay="true">
+		    	<mapmenu  id="point" name="画点" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="straightline" name="画直线" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="rectangle" name="画矩型" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="circle" name="画圆型" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="polygon" name="多边型" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="freelinear" name="自由线" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="screenshot" name="截图" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="clear" name="清除" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="back" name="返回" isdisplay="true"></mapmenu>
+			</mapparentmenu>
+			<mapparentmenu id="pipebroanalysis" name="关阀分析" isdisplay="true">
+		    	<mapmenu  id="pipeline" name="管道" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="facility" name="设施" isdisplay="true"></mapmenu>
+		    	<mapmenu  id="back" name="返回" isdisplay="true"></mapmenu>
+			</mapparentmenu>
+			<mapparentmenu id="screenshot" name="截图" isdisplay="true">
+			</mapparentmenu>
+			<mapparentmenu id="placesearch" name="地名搜索" isdisplay="false">
+			</mapparentmenu>
+			<mapparentmenu id="nearby" name="附近" isdisplay="false">
+			</mapparentmenu>
+		</mapparentmenus>
+	</map>
+	<bizmodule>
+		<module id="biz.accident" name="事故信息" icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="1">
+		  <relations>
+			<relation tablerec="" layerrec=""/>
+		  </relations>
+		</module>
+		<module id="biz.hiddenrpt" name="隐患上报" icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="1">
+		  <relations>
+			<relation tablerec="" layerrec=""/>
+		  </relations>
+		</module>	
+		<module id="biz.buiderrpt" name="工地上报" icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="1">
+		  <relations>
+			<relation tablerec="" layerrec=""/>
+		  </relations>
+		</module>	
+		<module id="biz.repaircovert" name="补盖记录" icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="1">
+		  <relations>
+			<relation tablerec="" layerrec=""/>
+		  </relations>
+		</module>		
+		<module id="biz.giscorrect" name="数据纠错" icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="1">
+		  <relations>
+			<relation tablerec="" layerrec=""/>
+		  </relations>
+		</module>	
+		<module id="biz.offvalveana" name="关阀分析" icon="" layers="" ftlayer="" theme="1" canwrite="1">
+		  <relations>
+			<relation tablerec="" layerrec=""/>
+		  </relations>
+		  <properties>
+		      <property field=""  name="爆漏目标" value="" local="http://172.16.81.222:8399/arcgis/rest/services/query/MapServer/exts/GeometricNetworkAnalyst/SDE.WATER_NETWORK_Net/js-leakpos" foreign="http://gddst2013.no-ip.org:28399/arcgis/rest/services/query/MapServer/exts/GeometricNetworkAnalyst/SDE.WATER_NETWORK_Net/js-leakpos"/>
+		      <property field=""  name="爆漏分析" value="" local="http://172.16.81.222:8399/arcgis/rest/services/query/MapServer/exts/ClosedNetworkAnalyst/SDE.WATER_NETWORK_Net/leakanalysis" foreign="http://gddst2013.no-ip.org:28399/arcgis/rest/services/query/MapServer/exts/ClosedNetworkAnalyst/SDE.WATER_NETWORK_Net/leakanalysis"/>
+		      <property field=""  name="扩大关阀分析" value="" local="http://172.16.81.222:8399/arcgis/rest/services/query/MapServer/exts/ClosedNetworkAnalyst/SDE.WATER_NETWORK_Net/leakanalysis" foreign="http://gddst2013.no-ip.org:28399/arcgis/rest/services/query/MapServer/exts/ClosedNetworkAnalyst/SDE.WATER_NETWORK_Net/leakanalysis"/>
+		  </properties>
+		</module>
+		<module id="biz.repairrec" name="维修记录" icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="1">
+		  <relations>
+			<relation tablerec="" layerrec=""/>
+		  </relations>
+		</module>
+		<module id="biz.floodfb" name="洪涝反馈" icon="" layers="" ftlayer="http://gddst2013.no-ip.org:28399/arcgis/rest/services/szsw_msd/MapServer/1" theme="1" canwrite="1">
+		  <relations>
+			<relation tablerec="" layerrec=""/>
+		  </relations>
+		</module>
+	</bizmodule>
+	
+	<mainmenu>
+	    <menu id="1" name="我的工作" enter="taskCenter">
+	        
+	    </menu>
+	    <menu id="2" name="电子地图" enter="mapContain">
+	        
+	    </menu>
+	    <menu id="3" name="应用中心" enter="appCenter">
+	        
+	    </menu>
+	</mainmenu>
+</configuration>

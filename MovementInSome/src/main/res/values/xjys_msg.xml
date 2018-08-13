@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="xjys_fac_msg">
+        <item>设施编号</item>
+        <item>设施名称</item>
+        <item>设施类型</item>
+        <item>设施所在位置</item>
+        <item>设施口径</item>
+        <item>设施材质</item>
+        <item>设施埋深</item>
+        <item>设施所在路段</item>
+    </string-array>
+</resources>

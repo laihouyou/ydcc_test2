@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+    <form id="Ins_Key_Point_Check_Record" name="关键点检查记录单"  table="Ins_Key_Point_Check_Record" submitTo="loopback" page="one">
+        <params>
+ 				<param name="facName" type="c" required="Y" defValue="" io="i"></param>
+				<param name="facNum" field="" type="c" required="Y" defValue="" io="i"></param>
+				<param name="coordinate" type="c" required="Y" defValue="" io="i"></param>
+ 				<param name="recordCoordinate" type="c" required="Y" defValue="" io="i"></param>
+				<param name="manageUnit" field="" type="c" required="Y" defValue="" io="i"></param>	
+				<param name="kppdId" field="" type="c" required="Y" defValue="" io="i"></param>	
+             </params>
+        <page id="1" name="关键点信息">
+            <group id="1" name="基本信息" display="Y" type="common">
+                <field name="depth" label="水深" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="0" options="" listKey=""/>
+                <field name="siltation" label="淤积" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="0" options="" listKey=""/>
+                <field name="wellWall" label="井壁" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="0052"/>
+                 <field name="wellBottom" label="井底" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="0053"/>
+                <field name="waterSituation" label="水流状况" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="0054"/>
+                <field name="wellInsideSituation" label="井内状况" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="0055"/>
+                <field name="sendWorkOrderSituation" label="出单情况" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="0056"/>
+                <field name="responsiblePerson" label="负责人" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+                <field name="kpcrDate" label="日期" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+                <field name="remarks" label="备注" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+                </group>
+                 <group id="2" name="系统信息" display="N" type="common">
+                     <field name="facName" label="设施名称" type="system" readOnly="N"  required="N" maxLength="20" defValue=":facName" options="" listKey="" rule=""/>
+                     <field name="facNum" label="设施编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":facNum" options="" listKey="" rule=""/>
+                     <field name="coordinate" label="坐标" type="system" readOnly="N"  required="N" maxLength="20" defValue=":coordinate" options="" listKey="" rule=""/>
+                     <field name="recordCoordinate" label="记录坐标点" type="system" readOnly="N"  required="N" maxLength="20" defValue=":coordinate" options="" listKey="" rule=""/>
+			    	 <field name="manageUnit" label="管理单位" type="system" readOnly="N"  required="N" maxLength="20" defValue=":manageUnit" options="" listKey="" rule=""/>
+			    	 <field name="kppdId" label="关键点巡查数据ID" type="system" readOnly="N"  required="N" maxLength="20" defValue=":kppdId" options="" listKey="" rule=""/>
+			 	 </group>
+            </page>
+        </form>
+    </axf>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ES_T_MECHANICAL_CONDITION" name="机械表"  table="ES_T_MECHANICAL_CONDITION" submitTo="loopback" page="one">
+	   	<params>
+			
+		</params>
+		 <rules>
+		    <rule id="mapfac">
+		        
+		    </rule>
+		</rules>
+
+		<page id="1" name="">
+			<group id="1" name="" display="Y" type="common">
+			    <field name="mechanicalNum" label="机械编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="mechanicalName" label="机械名称" type="edit_check" readOnly="N" required="N" maxLength="20" defValue="" options="挖土机|吊机|抽水机" listKey="" listTableName=""/>
+				<field name="presentDate" label="到场时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="leaveDate" label="离场时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="goodStateStr" label="完好状态" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="完好|破坏" listKey=""/>
+			</group>	
+			
+		</page>
+	</form>
+</axf>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_result_option_yh" name="巡查结果选项" table="BS_INS_RESULT_OPTION" submitTo="loopback" page="one">
+	   	<params>
+	    
+		</params>
+
+	   <rules>
+		    <rule id="mapfac">
+		        
+		    </rule>
+		</rules>
+	
+		<page id="1" name="结果选项信息">
+		    <group id="1" name="填写信息" display="Y" type="common">
+		        <field name="iroName" label="巡查内容名称" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		    	<field name="iroCheck" label="检查结果" type="memo" readOnly="N" required="Y" maxLength="2000" defValue="" options="" listKey="" rule=""/>
+			</group>
+			
+			<group id="2" name="系统信息" display="N" type="common">
+			    <field name="iroNum" label="巡查内容编号" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+ 			</group>
+		</page>
+	</form>
+</axf>

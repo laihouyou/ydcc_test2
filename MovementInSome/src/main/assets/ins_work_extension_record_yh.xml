@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_work_extension_record_yh" name="工作延期记录"  table="BS_WORK_EXTENSION_RECORD" submitTo="loopback" page="one">
+	   	<params>
+			
+		</params>
+		 <rules>
+		    <rule id="mapfac">
+		        
+		    </rule>
+		</rules>
+
+		<page id="1" name="">
+			<group id="1" name="" display="Y" type="common">
+				<field name="werTime" label="延期时间" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="werReason" label="延期原因" type="memo" readOnly="N"  required="N" maxLength="2000" defValue="" options="" listKey=""/>
+			</group>	
+			 
+			<group id="2" name="系统信息" display="N" type="common">
+			   	<field name="woNum" label="通知单编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":woNum" options="" listKey="" rule=""/>
+			   	<field name="rrwoNum" label="工单编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":rrwoNum" options="" listKey="" rule=""/>
+			   	<field name="rrwoType" label="工单类型" type="system" readOnly="N"  required="N" maxLength="20" defValue=":rrwoType" options="" listKey="" rule=""/>
+			   	
+			   	<field name="reportDateStr" label="上报时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="datetime()" options="" listKey="" rule=""/>
+				<field name="reportPId" label="上报人ID" type="system" readOnly="N"  required="N" maxLength="20" defValue="userId()" options="" listKey="" rule=""/>
+				<field name="reportPNum" label="上报人编号" type="system" readOnly="N"  required="N" maxLength="20" defValue="userNum()" options="" listKey="" rule=""/>
+				<field name="reportPName" label="上报人名称" type="system" readOnly="N"  required="N" maxLength="20" defValue="username()" options="" listKey="" rule=""/>
+			    <field name="imeiCode" label="移动端机器码" type="text" readOnly="N" required="N" maxLength="20" defValue="imei()" options="" listKey=""/>
+			    <field name="uniqueCode" label="移动端唯一编码" type="text" readOnly="N" required="N" maxLength="20" defValue="guid()" options="" listKey=""/>
+			</group>
+		</page>
+	</form>
+</axf>

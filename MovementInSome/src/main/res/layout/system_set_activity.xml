@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/black_background"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout style="@style/myPhoneLayoutTitleType" >
+
+        <ImageView
+            android:id="@+id/systemImageBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back" />
+
+        <TextView
+            style="@style/myPhoneTvTitle"
+            android:paddingRight="50dip"
+            android:text="@string/systemTitle" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        style="@style/myPhoneLayoutPType" >
+
+        <LinearLayout style="@style/myPhoneLayoutBgType" >
+
+            <LinearLayout
+                style="@style/myPhoneLayoutType"
+                android:gravity="center_vertical" 
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="@string/systemTvGpsNumber" />
+
+                <TextView
+                    android:id="@+id/systemTvGpsNumber"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/input_bg"
+                    android:gravity="center_vertical"
+                    android:padding="10dip"
+                    android:textColor="#4d4d4d" />
+
+                <Button
+                    android:id="@+id/systemBtnGpsUpdata"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#4d4d4d"
+                    android:text="@string/systemBtnGpsUpdata" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="@string/systemBtnLight" />
+
+                <ToggleButton
+                    android:id="@+id/systemBtnLight"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#4d4d4d"
+                    android:textOff="@string/systemBtnLightSet"
+                    android:textOn="@string/systemBtnLightAuto" />
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/systemSeekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <LinearLayout style="@style/myPhoneLayoutType" 
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="@string/systemBtnEndCall" />
+
+                <ToggleButton
+                    android:id="@+id/systemBtnEndCall"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#4d4d4d"
+                    android:textOff="@string/systemBtnOff"
+                    android:textOn="@string/systemBtnOn" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/myPhoneLayoutType" 
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="@string/systemBtnWifi" />
+
+                <ToggleButton
+                    android:id="@+id/systemBtnWifi"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#4d4d4d"
+                    android:textOff="@string/systemBtnOff"
+                    android:textOn="@string/systemBtnOn" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/myPhoneLayoutType"
+                 android:visibility="gone">
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="@string/systemBtnAPN" />
+
+                <ToggleButton
+                    android:id="@+id/systemBtnAPN"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#4d4d4d"
+                    android:textOff="@string/systemBtnOff"
+                    android:textOn="@string/systemBtnOn" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/myPhoneLayoutType" 
+                android:visibility="gone">
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="@string/systemBtnGPS" />
+
+                <ToggleButton
+                    android:id="@+id/systemBtnGPS"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:textColor="#4d4d4d"
+                    android:textOff="@string/systemBtnOff"
+                    android:textOn="@string/systemBtnOn" />
+            </LinearLayout>
+            
+             <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="@string/systemRestUrl" />
+
+                <Button
+                    android:id="@+id/systemRestnet"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/systemRestnet"
+                    android:textColor="#4d4d4d" />
+
+                <Button
+                    android:id="@+id/systemRestOuterNet"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/systemRestOuterNet"
+                    android:textColor="#4d4d4d" />
+
+                <!-- <TextView
+                       android:id="@+id/systemTvGpsNumber"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:background="@drawable/input_bg"
+                       android:gravity="center_vertical"
+                       android:padding="10dip"
+                       android:text="当前：内网"
+                       android:textSize="12sp"
+                       android:textColor="#4d4d4d" /> -->
+            </LinearLayout>
+            
+             <LinearLayout style="@style/myPhoneLayoutType" 
+                 android:id="@+id/systemInitDataLay">
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="@string/systemInitDataT" />
+
+                <Button
+                    android:id="@+id/systemInitData"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/systemInitData"
+                    android:textColor="#4d4d4d" />
+            </LinearLayout>
+             
+            
+            <LinearLayout style="@style/myPhoneLayoutType" 
+                android:id="@+id/systemUpdateDataLay">
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="@string/systemUpdateDataT" />
+
+                <Button
+                    android:id="@+id/systemUpdateData"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/systemUpdateData"
+                    android:textColor="#4d4d4d" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="@string/systemUpdateApkT" />
+
+                <Button
+                    android:id="@+id/systemUpdateApk"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/systemUpdateApk"
+                    android:textColor="#4d4d4d" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

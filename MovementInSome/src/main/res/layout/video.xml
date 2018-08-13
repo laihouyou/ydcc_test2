@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>    
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal" >
+
+     <RelativeLayout
+         android:layout_width="70dip"
+         android:layout_height="fill_parent"
+         android:layout_weight="1.0"
+         android:background="@drawable/tob_title_bg2"
+         android:orientation="vertical" >
+   	<Button
+            android:id="@+id/vdDelRecord"
+            android:layout_centerInParent="true"
+            style="@style/myPhoneButtonSmall"
+            android:text="删除"   
+            />
+    </RelativeLayout>
+      <RelativeLayout  
+          android:layout_width="wrap_content"     
+        android:layout_height="fill_parent"
+         android:background="@color/black"
+        android:layout_weight="8.0">
+        <ImageView
+            android:id="@+id/vdIgvBg"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/black"
+             />
+    <SurfaceView android:id="@+id/vdRecord"    
+        android:visibility="visible"     
+        android:layout_width="match_parent"     
+        android:layout_height="fill_parent"
+        >    
+    </SurfaceView>
+
+    <VideoView 
+        android:id="@+id/vdView"
+        android:visibility="gone"     
+        android:layout_width="wrap_content"     
+        android:layout_height="fill_parent"
+       />
+    <TextView 
+        android:id="@+id/vdTime"
+        android:layout_width="wrap_content"     
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:visibility="gone"
+        android:textSize="24dip"
+        android:text="00:00"/>
+    </RelativeLayout>  
+    <RelativeLayout
+        android:layout_width="70dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0"
+        android:background="@drawable/tob_title_bg2" >
+        <Button
+            android:id="@+id/vdStartRecord"
+            android:layout_centerInParent="true"
+            style="@style/myPhoneButtonSmall"
+            android:text="录像"   
+            />
+        <ImageView
+            android:id="@+id/vdStartPlay"
+            android:layout_width="60dip"
+            android:layout_height="60dip"
+            android:layout_alignParentBottom="true"
+             />
+
+        <Button
+            android:id="@+id/vdBack"
+            style="@style/myPhoneButtonBack"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="20dp"
+           />
+
+    </RelativeLayout>
+    
+</LinearLayout>   

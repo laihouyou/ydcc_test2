@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="SYS_USER_WORK_CHECK_FORM" name="用户考勤" table="SYS_USER_WORK_CHECK" submitTo="loopback" page="one">
+	
+		<page id="1" name="考勤">
+		    <group id="1" name="考勤信息" display="Y" type="common">
+		    	<field name="workCheckBDate" label="打卡时间" type="datetime" readOnly="N" required="N" maxLength="20" defValue="datetime()" options="" listKey=""/>
+		    	<field name="workCheckEDate" label="打卡时间" type="datetime" readOnly="N" required="N" maxLength="20" defValue="datetime()" options="" listKey=""/>
+		    	<field name="workCheckType" label="考勤类型" type="choice" readOnly="N" required="N" maxLength="20" defValue="上班" options="上班|下班|休假|出差" listKey=""/>
+		    	<field name="workCheckAddr" label="打卡地址" type="text" readOnly="Y" required="N" maxLength="20" defValue="addr()" options="" listKey=""/>
+			</group>
+			<group id="2" name="系统信息" display="N" type="common">
+			   <field name="reportedCoordinate" label="上报坐标点" type="system" readOnly="Y"  required="N" maxLength="20" defValue="mapcoord()" options="" listKey="" rule=""/>
+			 </group>
+		</page>
+	</form>
+</axf>

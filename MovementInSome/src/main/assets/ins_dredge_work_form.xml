@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_dredge_work" name="管网清疏派工单"  table="Ins_Dredge_W_Task" submitTo="loopback" page="one">
+	   	<params>
+			<param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+ 			<param name="workTaskNum" type="c" required="Y" defValue="" io="i"></param>
+ 
+			<param name="cfNum" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="cfPhone" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="cfAddr" field="" type="c" required="Y" defValue="" io="i"></param>	
+			<param name="cfPeople" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="cfSource" type="c" required="Y" defValue="" io="i"/>
+			<param name="sources" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="patrolPerson" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="phone" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="addr" field="" type="c" required="Y" defValue="" io="i"></param>	
+			<param name="reportedDate" field="" type="c" required="Y" defValue="" io="i"></param>
+			
+			<param name="facilitiesCaliber" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="facilitiesMaterial" field="" type="c" required="Y" defValue="" io="i"></param>
+				
+			<param name="results" field="result" type="c" required="Y" defValue="" io="o"></param>
+			<param name="beginHandlePeople" field="handlePeople" type="c" required="Y" defValue="" io="o"></param>
+			<param name="beginHandleDate" field="beginHandleDate" type="c" required="Y" defValue="" io="o"></param>
+			<param name="endHandlePeople" field="handlePeople" type="c" required="Y" defValue="" io="o"></param>
+			<param name="endHandleDate" field="handleDate" type="c" required="Y" defValue="" io="o"></param>
+			
+			
+			<param name="sections" field="" type="c" required="Y" defValue="" io="i"></param>	
+			<param name="sectionsNum" field="" type="c" required="Y" defValue="" io="i"></param>
+			
+		</params>
+
+		<page id="1" name="工单信息">
+			<group id="1" name="基本信息" display="N" type="common">
+				<field name="workTaskNum" label="投诉序号" type="text" readOnly="N" required="N" maxLength="20" defValue=":workTaskNum" options="" listKey=""/>
+				<field name="carNum" label="车牌号" type="memo" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="pushTime" label="派工日期" type="date" readOnly="N"  required="N" maxLength="20" defValue="date()" options="" listKey=""/>
+				<field name="weather" label="天气" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="晴|多云|阴|阵雨|雷阵雨|小雨|中雨|大雨|暴雨|大暴雨|特大暴雨|小到中雨|中到大雨|大到暴雨|暴雨到大暴雨|大暴雨到特大暴雨|雾|霾" listKey=""/>
+			</group>
+			<group id="2" name="清疏信息" display="Y" type="common">
+				<field name="sources" label="信息来源" type="choice" readOnly="N"  required="Y" maxLength="20" defValue=":sources,:cfSource" options="客联中心|数字化城管|巡查|用户|自查|其他" listKey="0002"/>
+				<field name="reporterName" label="报告人姓名" type="text" readOnly="N"  required="Y" maxLength="20" defValue=":patrolPerson,:cfPeople" options="" listKey=""/>
+				<field name="tel" label="电话" type="text" readOnly="N"  required="Y" maxLength="20" defValue=":phone,:cfPhone" options="" listKey=""/>
+				<field name="addr" label="任务地点" type="text" readOnly="N"  required="Y" maxLength="20" defValue=":addr,:cfAddr,addr()" options="" listKey=""/>
+				<field name="workType" label="清疏类别" type="mselect" readOnly="N"  required="Y" maxLength="20" defValue="" options="污水管道堵塞或冒水|雨水管道堵塞或冒水|雨水口积水|路面积水|非我司责任范畴,转责任单位处理|其他" listKey=""/>
+			    <field name="reason" label="事故原因" type="mselect" readOnly="N"  required="Y" maxLength="20" defValue="" options="周边市场或餐馆违章倾倒|泥头车违章倾倒|工地违章排放|自然淤堵" listKey=""/>
+			</group>
+			
+			<group id="3" name="工作量信息" display="Y" type="common">
+				<field name="rainWellSum" label="雨水检查井(口)" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="0" options="" listKey=""/>
+				<field name="sewageWellSum" label="污水检查井(口)" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="0" options="" listKey=""/>
+				<field name="gulliesSum" label="雨水口(口)" type="numeric" readOnly="N"  required="N" maxLength="2000" defValue="0" options="" listKey=""/>				
+
+  				<field name="gulliesSize" label="雨水管渠尺寸" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+  				<field name="gulliesLen" label="雨水管渠长(m)" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="0" options="" listKey=""/>
+  				<field name="sewerSize" label="污水管渠尺寸" type="numeric" readOnly="N"  required="N" maxLength="2000" defValue="" options="" listKey=""/>				
+  				<field name="sewerLen" label="污水管渠长(m)" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="0" options="" listKey=""/>
+				
+				<field name="sludgeSum" label="淤泥量(m3)" type="numeric" readOnly="N"  required="N" maxLength="2000" defValue="" options="" listKey=""/>
+				<field name="carSum" label="车辆(台班)" type="numeric" readOnly="N"  required="N" maxLength="2000" defValue="" options="" listKey=""/>				
+			</group>
+			<group id="4" name="现场信息" display="Y" type="attach">
+			    <field name="reportedCoordinate" label="具体位置" type="maptext" readOnly="N"  required="Y" maxLength="20" defValue="mapcoord()" options="" listKey="" rule=""/>
+			    <field name="camera1" label="清疏前照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>	
+			    <field name="camera2" label="清疏后照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			</group>
+			<group id="5" name="处理情况" display="Y" type="common">
+				<field name="department" label="派工部门" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="pushTime" label="派工时间" type="date" readOnly="N"  required="N" maxLength="20" defValue="date()" options="" listKey=""/>
+				<field name="result" label="处理结果" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="正在处理中|处理完毕|不在责任范围|其化" listKey=""/>
+				<field name="leader" label="责任人" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>
+			<group id="6" name="参加人员及作业时间" display="Y" type="common">
+			    <field name="workers" label="参加人员" type="memo" readOnly="N"  required="N" maxLength="20" defValue="username()" options="" listKey=""/>
+			    <field name="sTime" label="作业开始时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="datetime()" options="" listKey=""/>
+			 	<field name="eTime" label="作业结束时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="datetime()" options="" listKey=""/>
+			</group>
+			<group id="7" name="备注" display="Y" type="common">
+			    <field name="remark" label="备注" type="memo" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>
+			<group id="8" name="系统信息" display="N" type="common">
+			    <field name="dpNum" label="计划清疏编号" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":serialNumber" options="" listKey="" rule=""/>
+			    <field name="pid" label="pid" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":pid" options="" listKey="" rule=""/>
+			    <field name="sections" label="所在路段" type="system" readOnly="N"  required="N" maxLength="20" defValue=":sections" options="" listKey="" rule=""/>
+			    <field name="sectionsNum" label="路段编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":sectionsNum" options="" listKey="" rule=""/>
+ 			</group>
+		</page>
+		<atepss>
+		    <ateps groupid="1" name="基本信息" state="0"></ateps>
+		    <ateps groupid="2" name="清疏信息" state="0"></ateps>
+		    <ateps groupid="3" name="工作量信息" state="0"></ateps>
+		    <ateps groupid="4" name="现场信息" state="0"></ateps>
+		    <ateps groupid="5" name="处理情况" state="0"></ateps>
+		    <ateps groupid="6" name="参加人员及作业时间" state="0"></ateps>
+		    <ateps groupid="7" name="备注" state="0"></ateps>
+		</atepss>
+	</form>
+</axf>

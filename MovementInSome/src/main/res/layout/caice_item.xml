@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/dp_10"
+    android:layout_marginRight="@dimen/dp_10"
+    >
+
+    <TextView
+        android:id="@+id/baocun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="保存"
+        />
+    <TextView
+        android:id="@+id/tiandan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="填单"
+        />
+    <TextView
+        android:id="@+id/chexiao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="撤销"
+        />
+    <TextView
+        android:id="@+id/qingchu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="清除"
+        />
+
+</LinearLayout>

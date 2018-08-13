@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="inspect_the_incident" name="巡查事件" table="" submitTo="inspect_the_incident" page="one">
+
+
+		<page id="1" name="基本信息">
+		    <group id="1" name="显示信息" display="Y" type="common">
+				<field name="time" defValue="" label="开始执行日期" listKey="" maxLength="20"
+					options="" readOnly="N" required="Y" type="date" />
+
+				<field name="casename" defValue="" label="事件名称" listKey="" maxLength="20"
+					options="" readOnly="N" required="N" type="text" />
+
+				<field name="description" defValue="" label="事件描述" listKey="" maxLength="20"
+					options="" readOnly="N" required="N" type="text" />
+
+				<field name="checkperson" defValue="" label="考评人员" listKey="" maxLength="20"
+					options="" readOnly="N" required="N" type="text" />
+
+				<field name="phone" defValue="" label="联系电话" listKey="" maxLength="20"
+					options="" readOnly="N" required="N" type="number" />
+
+				<field name="list" childrenTableAction="" childrenTableUpdateAction="inspect_the_project"
+					defValue="" label="问题列表" listKey="" maxLength="" options="" readOnly="N"
+					required="N" template="inspect_the_project.xml"
+					type="childrentable" />
+			</group>
+			
+			<group id="2" name="隐藏信息" display="N" type="common">
+				<!--<field name="programname" defValue=":programname" label="设备名字" listKey="" maxLength="20"
+					options="" readOnly="N" required="N" type="text" />
+				-->
+			</group>
+		</page>
+	</form>
+</axf>

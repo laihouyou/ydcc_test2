@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+
+    <LinearLayout style="@style/myPhoneLayoutTitleType" >
+
+        <Button
+            android:id="@+id/material_back"
+            style="@style/myPhoneButtonBack" />
+
+        <TextView
+            style="@style/myPhoneTvTitle"
+            android:text="材料表" />
+
+        <Button
+            android:id="@+id/material_save"
+            style="@style/myPhoneButtonSmall"
+            android:text="保存" />
+    </LinearLayout>
+
+    <LinearLayout style="@style/myPhoneLayoutBgType" >
+
+        <RelativeLayout
+           style="@style/myPhoneLayoutType" >
+
+            <TextView
+                android:id="@+id/material_type_title"
+                style="@style/myPhoneTvType"
+                android:layout_centerVertical="true"
+                android:text="类型" />
+
+            <EditText
+                android:id="@+id/material_type"
+                android:layout_toLeftOf="@+id/material_type_select"
+                android:layout_toRightOf="@+id/material_type_title"
+                style="@style/myPhoneEtType"
+                android:background="@drawable/edt_bg" />
+
+            <Button
+                android:id="@+id/material_type_select"
+                android:layout_alignParentRight="true"
+                android:layout_width="35dp"
+                android:layout_height="35dip"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/pulldown" />
+        </RelativeLayout>
+         <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="规格" />
+
+                <EditText
+                    android:id="@+id/material_standard"
+                    style="@style/myPhoneEtType" />
+        </LinearLayout>
+        <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="单位" />
+
+                <EditText
+                    android:id="@+id/material_unit"
+                    style="@style/myPhoneEtType" />
+        </LinearLayout>
+         <LinearLayout style="@style/myPhoneLayoutType" >
+
+                <TextView
+                    style="@style/myPhoneTvType"
+                    android:text="数量" />
+
+                <EditText
+                    android:id="@+id/material_count"
+                    style="@style/myPhoneEtType" 
+                    android:inputType="number"/>
+        </LinearLayout>
+        
+    </LinearLayout>
+    
+
+</LinearLayout>

@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--地图主界面-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:id="@+id/fac_list_item"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent">
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:background="@color/black"
+		>
+
+		<TextView
+			android:id="@+id/tvMoveTitle"
+			android:layout_width="wrap_content"
+			android:layout_height="45dp"
+			android:layout_centerInParent="true"
+			android:gravity="center"
+			android:text="工程名称"
+			android:textColor="#ffffff"
+			android:visibility="gone"
+			android:textSize="18sp" />
+
+		<TextView
+			android:id="@+id/over_projcet"
+			android:layout_width="@dimen/dp_69"
+			android:layout_height="@dimen/dp_33"
+			android:layout_alignParentRight="true"
+			android:layout_centerVertical="true"
+			android:layout_marginRight="@dimen/dp_10"
+			android:background="@drawable/shape_blak"
+			android:gravity="center"
+			android:text="暂停采测"
+			android:textColor="#ffffff"
+			android:visibility="gone"
+			android:textSize="13sp" />
+
+	</RelativeLayout>
+
+	<com.movementinsome.map.view.MyMapView
+		android:id="@+id/myMapView"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:visibility="gone" />
+
+	<LinearLayout
+		android:id="@+id/layoutText"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical"
+		android:visibility="visible">
+
+		<RelativeLayout
+			android:id="@+id/reBMapview"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+			<com.amap.api.maps.MapView
+				android:id="@+id/baiduMap"
+				android:layout_width="match_parent"
+				android:layout_height="match_parent"
+				android:visibility="visible">
+
+			</com.amap.api.maps.MapView>
+
+			<FrameLayout
+				android:id="@+id/abnormalFram"
+				android:layout_width="@dimen/dp_228"
+				android:layout_height="wrap_content"
+				android:layout_alignTop="@+id/pointChangeLineBtn"
+				android:layout_centerHorizontal="true"
+				android:layout_marginTop="@dimen/dp_10"
+				android:background="@drawable/shape_property">
+
+				<TextView
+					android:id="@+id/abnormal_remind"
+					android:layout_width="wrap_content"
+					android:layout_height="match_parent"
+					android:layout_gravity="center_horizontal"
+					android:drawablePadding="@dimen/dp_15"
+					android:drawableRight="@drawable/close_btn2"
+					android:gravity="center"
+					android:text="设备未连接,目前使用GPS定位"
+					android:textColor="@color/cornflowerblue5"
+					android:visibility="gone" />
+
+			</FrameLayout>
+
+
+			<FrameLayout
+				android:id="@+id/frameLayout2"
+				android:layout_width="40dp"
+				android:layout_height="wrap_content"
+				android:layout_alignParentBottom="true"
+				android:layout_marginBottom="13dp"
+				android:layout_marginLeft="13dp">
+
+				<LinearLayout
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:orientation="vertical">
+
+					<ImageView
+						android:id="@+id/map_blow_up"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:visibility="gone"
+						android:background="@drawable/map_blow_up" />
+
+					<ImageView
+						android:id="@+id/map_shrink"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:visibility="gone"
+						android:background="@drawable/map_shrink" />
+
+					<TextView
+						android:id="@+id/locationBuon"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_gravity="center"
+						android:layout_marginTop="@dimen/dp_7"
+						android:background="@drawable/location_bule"
+						android:gravity="center|bottom"
+                        android:paddingBottom="@dimen/dp_3"
+						android:text="定位"
+						android:textColor="@color/point_facility"
+						android:textSize="@dimen/sp_10" />
+				</LinearLayout>
+
+
+			</FrameLayout>
+
+
+			<FrameLayout
+				android:id="@+id/facility"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentLeft="true"
+				android:layout_alignParentTop="true"
+				android:layout_marginLeft="13.5dp"
+				android:layout_marginTop="30dp"
+				android:background="@color/activity_bg_color"
+				android:visibility="gone">
+
+				<com.movementinsome.app.pub.view.MaxHeightListView
+					android:id="@+id/facilityListview"
+					android:layout_width="@dimen/dp_40"
+					android:layout_height="wrap_content"
+					android:layout_marginTop="@dimen/dp_25"
+                    android:scrollbars="none"
+					android:visibility="visible"
+					>
+
+				</com.movementinsome.app.pub.view.MaxHeightListView>
+
+			</FrameLayout>
+
+			<FrameLayout
+				android:id="@+id/pointChangeLineBtn"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginLeft="10dp"
+				android:layout_marginTop="10dp"
+				android:background="@drawable/point_change_line"
+				android:tag="point"
+				android:visibility="gone">
+
+				<TextView
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_horizontal"
+					android:layout_marginTop="@dimen/dp_27"
+					android:gravity="center_horizontal"
+					android:text="切换"
+					android:textColor="@color/point_change_line"
+					android:textSize="@dimen/sp_10" />
+
+			</FrameLayout>
+
+			<FrameLayout
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentRight="true"
+				android:layout_marginRight="13dp"
+				android:layout_marginTop="10dp">
+
+				<LinearLayout
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:orientation="vertical">
+
+					<TextView
+						android:id="@+id/map_changer"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:background="@drawable/map_changer"
+						android:gravity="center|bottom"
+						android:paddingBottom="@dimen/dp_3"
+						android:text="地图"
+						android:textColor="@color/cornflowerblue8"
+						android:textSize="@dimen/sp_9"
+						android:visibility="visible" />
+
+					<TextView
+						android:id="@+id/coordinate_point"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/dp_7"
+						android:background="@drawable/coordinate_point"
+						android:gravity="center|bottom"
+						android:paddingBottom="@dimen/dp_3"
+						android:tag="yes"
+						android:text="坐标点"
+						android:textColor="@color/cornflowerblue8"
+						android:textSize="@dimen/sp_9"
+						android:visibility="gone" />
+
+					<TextView
+						android:id="@+id/draw_point"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/dp_7"
+						android:background="@drawable/draw_point"
+						android:gravity="center|bottom"
+						android:paddingBottom="@dimen/dp_3"
+						android:tag="no"
+						android:text="手绘点"
+						android:textColor="@color/cornflowerblue8"
+						android:textSize="@dimen/sp_9"
+						android:visibility="gone" />
+					<TextView
+						android:id="@+id/line_add_point"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/dp_7"
+						android:background="@drawable/draw_point"
+						android:gravity="center|bottom"
+						android:paddingBottom="@dimen/dp_3"
+						android:tag="no"
+						android:text="管线加点"
+						android:textColor="@color/cornflowerblue8"
+						android:textSize="@dimen/sp_9"
+						android:visibility="gone" />
+
+					<TextView
+						android:id="@+id/continuity_point"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/dp_7"
+						android:background="@drawable/continuity_point_blck"
+						android:gravity="center|bottom"
+						android:paddingBottom="@dimen/dp_3"
+						android:tag="no"
+						android:text="连续点"
+						android:textColor="@color/cornflowerblue8"
+						android:textSize="@dimen/sp_9"
+						android:visibility="gone" />
+
+					<TextView
+						android:id="@+id/point_connect_line"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/dp_7"
+						android:background="@drawable/point_connect_line_blck"
+						android:gravity="center|bottom"
+						android:paddingBottom="@dimen/dp_3"
+						android:tag="no"
+						android:text="点连线"
+						android:textColor="@color/cornflowerblue8"
+						android:textSize="@dimen/sp_9"
+						android:visibility="gone" />
+
+					<TextView
+						android:id="@+id/continuity_line"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/dp_7"
+						android:background="@drawable/continuity_line_blck"
+						android:gravity="center|bottom"
+						android:paddingBottom="@dimen/dp_3"
+						android:tag="no"
+						android:text="连续线"
+						android:textColor="@color/cornflowerblue8"
+						android:textSize="@dimen/sp_9"
+						android:visibility="gone" />
+
+					<TextView
+						android:id="@+id/input_data"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/dp_7"
+						android:background="@drawable/continuity_line_blck"
+						android:gravity="center|bottom"
+						android:paddingBottom="@dimen/dp_3"
+						android:tag="no"
+						android:text="@string/input_data"
+						android:textColor="@color/cornflowerblue8"
+						android:textSize="@dimen/sp_9"
+						android:visibility="gone" />
+
+					<TextView
+						android:id="@+id/delete_point"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/dp_7"
+						android:background="@drawable/delete_point"
+						android:gravity="center|bottom"
+						android:paddingBottom="@dimen/dp_3"
+						android:text="删除"
+						android:textColor="@color/cornflowerblue8"
+						android:textSize="@dimen/sp_9"
+						android:visibility="gone" />
+
+					<TextView
+						android:id="@+id/revocation_line"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/dp_7"
+						android:background="@drawable/revocation"
+						android:gravity="center|bottom"
+						android:paddingBottom="@dimen/dp_3"
+						android:text="撤销"
+						android:textColor="@color/cornflowerblue8"
+						android:textSize="@dimen/sp_9"
+						android:visibility="gone" />
+
+					<TextView
+						android:id="@+id/go_to_the"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/dp_7"
+						android:background="@drawable/go_to_the"
+						android:gravity="center|bottom"
+						android:paddingBottom="@dimen/dp_3"
+						android:text="到这去"
+						android:textColor="@color/cornflowerblue8"
+						android:textSize="@dimen/sp_9"
+						android:visibility="gone" />
+
+					<TextView
+						android:id="@+id/panorama"
+						android:layout_width="wrap_content"
+						android:layout_height="wrap_content"
+						android:layout_marginTop="@dimen/dp_7"
+						android:background="@drawable/panorama"
+						android:gravity="center|bottom"
+						android:paddingBottom="@dimen/dp_3"
+						android:text="全景图"
+						android:textColor="@color/cornflowerblue8"
+						android:textSize="@dimen/sp_9"
+						android:visibility="gone" />
+
+					<TextView
+						android:id="@+id/loading_hint"
+						android:layout_width="@dimen/dp_40"
+						android:layout_height="@dimen/dp_40"
+						android:layout_marginTop="@dimen/dp_7"
+						android:background="@drawable/loading_hint"
+						android:gravity="center|bottom"
+						android:paddingBottom="@dimen/dp_3"
+						android:text="定位提示"
+						android:textColor="@color/cornflowerblue8"
+						android:textSize="@dimen/sp_9"
+						android:tag="no"
+						android:visibility="gone" />
+
+
+				</LinearLayout>
+
+			</FrameLayout>
+
+
+			<FrameLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_alignBottom="@+id/frameLayout2"
+				android:layout_centerHorizontal="true"
+				android:layout_marginRight="60dp"
+				android:layout_marginLeft="60dp"
+				android:layout_marginBottom="60dp"
+				android:visibility="visible">
+
+				<TextView
+					android:id="@+id/input_line"
+					android:layout_width="match_parent"
+					android:layout_height="@dimen/dp_46"
+					android:layout_gravity="center_horizontal"
+					android:gravity="center"
+					android:background="@drawable/shape_whate2"
+					android:tag="move"
+					android:text="采集完成,录入管线线数据"
+					android:textColor="@color/cornflowerblue1"
+					android:textSize="@dimen/sp_14"
+					android:visibility="gone" />
+
+
+			</FrameLayout>
+
+			<FrameLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_alignBottom="@+id/frameLayout2"
+				android:layout_centerHorizontal="true"
+				android:layout_marginRight="60dp"
+				android:layout_marginLeft="60dp"
+				android:layout_marginBottom="60dp"
+				android:visibility="visible">
+
+				<TextView
+					android:id="@+id/property"
+					android:layout_width="match_parent"
+					android:layout_height="@dimen/dp_46"
+					android:layout_gravity="center_horizontal"
+					android:gravity="center"
+					android:background="@drawable/shape_whate2"
+					android:tag="move"
+					android:text="填写属性"
+					android:textColor="@color/cornflowerblue1"
+					android:textSize="@dimen/sp_14"
+					android:visibility="gone" />
+
+
+			</FrameLayout>
+
+			<FrameLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_alignBottom="@+id/frameLayout2"
+				android:layout_centerHorizontal="true"
+				android:layout_marginRight="60dp"
+				android:layout_marginLeft="60dp"
+				android:background="@drawable/shape_btn">
+
+				<TextView
+					android:id="@+id/accuratePoint"
+					android:layout_width="match_parent"
+					android:layout_height="@dimen/dp_46"
+					android:layout_gravity="center_horizontal"
+					android:gravity="center"
+					android:text="精准点"
+					android:textColor="@color/white"
+					android:textSize="@dimen/sp_14"
+					android:visibility="gone" />
+
+			</FrameLayout>
+
+			<FrameLayout
+				android:id="@+id/new_projcet"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentBottom="true"
+				android:layout_alignParentRight="true"
+				android:layout_centerHorizontal="true"
+				android:layout_marginBottom="@dimen/dp_100"
+				android:layout_marginRight="@dimen/dp_5"
+				android:background="@drawable/oval">
+
+				<TextView
+					android:layout_width="match_parent"
+					android:layout_height="match_parent"
+					android:layout_gravity="center"
+					android:drawableTop="@drawable/new_projcet"
+					android:gravity="center"
+					android:text="新建"
+					android:textColor="@color/white"
+					android:textSize="@dimen/sp_14"
+					android:visibility="visible" />
+
+			</FrameLayout>
+
+		</RelativeLayout>
+
+	</LinearLayout>
+
+</LinearLayout>

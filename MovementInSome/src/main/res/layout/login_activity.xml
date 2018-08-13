@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sys_login_rl"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#eee"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/login_top_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentTop="true"
+        android:background="#398fdc" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="登	     录"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/logo_layout"
+        android:layout_below="@+id/login_top_layout"
+        android:layout_width="fill_parent"
+        android:visibility="gone"
+        android:layout_height="70dp"
+        android:background="#004785" >
+        
+        <ImageView
+            android:id="@+id/logo_imageview"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"/>
+        
+         <TextView
+            android:id="@+id/logo_textview"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logo_imageview"
+            android:text="管网GIS移动应用平台"
+            android:textColor="#e4e4e4"
+            android:gravity="center"
+            android:textSize="23dp"
+            android:layout_marginTop="4dp"/>
+            
+        
+     </RelativeLayout>
+
+    <RelativeLayout 
+        android:id="@+id/login_user_edit_rl"
+        android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="20dp"
+	    android:layout_marginRight="20dp"
+	    android:layout_marginTop="25dp"
+	    android:layout_below="@+id/logo_layout">
+	    <EditText
+	        android:id="@+id/login_user_edit"
+	        android:layout_width="fill_parent"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/login_editbox"
+	        android:hint="用户名"
+	        android:singleLine="true"
+	        android:textColor="#000"
+	        android:textSize="15sp"
+	        android:paddingLeft="50dip"/>
+	     <ImageView 
+            android:layout_width="22dip"
+	        android:layout_height="22dip"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="12dp"
+	        android:background="@drawable/login_user_icon"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout 
+        android:id="@+id/login_passwd_edit_rl"
+        android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="25dp"
+	    android:layout_below="@+id/login_user_edit_rl">
+    <EditText
+        android:id="@+id/login_passwd_edit"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="50dip"
+        android:background="@drawable/login_editbox"
+        android:hint="密码"
+        android:password="true"
+        android:singleLine="true"
+        android:textColor="#000"
+        android:textSize="15sp" />
+    <ImageView 
+            android:layout_width="22dip"
+	        android:layout_height="22dip"
+	        android:layout_centerVertical="true"
+	        android:layout_marginLeft="12dp"
+	        android:background="@drawable/login_passwd_icon"
+            />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/login_ll_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/login_passwd_edit_rl"
+        android:layout_alignRight="@+id/login_passwd_edit_rl"
+        android:layout_below="@+id/login_passwd_edit_rl"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+
+        <Spinner
+            android:id="@+id/login_map_spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+        <Spinner
+            android:id="@+id/login_speed_type_spinner"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/remember_login_rl"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/login_ll_spinner" >
+
+        <CheckBox
+            android:id="@+id/auto_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/rem_user"
+            android:layout_alignBottom="@+id/rem_user"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="26dp"
+            android:text="@string/aulog"
+            android:textColor="#00f"
+            android:visibility="gone" />
+
+        <CheckBox
+            android:id="@+id/rem_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="15dp"
+            android:text="@string/rememberpassword"
+            android:textColor="#00f" />
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/user_login_rl"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/remember_login_rl" >
+
+        <Button
+            android:id="@+id/user_regedit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="23dp"
+            android:layout_marginTop="5dp"
+            android:background="#0000"
+            android:onClick="login_regedit"
+            android:text="用户注册"
+            android:textColor="#00f"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/login_login_btn"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="20dp"
+        	android:layout_marginLeft="20dp"
+            android:background="#79baf5"
+            android:onClick="login_main"
+            android:text="登	     录"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/config_login_rl"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentLeft="true" >
+
+        <Button
+            android:id="@+id/user_set_system"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            
+            android:layout_marginLeft="23dp"
+            android:background="#0000"
+            android:onClick="login_setSystem"
+            android:text="重新初始化"
+            android:textColor="#00f"
+            android:textSize="16sp" />
+
+        <Button
+            android:visibility="gone"
+            android:id="@+id/user_set_pw"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="20dp"
+            android:background="#0000"
+            android:onClick="login_set_Pw"
+            android:text="修改密码"
+            android:textColor="#00f"
+            android:textSize="16sp" />
+        <Button
+            android:id="@+id/login_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            
+            android:layout_marginRight="20dp"
+            android:background="#0000"
+            android:onClick="login_back"
+            android:text="退出"
+            android:textColor="#00f"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

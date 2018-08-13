@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <!-- 任务列表显示 tl -->
+
+    <LinearLayout
+        android:id="@+id/tlLinearContent"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:background="@drawable/task_gzz_2"
+        android:gravity="center_vertical"
+        android:paddingBottom="5dip"
+        android:paddingTop="5dip" >
+
+        <TextView
+            android:id="@+id/tlTv_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/task_fg"
+            android:gravity="center"
+            android:paddingLeft="5dip"
+            android:textColor="#333333"
+            android:textSize="14dip" />
+
+        <TextView
+            android:id="@+id/tltv_content"
+            style="@style/myPhoneTvType"
+            android:layout_weight="1.0"
+            android:paddingLeft="5dip"
+            android:textSize="12dip" />
+
+        <Button
+            android:id="@+id/xxbtnKPD"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="详细信息" />
+
+        <Button
+            android:id="@+id/xxbtnKPR"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="检查记录" />
+
+        <Button
+            android:id="@+id/xxbtnKPM"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="地图" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="road_flooded_condition" name="洪涝反馈" submitTo="loopback" table="INS_DRAINAGE_RECORD" page="one">
+	   	<params>
+			<param name="senderId" type="c" required="Y" defValue="" io="i"/>
+			<param name="senderNum" type="c" required="Y" defValue="" io="i"/>
+			<param name="senderName" type="c" required="Y" defValue="" io="i"/>
+			<param name="workTaskNum" type="c" required="Y" defValue="" io="i"/>
+		</params>
+	
+		<page id="1" name="洪涝反馈" model="flow">
+		    <group id="1" name="洪涝反馈" display="Y" type="common">
+		    	<field name="waterDepth" label="水深" type="numeric" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		    	<field name="camera1" label="现场照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>	
+		    	<field name="remarks" label="备注" type="memo" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>
+			<group id="2" name="系统信息" display="N" type="common">
+			    <field name="workTaskNum" label="任务编号" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":senderId" options="" listKey="" rule=""/>
+		    	<field name="senderId" label="信息发送人id" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":senderId" options="" listKey="" rule=""/>
+			    <field name="senderNum" label="信息发送人编号" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":senderNum" options="" listKey="" rule=""/>
+			    <field name="senderName" label="信息发送人名称" type="system" readOnly="N"  required="N" maxLength="20" defValue=":senderName" options="" listKey="" rule=""/>
+			 </group>
+			
+		</page>
+		
+	</form>
+</axf>

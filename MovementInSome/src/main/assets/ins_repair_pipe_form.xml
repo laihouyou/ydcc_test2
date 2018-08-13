@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="ins_repair_pipe" name="管道事故记录单"  table="Ins_Task_Repairing_Info" submitTo="loopback" page="one">
+	   	<params>
+		    <param name="serialNumber" type="c" required="Y" defValue="" io="i"></param>
+		    <param name="triType" type="c" required="Y" defValue="" io="i"></param>
+ 			<param name="workTaskNum" type="c" required="Y" defValue="" io="i"></param>
+ 
+			<param name="cfNum" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="cfPhone" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="cfAddr" field="" type="c" required="Y" defValue="" io="i"></param>	
+			<param name="cfPeople" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="cfSource" type="c" required="Y" defValue="" io="i"/>
+			
+			<param name="sources" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="patrolPerson" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="phone" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="addr" field="" type="c" required="Y" defValue="" io="i"></param>	
+			<param name="reportedDate" field="" type="c" required="Y" defValue="" io="i"></param>
+			
+			<param name="facilitiesCaliber" field="" type="c" required="Y" defValue="" io="i"></param>
+			<param name="facilitiesMaterial" field="" type="c" required="Y" defValue="" io="i"></param>
+				
+			<param name="results" field="result" type="c" required="Y" defValue="" io="o"></param>
+			<param name="beginHandlePeople" field="handlePeople" type="c" required="Y" defValue="" io="o"></param>
+			<param name="beginHandleDate" field="beginHandleDate" type="c" required="Y" defValue="" io="o"></param>
+			<param name="endHandlePeople" field="handlePeople" type="c" required="Y" defValue="" io="o"></param>
+			<param name="endHandleDate" field="handleDate" type="c" required="Y" defValue="" io="o"></param>
+			<param name="sources" type="c" required="Y" defValue="" io="i"/>
+			
+			
+			<param name="taskSections" field="" type="c" required="Y" defValue="" io="i"></param>	
+			<param name="taskSectionsNum" field="" type="c" required="Y" defValue="" io="i"></param>
+		</params>
+	
+		<page id="1" name="管道事故信息">
+			<group id="1" name="基本信息" display="N" type="common">
+			    <field name="workTaskNum" label="编号" type="text" readOnly="N"  required="N" maxLength="20" defValue=":workTaskNum" options="" listKey=""/>
+<!-- 				<field name="cfNum" label="投诉编号" type="text" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+ -->			<field name="workDate" label="日期" type="date" readOnly="N"  required="N" maxLength="20" defValue="date()" options="" listKey=""/>
+				<field name="weather" label="天气" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="晴|多云|阴|阵雨|雷阵雨|小雨|中雨|大雨|暴雨|大暴雨|特大暴雨|小到中雨|中到大雨|大到暴雨|暴雨到大暴雨|大暴雨到特大暴雨|雾|霾" listKey=""/>
+				<field name="sources" label="信息来源" type="choice" readOnly="N"  required="N" maxLength="20" defValue=":sources,:cfSource" options="客联中心|数字化城管|巡查|用户|自查|其他" listKey="0002"/>
+				<field name="reportedPerson" label="报告人姓名" type="text" readOnly="N"  required="N" maxLength="20" defValue=":patrolPerson,:cfPeople" options="" listKey=""/>
+				<field name="mobilePhone" label="电话" type="numeric" readOnly="N"  required="N" maxLength="20" defValue=":phone,:cfPhone" options="" listKey=""/>
+				<!-- <field name="taskSections" label="任务路段" type="text" readOnly="N"  required="N" maxLength="20" defValue=":taskSections" options="" listKey=""/> -->
+				<field name="facilitiesAddr" label="任务地址" type="text" readOnly="N"  required="N" maxLength="20" defValue=":addr,:cfAddr,addr()" options="" listKey=""/>
+			</group>	
+			<group id="2" name="任务位置" display="Y" type="common">	
+			    <field name="accidentLocation" label="位置" type="choice" readOnly="N"  required="Y" maxLength="20" defValue="" options="市政路|人行道|绿化带|小区|自然村" listKey=""/>
+			    <field name="distance" label="路程" type="choice" readOnly="N"  required="Y" maxLength="20" defValue="" options="0km|≤5km|0~10km|≥10km" listKey=""/>
+			</group>
+			<group id="3" name="事故类别" display="Y" type="common">
+				<field name="incidentsCategory" label="类别" type="radio" readOnly="N"  required="N" maxLength="20" defValue="自燃爆管" options="自燃爆管|人为打爆" listKey=""/>
+				<field name="damagedPartsArea" label="破损部位面积(平米)" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="0" options="" listKey=""/>
+				<field name="pressure" label="水压(米)" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="0" options="" listKey=""/>
+				<field name="pipeLeakageTime" label="爆管漏水时间(小时)" type="numeric" readOnly="N"  required="N" maxLength="2000" defValue="0" options="" listKey=""/>
+			</group>				
+            <group id="4" name="实施停水" display="Y" type="common">
+  				<field name="withoutWater" label="实施停水" type="radio" readOnly="N"  required="N" maxLength="20" defValue="否" options="是|否" listKey=""/>
+  				<field name="wwmpCaliber" label="停水主管径DN" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+  				<field name="wwmpLength" label="管长(米)" type="numeric" readOnly="N"  required="N" maxLength="2000" defValue="" options="" listKey=""/>				
+  				<field name="openMudValveCaliber" label="开排泥阀口径DN" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="0" options="" listKey=""/>
+				<field name="openMudValveTime" label="排水时间(小时)" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="0" options="" listKey=""/>
+  			</group>
+  			<group id="5" name="通水排放" display="Y" type="common">	
+  				<field name="openHydrantsQuantity" label="开消防栓(座)" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="0" options="" listKey=""/>
+				<field name="otherCaliber" label="拆表或其他:口径DN" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="0" options="" listKey=""/>
+				<field name="otherQuantity" label="拆表或其他:数量" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="0" options="" listKey=""/>
+				<field name="passWaterEmissionsTime" label="拆表或其他:排水时间(小时)" type="numeric" readOnly="N"  required="N" maxLength="20" defValue="0" options="" listKey=""/>
+			</group>
+			
+			<group id="6" name="事故详情" display="Y" type="common">
+			    <field name="facilitiesCaliber" label="管道:DN" type="numeric" readOnly="N"  required="N" maxLength="20" defValue=":facilitiesCaliber" options="" listKey="" rule=""/>
+			    <field name="de" label="管道:de/dn" type="numeric" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			    <field name="excavationType" label="开挖方式" type="radio" readOnly="N" required="Y" maxLength="20" defValue="人工开挖" options="非开挖|人工开挖|机械开挖" listKey="" rule=""/>
+			    <field name="facilitiesMaterial" label="管材" type="choice" readOnly="N" required="Y" maxLength="20" defValue=":facilitiesMaterial" options="钢管|PE管|钢塑管|PVC管|灰口铸铁管|球墨铸铁管|镀锌管|砼管|其他" listKey="" rule=""/>
+			    <field name="faultLocation" label="故障部位" type="choice" readOnly="N" required="Y" maxLength="20" defValue="" options="管身(含 同径接口)|弯头|三通|异径接口|表尾" listKey="" rule=""/>
+			    <field name="handleContent" label="维修方式" type="mselect" readOnly="N" required="Y" maxLength="20" defValue="" options="抢修器|现场焊接包箍|更换管道|更换管道(焊接)|更换管件|焊接|打水泥口" listKey="" rule=""/>
+			    <field name="excavationDepth" label="开挖深度" type="choice" readOnly="N" required="Y" maxLength="20" defValue="" options="地面明管|挖深h≤1m|挖深1m≤h≤2m|挖深2m≤h≤3m|挖深3m以上" listKey="" rule=""/>
+			    <field name="pavementType" label="地理情况" type="choice" readOnly="N" required="Y" maxLength="20" defValue="" options="沥青砼路面|砼路面|大理石或瓷片|砾石|粘土或砂粘土" listKey="" rule=""/>
+			</group>
+			 <group id="7" name="现场信息" display="Y" type="attach">
+		        <field name="workingPlac" label="具体位置" type="maptext" readOnly="N"  required="Y" maxLength="20" defValue="mapcoord()" options="" listKey="" rule=""/>
+			    <field name="camera1" label="处理前照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>	
+			    <field name="camera2" label="处理后照片" type="camera" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>
+			</group>
+			
+<!-- 			<group id="8" name="派工部门" display="Y" type="common">
+				<field name="dispatchUName" label="签名" type="text" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+				<field name="dispatchTime" label="派工时间" type="date" readOnly="N"  required="N" maxLength="20" defValue="date()" options="" listKey=""/>
+			</group> -->
+			<group id="9" name="处理结果" display="Y" type="common">
+				<field name="result" label="处理结果" type="choice" readOnly="N"  required="N" maxLength="20" defValue="" options="正在处理中|处理完毕|不在责任范围|其化" listKey=""/>
+				<field name="leader" label="责任人" type="text" readOnly="N"  required="N" maxLength="20" defValue="username()" options="" listKey=""/>
+			</group>
+			<group id="10" name="第一时段参加人员及作业时间" display="Y" type="common">
+			    <field name="workers1" label="参加人员" type="memo" readOnly="N"  required="Y" maxLength="20" defValue="username()" options="" listKey=""/>
+			    <field name="sTime1" label="开始时间" type="datetime" readOnly="N"  required="Y" maxLength="20" defValue="datetime()" options="" listKey=""/>
+			 	<field name="eTime1" label="结束时间" type="datetime" readOnly="N"  required="Y" maxLength="20" defValue="datetime()" options="" listKey=""/>
+			</group>
+			
+			<group id="11" name="第二时段参加人员及作业时间" display="Y" type="common">
+			    <field name="workers2" label="参加人员" type="memo" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			    <field name="sTime2" label="开始时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="datetime()" options="" listKey=""/>
+			 	<field name="eTime2" label="结束时间" type="datetime" readOnly="N"  required="N" maxLength="20" defValue="datetime()" options="" listKey=""/>
+			</group>
+			
+			<group id="12" name="备注" display="Y" type="common">
+			    <field name="remark" label="备注" type="memo" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>
+			
+			<group id="13" name="系统信息" display="N" type="common">
+<!-- 			    <field name="serialNumber" label="serialNumber" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":serialNumber" options="" listKey="" rule=""/>
+			    <field name="pid" label="pid" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":pid" options="" listKey="" rule=""/>
+ -->			    <field name="triType" label="triType" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":triType,0" options="" listKey="" rule=""/>
+			    <field name="handleCategory" label="handleCategory" type="system" readOnly="N"  required="Y" maxLength="20" defValue="管道事故" options="" listKey="" rule=""/>
+			    <field name="taskSectionsNum" label="路段编号" type="system" readOnly="N"  required="N" maxLength="20" defValue=":taskSectionsNum" options="" listKey="" rule=""/>
+			 </group>
+		</page>
+	</form>
+</axf>

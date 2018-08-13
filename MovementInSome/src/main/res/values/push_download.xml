@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="lsxj">
+        <item>任务编号</item>
+        <item>任务名称</item>
+        <item>任务地点</item>
+        <item>主要工作</item>
+        <item>开始时间</item>
+        <item>完成时间</item>
+        <item>备注</item>
+    </string-array>
+    <string-array name="tsgd">
+        <item>投诉编号</item>
+        <item>信息来源</item>
+        <item>投诉类型</item>
+        <item>投诉时间</item>
+        <item>地点</item>
+        <item>投诉范围</item>
+        <item>投诉内容</item>
+        <item>接待单位</item>
+        <item>接待员</item>
+        <item>投诉人</item>
+        <item>电话</item>
+        <item>开始处理人</item>
+        <item>开始处理时间</item>
+        <item>结束处理人</item>
+        <item>结束处理时间</item>
+        <item>处理结果</item>
+    </string-array>
+    
+        <string-array name="tyxc">
+        <item>问题类型</item>
+        <item>问题描述</item>
+        <item>管理单位</item>
+        <item>具体位置</item>
+        <item>反映人</item>
+        <item>反映时间</item>
+        <item>联系电话</item>
+    </string-array>
+    
+    <string-array name="wtgd">
+        <item>信息来源</item>
+        <item>设施口径</item>
+        <item>设施材质</item>
+        <item>发生地址</item>
+        <item>紧急程度</item>
+        <item>巡线员</item>
+        <item>联系方式</item>
+        <item>设施类型</item>
+        <item>反映时间</item>
+        <item>反映类别</item>
+        <item>反映内容</item>
+        <item>处理人</item>
+        <item>处理时间</item>
+        <item>处理结果</item>
+    </string-array>
+    <string-array name="gdda">
+        <item>工程档案编号</item>
+        <item>项目名称</item>
+        <item>详细位置</item>
+        <item>所在路段</item>
+        <item>项目负责人</item>
+        <item>施工单位</item>
+        <item>施工方电话</item>
+        <item>施工工期开始日期</item>
+        <item>施工工期结束日期</item>
+    </string-array>
+    <string-array name="jhqs">
+        <item>清疏编号</item>
+        <item>路段</item>
+        <item>区所</item>
+        <item>污水管渠长</item>
+        <item>污水管渠尺寸</item>
+        <item>雨水管渠长</item>
+        <item>雨水管渠尺寸</item>
+        <item>雨水口数量</item>
+        <item>污水检查井数量</item>
+        <item>雨水检查井数量</item>
+        
+        <item>已检污水管渠长</item>
+        <item>已检雨水管渠长</item>
+        <item>已检雨水口数量</item>
+        <item>已检污水检查井数量</item>
+        <item>已检雨水检查井数量</item>
+    </string-array>
+    <string-array name="fac">
+        <item>任务编号</item>
+        <item>管理单位</item>
+        <item>设施名称</item>
+        <item>设施编号</item>
+        <item>详细位置</item>
+        <item>故障内容</item>
+        <item>备注</item>
+    </string-array>
+</resources>

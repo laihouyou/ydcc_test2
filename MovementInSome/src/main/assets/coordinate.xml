@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<axf>
+	<form id="INS_COOPERATE_FORM" name="配合工作" table="INS_COOPERATE_FORM" submitTo="loopback" page="one">
+	   	<params>
+			<param name="workTaskAddr" type="c" required="Y" defValue="" io="i"/>
+			<param name="workTaskWork" type="c" required="Y" defValue="" io="i"/>
+			<param name="receiveDate" type="c" required="Y" defValue="" io="i"/>
+		</params>
+	
+		<page id="1" name="配合工作">
+		    <group id="1" name="配合工作" display="Y" type="common">
+		    	<field name="workTaskSDate" label="开始时间" type="datetime" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey=""/>
+		    	<field name="workTaskEDate" label="结束时间" type="datetime" readOnly="N" required="N" maxLength="20" defValue="" options="" listKey="" rule=""/>	
+		    	<field name="workTaskRemarks" label="备注" type="memo" readOnly="N"  required="N" maxLength="20" defValue="" options="" listKey=""/>
+			</group>
+			<group id="2" name="系统信息" display="N" type="common">
+		    	<field name="workTaskAddr" label="workTaskAddr" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":workTaskWork" options="" listKey="" rule=""/>
+			    <field name="workTaskWork" label="workTaskWork" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":workTaskAddr" options="" listKey="" rule=""/>
+			    <field name="receiveDate" label="receiveDate" type="system" readOnly="N"  required="Y" maxLength="20" defValue=":receiveDate" options="" listKey="" rule=""/>
+			 </group>
+			
+		</page>
+	</form>
+</axf>

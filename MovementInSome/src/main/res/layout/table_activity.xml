@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#f5f3f3"
+    android:orientation="vertical" >
+
+    <!-- 表单上报 -->
+
+    <RelativeLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:background="#398fdc" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="应用功能"
+            android:textColor="#ffffff"
+            android:textSize="18sp"/>
+    </RelativeLayout>
+
+    <GridView
+        android:id="@+id/gridViewApp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:columnWidth="90dp"
+        android:gravity="center"
+		android:divider="@color/olive"
+		android:dividerHeight="2dp"
+		android:verticalSpacing="0.0px" 
+        android:horizontalSpacing="0.0px"
+        android:listSelector="@null"
+        android:numColumns="3"
+       	android:scrollbars="none"
+        android:stretchMode="columnWidth" >
+    </GridView>
+</LinearLayout>
