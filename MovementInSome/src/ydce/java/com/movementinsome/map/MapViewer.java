@@ -26,13 +26,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amap.api.maps.AMap;
+import com.amap.api.maps.AMapUtils;
 import com.amap.api.maps.MapView;
+import com.amap.api.maps.model.CameraPosition;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.Polyline;
 import com.amap.api.services.core.AMapException;
+import com.amap.api.services.core.LatLonPoint;
 import com.amap.api.services.geocoder.GeocodeResult;
 import com.amap.api.services.geocoder.GeocodeSearch;
+import com.amap.api.services.geocoder.RegeocodeQuery;
 import com.amap.api.services.geocoder.RegeocodeResult;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
@@ -40,16 +44,12 @@ import com.baidu.mapapi.map.BitmapDescriptorFactory;
 import com.baidu.mapapi.map.InfoWindow;
 import com.baidu.mapapi.map.MapPoi;
 import com.baidu.mapapi.map.MapStatus;
-import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.Overlay;
 import com.baidu.mapapi.map.OverlayOptions;
-import com.baidu.mapapi.map.Polyline;
 import com.baidu.mapapi.map.PolylineOptions;
-import com.baidu.mapapi.search.geocode.GeoCoder;
-import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
 import com.baidu.mapapi.utils.DistanceUtil;
 import com.baidu.overlayutil.LineOverlay;
 import com.baidu.overlayutil.PoiOverlay;
@@ -120,7 +120,7 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
         AMap.OnMarkerDragListener,
         AMap.OnMapClickListener, AMap.OnMyLocationChangeListener,
         View.OnTouchListener, AdapterView.OnItemClickListener,
-        AMap.OnPolylineClickListener,AMap.OnMapStatusChangeListener{
+        AMap.OnPolylineClickListener,AMap.OnCameraChangeListener{
     private MyMapView arcMapview;
 
     public static final String TAG = ContentValues.TAG;
@@ -141,7 +141,7 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
     private Marker marker;
     private CreateFiles createFiles;
     private String pointAddress = new String();
-    private GeoCoder mGeoCoder = null;
+    private GeocodeSearch mGeoCoder = null;
     private static LatLng cenpt;    //bd09类型坐标
     private LatLng cenpt_wgs84;    //wgs84类型坐标
     private BitmapDescriptor bitmap;
@@ -149,7 +149,6 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
 
     private OkHttpRequest okHttpRequest;
 
-    private List<Overlay> mOverlayList = null;//已完成的点图层
     private List<Polyline> mBaidPolyline;
 
     public List<String> mType;
@@ -210,10 +209,6 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
     private FrameLayout facility;//左边的设施
     private MaxHeightListView facilityListview;
     private CommonListViewAdapter facilityAdapter;
-
-    private float currentZoomLevel = 0;
-    private float maxZoomLevel = 0;
-    private float minZoomLevel = 0;
 
     public CustomDialog customDialog;
     public CustomDialog customDialog1;
@@ -312,8 +307,8 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
 
         createFiles = new CreateFiles();
 
-        mGeoCoder = GeoCoder.newInstance();
-        mGeoCoder.setOnGetGeoCodeResultListener(this);
+        mGeoCoder = new GeocodeSearch(this);
+        mGeoCoder.setOnGeocodeSearchListener(this);
 
         arcMapview = (MyMapView) findViewById(R.id.myMapView);//
         arcMapview.setMapPopupWindow(this);
@@ -607,61 +602,6 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
         }
     }
 
-    @Override
-    public void onMapStatusChangeStart(MapStatus mapStatus) {
-
-    }
-
-    @Override
-    public void onMapStatusChangeStart(MapStatus mapStatus, int i) {
-
-    }
-
-    @Override
-    public void onMapStatusChange(MapStatus mapStatus) {
-        maxZoomLevel = mBaiduMap.getMaxZoomLevel();
-        minZoomLevel = mBaiduMap.getMinZoomLevel();
-
-        currentZoomLevel = mapStatus.zoom;
-
-        if (currentZoomLevel >= maxZoomLevel) {
-            currentZoomLevel = maxZoomLevel;
-        } else if (currentZoomLevel <= minZoomLevel) {
-            currentZoomLevel = minZoomLevel;
-        }
-
-        if (currentZoomLevel == maxZoomLevel) {
-            //设置地图缩放等级为上限
-            MapStatusUpdate u = MapStatusUpdateFactory.zoomTo(currentZoomLevel);
-            mBaiduMap.animateMapStatus(u);
-            map_blow_up.setEnabled(false);
-        } else if (currentZoomLevel == minZoomLevel) {
-            //设置地图缩放等级为下限
-            MapStatusUpdate u = MapStatusUpdateFactory.zoomTo(currentZoomLevel);
-            mBaiduMap.animateMapStatus(u);
-            map_shrink.setEnabled(false);
-        } else {
-            if (!map_blow_up.isEnabled() || !map_shrink.isEnabled()) {
-                map_blow_up.setEnabled(true);
-                map_shrink.setEnabled(true);
-            }
-        }
-    }
-
-    @Override
-    public void onMapStatusChangeFinish(MapStatus mapStatus) {
-        if (centerLatlng == null) {
-            centerLatlng = mapStatus.target;
-        } else {
-            if (DistanceUtil.getDistance(mapStatus.target, centerLatlng) > AppContext.getInstance().getCollectionScope()) {
-                centerLatlng = mapStatus.target;
-                if (!projectId.equals("")){
-                    showMaker(currentProject,false);
-                }
-            }
-        }
-
-    }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -1812,12 +1752,12 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                     .accuracy(0)            //半径设置0米
                     // 此处设置开发者获取到的方向信息，顺时针0-360
                     .direction(locationInfoExt.getBearing())
-                    .latitude(locationInfoExt.getLatitude_gcj02())
-                    .longitude(locationInfoExt.getLongitude_gcj02())
+                    .latitude(locationInfoExt.getLatitude_bd09())
+                    .longitude(locationInfoExt.getLongitude_bd09())
                     .build();
             mBaiduMap.setMyLocationData(locData);
-            cenpt = new LatLng(locationInfoExt.getLatitude_gcj02(),
-                    locationInfoExt.getLongitude_gcj02());
+            cenpt = new LatLng(locationInfoExt.getLatitude_bd09(),
+                    locationInfoExt.getLongitude_bd09());
             cenpt_wgs84 = new LatLng(locationInfoExt.getLatitude(),
                     locationInfoExt.getLongitude());
             Log.i("cenpt", "(" + cenpt.longitude + "," + cenpt.latitude + ")");
@@ -2003,8 +1943,10 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
 
     @Override
     public void onMapClick(LatLng latLng) {
-        mGeoCoder.reverseGeoCode(new ReverseGeoCodeOption()
-                .location(latLng));
+        LatLonPoint latLonPoint=new LatLonPoint(latLng.latitude,latLng.longitude);
+        RegeocodeQuery query = new RegeocodeQuery(latLonPoint, 200,
+                GeocodeSearch.AMAP);// 第一个参数表示一个Latlng，第二参数表示范围多少米，第三个参数表示是火系坐标系还是GPS原生坐标系
+        geocoderSearch.getFromLocationAsyn(query);// 设置异步逆地理编码请求
         switch ((String) pointChangeLineBtn.getTag()) {
             //点
             case MapMeterMoveScope.POINT:
@@ -2767,6 +2709,25 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
 
     }
 
+    @Override
+    public void onCameraChange(CameraPosition cameraPosition) {
+
+    }
+
+    @Override
+    public void onCameraChangeFinish(CameraPosition cameraPosition) {
+        if (centerLatlng == null) {
+            centerLatlng = cameraPosition.target;
+        } else {
+            if (AMapUtils.calculateArea(cameraPosition.target, centerLatlng) > AppContext.getInstance().getCollectionScope()) {
+                centerLatlng = cameraPosition.target;
+                if (!projectId.equals("")){
+                    showMaker(currentProject,false);
+                }
+            }
+        }
+    }
+
     // 获取实时坐标广播数据
     private class TraceReceiver extends BroadcastReceiver {
 
@@ -2880,10 +2841,6 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
         return super.onKeyDown(keyCode, event);
     }
 
-
-    public void setmOverlayList(List<Overlay> mOverlayList) {
-        this.mOverlayList = mOverlayList;
-    }
 
     private void setHintVible(boolean isVible) {
         if (isVible) {
