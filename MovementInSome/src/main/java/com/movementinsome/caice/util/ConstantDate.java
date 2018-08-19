@@ -29,5 +29,7 @@ public class ConstantDate {
 	public final static String ISSUCCESSION_NO = "isSuccession_no";                  //普通采集
 	public final static String ISSUCCESSION_LINE_ADD_POIN = "isSuccession_line_add_poin";                  //管线加点采集
 
+	public final static String INFOWINDOW_POI = "infoWindowPoi";                  //显示infoWindow的poi点
+
 
 }

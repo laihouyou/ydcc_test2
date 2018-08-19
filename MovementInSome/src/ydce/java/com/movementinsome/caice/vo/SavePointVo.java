@@ -1,7 +1,7 @@
 package com.movementinsome.caice.vo;
 
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.utils.DistanceUtil;
+import com.amap.api.maps.AMapUtils;
+import com.amap.api.maps.model.LatLng;
 import com.google.gson.Gson;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
@@ -424,7 +424,7 @@ public class SavePointVo implements Serializable{
                     LatLng endLatLng = new LatLng(Double.parseDouble(pointLngLatEndData[1])
                             , Double.parseDouble(pointLngLatEndData[0]));
 
-                    lineLenght+=DistanceUtil.getDistance(startLatLng,endLatLng);
+                    lineLenght+= AMapUtils.calculateLineDistance(startLatLng,endLatLng);
                 }
             }
         }
