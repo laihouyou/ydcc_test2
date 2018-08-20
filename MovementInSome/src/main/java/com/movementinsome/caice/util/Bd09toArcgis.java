@@ -1,6 +1,6 @@
 package com.movementinsome.caice.util;
 
-import com.baidu.mapapi.model.LatLng;
+import com.amap.api.maps.model.LatLng;
 import com.esri.core.geometry.Point;
 import com.movementinsome.AppContext;
 import com.movementinsome.kernel.initial.model.CoordParam;

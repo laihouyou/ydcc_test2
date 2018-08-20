@@ -19,10 +19,13 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
 import com.amap.api.maps.AMap;
+import com.amap.api.maps.CameraUpdateFactory;
+import com.amap.api.maps.CoordinateConverter;
 import com.amap.api.maps.MapView;
+import com.amap.api.maps.model.CameraPosition;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
-import com.baidu.BaiduAppProxy;
+import com.amap.api.maps.model.Polyline;
 import com.google.gson.Gson;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.QueryBuilder;
@@ -63,8 +66,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-
-import static com.movementinsome.kernel.location.coordinate.Gcj022Bd09.bd09Encrypt;
 
 /**
  * 地图操作类(操作放到这里类以减少activity里的代码量)
@@ -470,7 +471,7 @@ public class ProjectManipulation {
                             @Override
                             public void onClick(View v) {
                                 try {
-                                    MapStatus.Builder builder = new MapStatus.Builder();
+//                                    MapStatus.Builder builder = new MapStatus.Builder();
 
                                     if (moveLog.getText().toString().equals("") || moveLat.getText().toString().equals("")) {
                                         Toast.makeText(mActivity, "经纬度不能为空", Toast.LENGTH_SHORT).show();
@@ -484,7 +485,7 @@ public class ProjectManipulation {
                                         case OkHttpParam.WGS84:
 //                                            Map<String, Double> localHashMap = Gcj022Gps.wgs2gcj(edlog, edlat);
 //                                            LatLng latlng1 = new LatLng(localHashMap.get("lat"), localHashMap.get("lon"));
-                                            LatLng latlng1=BaiduCoordinateTransformation.wgs84ToBd09(new LatLng(edlat,edlog));
+                                            LatLng latlng1= BaiduCoordinateTransformation.toGcj02(edlog,edlat, CoordinateConverter.CoordType.GPS);
 
                                             if (continuity_point.getTag().toString().equals("yes")) {    //说明是连续采点
                                                 mActivity.consecutiveCollection(latlng1,
@@ -500,14 +501,18 @@ public class ProjectManipulation {
                                                         ConstantDate.ISSUCCESSION_NO);
                                             }
 
-                                            builder.target(latlng1);
-                                            builder.zoom(18.0f);
-                                            aMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+//                                            builder.target(latlng1);
+//                                            builder.zoom(18.0f);
+//                                            aMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+
+                                            CameraPosition cameraPosition=new CameraPosition(latlng1,18,0,0);
+                                            aMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                                             mActivity.customDialog.dismiss();
                                             break;
                                         case OkHttpParam.GCJ02:
+//                                            Map<String, Double> localHashMap1 = Gcj022Gps.gcj2wgs(edlog, edlat);
+                                            LatLng latlng=new LatLng(edlat,edlog);
                                             Map<String, Double> localHashMap1 = Gcj022Gps.gcj2wgs(edlog, edlat);
-                                            LatLng latlng=BaiduCoordinateTransformation.gcj02ToBd09(new LatLng(edlat,edlog));
 
                                             if (continuity_point.getTag().toString().equals("yes")) {    //说明是连续采点
                                                 mActivity.consecutiveCollection(latlng,
@@ -523,9 +528,11 @@ public class ProjectManipulation {
                                                         ConstantDate.ISSUCCESSION_NO);
                                             }
 
-                                            builder.target(latlng);
-                                            builder.zoom(18.0f);
-                                            aMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+//                                            builder.target(latlng);
+//                                            builder.zoom(18.0f);
+//                                            aMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+                                            CameraPosition cameraPosition1=new CameraPosition(latlng,18,0,0);
+                                            aMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition1));
                                             mActivity.customDialog.dismiss();
                                             break;
                                     }
@@ -584,7 +591,7 @@ public class ProjectManipulation {
                             @Override
                             public void onClick(View v) {
                                 try {
-                                    MapStatus.Builder builder = new MapStatus.Builder();
+//                                    MapStatus.Builder builder = new MapStatus.Builder();
 
                                     if (moveLog.getText().toString().equals("") || moveLat.getText().toString().equals("")) {
                                         Toast.makeText(mActivity, "经纬度不能为空", Toast.LENGTH_SHORT).show();
@@ -595,13 +602,15 @@ public class ProjectManipulation {
                                     double edlat = Double.parseDouble(moveLat.getText().toString());
                                     switch (SpinnerStr) {
                                         case OkHttpParam.WGS84:
-                                            Map<String, Double> localHashMap = Gcj022Gps.wgs2gcj(edlog, edlat);
-                                            double lonlat1[] = bd09Encrypt(localHashMap.get("lat"), localHashMap.get("lon"));
-                                            LatLng latlng1 = new LatLng(lonlat1[1], lonlat1[0]);
+//                                            Map<String, Double> localHashMap = Gcj022Gps.wgs2gcj(edlog, edlat);
+//                                            double lonlat1[] = bd09Encrypt(localHashMap.get("lat"), localHashMap.get("lon"));
+                                            LatLng latlng1 = BaiduCoordinateTransformation.toGcj02(edlog,edlat, CoordinateConverter.CoordType.GPS);
 
-                                            builder.target(latlng1);
-                                            builder.zoom(18.0f);
-                                            aMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+//                                            builder.target(latlng1);
+//                                            builder.zoom(18.0f);
+//                                            aMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+                                            CameraPosition cameraPosition1=new CameraPosition(latlng1,18,0,0);
+                                            aMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition1));
                                             mActivity.customDialog.dismiss();
 
                                             //绘制线
@@ -609,12 +618,11 @@ public class ProjectManipulation {
 
                                             break;
                                         case OkHttpParam.GCJ02:
-                                            double lonlat[] = bd09Encrypt(edlat, edlog);
-                                            LatLng latlng = new LatLng(lonlat[1], lonlat[0]);
+//                                            double lonlat[] = bd09Encrypt(edlat, edlog);
+                                            LatLng latlng = new LatLng(edlat, edlog);
 
-                                            builder.target(latlng);
-                                            builder.zoom(18.0f);
-                                            aMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+                                            CameraPosition cameraPosition=new CameraPosition(latlng,18,0,0);
+                                            aMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                                             mActivity.customDialog.dismiss();
 
                                             //绘制线
@@ -721,10 +729,13 @@ public class ProjectManipulation {
                 break;
         }
 
-        MapStatus.Builder builder1 = new MapStatus.Builder();
-        builder1.target(cenpt);
-        builder1.zoom(18.0f);
-        aMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder1.build()));
+//        MapStatus.Builder builder1 = new MapStatus.Builder();
+//        builder1.target(cenpt);
+//        builder1.zoom(18.0f);
+//        aMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder1.build()));'
+
+        CameraPosition cameraPosition=new CameraPosition(cenpt,18,0,0);
+        aMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }
 
     /**
@@ -733,7 +744,7 @@ public class ProjectManipulation {
      * @param linePointOverlayList
      * @param input_line
      */
-    public void pointChangeLineBtn_Onclick(List<LatLng> linePointList, List<Overlay> linePointOverlayList,
+    public void pointChangeLineBtn_Onclick(List<LatLng> linePointList, List<Polyline> linePointOverlayList,
                                            View input_line,String isSuccession){
         if (linePointList.size() > 0) {
             cleanLinePoint(R.id.pointChangeLineBtn,linePointList,linePointOverlayList,input_line,isSuccession);
@@ -748,7 +759,7 @@ public class ProjectManipulation {
      * @param linePointOverlayList
      * @param input_line
      */
-    public void draw_point_Onclick(List<LatLng> linePointList, List<Overlay> linePointOverlayList,
+    public void draw_point_Onclick(List<LatLng> linePointList, List<Polyline> linePointOverlayList,
                                    View input_line,String isSuccession){
         if (linePointList.size() > 0) {
             cleanLinePoint(R.id.draw_point,linePointList,linePointOverlayList,input_line,isSuccession);
@@ -764,7 +775,7 @@ public class ProjectManipulation {
      * @param linePointOverlayList
      * @param input_line
      */
-    public void continuity_point_Onclick(List<LatLng> linePointList, List<Overlay> linePointOverlayList,
+    public void continuity_point_Onclick(List<LatLng> linePointList, List<Polyline> linePointOverlayList,
                                          View input_line,String isSuccession){
         if (linePointList.size() > 0) {
             cleanLinePoint(R.id.continuity_point,linePointList,linePointOverlayList,input_line,isSuccession);
@@ -779,7 +790,7 @@ public class ProjectManipulation {
      * @param linePointOverlayList
      * @param input_line
      */
-    public void continuity_line_Onclick(List<LatLng> linePointList, List<Overlay> linePointOverlayList,
+    public void continuity_line_Onclick(List<LatLng> linePointList, List<Polyline> linePointOverlayList,
                                         View input_line,String isSuccession){
         if (linePointList.size() > 0) {
             cleanLinePoint(R.id.continuity_line,linePointList,linePointOverlayList,input_line,isSuccession);
@@ -794,7 +805,7 @@ public class ProjectManipulation {
      * @param linePointOverlayList
      * @param input_line
      */
-    public void over_projcet_Onclick(List<LatLng> linePointList, List<Overlay> linePointOverlayList,
+    public void over_projcet_Onclick(List<LatLng> linePointList, List<Polyline> linePointOverlayList,
                                      View input_line,String isSuccession){
         if (linePointList.size() > 0) {
             cleanLinePoint(R.id.over_projcet,linePointList,linePointOverlayList,input_line,isSuccession);
@@ -809,7 +820,7 @@ public class ProjectManipulation {
      * @param linePointOverlayList
      * @param input_line
      */
-    public void line_add_point_Onclick(List<LatLng> linePointList, List<Overlay> linePointOverlayList,
+    public void line_add_point_Onclick(List<LatLng> linePointList, List<Polyline> linePointOverlayList,
                                        View input_line,String isSuccession){
         if (linePointList.size() > 0) {
             cleanLinePoint(R.id.line_add_point,linePointList,linePointOverlayList,input_line,isSuccession);
@@ -826,7 +837,7 @@ public class ProjectManipulation {
      * @param input_line
      */
     private void cleanLinePoint(final int viewId, final List<LatLng> linePointList,
-                                final List<Overlay> linePointOverlayList, final View input_line,
+                                final List<Polyline> linePointOverlayList, final View input_line,
                                 String isSuccession) {
         String msg="是否结束?";
         if (isSuccession.equals(ConstantDate.ISSUCCESSION_YES)){
@@ -1040,7 +1051,7 @@ public class ProjectManipulation {
                         if (cenpt != null) {
                             progressDialog.setMessage("加载中,请稍后...");
                             progressDialog.show();
-                            BaiduAppProxy.CyclingNavigation(mActivity, cenpt, markerLatlng);
+//                            BaiduAppProxy.CyclingNavigation(mActivity, cenpt, markerLatlng);
                         }
                     }
                 })
@@ -1053,7 +1064,7 @@ public class ProjectManipulation {
                         if (cenpt != null) {
                             progressDialog.setMessage("加载中,请稍后...");
                             progressDialog.show();
-                            BaiduAppProxy.PedestrianNavigation(mActivity, cenpt, markerLatlng);
+//                            BaiduAppProxy.PedestrianNavigation(mActivity, cenpt, markerLatlng);
                         }
                     }
                 })
@@ -1115,8 +1126,8 @@ public class ProjectManipulation {
      * @param marker
      */
     public void point_connect_line_Onclick(TextView point_connect_line,TextView draw_point,
-                                           List<Overlay> markerOverlayList, List<Overlay> lineOverlayList,
-                                           List<Overlay> linePointOverlayList, List<LatLng> lineList,
+                                           List<Marker> markerOverlayList, List<Polyline> lineOverlayList,
+                                           List<Polyline> linePointOverlayList, List<LatLng> lineList,
                                            Marker marker
                                            ){
         switch ((String) point_connect_line.getTag()) {
@@ -1128,7 +1139,7 @@ public class ProjectManipulation {
 
                 aMap.setOnMapClickListener(null);
                 aMap.setOnPolylineClickListener(null);
-                aMap.removeMarkerClickListener(mActivity);
+                aMap.setOnMarkerClickListener(null);
 
                 point_connect_line.setTag("no");
                 point_connect_line.setBackgroundResource(R.drawable.point_connect_line_blck);
@@ -1157,8 +1168,8 @@ public class ProjectManipulation {
                 lineList.removeAll(lineList);
 
                 if (marker != null) {
+                    marker.hideInfoWindow();
                     marker.remove();
-                    aMap.hideInfoWindow();
                 }
 
                 break;
@@ -1200,8 +1211,8 @@ public class ProjectManipulation {
                 lineList.removeAll(lineList);
 
                 if (marker != null) {
+                    marker.hideInfoWindow();
                     marker.remove();
-                    aMap.hideInfoWindow();
                 }
 
                 break;
@@ -1849,12 +1860,12 @@ public class ProjectManipulation {
      */
     public void revocation_line_Onclick(View continuity_point,Marker marker,View revocation_line,
                                         View property,View input_line,List<LatLng> linePointList,
-                                        List<Overlay> markerOverlayList,List<Overlay> lineOverlayList,
+                                        List<Marker> markerOverlayList,List<Polyline> lineOverlayList,
                                         List<LatLng> lineList,List<String> facLines){
         if (continuity_point.getTag().equals("yes")) {
-            aMap.hideInfoWindow();
 
             if (marker != null) {
+                marker.hideInfoWindow();
                 marker.remove();
             }
 
@@ -1879,7 +1890,11 @@ public class ProjectManipulation {
                 lineOverlayList.get(lineOverlayList.size() - 1).remove();
                 lineOverlayList.remove(lineOverlayList.size() - 1);
             }
-            aMap.hideInfoWindow();
+
+            if (marker != null) {
+                marker.hideInfoWindow();
+            }
+
             if (lineList.size() < 1) {
                 revocation_line.setVisibility(View.GONE);
                 property.setVisibility(View.GONE);

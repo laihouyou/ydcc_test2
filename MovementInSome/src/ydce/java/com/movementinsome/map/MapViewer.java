@@ -30,6 +30,7 @@ import com.aMap.overlay.LineOverlay;
 import com.aMap.overlay.PoiOverlay;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.AMapUtils;
+import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.model.BitmapDescriptor;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
@@ -261,6 +262,8 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
 //    private BitmapDescriptor mRedTexture = BitmapDescriptorFactory.fromAsset("icon_road_red_arrow.png");
 
     private  BitmapDescriptor shareLineDataBitmap= BitmapDescriptorFactory.fromResource(R.drawable.map_alr_night);
+
+    private GeocodeSearch geocoderSearch;
 
     /**
      * Called when the activity is first created.
@@ -550,6 +553,8 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
         poiOverlay = new PoiOverlay(aMap);
 
         infoWindowPoiOverlay=new InfoWindowPoiOverlay(aMap);
+        geocoderSearch=new GeocodeSearch(this);
+        geocoderSearch.setOnGeocodeSearchListener(this);
 
     }
 
@@ -663,10 +668,10 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
 
 
             case R.id.map_changer:        //地图切换
-                if (aMap.getMapType() == BaiduMap.MAP_TYPE_NORMAL) {
-                    aMap.setMapType(BaiduMap.MAP_TYPE_SATELLITE);
+                if (aMap.getMapType() == AMap.MAP_TYPE_NORMAL) {
+                    aMap.setMapType(AMap.MAP_TYPE_SATELLITE);
                 } else {
-                    aMap.setMapType(BaiduMap.MAP_TYPE_NORMAL);
+                    aMap.setMapType(AMap.MAP_TYPE_NORMAL);
                 }
 
                 break;
@@ -945,8 +950,8 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
 
 
                 if (marker != null) {
+                    marker.hideInfoWindow();
                     marker.remove();
-                    aMap.hideInfoWindow();
                 }
 
                 if (facilityTypes != null && facilityTypes.size() >= 2) {
@@ -969,7 +974,7 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                 point_connect_line.setTextColor(getResources().getColor(R.color.cornflowerblue8));
 
                 aMap.setOnMapClickListener(null);
-                aMap.removeMarkerClickListener(this);
+                aMap.setOnMarkerClickListener(this);
 
                 EventBus.getDefault().post(OkHttpParam.DETELE_LINE);
                 break;
@@ -1008,8 +1013,8 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
 
 
                 if (marker != null) {
+                    marker.hideInfoWindow();
                     marker.remove();
-                    aMap.hideInfoWindow();
                 }
 
                 if (facilityTypes != null && facilityTypes.size() >= 2) {
@@ -1035,7 +1040,7 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                 continuity_line.setTextColor(getResources().getColor(R.color.cornflowerblue8));
 
                 aMap.setOnMapClickListener(null);
-                aMap.removeMarkerClickListener(this);
+                aMap.setOnMarkerClickListener(null);
 
                 break;
 
@@ -1076,8 +1081,8 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                 lineList.removeAll(lineList);
 
                 if (marker != null) {
+                    marker.hideInfoWindow();
                     marker.remove();
-                    aMap.hideInfoWindow();
                 }
 
                 set_point_view_IsChecked(
@@ -1100,7 +1105,7 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                  */
                 aMap.setOnMapClickListener(this);
 
-                aMap.removeMarkerClickListener(this);
+                aMap.setOnMarkerClickListener(null);
 
                 property.setVisibility(View.GONE);
 
@@ -1210,8 +1215,8 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                 lineList.removeAll(lineList);
 
                 if (marker != null) {
+                    marker.hideInfoWindow();
                     marker.remove();
-                    aMap.hideInfoWindow();
                 }
                 break;
 
@@ -1252,8 +1257,8 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                 facLines.clear();
 
                 if (marker != null) {
+                    marker.hideInfoWindow();
                     marker.remove();
-                    aMap.hideInfoWindow();
                 }
                 EventBus.getDefault().post(OkHttpParam.DETELE_LINE);
                 break;
@@ -1264,7 +1269,7 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
         switch ((String) continuity_line.getTag()) {
             case "yes":
                 aMap.setOnMapClickListener(null);
-                aMap.removeMarkerClickListener(this);
+                aMap.setOnMarkerClickListener(null);
                 aMap.setOnPolylineClickListener(null);
 
                 set_point_view_IsChecked(false, false, false, false);
@@ -1290,7 +1295,7 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
 
                 if (marker != null) {
                     marker.remove();
-                    aMap.hideInfoWindow();
+                    marker.hideInfoWindow();
                 }
 
                 //由点亮变为灰色时需要将集合清空
@@ -1299,7 +1304,7 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                 break;
             case "no":
                 aMap.setOnMapClickListener(this);
-                aMap.removeMarkerClickListener(this);
+                aMap.setOnMarkerClickListener(null);
                 aMap.setOnPolylineClickListener(null);
 
                 set_point_view_IsChecked(
@@ -1321,7 +1326,7 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
             case "yes":
                 aMap.setOnMapClickListener(this);
                 aMap.setOnPolylineClickListener(null);
-                aMap.removeMarkerClickListener(this);
+                aMap.setOnMarkerClickListener(null);
 
                 set_point_view_IsChecked(false,
                         false,
@@ -1335,7 +1340,7 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
             case "no":
                 aMap.setOnMapClickListener(null);
                 aMap.setOnPolylineClickListener(this);
-                aMap.removeMarkerClickListener(this);
+                aMap.setOnMarkerClickListener(null);
 
                 set_point_view_IsChecked(
                         false,
@@ -1347,8 +1352,8 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                 facLines.clear();
 
                 if (marker!=null){
+                    marker.hideInfoWindow();
                     marker.remove();
-                    aMap.hideInfoWindow();
                 }
 //
 //                ToastUtils.show("开始管线加点");
@@ -1386,9 +1391,9 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
         loading_hint.setVisibility(View.GONE);
 
         aMap.setOnMapClickListener(null);
-        aMap.removeMarkerClickListener(this);
+        aMap.setOnMarkerClickListener(null);
         aMap.setOnPolylineClickListener(null);
-        aMap.setOnMyLocationClickListener(null);
+        aMap.setOnMyLocationChangeListener(null);
 
     }
 
@@ -1501,16 +1506,16 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                 if (marker != null) {
                     marker.remove();
                 }
-                aMap.hideInfoWindow();
+                marker.hideInfoWindow();
 
                 if (draw_point.getTag().toString().equals("yes")) {
                     aMap.setOnMapClickListener(this);
                     aMap.setOnPolylineClickListener(null);
-                    aMap.removeMarkerClickListener(this);
+                    aMap.setOnMarkerClickListener(this);
                 } else {
                     aMap.setOnMapClickListener(null);
                     aMap.setOnPolylineClickListener(null);
-                    aMap.removeMarkerClickListener(this);
+                    aMap.setOnMarkerClickListener(this);
                 }
 
                 if (continuity_point.getTag().toString().equals("yes")) {
@@ -1596,9 +1601,9 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
             }
 
             if (marker != null) {
+                marker.hideInfoWindow();
                 marker.remove();
             }
-            aMap.hideInfoWindow();
 
 //            Map<String, Object> map1 = new HashMap<>();
 //            map1.put(OkHttpParam.PROJECT_ID, projectVo.getProjectId());
@@ -1620,7 +1625,7 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
             aMap.setOnMapClickListener(null);
             aMap.setOnMarkerClickListener(this);
             aMap.setOnPolylineClickListener(this);
-            aMap.setOnMyLocationClickListener(null);
+            aMap.setOnMyLocationChangeListener(null);
 
             moveProjcetUpdate();
 
@@ -1818,16 +1823,6 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
             mBaidPolyline.removeAll(mBaidPolyline);
         }
 
-        if (mOverlayList != null && mOverlayList.size() > 0) {
-            for (int i = 0; i < mOverlayList.size(); i++) {
-                if (mOverlayList.get(i) != null) {
-                    mOverlayList.get(i).remove();
-                }
-            }
-            mOverlayList.removeAll(mOverlayList);
-        }
-
-
         if (markerOverlayList != null && markerOverlayList.size() > 0) {
             for (int i = 0; i < markerOverlayList.size(); i++) {
                 if (markerOverlayList.get(i) != null) {
@@ -1858,7 +1853,7 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
             if (marker.getTitle()!=null&&!marker.getTitle().equals(OkHttpParam.TITLE)){
                 marker.remove();
             }
-            aMap.hideInfoWindow();
+            marker.hideInfoWindow();
         }
 
         if (!isLineAddPoint){
@@ -1981,16 +1976,20 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
             checkPointVoList = savePointVoLongDao.queryForEq(OkHttpParam.FAC_ID, id);
             if (parameter.equals(MapMeterMoveScope.CHECK)) {        //查看模式
                 markerLatlng = marker.getPosition();
-                TextView infoTv = new TextView(this);
-                infoTv.setTextColor(getResources().getColor(R.color.red));
-                infoTv.setGravity(Gravity.CENTER);
-                infoTv.setPadding(10, 10, 10, 10);
-                infoTv.setTextColor(getResources().getColor(R.color.white));
-                infoTv.setBackgroundResource(R.color.darkblue1);
+//                TextView infoTv = new TextView(this);
+//                infoTv.setTextColor(getResources().getColor(R.color.red));
+//                infoTv.setGravity(Gravity.CENTER);
+//                infoTv.setPadding(10, 10, 10, 10);
+//                infoTv.setTextColor(getResources().getColor(R.color.white));
+//                infoTv.setBackgroundResource(R.color.darkblue1);
                 DecimalFormat df = new DecimalFormat("0.000000");    //保留6为有效数字
-                infoTv.setText("经度:" + df.format(marker.getPosition().longitude) + "\n" + "纬度:" + df.format(marker.getPosition().latitude));
-                InfoWindow infoWindow = new InfoWindow(infoTv, marker.getPosition(), -80);
-                aMap.showInfoWindow(infoWindow);
+//                infoTv.setText("经度:" + df.format(marker.getPosition().longitude) + "\n" + "纬度:" + df.format(marker.getPosition().latitude));
+//                InfoWindow infoWindow = new InfoWindow(infoTv, marker.getPosition(), -80);
+//                aMap.showInfoWindow(infoWindow);
+
+                marker.setTitle("经度:" +df.format(marker.getPosition().longitude));
+                marker.setSnippet("纬度:" + df.format(marker.getPosition().latitude));
+                marker.showInfoWindow();
 
                 property.setVisibility(View.VISIBLE);
                 property.setText("查看/修改属性");
@@ -2031,17 +2030,20 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
 
     @Override
     public void onMarkerDragEnd(Marker marker) {
-
-//        List<String> childLineFacId = new ArrayList<>();
         List<SavePointVo> savePointVoList = new ArrayList<>();
-        Map<String, Double> map_wgs84 = Bd09toArcgis.bd09ToWg84(marker.getPosition());
+
+        //        List<String> childLineFacId = new ArrayList<>();
+        Map<String, Double> map_wgs84 = Gcj022Gps.gcj2wgs(marker.getPosition().longitude,marker.getPosition().latitude);
 
         String markerId = marker.getTitle();
         try {
             String longitude = "";
             String latitude = "";
             //修改单个设施点
-            savePointVoList = savePointVoLongDao.queryForEq(OkHttpParam.FAC_ID, markerId);
+            SavePointVo savePointVo= (SavePointVo) marker.getObject();
+            if (savePointVo!=null){
+                savePointVoList.add(savePointVo);
+            }
             if (savePointVoList.size() == 1) {
                 longitude = savePointVoList.get(0).getLongitude();
                 latitude = savePointVoList.get(0).getLatitude();
@@ -2151,7 +2153,7 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
 //                                }
 //                            }
 //                            lineOverlay.addToMap(lineOverlayList);
-//                            aMap.hideInfoWindow();
+//                            marker.hideInfoWindow();
                             ToastUtils.show("已选择管线,请添加设施点");
                         }
                     }else {
@@ -2292,8 +2294,8 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
             facLines.clear();
 
             if (marker!=null){
+                                marker.hideInfoWindow();
                 marker.remove();
-//                aMap.hideInfoWindow();
             }
 
 //            List<OverlayOptions> lineOverlayList = lineOverlay.getOverlayOptions();
@@ -2399,10 +2401,10 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                                 // 画线 markerOptions画图
                                 PolylineOptions polylineOptions = new PolylineOptions();
                                 // 画线用到的点
-                                polylineOptions.points(lineList2);
+                                polylineOptions.setPoints(lineList2);
                                 polylineOptions.color(0xAABBAA00);
                                 polylineOptions.width(10);
-                                linePointOverlayList.add(aMap.addOverlay(polylineOptions));
+                                linePointOverlayList.add(aMap.addPolyline(polylineOptions));
 
                                 input_line.setVisibility(View.VISIBLE);     //显示录入管线按钮
                             } else {
@@ -2471,8 +2473,8 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                         }
 
                         if (marker != null) {
+                            marker.hideInfoWindow();
                             marker.remove();
-                            aMap.hideInfoWindow();
                         }
 
                         showMaker(currentProject,false);
@@ -2684,10 +2686,8 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
 
                 //把地图移动到当前位置
                 if (cenpt != null) {
-                    MapStatus.Builder builder = new MapStatus.Builder();
-                    builder.target(cenpt);
-                    builder.zoom(18.0f);
-                    aMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+                    CameraPosition cameraPosition=new CameraPosition(cenpt,18,0,0);
+                    aMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
                 }
 
                 Toast.makeText(context, projectVo.getProjectName(), Toast.LENGTH_SHORT).show();
