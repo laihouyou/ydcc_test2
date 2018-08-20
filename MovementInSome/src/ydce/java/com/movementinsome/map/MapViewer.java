@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.aMap.overlay.InfoWindowPoiOverlay;
+import com.aMap.overlay.LineOverlay;
 import com.aMap.overlay.PoiOverlay;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.AMapUtils;
@@ -151,14 +152,14 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
     private static List<LatLng> lineList = new ArrayList();// 画图的坐标
     private static List<String> facLines = new ArrayList();// 管线上的设施表号集合
 //    private MarkerOptions markerOption;
-    private static List<Overlay> markerOverlayList = new ArrayList<>();
-    private static List<Overlay> lineOverlayList = new ArrayList<>();//线集合
-    private static List<Overlay> linePointOverlayList = new ArrayList<>();//连续采点线集合
     private static Map<String, SavePointVo> pointVoMap = new HashMap<>();
 
     private InfoWindowPoiOverlay infoWindowPoiOverlay;  //绘制中的点数据
     private PoiOverlay poiOverlay;      //绘制后的点数据
-//    private LineOverlay lineOverlay;
+    private LineOverlay lineOverlay;
+    private  List<Marker> markerOverlayList = new ArrayList<>();    //绘制线中的marker集合
+    private  List<Polyline> lineOverlayList = new ArrayList<>();//绘制线中的线段
+    private  List<Polyline> linePointOverlayList = new ArrayList<>();//连续采点线集合
 
     private String implementorName = "";
     private String solutionName = "";
@@ -255,9 +256,11 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
 
     private SavePointVo lineAddPointVo=null;
 
-    private BitmapDescriptor mBlueTexture = BitmapDescriptorFactory.fromAsset("icon_road_blue_arrow.png");
-    private BitmapDescriptor mGreenTexture = BitmapDescriptorFactory.fromAsset("icon_road_green_arrow.png");
-    private BitmapDescriptor mRedTexture = BitmapDescriptorFactory.fromAsset("icon_road_red_arrow.png");
+//    private BitmapDescriptor mBlueTexture = BitmapDescriptorFactory.fromAsset("icon_road_blue_arrow.png");
+//    private BitmapDescriptor mGreenTexture = BitmapDescriptorFactory.fromAsset("icon_road_green_arrow.png");
+//    private BitmapDescriptor mRedTexture = BitmapDescriptorFactory.fromAsset("icon_road_red_arrow.png");
+
+    private  BitmapDescriptor shareLineDataBitmap= BitmapDescriptorFactory.fromResource(R.drawable.map_alr_night);
 
     /**
      * Called when the activity is first created.
@@ -413,8 +416,7 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
 
         EventBus.getDefault().register(this);
 
-        mOverlayList = new ArrayList<>();
-        okHttpRequest = new OkHttpRequest(this, aMap, mOverlayList);
+        okHttpRequest = new OkHttpRequest(this, aMap);
 
         mBaidPolyline = new ArrayList<>();
 
@@ -637,27 +639,27 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
 
                 break;
 
-            case R.id.map_blow_up:        //放大
-                float zoomLevel = aMap.getMapStatus().zoom;
-                if (zoomLevel <= 21) {
-                    aMap.animateMapStatus(MapStatusUpdateFactory.zoomIn());    //已动画的形式改变地图状态
-                    map_blow_up.setEnabled(true);
-                } else {
-                    Toast.makeText(context, "已经放至最大！", Toast.LENGTH_SHORT).show();
-                    map_blow_up.setEnabled(false);
-                }
-                break;
-
-            case R.id.map_shrink:        //缩小
-                float zoomLevel1 = aMap.getMapStatus().zoom;
-                if (zoomLevel1 > 2) {
-                    aMap.animateMapStatus(MapStatusUpdateFactory.zoomOut());    //已动画的形式改变地图状态
-                    map_shrink.setEnabled(true);
-                } else {
-                    map_shrink.setEnabled(false);
-                    Toast.makeText(context, "已经缩至最小！", Toast.LENGTH_SHORT).show();
-                }
-                break;
+//            case R.id.map_blow_up:        //放大
+//                float zoomLevel = aMap.getMapStatus().zoom;
+//                if (zoomLevel <= 21) {
+//                    aMap.animateMapStatus(MapStatusUpdateFactory.zoomIn());    //已动画的形式改变地图状态
+//                    map_blow_up.setEnabled(true);
+//                } else {
+//                    Toast.makeText(context, "已经放至最大！", Toast.LENGTH_SHORT).show();
+//                    map_blow_up.setEnabled(false);
+//                }
+//                break;
+//
+//            case R.id.map_shrink:        //缩小
+//                float zoomLevel1 = aMap.getMapStatus().zoom;
+//                if (zoomLevel1 > 2) {
+//                    aMap.animateMapStatus(MapStatusUpdateFactory.zoomOut());    //已动画的形式改变地图状态
+//                    map_shrink.setEnabled(true);
+//                } else {
+//                    map_shrink.setEnabled(false);
+//                    Toast.makeText(context, "已经缩至最小！", Toast.LENGTH_SHORT).show();
+//                }
+//                break;
 
 
             case R.id.map_changer:        //地图切换
@@ -1944,9 +1946,8 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
         bundle.putDouble("positionX", latLng.longitude);
         bundle.putDouble("positionY", latLng.latitude);
         BitmapDescriptor bitmap = BitmapDescriptorFactory.fromResource(R.drawable.icon_marka);
-        OverlayOptions option = new MarkerOptions().draggable(true).position(latLng).icon(bitmap).extraInfo(bundle);
-        marker = (Marker) aMap.addOverlay(option);
-        markerOverlayList.add(marker);
+        MarkerOptions option = new MarkerOptions().draggable(true).position(latLng).icon(bitmap);
+        markerOverlayList.add(aMap.addMarker(option));
         if (lineList.size() >= 2) {
             final List<LatLng> lineList2 = new ArrayList();
             for (int i = 0; i < lineList.size(); i++) {
@@ -1957,10 +1958,10 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
             // 画线 markerOptions画图
             PolylineOptions polylineOptions = new PolylineOptions();
             // 画线用到的点
-            polylineOptions.points(lineList2);
+            polylineOptions.setPoints(lineList2);
             polylineOptions.color(0xAABBAA00);
             polylineOptions.width(10);
-            lineOverlayList.add(aMap.addOverlay(polylineOptions));
+            lineOverlayList.add(aMap.addPolyline(polylineOptions));
 
         }
         if (lineList.size() >= 1) {
@@ -2104,12 +2105,11 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
     public void onPolylineClick(Polyline polyline) {
         try {
             if (acquisitionState.equals(MapMeterMoveScope.CHECK)) {       //查看模式
-                lineBundle = polyline.getExtraInfo();
-                SavePointVo savePointVo = (SavePointVo) lineBundle.getSerializable(OkHttpParam.SAVEPOINTVO);
+//                lineBundle = polyline.getExtraInfo();
+                SavePointVo savePointVo = lineOverlay.getSavePointVo(lineOverlay.getPoiIndex(polyline));
                 checkPointVoList.clear();
                 checkPointVoList.add(savePointVo);
 
-                String facId = savePointVo.getFacId();
                 String projectId = savePointVo.getProjectId();
                 if (projectId.equals(this.projectId)) {
                     delete_point.setVisibility(View.VISIBLE);
@@ -2118,55 +2118,41 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                     property.setText("查看/修改线属性");
                     property.setTag(MapMeterMoveScope.MODIFYLIE);    //修改线
 
-                    List<OverlayOptions> lineOverlayList = lineOverlay.getOverlayOptions();
-                    for (int i = 0; i < lineOverlayList.size(); i++) {
-                        if (i % 2 == 0) {        //表示是 PolylineOptions
-                            PolylineOptions polylineOptions = (PolylineOptions) lineOverlayList.get(i);
-                            if (polylineOptions != null) {
-                                String facId_polyline = polylineOptions.getExtraInfo().getString(OkHttpParam.FAC_ID);
-                                if (facId.equals(facId_polyline)) {
-                                    polylineOptions.customTexture(mRedTexture);
-                                } else {
-                                    polylineOptions.customTexture(mBlueTexture);
-                                }
-                            }
-                        }
-                    }
-                    lineOverlay.addToMap(lineOverlayList);
-
-                    aMap.hideInfoWindow();
+//                   if (lineOverlay.getmPolyline().equals(polyline)){
+//
+//                   }
                 }
             }else if (acquisitionState.equals(MapMeterMoveScope.MOVE)){     //采集模式
                 if (line_add_point.getTag().toString().equals("yes")){
                     aMap.setOnMapClickListener(this);
                     aMap.setOnPolylineClickListener(null);
-                    aMap.removeMarkerClickListener(this);
+                    aMap.setOnMarkerClickListener(null);
 
-                    lineBundle = polyline.getExtraInfo();
-                    SavePointVo savePointVo = (SavePointVo) lineBundle.getSerializable(OkHttpParam.SAVEPOINTVO);
+//                    lineBundle = polyline.getExtraInfo();
+                    SavePointVo savePointVo =lineOverlay.getSavePointVo(lineOverlay.getPoiIndex(polyline));
                     if (lineAddPointVo==null){
                         lineAddPointVo = savePointVo;
                         String facId = lineAddPointVo.getFacId();
                         String projectId = lineAddPointVo.getProjectId();
                         if (projectId.equals(this.projectId)) {
 
-                            List<OverlayOptions> lineOverlayList = lineOverlay.getOverlayOptions();
-                            for (int i = 0; i < lineOverlayList.size(); i++) {
-                                if (i % 2 == 0) {        //表示是 PolylineOptions
-                                    PolylineOptions polylineOptions = (PolylineOptions) lineOverlayList.get(i);
-                                    if (polylineOptions != null) {
-                                        String facId_polyline = polylineOptions.getExtraInfo().getString(OkHttpParam.FAC_ID);
-                                        if (facId.equals(facId_polyline)) {
-                                            polylineOptions.customTexture(mGreenTexture);
-                                        } else {
-                                            polylineOptions.customTexture(mBlueTexture);
-                                        }
-                                    }
-                                }
-                            }
-                            lineOverlay.addToMap(lineOverlayList);
+//                            List<OverlayOptions> lineOverlayList = lineOverlay.getOverlayOptions();
+//                            for (int i = 0; i < lineOverlayList.size(); i++) {
+//                                if (i % 2 == 0) {        //表示是 PolylineOptions
+//                                    PolylineOptions polylineOptions = (PolylineOptions) lineOverlayList.get(i);
+//                                    if (polylineOptions != null) {
+//                                        String facId_polyline = polylineOptions.getExtraInfo().getString(OkHttpParam.FAC_ID);
+//                                        if (facId.equals(facId_polyline)) {
+//                                            polylineOptions.customTexture(mGreenTexture);
+//                                        } else {
+//                                            polylineOptions.customTexture(mBlueTexture);
+//                                        }
+//                                    }
+//                                }
+//                            }
+//                            lineOverlay.addToMap(lineOverlayList);
+//                            aMap.hideInfoWindow();
                             ToastUtils.show("已选择管线,请添加设施点");
-                            aMap.hideInfoWindow();
                         }
                     }else {
                         ToastUtils.show("已选择管线,请添加设施点");
@@ -2307,19 +2293,19 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
 
             if (marker!=null){
                 marker.remove();
-                aMap.hideInfoWindow();
+//                aMap.hideInfoWindow();
             }
 
-            List<OverlayOptions> lineOverlayList = lineOverlay.getOverlayOptions();
-            for (int i = 0; i < lineOverlayList.size(); i++) {
-                if (i % 2 == 0) {        //表示是 PolylineOptions
-                    PolylineOptions polylineOptions = (PolylineOptions) lineOverlayList.get(i);
-                    if (polylineOptions != null) {
-                        polylineOptions.customTexture(mBlueTexture);
-                    }
-                }
-            }
-            lineOverlay.addToMap(lineOverlayList);
+//            List<OverlayOptions> lineOverlayList = lineOverlay.getOverlayOptions();
+//            for (int i = 0; i < lineOverlayList.size(); i++) {
+//                if (i % 2 == 0) {        //表示是 PolylineOptions
+//                    PolylineOptions polylineOptions = (PolylineOptions) lineOverlayList.get(i);
+//                    if (polylineOptions != null) {
+//                        polylineOptions.customTexture(mBlueTexture);
+//                    }
+//                }
+//            }
+//            lineOverlay.addToMap(lineOverlayList);
         }
         if (pamcerStr.equals(OkHttpParam.SHOW_MARKER)){     //显示marker 信息，确保运行在主线程
             showMaker(currentProject,false);
@@ -2588,11 +2574,11 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                                     PolylineOptions polylineOptions = new PolylineOptions();
                                     // 画线用到的点
                                     polylineOptions
-                                            .points(lineList2)
-                                            .customTexture(mRedTexture)
-                                            .dottedLine(true)
+                                            .addAll(lineList2)
+                                            .setCustomTexture(shareLineDataBitmap)
+                                            .setDottedLine(true)
                                             .width(10);
-                                    linePointOverlayList.add(aMap.addOverlay(polylineOptions));
+                                    linePointOverlayList.add(aMap.addPolyline(polylineOptions));
 
                                 }
                                 input_line.setVisibility(View.VISIBLE);     //显示录入管线按钮
@@ -2612,7 +2598,7 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
 
                         if (marker != null) {
                             marker.remove();
-                            aMap.hideInfoWindow();
+                            marker.hideInfoWindow();
                         }
 
                         showMaker(currentProject,true);

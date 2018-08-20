@@ -18,15 +18,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alibaba.fastjson.JSONObject;
+import com.amap.api.maps.AMap;
+import com.amap.api.maps.MapView;
+import com.amap.api.maps.model.LatLng;
+import com.amap.api.maps.model.Marker;
 import com.baidu.BaiduAppProxy;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatus;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.MapView;
-import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.Overlay;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.navisdk.adapter.BNRoutePlanNode;
 import com.google.gson.Gson;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.QueryBuilder;
@@ -77,7 +73,7 @@ import static com.movementinsome.kernel.location.coordinate.Gcj022Bd09.bd09Encry
 
 public class ProjectManipulation {
     private MapView mMapview;
-    private BaiduMap mBaiduMap;
+    private AMap aMap;
     private MapViewer mActivity;
 //    private CustomDialog customDialog;
 //    private CustomDialog customDialog1;
@@ -132,7 +128,7 @@ public class ProjectManipulation {
         this.mMapview=mapView;
         this.mActivity= (MapViewer) activity;
 
-        mBaiduMap=mMapview.getMap();
+        aMap=mMapview.getMap();
         builder = new CustomDialog.Builder(activity);
         miningSurveyVOdao=AppContext.getInstance().getAppDbHelper().getDao(ProjectVo.class);
 
@@ -506,7 +502,7 @@ public class ProjectManipulation {
 
                                             builder.target(latlng1);
                                             builder.zoom(18.0f);
-                                            mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+                                            aMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
                                             mActivity.customDialog.dismiss();
                                             break;
                                         case OkHttpParam.GCJ02:
@@ -529,7 +525,7 @@ public class ProjectManipulation {
 
                                             builder.target(latlng);
                                             builder.zoom(18.0f);
-                                            mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+                                            aMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
                                             mActivity.customDialog.dismiss();
                                             break;
                                     }
@@ -605,7 +601,7 @@ public class ProjectManipulation {
 
                                             builder.target(latlng1);
                                             builder.zoom(18.0f);
-                                            mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+                                            aMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
                                             mActivity.customDialog.dismiss();
 
                                             //绘制线
@@ -618,7 +614,7 @@ public class ProjectManipulation {
 
                                             builder.target(latlng);
                                             builder.zoom(18.0f);
-                                            mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+                                            aMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
                                             mActivity.customDialog.dismiss();
 
                                             //绘制线
@@ -728,7 +724,7 @@ public class ProjectManipulation {
         MapStatus.Builder builder1 = new MapStatus.Builder();
         builder1.target(cenpt);
         builder1.zoom(18.0f);
-        mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder1.build()));
+        aMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder1.build()));
     }
 
     /**
@@ -1024,15 +1020,15 @@ public class ProjectManipulation {
                         if (mActivity.customDialog1.isShowing()) {
                             mActivity.customDialog1.dismiss();
                         }
-                        if (cenpt != null) {
-                            progressDialog.setMessage("加载中,请稍后...");
-                            progressDialog.show();
-                            BaiduAppProxy.CallBaiduNavigationLatLng(
-                                    (Activity) mActivity,
-                                    BNRoutePlanNode.CoordinateType.BD09LL,
-                                    cenpt,
-                                    markerLatlng);
-                        }
+//                        if (cenpt != null) {
+//                            progressDialog.setMessage("加载中,请稍后...");
+//                            progressDialog.show();
+//                            BaiduAppProxy.CallBaiduNavigationLatLng(
+//                                    (Activity) mActivity,
+//                                    BNRoutePlanNode.CoordinateType.BD09LL,
+//                                    cenpt,
+//                                    markerLatlng);
+//                        }
                     }
                 })
                 .addViewOnclick(R.id.tv_riding_search, new View.OnClickListener() {
@@ -1130,9 +1126,9 @@ public class ProjectManipulation {
                  * 百度事件
                  */
 
-                mBaiduMap.setOnMapClickListener(null);
-                mBaiduMap.setOnPolylineClickListener(null);
-                mBaiduMap.removeMarkerClickListener(mActivity);
+                aMap.setOnMapClickListener(null);
+                aMap.setOnPolylineClickListener(null);
+                aMap.removeMarkerClickListener(mActivity);
 
                 point_connect_line.setTag("no");
                 point_connect_line.setBackgroundResource(R.drawable.point_connect_line_blck);
@@ -1162,16 +1158,16 @@ public class ProjectManipulation {
 
                 if (marker != null) {
                     marker.remove();
-                    mBaiduMap.hideInfoWindow();
+                    aMap.hideInfoWindow();
                 }
 
                 break;
 
             case "no":      //普通
 
-                mBaiduMap.setOnMapClickListener(null);
-                mBaiduMap.setOnPolylineClickListener(null);
-                mBaiduMap.setOnMarkerClickListener(mActivity);
+                aMap.setOnMapClickListener(null);
+                aMap.setOnPolylineClickListener(null);
+                aMap.setOnMarkerClickListener(mActivity);
 
                 point_connect_line.setTag("yes");
                 point_connect_line.setBackgroundResource(R.drawable.point_connect_line_blue);
@@ -1205,7 +1201,7 @@ public class ProjectManipulation {
 
                 if (marker != null) {
                     marker.remove();
-                    mBaiduMap.hideInfoWindow();
+                    aMap.hideInfoWindow();
                 }
 
                 break;
@@ -1856,7 +1852,7 @@ public class ProjectManipulation {
                                         List<Overlay> markerOverlayList,List<Overlay> lineOverlayList,
                                         List<LatLng> lineList,List<String> facLines){
         if (continuity_point.getTag().equals("yes")) {
-            mBaiduMap.hideInfoWindow();
+            aMap.hideInfoWindow();
 
             if (marker != null) {
                 marker.remove();
@@ -1883,7 +1879,7 @@ public class ProjectManipulation {
                 lineOverlayList.get(lineOverlayList.size() - 1).remove();
                 lineOverlayList.remove(lineOverlayList.size() - 1);
             }
-            mBaiduMap.hideInfoWindow();
+            aMap.hideInfoWindow();
             if (lineList.size() < 1) {
                 revocation_line.setVisibility(View.GONE);
                 property.setVisibility(View.GONE);

@@ -20,7 +20,7 @@ import java.util.List;
  * Poi图层类。在高德地图API里，如果要显示Poi，可以用此类来创建Poi图层。如不满足需求，也可以自己创建自定义的Poi图层。
  * @since V2.1.0
  */
-public class LineOverlay {
+public class LineOverlay implements AMap.OnPolylineClickListener{
 	private AMap mAMap;
 	private ArrayList<Polyline> mPolyline = new ArrayList<Polyline>();
 	private ArrayList<Text> mTexts=new ArrayList<>();
@@ -47,6 +47,15 @@ public class LineOverlay {
 	 */
 	public void setData(List<SavePointVo> poiResult) {
 		this.savePointVoList = poiResult;
+	}
+
+	/**
+	 * 设置POI数据
+	 *
+	 *            设置POI数据
+	 */
+	public void setProjectVo(ProjectVo projectVo) {
+		this.projectVo = projectVo;
 	}
 
 	/**
@@ -139,6 +148,7 @@ public class LineOverlay {
 	private PolylineOptions getPolyLineOptions(SavePointVo savePointVo) {
 		return new PolylineOptions()
 				.addAll(savePointVo.getLineLatlngList())
+				.setDottedLine(true)
 				.setCustomTexture(projectVo.getProjectId().equals(savePointVo.getProjectId())
 						? myLineDataBitmap
 						:shareLineDataBitmap);
@@ -185,5 +195,27 @@ public class LineOverlay {
 		Text text=mTexts.get(index);
 		SavePointVo savePointVo= (SavePointVo) text.getObject();
 		return savePointVo==null?new SavePointVo():savePointVo;
+	}
+
+	public ArrayList<Polyline> getmPolyline() {
+		if (mPolyline == null) {
+			return new ArrayList<>();
+		}
+		return mPolyline;
+	}
+
+	/**
+	 * 线通用点击事件  （点击线后变颜色）
+	 * @param polyline
+	 */
+	@Override
+	public void onPolylineClick(Polyline polyline) {
+		for (int i = 0; i < mPolyline.size(); i++) {
+			if (mPolyline.get(i)==polyline){
+				mPolyline.get(i).setCustomTexture(shareLineDataBitmap);
+			}else {
+				mPolyline.get(i).setCustomTexture(myLineDataBitmap);
+			}
+		}
 	}
 }

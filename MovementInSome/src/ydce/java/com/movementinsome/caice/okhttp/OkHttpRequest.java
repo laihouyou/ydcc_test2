@@ -11,9 +11,8 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.Overlay;
-import com.baidu.mapapi.model.LatLng;
+import com.amap.api.maps.AMap;
+import com.amap.api.maps.model.LatLng;
 import com.google.gson.Gson;
 import com.j256.ormlite.dao.Dao;
 import com.movementinsome.AppContext;
@@ -70,18 +69,15 @@ public class OkHttpRequest {
     private String fileStr;
 
     private static MapViewer mActivity;
-    private  static BaiduMap mBaiduMap;
-    private static List<Overlay> mOverlayList;
+    private  AMap aMap;
 
     private String idsStr;
     private static Gson gson;
 
 
-    public OkHttpRequest(Activity activity, BaiduMap baiduMap,
-                         List<Overlay> mOverlayList) {
-        this.mBaiduMap = baiduMap;
+    public OkHttpRequest(Activity activity, AMap aMap) {
+        this.aMap = aMap;
         this.mActivity = (MapViewer)activity;
-        this.mOverlayList=mOverlayList;
         gson=new Gson();
     }
 
@@ -186,12 +182,6 @@ public class OkHttpRequest {
      */
     public static void getLatlogData(final ProjectVo projectVo, final Activity activity) {
         try {
-
-            if (mOverlayList != null && mOverlayList.size() > 0) {
-                for (int i = 0; i < mOverlayList.size(); i++) {
-                    mOverlayList.get(i).remove();
-                }
-            }
 
             final Dao<SavePointVo, Long> savePointVoLongDao = AppContext.getInstance().
                     getSavePointVoDao();
@@ -501,7 +491,7 @@ public class OkHttpRequest {
                         if (vo != null && vo.getCode() == 0) {
                             try {
                                 PoiOperation.DeletePoi(savePointVoList_BS);
-                                mBaiduMap.hideInfoWindow();
+//                                aMap.hideInfoWindow();
 //                                    getLatlogData(cenLat,projectVo,acquisitionState);
 //                                mActivity.showMaker(projectVo,false);
                                 EventBus.getDefault().post(OkHttpParam.SHOW_MARKER);
@@ -1262,12 +1252,5 @@ public class OkHttpRequest {
             }
     }
 
-    public List<Overlay> getmOverlayList() {
-        return mOverlayList;
-    }
-
-    public void setmOverlayList(List<Overlay> mOverlayList) {
-        this.mOverlayList = mOverlayList;
-    }
 
 }
