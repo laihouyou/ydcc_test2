@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.baidu.mapapi.model.LatLng;
+import com.amap.api.maps.model.LatLng;
 import com.j256.ormlite.dao.Dao;
 import com.movementinsome.AppContext;
 import com.movementinsome.R;

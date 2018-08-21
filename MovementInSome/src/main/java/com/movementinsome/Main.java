@@ -5,7 +5,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,12 +22,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.baidu.navisdk.adapter.BNCommonSettingParam;
-import com.baidu.navisdk.adapter.BNOuterTTSPlayerCallback;
-import com.baidu.navisdk.adapter.BNaviSettingManager;
-import com.baidu.navisdk.adapter.BaiduNaviManager;
 import com.j256.ormlite.dao.Dao;
 import com.movementinsome.NetBroadcastReceiver.netEventHandler;
 import com.movementinsome.app.pub.Constant;
@@ -37,7 +31,6 @@ import com.movementinsome.app.pub.receiver.NotificationReceiver;
 import com.movementinsome.app.server.NetListenervice;
 import com.movementinsome.app.server.NewTaskMsgTask;
 import com.movementinsome.app.server.SpringUtil;
-import com.movementinsome.caice.okhttp.OkHttpParam;
 import com.movementinsome.database.vo.HistoryTrajectoryVO;
 import com.movementinsome.database.vo.InsTablePushTaskVo;
 import com.movementinsome.database.vo.ReturnMessage;
@@ -210,9 +203,9 @@ public class Main extends FullTabActivity implements netEventHandler {
 //		initialEnv();
 //		initialTts();
 		//百度导航初始化
-		if (initDirs()) {
-			initNavi();
-		}
+//		if (initDirs()) {
+//			initNavi();
+//		}
 		//NavLocalGeoData.getInstance().downLocalGeoData();
 //		BaiduAppProxy.bdNavInit(this);
 		Intent service = new Intent(Main.this, NetListenervice.class);
@@ -262,125 +255,125 @@ public class Main extends FullTabActivity implements netEventHandler {
 		return null;
 	}
 
-	private void initNavi() {
-		BNOuterTTSPlayerCallback ttsCallback = null;
-
-		// 申请权限
-		if (android.os.Build.VERSION.SDK_INT >= 23) {
-
-			if (!hasBasePhoneAuth()) {
-
-//				(Activity)this.requestPermissions(authBaseArr, authBaseRequestCode);
-				return;
-
-			}
-		}
-
-		BaiduNaviManager.getInstance().init(this, mSDCardPath, APP_FOLDER_NAME, new BaiduNaviManager.NaviInitListener() {
-			@Override
-			public void onAuthResult(int status, String msg) {
-				if (0 == status) {
-					authinfo = "key校验成功!";
-				} else {
-					authinfo = "key校验失败, " + msg;
-				}
-//				Main.this.runOnUiThread(new Runnable() {
+//	private void initNavi() {
+//		BNOuterTTSPlayerCallback ttsCallback = null;
 //
-//					@Override
-//					public void run() {
-//						Toast.makeText(Main.this, authinfo, Toast.LENGTH_LONG).show();
-//					}
-//				});
-			}
-
-			public void initSuccess() {
-//				Toast.makeText(Main.this, "百度导航引擎初始化成功", Toast.LENGTH_SHORT).show();
-				hasInitSuccess = true;
-				initSetting();
-			}
-
-			public void initStart() {
-//				Toast.makeText(Main.this, "百度导航引擎初始化开始", Toast.LENGTH_SHORT).show();
-			}
-
-			public void initFailed() {
-//				Toast.makeText(Main.this, "百度导航引擎初始化失败", Toast.LENGTH_SHORT).show();
-			}
-
-		}, null, ttsHandler, ttsPlayStateListener);
-	}
-
-	/**
-	 * 内部TTS播报状态回传handler
-	 */
-	private Handler ttsHandler = new Handler() {
-		public void handleMessage(Message msg) {
-			int type = msg.what;
-			switch (type) {
-				case BaiduNaviManager.TTSPlayMsgType.PLAY_START_MSG: {
-					showToastMsg("Handler : TTS play start");
-					break;
-				}
-				case BaiduNaviManager.TTSPlayMsgType.PLAY_END_MSG: {
-					showToastMsg("Handler : TTS play end");
-					break;
-				}
-				default:
-					break;
-			}
-		}
-	};
-
-	/**
-	 * 内部TTS播报状态回调接口
-	 */
-	private BaiduNaviManager.TTSPlayStateListener ttsPlayStateListener = new BaiduNaviManager.TTSPlayStateListener() {
-
-		@Override
-		public void playEnd() {
-			showToastMsg("TTSPlayStateListener : TTS play end");
-		}
-
-		@Override
-		public void playStart() {
-			showToastMsg("TTSPlayStateListener : TTS play start");
-		}
-	};
-
-	public void showToastMsg(final String msg) {
-		Main.this.runOnUiThread(new Runnable() {
-
-			@Override
-			public void run() {
-				Toast.makeText(Main.this, msg, Toast.LENGTH_SHORT).show();
-			}
-		});
-	}
-	private boolean hasBasePhoneAuth() {
-		// TODO Auto-generated method stub
-
-		PackageManager pm = this.getPackageManager();
-		for (String auth : authBaseArr) {
-			if (pm.checkPermission(auth, this.getPackageName()) != PackageManager.PERMISSION_GRANTED) {
-				return false;
-			}
-		}
-		return true;
-	}
-
-	private void initSetting() {
-		 BNaviSettingManager.setDayNightMode(BNaviSettingManager.DayNightMode.DAY_NIGHT_MODE_DAY);
-		BNaviSettingManager
-				.setShowTotalRoadConditionBar(BNaviSettingManager.PreViewRoadCondition.ROAD_CONDITION_BAR_SHOW_ON);
-		BNaviSettingManager.setVoiceMode(BNaviSettingManager.VoiceMode.Veteran);
-		BNaviSettingManager.setRealRoadCondition(BNaviSettingManager.RealRoadCondition.NAVI_ITS_ON);
-
-		//设置APPid
-		Bundle bundle = new Bundle();
-		// 必须设置APPID，否则会静音
-		bundle.putString(BNCommonSettingParam.TTS_APP_ID, OkHttpParam.TTS_APP_ID);
-		BNaviSettingManager.setNaviSdkParam(bundle);
-	}
+//		// 申请权限
+//		if (android.os.Build.VERSION.SDK_INT >= 23) {
+//
+//			if (!hasBasePhoneAuth()) {
+//
+////				(Activity)this.requestPermissions(authBaseArr, authBaseRequestCode);
+//				return;
+//
+//			}
+//		}
+//
+//		BaiduNaviManager.getInstance().init(this, mSDCardPath, APP_FOLDER_NAME, new BaiduNaviManager.NaviInitListener() {
+//			@Override
+//			public void onAuthResult(int status, String msg) {
+//				if (0 == status) {
+//					authinfo = "key校验成功!";
+//				} else {
+//					authinfo = "key校验失败, " + msg;
+//				}
+////				Main.this.runOnUiThread(new Runnable() {
+////
+////					@Override
+////					public void run() {
+////						Toast.makeText(Main.this, authinfo, Toast.LENGTH_LONG).show();
+////					}
+////				});
+//			}
+//
+//			public void initSuccess() {
+////				Toast.makeText(Main.this, "百度导航引擎初始化成功", Toast.LENGTH_SHORT).show();
+//				hasInitSuccess = true;
+//				initSetting();
+//			}
+//
+//			public void initStart() {
+////				Toast.makeText(Main.this, "百度导航引擎初始化开始", Toast.LENGTH_SHORT).show();
+//			}
+//
+//			public void initFailed() {
+////				Toast.makeText(Main.this, "百度导航引擎初始化失败", Toast.LENGTH_SHORT).show();
+//			}
+//
+//		}, null, ttsHandler, ttsPlayStateListener);
+//	}
+//
+//	/**
+//	 * 内部TTS播报状态回传handler
+//	 */
+//	private Handler ttsHandler = new Handler() {
+//		public void handleMessage(Message msg) {
+//			int type = msg.what;
+//			switch (type) {
+//				case BaiduNaviManager.TTSPlayMsgType.PLAY_START_MSG: {
+//					showToastMsg("Handler : TTS play start");
+//					break;
+//				}
+//				case BaiduNaviManager.TTSPlayMsgType.PLAY_END_MSG: {
+//					showToastMsg("Handler : TTS play end");
+//					break;
+//				}
+//				default:
+//					break;
+//			}
+//		}
+//	};
+//
+//	/**
+//	 * 内部TTS播报状态回调接口
+//	 */
+//	private BaiduNaviManager.TTSPlayStateListener ttsPlayStateListener = new BaiduNaviManager.TTSPlayStateListener() {
+//
+//		@Override
+//		public void playEnd() {
+//			showToastMsg("TTSPlayStateListener : TTS play end");
+//		}
+//
+//		@Override
+//		public void playStart() {
+//			showToastMsg("TTSPlayStateListener : TTS play start");
+//		}
+//	};
+//
+//	public void showToastMsg(final String msg) {
+//		Main.this.runOnUiThread(new Runnable() {
+//
+//			@Override
+//			public void run() {
+//				Toast.makeText(Main.this, msg, Toast.LENGTH_SHORT).show();
+//			}
+//		});
+//	}
+//	private boolean hasBasePhoneAuth() {
+//		// TODO Auto-generated method stub
+//
+//		PackageManager pm = this.getPackageManager();
+//		for (String auth : authBaseArr) {
+//			if (pm.checkPermission(auth, this.getPackageName()) != PackageManager.PERMISSION_GRANTED) {
+//				return false;
+//			}
+//		}
+//		return true;
+//	}
+//
+//	private void initSetting() {
+//		 BNaviSettingManager.setDayNightMode(BNaviSettingManager.DayNightMode.DAY_NIGHT_MODE_DAY);
+//		BNaviSettingManager
+//				.setShowTotalRoadConditionBar(BNaviSettingManager.PreViewRoadCondition.ROAD_CONDITION_BAR_SHOW_ON);
+//		BNaviSettingManager.setVoiceMode(BNaviSettingManager.VoiceMode.Veteran);
+//		BNaviSettingManager.setRealRoadCondition(BNaviSettingManager.RealRoadCondition.NAVI_ITS_ON);
+//
+//		//设置APPid
+//		Bundle bundle = new Bundle();
+//		// 必须设置APPID，否则会静音
+//		bundle.putString(BNCommonSettingParam.TTS_APP_ID, OkHttpParam.TTS_APP_ID);
+//		BNaviSettingManager.setNaviSdkParam(bundle);
+//	}
 
 	/**
 	 * 将sample工程需要的资源文件拷贝到SD卡中使用（授权文件为临时授权文件，请注册正式授权）

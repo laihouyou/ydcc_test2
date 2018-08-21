@@ -10,15 +10,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.search.core.SearchResult;
-import com.baidu.mapapi.search.geocode.GeoCodeResult;
-import com.baidu.mapapi.search.geocode.GeoCoder;
-import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
-import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
-import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
+import com.amap.api.maps.model.LatLng;
+import com.amap.api.services.geocoder.GeocodeResult;
+import com.amap.api.services.geocoder.GeocodeSearch;
+import com.amap.api.services.geocoder.RegeocodeResult;
 import com.esri.android.map.GraphicsLayer;
 import com.esri.android.map.MapOnTouchListener;
 import com.esri.android.map.MapView;
@@ -41,7 +37,7 @@ import com.movementinsome.map.view.MyMapView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapMeterMoveScope implements OnClickListener,OnGetGeoCoderResultListener {
+public class MapMeterMoveScope implements OnClickListener,GeocodeSearch.OnGeocodeSearchListener {
 
 	public static final String DANXIAN = "danxian";
 	public static final String DUOXIAN = "duoxian";
@@ -92,7 +88,6 @@ public class MapMeterMoveScope implements OnClickListener,OnGetGeoCoderResultLis
 	private boolean isDrawType;
 	private MainMineActivity activity;
 	private Graphic editGraphic;
-	private GeoCoder mGeoCoder = null;
 	private String pointAddress;
 	private List<List<String>> pointIdSegment;
 	private LatLng cenpt;
@@ -141,8 +136,8 @@ public class MapMeterMoveScope implements OnClickListener,OnGetGeoCoderResultLis
 //		filter.addAction(Constant.TASK_LIST_UPDATE_MAPPOINT);
 //		context.registerReceiver(taskListMainReceiver, filter);// 更新任务广播
 
-		mGeoCoder = GeoCoder.newInstance();
-		mGeoCoder.setOnGetGeoCodeResultListener(this);
+//		mGeoCoder = GeoCoder.newInstance();
+//		mGeoCoder.setOnGetGeoCodeResultListener(this);
 
 	}
 
@@ -184,8 +179,8 @@ public class MapMeterMoveScope implements OnClickListener,OnGetGeoCoderResultLis
 //		filter.addAction(Constant.TASK_LIST_UPDATE_MAPPOINT);
 //		context.registerReceiver(taskListMainReceiver, filter);// 更新任务广播
 
-		mGeoCoder = GeoCoder.newInstance();
-		mGeoCoder.setOnGetGeoCodeResultListener(this);
+//		mGeoCoder = GeoCoder.newInstance();
+//		mGeoCoder.setOnGetGeoCodeResultListener(this);
 
 	}
 
@@ -196,19 +191,29 @@ public class MapMeterMoveScope implements OnClickListener,OnGetGeoCoderResultLis
 
 	}
 
+//	@Override
+//	public void onGetGeoCodeResult(GeoCodeResult geoCodeResult) {
+//
+//	}
+//
+//	@Override
+//	public void onGetReverseGeoCodeResult(ReverseGeoCodeResult reverseGeoCodeResult) {
+//		if (reverseGeoCodeResult == null || reverseGeoCodeResult.error != SearchResult.ERRORNO.NO_ERROR) {
+//			Toast.makeText(activity, "定位失败，请移动到空旷地带", Toast.LENGTH_LONG)
+//					.show();
+//			return;
+//		}
+//		pointAddress = reverseGeoCodeResult.getAddress();
+//
+//	}
+
 	@Override
-	public void onGetGeoCodeResult(GeoCodeResult geoCodeResult) {
+	public void onRegeocodeSearched(RegeocodeResult regeocodeResult, int i) {
 
 	}
 
 	@Override
-	public void onGetReverseGeoCodeResult(ReverseGeoCodeResult reverseGeoCodeResult) {
-		if (reverseGeoCodeResult == null || reverseGeoCodeResult.error != SearchResult.ERRORNO.NO_ERROR) {
-			Toast.makeText(activity, "定位失败，请移动到空旷地带", Toast.LENGTH_LONG)
-					.show();
-			return;
-		}
-		pointAddress = reverseGeoCodeResult.getAddress();
+	public void onGeocodeSearched(GeocodeResult geocodeResult, int i) {
 
 	}
 
@@ -357,8 +362,8 @@ public class MapMeterMoveScope implements OnClickListener,OnGetGeoCoderResultLis
 					String[] bd09Point=bdPoint.split(" ");
 					final LatLng latLng=new LatLng(Double.parseDouble(bd09Point[1])
 							, Double.parseDouble(bd09Point[0]));
-					mGeoCoder.reverseGeoCode(new ReverseGeoCodeOption()
-							.location(latLng));
+//					mGeoCoder.reverseGeoCode(new ReverseGeoCodeOption()
+//							.location(latLng));
 					popupLayer(point);
 			}
 			//点
@@ -388,8 +393,8 @@ public class MapMeterMoveScope implements OnClickListener,OnGetGeoCoderResultLis
 				String[] bd09Point=bdPoint.split(" ");
 				final LatLng latLng=new LatLng(Double.parseDouble(bd09Point[1])
 						, Double.parseDouble(bd09Point[0]));
-				mGeoCoder.reverseGeoCode(new ReverseGeoCodeOption()
-						.location(latLng));
+//				mGeoCoder.reverseGeoCode(new ReverseGeoCodeOption()
+//						.location(latLng));
 
 				tv.setOnClickListener(new OnClickListener() {
 					

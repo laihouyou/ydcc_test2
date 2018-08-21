@@ -1,6 +1,6 @@
 package com.movementinsome.caice.text;
 
-import com.baidu.mapapi.model.LatLng;
+import com.amap.api.maps.model.LatLng;
 
 /**
  * Created by zzc on 2017/10/9.

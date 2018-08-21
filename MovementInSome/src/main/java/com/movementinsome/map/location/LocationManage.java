@@ -147,7 +147,7 @@ public final class LocationManage {
 		locationOverlay = new GraphicsLayer();
 		
 		locationSymbol = new PictureMarkerSymbol(context.getResources()
-				.getDrawable(R.drawable.gps_location));
+				.getDrawable(R.drawable.gps_point));
 		
 		arcLocationService = map.getLocationDisplayManager();///.getLocationService();
 		arcLocationService.setOpacity(0);
@@ -325,7 +325,7 @@ public final class LocationManage {
 				locationOverlay.addGraphic(circle);
 				
 				locationSymbol = new PictureMarkerSymbol(context.getResources()
-						.getDrawable(R.drawable.gps_location));
+						.getDrawable(R.drawable.gps_point));
 				locationSymbol.setAngle(0);
 				graphicPoint = new Graphic(mapPoint, locationSymbol);
 

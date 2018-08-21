@@ -8,16 +8,16 @@ import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.baidu.mapapi.model.LatLng;
+import com.amap.api.maps.model.LatLng;
 import com.movementinsome.AppContext;
 import com.movementinsome.caice.okhttp.OkHttpParam;
-import com.movementinsome.caice.util.Bd09toArcgis;
 import com.movementinsome.caice.util.DateUtil;
 import com.movementinsome.caice.util.GPSUtils;
 import com.movementinsome.caice.util.MapMeterMoveScope;
 import com.movementinsome.caice.vo.SavePointVo;
 import com.movementinsome.kernel.initial.model.Attribute;
 import com.movementinsome.kernel.initial.model.Movetype;
+import com.movementinsome.kernel.location.coordinate.Gcj022Gps;
 
 import org.apache.poi.hwpf.HWPFDocument;
 import org.apache.poi.hwpf.usermodel.Range;
@@ -122,7 +122,7 @@ public class CommitDateTask extends AsyncTask<String, Void, String> {
                             if (!savePointVo.getLongitude().equals("") && !savePointVo.getLatitude().equals("")) {
                                 LatLng latLng = new LatLng(Double.parseDouble(savePointVo.getLatitude())
                                         , Double.parseDouble(savePointVo.getLongitude()));
-                                Map<String, Double> map_ = Bd09toArcgis.bd09ToWg84(latLng);
+                                Map<String, Double> map_ = Gcj022Gps.gcj2wgs(latLng.longitude,latLng.latitude);
 
                                 context.put(OkHttpParam.LONGITUDE_WG84, map_.get("lon"));
                                 context.put(OkHttpParam.LATITUDE_WG84, map_.get("lat"));

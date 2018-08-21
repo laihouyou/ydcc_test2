@@ -1,6 +1,5 @@
 package com.movementinsome.map.nearby;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -26,9 +25,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
-import com.baidu.BaiduAppProxy;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.navisdk.adapter.BNRoutePlanNode;
+import com.amap.api.maps.model.LatLng;
 import com.esri.android.map.GraphicsLayer;
 import com.esri.core.geometry.Envelope;
 import com.esri.core.geometry.Geometry;
@@ -39,6 +36,7 @@ import com.esri.core.map.FeatureSet;
 import com.esri.core.map.Graphic;
 import com.movementinsome.AppContext;
 import com.movementinsome.R;
+import com.movementinsome.caice.util.ArcgisToBd09;
 import com.movementinsome.kernel.activity.ContainActivity;
 import com.movementinsome.kernel.initial.model.Ftlayer;
 import com.movementinsome.kernel.initial.model.Mapservice;
@@ -49,8 +47,6 @@ import com.movementinsome.map.view.MyMapView;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import static com.baidu.BaiduAppProxy.toBd09Position;
 
 public class NearByTools implements OnClickListener,
 		OnGestureListener {
@@ -372,13 +368,13 @@ public class NearByTools implements OnClickListener,
 			List<LatLng> latLngs=new ArrayList<>();
 			latLngs.removeAll(latLngs);
 			for (Point point :arcPoints){
-				String position = toBd09Position( AppContext.getInstance().getCoordTransform(),mapView.getSpatialReference(),point.getX(), point.getY());
+				String position = ArcgisToBd09.toBd09Position( AppContext.getInstance().getCoordTransform(),mapView.getSpatialReference(),point.getX(), point.getY());
 				double x = Double.valueOf(position.split(" ")[0]);
 				double y = Double.valueOf(position.split(" ")[1]);
 				LatLng latLng=new LatLng(y,x);
 				latLngs.add(latLng);
 			}
-			BaiduAppProxy.CallBaiduNavigationLatLng((Activity) context, BNRoutePlanNode.CoordinateType.BD09LL,latLngs.get(0),latLngs.get(1));
+//			BaiduAppProxy.CallBaiduNavigationLatLng((Activity) context, BNRoutePlanNode.CoordinateType.BD09LL,latLngs.get(0),latLngs.get(1));
 //
 //			BaiduAppProxy.navigatorViaPoints((Activity)context, AppContext.getInstance().getCoordTransform(), mapView.getSpatialReference(), arcPoints);
 		}

@@ -10,14 +10,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.TextView;
 
-import com.baidu.BaiduAppProxy;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.search.core.SearchResult;
-import com.baidu.mapapi.search.geocode.GeoCodeResult;
-import com.baidu.mapapi.search.geocode.GeoCoder;
-import com.baidu.mapapi.search.geocode.OnGetGeoCoderResultListener;
-import com.baidu.mapapi.search.geocode.ReverseGeoCodeOption;
-import com.baidu.mapapi.search.geocode.ReverseGeoCodeResult;
 import com.esri.android.map.GraphicsLayer;
 import com.esri.android.map.MapOnTouchListener;
 import com.esri.android.map.MapView;
@@ -31,13 +23,13 @@ import com.movementinsome.map.view.MyMapView;
 
 import java.util.HashMap;
 
-public class DrawPointUtil2 implements OnGetGeoCoderResultListener {
+public class DrawPointUtil2  {
 
 	private MyMapView map;
 	private GraphicsLayer grapPayer;//点
 	private Context context;
 	private String partition;//分区信息
-	GeoCoder mSearch = null; // 搜索模块，也可去掉地图模块独立使用  
+//	GeoCoder mSearch = null; // 搜索模块，也可去掉地图模块独立使用
 	private String address;//地图点击点的文字地址
 	 //创建lcoationManager对象  
     private LocationManager manager;  
@@ -59,7 +51,7 @@ public class DrawPointUtil2 implements OnGetGeoCoderResultListener {
          * 新建地理编码查询 
          * @return 地理编码查询对象 
          * */  
-        mSearch = GeoCoder.newInstance();  
+//        mSearch = GeoCoder.newInstance();
         /** 
          * public void setOnGetGeoCodeResultListener(OnGetGeoCoderResultListener listener) 
          * 设置查询结果监听者 
@@ -69,7 +61,7 @@ public class DrawPointUtil2 implements OnGetGeoCoderResultListener {
          * onGetGeoCodeResult(GeoCodeResult result)和onGetReverseGeoCodeResult(ReverseGeoCodeResult result) 
          * 方法 
          * */  
-        mSearch.setOnGetGeoCodeResultListener(this);  
+//        mSearch.setOnGetGeoCodeResultListener(this);
         
         //获取系统的服务，  
         manager = (LocationManager) this.context.getSystemService(Context.LOCATION_SERVICE);  
@@ -83,7 +75,6 @@ public class DrawPointUtil2 implements OnGetGeoCoderResultListener {
 	
 	/**
 	 * 通过X,Y坐标wf
-	 * @param type
 	 * @param x
 	 * @param y
 	 */
@@ -138,24 +129,24 @@ public class DrawPointUtil2 implements OnGetGeoCoderResultListener {
 			TextView tvPoint = new TextView(context);
 			tvPoint.setText("最新位置\n点击确认");
 			
-			String gps=BaiduAppProxy.local2Bd09Position(AppContext.getInstance().getCoordTransform(),mpoint.getY(), mpoint.getX());
-			 String a[] = gps.split(" "); 
-			String mGpslat=a[0];
-			String mGpslon=a[1];
-			 LatLng ptCenter = new LatLng((Float.valueOf(mGpslon)),  
-                    (Float.valueOf(mGpslat)));  
-			 /** 
-			  * public boolean reverseGeoCode(ReverseGeoCodeOption option) 
-			  * 发起反地理编码请求(经纬度->地址信息) 
-			  * @param option - 请求参数 
-			  * @return 成功发起检索返回true,失败返回false 
-			  * 
-			  * public ReverseGeoCodeOption location(LatLng location) 
-			  * 设置反地理编码位置坐标 
-			  * @param location - 位置坐标 
-			  * @return 该反地理编码请求参数对象 
-			  * */  
-			 mSearch.reverseGeoCode(new ReverseGeoCodeOption().location(ptCenter));  
+//			String gps=BaiduAppProxy.local2Bd09Position(AppContext.getInstance().getCoordTransform(),mpoint.getY(), mpoint.getX());
+//			 String a[] = gps.split(" ");
+//			String mGpslat=a[0];
+//			String mGpslon=a[1];
+//			 LatLng ptCenter = new LatLng((Float.valueOf(mGpslon)),
+//                    (Float.valueOf(mGpslat)));
+//			 /**
+//			  * public boolean reverseGeoCode(ReverseGeoCodeOption option)
+//			  * 发起反地理编码请求(经纬度->地址信息)
+//			  * @param option - 请求参数
+//			  * @return 成功发起检索返回true,失败返回false
+//			  *
+//			  * public ReverseGeoCodeOption location(LatLng location)
+//			  * 设置反地理编码位置坐标
+//			  * @param location - 位置坐标
+//			  * @return 该反地理编码请求参数对象
+//			  * */
+//			 mSearch.reverseGeoCode(new ReverseGeoCodeOption().location(ptCenter));
 			
 			tvPoint.setOnClickListener(new OnClickListener() {
 				@Override
@@ -193,35 +184,35 @@ public class DrawPointUtil2 implements OnGetGeoCoderResultListener {
 		map.resetTouchListener();
 	}
 	 //////////////////OnGetGeoCoderResultListener//////////////////  
-    /** 
-     * void onGetGeoCodeResult(GeoCodeResult result) 
-     * 地理编码查询结果回调函数 
-     * @param result - 地理编码查询结果 
-     * */  
-	@Override
-	public void onGetGeoCodeResult(GeoCodeResult arg0) {
-		// TODO 自动生成的方法存根
-		
-	}
-	 /** 
-     * void onGetReverseGeoCodeResult(ReverseGeoCodeResult result) 
-     * 反地理编码查询结果回调函数 
-     * @param result - 反地理编码查询结果 
-     * */  
-	@Override
-	public void onGetReverseGeoCodeResult(ReverseGeoCodeResult result) {
-		// TODO 自动生成的方法存根
-		  if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {  
-//	            Toast.makeText(GeoCoderDemo.this, "抱歉，未能找到结果", Toast.LENGTH_LONG).show();  
-	            return;  
-	        }  
-	        /** 
-	         * ReverseGeoCodeResult:反 Geo Code 结果 
-	         * */  
-		  if (result != null && result.error == SearchResult.ERRORNO.NO_ERROR) {
-
-              //得到位置
-              address = result.getAddress();
-          }
-	}
+//    /**
+//     * void onGetGeoCodeResult(GeoCodeResult result)
+//     * 地理编码查询结果回调函数
+//     * @param result - 地理编码查询结果
+//     * */
+//	@Override
+//	public void onGetGeoCodeResult(GeoCodeResult arg0) {
+//		// TODO 自动生成的方法存根
+//
+//	}
+//	 /**
+//     * void onGetReverseGeoCodeResult(ReverseGeoCodeResult result)
+//     * 反地理编码查询结果回调函数
+//     * @param result - 反地理编码查询结果
+//     * */
+//	@Override
+//	public void onGetReverseGeoCodeResult(ReverseGeoCodeResult result) {
+//		// TODO 自动生成的方法存根
+//		  if (result == null || result.error != SearchResult.ERRORNO.NO_ERROR) {
+////	            Toast.makeText(GeoCoderDemo.this, "抱歉，未能找到结果", Toast.LENGTH_LONG).show();
+//	            return;
+//	        }
+//	        /**
+//	         * ReverseGeoCodeResult:反 Geo Code 结果
+//	         * */
+//		  if (result != null && result.error == SearchResult.ERRORNO.NO_ERROR) {
+//
+//              //得到位置
+//              address = result.getAddress();
+//          }
+//	}
 }

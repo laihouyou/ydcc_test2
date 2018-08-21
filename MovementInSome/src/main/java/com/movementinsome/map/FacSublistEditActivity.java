@@ -1,7 +1,5 @@
 package com.movementinsome.map;
 
-import java.util.List;
-
 import android.os.Bundle;
 import android.view.KeyEvent;
 
@@ -13,6 +11,8 @@ import com.movementinsome.kernel.util.WebAccessTools.NET_STATE;
 import com.movementinsome.map.facSublistEdit.MapEditFacSublist;
 import com.movementinsome.map.view.MyMapView;
 
+import java.util.List;
+
 public class FacSublistEditActivity extends MapViewer {
 
 	private MyMapView mMapView;
@@ -21,7 +21,7 @@ public class FacSublistEditActivity extends MapViewer {
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		mMapView = getMapView();
+//		mMapView = getMapView();
 		mMapView.resetTouchListener();
 		mMapView.getMapView().setOnStatusChangedListener(new OnStatusChangedListener() {
 

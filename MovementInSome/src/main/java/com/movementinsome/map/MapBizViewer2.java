@@ -66,7 +66,7 @@ public class MapBizViewer2 extends MapViewer {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		mMapView = getMapView();
+//		mMapView = getMapView();
 		/*
 		 * grapLayer = new GraphicsLayer(); SimpleRenderer sr = new
 		 * SimpleRenderer( new SimpleFillSymbol(Color.RED));

@@ -2,7 +2,8 @@ package com.movementinsome.kernel.location.trace;
 
 import android.content.Context;
 
-import com.baidu.mapapi.model.LatLng;
+import com.amap.api.maps.CoordinateConverter;
+import com.amap.api.maps.model.LatLng;
 import com.movementinsome.AppContext;
 import com.movementinsome.app.zhd.zhdutil.Util;
 import com.movementinsome.caice.util.BaiduCoordinateTransformation;
@@ -45,7 +46,7 @@ public class ZhdGps {
             locationInfo.setLatitude(wg84lat);   //纬度
 
             LatLng latLng_wgs84=new LatLng(wg84lat,wg84log);
-            LatLng latLng_bd09= BaiduCoordinateTransformation.wgs84ToBd09(latLng_wgs84);
+            LatLng latLng_bd09= BaiduCoordinateTransformation.toGcj02(latLng_wgs84.longitude,latLng_wgs84.latitude, CoordinateConverter.CoordType.GPS);
             locationInfo.setLongitude_gcj02(latLng_bd09.longitude);
             locationInfo.setLatitude_gcj02(latLng_bd09.latitude);
 

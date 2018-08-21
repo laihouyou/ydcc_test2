@@ -7,7 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 
-import com.baidu.mapapi.model.LatLng;
+import com.amap.api.maps.model.LatLng;
 import com.movementinsome.caice.okhttp.OkHttpRequest;
 import com.movementinsome.caice.util.ConstantDate;
 import com.movementinsome.caice.vo.HistoryCommitVO;

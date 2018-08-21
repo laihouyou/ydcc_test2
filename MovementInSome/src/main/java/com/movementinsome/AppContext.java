@@ -8,16 +8,10 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Environment;
 import android.os.Handler;
 import android.support.multidex.MultiDex;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.baidu.BaiduAppProxy;
-import com.baidu.lbsapi.BMapManager;
-import com.baidu.mapapi.CoordType;
-import com.baidu.mapapi.SDKInitializer;
 import com.esri.core.geometry.Point;
 import com.esri.core.tasks.identify.IdentifyResult;
 import com.google.gson.Gson;
@@ -71,7 +65,6 @@ import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -133,7 +126,7 @@ public class AppContext extends Application {
     private Dao<ProjectVo,Long> projectVoDao;
     private Dao<SavePointVo,Long> savePointVoDao;
 
-    public BMapManager mBMapManager = null;
+//    public BMapManager mBMapManager = null;
 
     //public LocationInfoExt[] locations = new LocationInfoExt[711];
 
@@ -196,9 +189,9 @@ public class AppContext extends Application {
 
         //爆漏分析使用   百度地图初始化
         // 在使用 SDK 各组间之前初始化 context 信息，传入 ApplicationContext
-        SDKInitializer.initialize(getApplicationContext());
-        SDKInitializer.setCoordType(CoordType.BD09LL);//默认为BD09LL坐标
-        initEngineManager2(this);       //全景图初始化
+//        SDKInitializer.initialize(getApplicationContext());
+//        SDKInitializer.setCoordType(CoordType.BD09LL);//默认为BD09LL坐标
+//        initEngineManager2(this);       //全景图初始化
 
         OkHttpClient okHttpClient = new OkHttpClient.Builder()
                 .addInterceptor(new LoggerInterceptor("TAG"))
@@ -228,25 +221,25 @@ public class AppContext extends Application {
         return phoneTypeNum;
     }
 
-    /**
-     * 全景图初始化
-     * @param context
-     */
-    public void initEngineManager2(Context context) {
-        try {
-            if (mBMapManager == null) {
-                mBMapManager = new BMapManager(context);
-            }
-
-            if (!mBMapManager.init(new BaiduAppProxy.MyGeneralListener())) {
-                Toast.makeText(this, "BMapManager  初始化错误!",
-                        Toast.LENGTH_LONG).show();
-            }
-            Log.d("ljx", "initEngineManager");
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
+//    /**
+//     * 全景图初始化
+//     * @param context
+//     */
+//    public void initEngineManager2(Context context) {
+//        try {
+//            if (mBMapManager == null) {
+//                mBMapManager = new BMapManager(context);
+//            }
+//
+//            if (!mBMapManager.init(new BaiduAppProxy.MyGeneralListener())) {
+//                Toast.makeText(this, "BMapManager  初始化错误!",
+//                        Toast.LENGTH_LONG).show();
+//            }
+//            Log.d("ljx", "initEngineManager");
+//        }catch (Exception e){
+//            e.printStackTrace();
+//        }
+//    }
 
     private void initEngineManager(Context context) {
         try {

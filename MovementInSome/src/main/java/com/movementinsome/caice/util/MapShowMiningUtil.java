@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
 
-import com.baidu.mapapi.model.LatLng;
+import com.amap.api.maps.model.LatLng;
 import com.esri.android.map.GraphicsLayer;
 import com.esri.core.geometry.Polyline;
 import com.esri.core.map.Graphic;

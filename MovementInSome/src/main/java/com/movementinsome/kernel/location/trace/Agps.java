@@ -38,6 +38,7 @@ public class Agps {
 		locationClient.setLocationOption(locationOption);
 		// 设置定位监听
 		locationClient.setLocationListener(locationListener);
+		locationClient.startLocation();
 	}
 
 	/**

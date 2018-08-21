@@ -8,12 +8,12 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
@@ -31,6 +31,8 @@ import com.aMap.overlay.PoiOverlay;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.AMapUtils;
 import com.amap.api.maps.CameraUpdateFactory;
+import com.amap.api.maps.CoordinateConverter;
+import com.amap.api.maps.LocationSource;
 import com.amap.api.maps.MapView;
 import com.amap.api.maps.model.BitmapDescriptor;
 import com.amap.api.maps.model.BitmapDescriptorFactory;
@@ -38,6 +40,7 @@ import com.amap.api.maps.model.CameraPosition;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
+import com.amap.api.maps.model.MyLocationStyle;
 import com.amap.api.maps.model.Polyline;
 import com.amap.api.maps.model.PolylineOptions;
 import com.amap.api.services.core.AMapException;
@@ -46,7 +49,6 @@ import com.amap.api.services.geocoder.GeocodeResult;
 import com.amap.api.services.geocoder.GeocodeSearch;
 import com.amap.api.services.geocoder.RegeocodeQuery;
 import com.amap.api.services.geocoder.RegeocodeResult;
-import com.baidu.pano.PanoDemoMain;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.stmt.Where;
@@ -55,12 +57,11 @@ import com.movementinsome.R;
 import com.movementinsome.app.pub.Constant;
 import com.movementinsome.app.pub.view.MaxHeightListView;
 import com.movementinsome.caice.async.InputDateTask;
-import com.movementinsome.caice.async.ShowMakreTask;
 import com.movementinsome.caice.okhttp.OkHttpParam;
 import com.movementinsome.caice.okhttp.OkHttpRequest;
 import com.movementinsome.caice.okhttp.ProjectRequest;
 import com.movementinsome.caice.project.ProjectManipulation;
-import com.movementinsome.caice.util.Bd09toArcgis;
+import com.movementinsome.caice.util.BaiduCoordinateTransformation;
 import com.movementinsome.caice.util.ConstantDate;
 import com.movementinsome.caice.util.CreateFiles;
 import com.movementinsome.caice.util.MapMeterMoveScope;
@@ -108,12 +109,18 @@ import static com.movementinsome.caice.util.MapMeterMoveScope.DELETELINE;
 /**
  * 地图页面
  */
-public class MapViewer extends ContainActivity implements View.OnClickListener,
-        GeocodeSearch.OnGeocodeSearchListener, AMap.OnMarkerClickListener,
+public class MapViewer extends ContainActivity implements
+        View.OnClickListener,
+        GeocodeSearch.OnGeocodeSearchListener,
+        AMap.OnMarkerClickListener,
         AMap.OnMarkerDragListener,
-        AMap.OnMapClickListener, AMap.OnMyLocationChangeListener,
-        View.OnTouchListener, AdapterView.OnItemClickListener,
-        AMap.OnPolylineClickListener,AMap.OnCameraChangeListener{
+        AMap.OnMapClickListener,
+        AMap.OnMyLocationChangeListener,
+        View.OnTouchListener,
+        AdapterView.OnItemClickListener,
+        AMap.OnPolylineClickListener,
+        LocationSource,
+        AMap.OnCameraChangeListener{
     private MyMapView arcMapview;
 
     public static final String TAG = ContentValues.TAG;
@@ -140,8 +147,6 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
     private BitmapDescriptor bitmap;
 
     private OkHttpRequest okHttpRequest;
-
-    private List<Polyline> mBaidPolyline;
 
     public List<String> mType;
     private List<String> symbolList;
@@ -170,7 +175,6 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
     private SharedPreferences.Editor editor;
 
     private MapViewer context;
-    private ShowMakreTask showMakreTask;
     private Dao<ProjectVo, Long> miningSurveyVOdao = null;
     private Dao<SavePointVo, Long> savePointVoLongDao = null;
 
@@ -249,8 +253,6 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
     private int accuratePoint_isshow;      //控制显隐配置
     private int line_add_point_isshow;      //控制管线加点显隐配置
 
-    private MyLocationData locData;
-
     private ProjectManipulation projectManipulation;
 
     private LatLng centerLatlng;
@@ -265,6 +267,8 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
 
     private GeocodeSearch geocoderSearch;
 
+    private OnLocationChangedListener mListener;
+
     /**
      * Called when the activity is first created.
      */
@@ -274,6 +278,7 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
         setContentView(R.layout.main_map_activity3);
         context = this;
         initView();
+
         try {
             initOther();
         } catch (SQLException e) {
@@ -281,12 +286,14 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        //在activity执行onCreate时执行mMapView.onCreate(savedInstanceState)，创建地图
+        mMapView.onCreate(savedInstanceState);
     }
 
     private void initView() {
         mMapView = (MapView) findViewById(R.id.baiduMap);
         aMap = mMapView.getMap();
+        setUpMap();
 
 //        // 不显示地图缩放控件（按钮控制栏）
 //        mMapView.showZoomControls(true);
@@ -308,7 +315,7 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
         mGeoCoder = new GeocodeSearch(this);
         mGeoCoder.setOnGeocodeSearchListener(this);
 
-        arcMapview = (MyMapView) findViewById(R.id.myMapView);//
+        arcMapview = (MyMapView) findViewById(R.id.myMapView3);//
         arcMapview.setMapPopupWindow(this);
         //加载上一次地图范围
         arcMapview.loadLastMapExtent();
@@ -406,6 +413,27 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
 
     }
 
+    private void setUpMap() {
+        aMap.setLocationSource(this);// 设置定位监听
+        aMap.getUiSettings().setMyLocationButtonEnabled(true);// 设置默认定位按钮是否显示
+        // 自定义系统定位蓝点
+        MyLocationStyle myLocationStyle = new MyLocationStyle();
+        // 自定义定位蓝点图标
+        myLocationStyle.myLocationIcon(
+                BitmapDescriptorFactory.fromResource(R.drawable.gps_point));
+        // 自定义精度范围的圆形边框颜色
+        myLocationStyle.strokeColor(Color.argb(0, 0, 0, 0));
+        // 自定义精度范围的圆形边框宽度
+        myLocationStyle.strokeWidth(0);
+        // 设置圆形的填充颜色
+        myLocationStyle.radiusFillColor(Color.argb(0, 0, 0, 0));
+        // 将自定义的 myLocationStyle 对象添加到地图上
+        aMap.setMyLocationStyle(myLocationStyle);
+        aMap.setMyLocationEnabled(true);// 设置为true表示显示定位层并可触发定位，false表示隐藏定位层并不可触发定位，默认是false
+        // 设置定位的类型为定位模式 ，可以由定位、跟随或地图根据面向方向旋转几种
+        aMap.setMyLocationType(AMap.LOCATION_TYPE_LOCATE);
+    }
+
     private void initOther() throws SQLException, IOException {
         // 注册广播
         receiver = new TraceReceiver();
@@ -420,8 +448,6 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
         EventBus.getDefault().register(this);
 
         okHttpRequest = new OkHttpRequest(this, aMap);
-
-        mBaidPolyline = new ArrayList<>();
 
         checkPointVoList = new ArrayList<>();
 
@@ -774,13 +800,13 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                     if (checkPointVoList.size() > 0) {
                         savePointVo = checkPointVoList.get(0);
                     }
-                    progressDialog.setMessage("加载中,请稍后...");
-                    progressDialog.show();
-                    Intent i = new Intent(this, PanoDemoMain.class);
-                    i.putExtra("lat", markerLatlng.latitude);
-                    i.putExtra("lon", markerLatlng.longitude);
-                    i.putExtra(OkHttpParam.SAVEPOINTVO, savePointVo);
-                    startActivity(i);
+//                    progressDialog.setMessage("加载中,请稍后...");
+//                    progressDialog.show();
+//                    Intent i = new Intent(this, PanoDemoMain.class);
+//                    i.putExtra("lat", markerLatlng.latitude);
+//                    i.putExtra("lon", markerLatlng.longitude);
+//                    i.putExtra(OkHttpParam.SAVEPOINTVO, savePointVo);
+//                    startActivity(i);
                 }
                 break;
             case R.id.loading_hint:     //定位提示
@@ -1592,14 +1618,6 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
             linePointOverlayList.clear();
             lineList.removeAll(lineList);
 
-            if (mBaidPolyline != null) {
-                for (int i = 0; i < mBaidPolyline.size(); i++) {
-                    if (mBaidPolyline.get(i) != null) {
-                        mBaidPolyline.get(i).remove();
-                    }
-                }
-            }
-
             if (marker != null) {
                 marker.hideInfoWindow();
                 marker.remove();
@@ -1685,26 +1703,21 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                     "\n" + "精度:" + locationInfoExt.getAccuracy()
             );
 
-            locData = new MyLocationData.Builder()
-                    .accuracy(0)            //半径设置0米
-                    // 此处设置开发者获取到的方向信息，顺时针0-360
-                    .direction(locationInfoExt.getBearing())
-                    .latitude(locationInfoExt.getLatitude_bd09())
-                    .longitude(locationInfoExt.getLongitude_bd09())
-                    .build();
-            aMap.setMyLocationData(locData);
-            cenpt = new LatLng(locationInfoExt.getLatitude_bd09(),
-                    locationInfoExt.getLongitude_bd09());
+
+            cenpt = new LatLng(locationInfoExt.getLatitude_gcj02(),
+                    locationInfoExt.getLongitude_gcj02());
             cenpt_wgs84 = new LatLng(locationInfoExt.getLatitude(),
                     locationInfoExt.getLongitude());
             Log.i("cenpt", "(" + cenpt.longitude + "," + cenpt.latitude + ")");
 
             if (isFirstLoc) {
                 isFirstLoc = false;
-                MapStatus.Builder builder = new MapStatus.Builder();
-                builder.target(cenpt);
-                builder.zoom(18.0f);
-                aMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()));
+               aMap.moveCamera(CameraUpdateFactory.zoomTo(18));
+               aMap.moveCamera(CameraUpdateFactory.newLatLng(
+                       BaiduCoordinateTransformation.toGcj02(
+                               cenpt_wgs84.longitude,
+                               cenpt_wgs84.latitude,
+                               CoordinateConverter.CoordType.GPS)));
             }
         }
     }
@@ -1732,7 +1745,7 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                     for (SavePointVo savePointVo : savePointVoList) {
                         if (savePointVo.getDataType().equals(MapMeterMoveScope.POINT)) {
                             LatLng latLng = savePointVo.getLatlng();
-                            double dis = DistanceUtil.getDistance(centerLatlng, latLng);
+                            double dis = AMapUtils.calculateArea(centerLatlng, latLng);
                             long cos = AppContext.getInstance().getCollectionScope();
                             if (dis < cos) {
                                 savePointVos.add(savePointVo);
@@ -1742,7 +1755,7 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                             boolean isAdd = true;
                             for (int i = 0; i < latLngs.size(); i++) {
                                 LatLng latLng = latLngs.get(i);
-                                double dis = DistanceUtil.getDistance(centerLatlng, latLng);
+                                double dis =  AMapUtils.calculateArea(centerLatlng, latLng);
                                 long cos = AppContext.getInstance().getCollectionScope();
                                 if (dis < cos) {
                                     isAdd = false;
@@ -1814,14 +1827,6 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
      */
     private void mapClean(boolean isShowMarker,boolean isLineAddPoint) {
         //绘制前先把之前的清除掉
-        if (mBaidPolyline != null && mBaidPolyline.size() > 0) {
-            for (int j = 0; j < mBaidPolyline.size(); j++) {
-                if (mBaidPolyline.get(j) != null) {
-                    mBaidPolyline.get(j).remove();
-                }
-            }
-            mBaidPolyline.removeAll(mBaidPolyline);
-        }
 
         if (markerOverlayList != null && markerOverlayList.size() > 0) {
             for (int i = 0; i < markerOverlayList.size(); i++) {
@@ -1829,24 +1834,25 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                     markerOverlayList.get(i).remove();
                 }
             }
-            markerOverlayList.removeAll(markerOverlayList);
+            markerOverlayList.clear();
         }
+
         if (lineOverlayList != null && lineOverlayList.size() > 0) {
             for (int i = 0; i < lineOverlayList.size(); i++) {
                 if (lineOverlayList.get(i) != null) {
                     lineOverlayList.get(i).remove();
                 }
             }
+            lineOverlayList.clear();
         }
-        lineOverlayList.clear();
 
         if (!isShowMarker) {     //如果不是显示marker调用则清除连续点线
             if (linePointOverlayList != null) {
                 for (int i = 0; i < linePointOverlayList.size(); i++) {
                     linePointOverlayList.get(i).remove();
                 }
+                linePointOverlayList.clear();
             }
-            linePointOverlayList.clear();
         }
 
         if (marker != null) {
@@ -2225,6 +2231,13 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
 
         arcMapview.pause();
         super.onPause();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        //在activity执行onSaveInstanceState时执行mMapView.onSaveInstanceState (outState)，保存地图当前的状态
+        mMapView.onSaveInstanceState(outState);
     }
 
     @Override
@@ -2640,6 +2653,16 @@ public class MapViewer extends ContainActivity implements View.OnClickListener,
                 }
             }
         }
+    }
+
+    @Override
+    public void activate(OnLocationChangedListener onLocationChangedListener) {
+
+    }
+
+    @Override
+    public void deactivate() {
+
     }
 
     // 获取实时坐标广播数据

@@ -23,9 +23,6 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
-import com.baidu.BaiduAppProxy;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.navisdk.adapter.BNRoutePlanNode;
 import com.esri.core.geometry.Envelope;
 import com.esri.core.geometry.Geometry;
 import com.esri.core.geometry.Point;
@@ -42,8 +39,6 @@ import com.movementinsome.map.utils.BufferQueryTools;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.baidu.BaiduAppProxy.toBd09Position;
 
 public class IdentifyDialog extends AlertDialog implements OnGestureListener,
 		OnTouchListener, OnLongClickListener, OnCheckedChangeListener {
@@ -206,16 +201,16 @@ public class IdentifyDialog extends AlertDialog implements OnGestureListener,
 							geo.queryEnvelope(env);
 							arcPoints.add(env.getCenter());
 						}
-						List<LatLng> latLngs=new ArrayList<>();
-						latLngs.removeAll(latLngs);
-						for (Point point :arcPoints){
-							String position = toBd09Position( AppContext.getInstance().getCoordTransform(),view.getSpatialReference(),point.getX(), point.getY());
-							double x = Double.valueOf(position.split(" ")[0]);
-							double y = Double.valueOf(position.split(" ")[1]);
-							LatLng latLng=new LatLng(y,x);
-							latLngs.add(latLng);
-						}
-						BaiduAppProxy.CallBaiduNavigationLatLng((Activity) context, BNRoutePlanNode.CoordinateType.BD09LL,latLngs.get(0),latLngs.get(1));
+//						List<LatLng> latLngs=new ArrayList<>();
+//						latLngs.removeAll(latLngs);
+//						for (Point point :arcPoints){
+//							String position = toBd09Position( AppContext.getInstance().getCoordTransform(),view.getSpatialReference(),point.getX(), point.getY());
+//							double x = Double.valueOf(position.split(" ")[0]);
+//							double y = Double.valueOf(position.split(" ")[1]);
+//							LatLng latLng=new LatLng(y,x);
+//							latLngs.add(latLng);
+//						}
+//						BaiduAppProxy.CallBaiduNavigationLatLng((Activity) context, BNRoutePlanNode.CoordinateType.BD09LL,latLngs.get(0),latLngs.get(1));
 //						BaiduAppProxy.navigatorViaPoints((Activity)context, AppContext.getInstance().getCoordTransform(), view.getSpatialReference(), arcPoints);
 					}
 					break;

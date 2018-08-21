@@ -5,7 +5,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.movementinsome.R;
 import com.movementinsome.caice.activity.OfflineActivity2;
@@ -138,7 +137,7 @@ public class ExpandableItemAdapter extends BaseMultiAdapter<MultiItemEntity> {
         tv_city.setText(item.getCtilName());
         final TextView tv_in_the_download = holder.getView(R.id.tv_in_the_download);
         TextView download_size = holder.getView(R.id.download_size);
-        download_size.setText(OfflineActivity2.formatDataSize(item.getDataSize())+"");
+//        download_size.setText(OfflineActivity2.formatDataSize(item.getDataSize())+"");
         final TextView download_man_size = holder.getView(R.id.download_man_size);
 
         ImageView download_icon = holder.getView(R.id.download_icon);
@@ -158,35 +157,35 @@ public class ExpandableItemAdapter extends BaseMultiAdapter<MultiItemEntity> {
         download_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int cityid = item.getCtilId();
-                activity.mOffline.start(cityid);
-
-                tv_in_the_download.setText(item.getStatusStr());
-                tv_in_the_download.setVisibility(View.VISIBLE);
-
-                download_man_size.setText(item.getRatio()+"%");
-                download_man_size.setVisibility(View.VISIBLE);
-
-                activity.lm.setVisibility(View.VISIBLE);
-                activity.cl.setVisibility(View.GONE);
-                activity.tv_offline_have_downloaded.setBackgroundColor(activity.getResources()
-                        .getColor(R.color.red));
-                activity.tv_offline_have_downloaded.setTextColor(activity.getResources()
-                        .getColor(R.color.greenyellow));
-
-                activity.tv_offline_not_download.setBackgroundColor(activity.getResources()
-                        .getColor(R.color.gainsboro));
-                activity.tv_offline_not_download.setTextColor(activity.getResources().getColor(
-                        R.color.black));
-                Toast.makeText(activity,
-                        "开始下载" + item.getCtilName() + "离线地图: ",
-                        Toast.LENGTH_SHORT).show();
-
-                activity.isDownload = true;
-
-                notifyItemChanged(position);
-
-                activity.updateExListview();
+//                int cityid = item.getCtilId();
+//                activity.mOffline.start(cityid);
+//
+//                tv_in_the_download.setText(item.getStatusStr());
+//                tv_in_the_download.setVisibility(View.VISIBLE);
+//
+//                download_man_size.setText(item.getRatio()+"%");
+//                download_man_size.setVisibility(View.VISIBLE);
+//
+//                activity.lm.setVisibility(View.VISIBLE);
+//                activity.cl.setVisibility(View.GONE);
+//                activity.tv_offline_have_downloaded.setBackgroundColor(activity.getResources()
+//                        .getColor(R.color.red));
+//                activity.tv_offline_have_downloaded.setTextColor(activity.getResources()
+//                        .getColor(R.color.greenyellow));
+//
+//                activity.tv_offline_not_download.setBackgroundColor(activity.getResources()
+//                        .getColor(R.color.gainsboro));
+//                activity.tv_offline_not_download.setTextColor(activity.getResources().getColor(
+//                        R.color.black));
+//                Toast.makeText(activity,
+//                        "开始下载" + item.getCtilName() + "离线地图: ",
+//                        Toast.LENGTH_SHORT).show();
+//
+//                activity.isDownload = true;
+//
+//                notifyItemChanged(position);
+//
+//                activity.updateExListview();
 
             }
         });
