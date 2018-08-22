@@ -81,7 +81,6 @@ import com.movementinsome.kernel.location.coordinate.Gcj022Gps;
 import com.movementinsome.kernel.util.ActivityUtil;
 import com.movementinsome.kernel.util.FileUtils;
 import com.movementinsome.map.nearby.ToastUtils;
-import com.movementinsome.map.view.MyMapView;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -121,7 +120,7 @@ public class MapViewer extends ContainActivity implements
         AMap.OnPolylineClickListener,
         LocationSource,
         AMap.OnCameraChangeListener{
-    private MyMapView arcMapview;
+//    private MyMapView arcMapview;
 
     public static final String TAG = ContentValues.TAG;
     public static final String MOVE_MINING_POINT = android.os.Environment
@@ -315,10 +314,10 @@ public class MapViewer extends ContainActivity implements
         mGeoCoder = new GeocodeSearch(this);
         mGeoCoder.setOnGeocodeSearchListener(this);
 
-        arcMapview = (MyMapView) findViewById(R.id.myMapView3);//
-        arcMapview.setMapPopupWindow(this);
-        //加载上一次地图范围
-        arcMapview.loadLastMapExtent();
+//        arcMapview = (MyMapView) findViewById(R.id.myMapView3);//
+//        arcMapview.setMapPopupWindow(this);
+//        //加载上一次地图范围
+//        arcMapview.loadLastMapExtent();
 
         //切换
         pointChangeLineBtn = (FrameLayout) findViewById(R.id.pointChangeLineBtn);
@@ -361,6 +360,7 @@ public class MapViewer extends ContainActivity implements
         //地图提醒
         map_changer = (TextView) findViewById(R.id.map_changer);
         map_changer.setOnClickListener(this);
+        map_changer.setVisibility(View.GONE);
         //坐标点
         coordinate_point = (TextView) findViewById(R.id.coordinate_point);
         coordinate_point.setOnClickListener(this);
@@ -2199,15 +2199,15 @@ public class MapViewer extends ContainActivity implements
     }
 
 
-    public MyMapView getMapView() {
-        return arcMapview;
-    }
+//    public MyMapView getMapView() {
+//        return arcMapview;
+//    }
 
     @Override
     protected void onDestroy() {
         //退出前保存当前地图的位置
-        arcMapview.saveCurMapExtent();
-        arcMapview.destroy();
+//        arcMapview.saveCurMapExtent();
+//        arcMapview.destroy();
         // 关闭定位图层
         aMap.setMyLocationEnabled(false);
         mMapView.onDestroy();
@@ -2229,7 +2229,7 @@ public class MapViewer extends ContainActivity implements
             progressDialog.dismiss();
         }
 
-        arcMapview.pause();
+//        arcMapview.pause();
         super.onPause();
     }
 
@@ -2248,7 +2248,7 @@ public class MapViewer extends ContainActivity implements
 
     @Override
     protected void onResume() {
-        arcMapview.unpause();
+//        arcMapview.unpause();
         mMapView.onResume();
         try {
             if (currentProject!=null){
@@ -2657,12 +2657,12 @@ public class MapViewer extends ContainActivity implements
 
     @Override
     public void activate(OnLocationChangedListener onLocationChangedListener) {
-
+        mListener = onLocationChangedListener;
     }
 
     @Override
     public void deactivate() {
-
+        mListener = null;
     }
 
     // 获取实时坐标广播数据
