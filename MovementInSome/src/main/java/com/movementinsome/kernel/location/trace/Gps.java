@@ -11,6 +11,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 
+import com.amap.api.location.AMapLocation;
 import com.amap.api.maps.CoordinateConverter;
 import com.amap.api.maps.model.LatLng;
 import com.movementinsome.caice.util.BaiduCoordinateTransformation;
@@ -252,6 +253,7 @@ public class Gps {
                 GpsSatellite s = iters.next();  
                 satellites++;  
             } */
+			AMapLocation aMapLocation=new AMapLocation(location);
 
 			LocationInfoExt locationInfo = new LocationInfoExt(
 					location.getLatitude(), location.getLongitude(),
@@ -264,6 +266,7 @@ public class Gps {
 			LatLng latLng_bd09=BaiduCoordinateTransformation.toGcj02(latLng_wgs84.longitude,latLng_wgs84.latitude, CoordinateConverter.CoordType.GPS);
 			locationInfo.setLongitude_gcj02(latLng_bd09.longitude);
 			locationInfo.setLatitude_gcj02(latLng_bd09.latitude);
+			locationInfo.setaMapLocation(aMapLocation);
 			return locationInfo;
 		} else {
 			return null;

@@ -10,6 +10,7 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -267,6 +268,8 @@ public class MapViewer extends ContainActivity implements
     private GeocodeSearch geocoderSearch;
 
     private OnLocationChangedListener mListener;
+    private LocationManager mAMapLocationManager;
+
 
     /**
      * Called when the activity is first created.
@@ -1718,6 +1721,10 @@ public class MapViewer extends ContainActivity implements
                                cenpt_wgs84.longitude,
                                cenpt_wgs84.latitude,
                                CoordinateConverter.CoordType.GPS)));
+            }
+            //设置定位数据
+            if (mListener!=null&&locationInfoExt.getaMapLocation()!=null){
+                mListener.onLocationChanged(locationInfoExt.getaMapLocation());// 显示系统小蓝点
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.movementinsome.kernel.location;
 
+import com.amap.api.location.AMapLocation;
 import com.movementinsome.kernel.initial.model.CoordParam;
 import com.movementinsome.kernel.location.coordinate.Gcj022Bd09;
 import com.movementinsome.kernel.location.coordinate.Gcj022Gps;
@@ -89,6 +90,8 @@ public class LocationInfo implements Serializable {
 	private int 	SolutionUsedSats; 	//解算使用的卫星数（来自BESTPOS）
 
 	private boolean 	IsVerified; 	//是否已经过验证（来自BESTPOS）
+
+	private AMapLocation aMapLocation;
 
 
 
@@ -437,6 +440,14 @@ public class LocationInfo implements Serializable {
 
 	public void setLongitude_gcj02(double longitude_gcj02) {
 		this.longitude_gcj02 = longitude_gcj02;
+	}
+
+	public AMapLocation getaMapLocation() {
+		return aMapLocation;
+	}
+
+	public void setaMapLocation(AMapLocation aMapLocation) {
+		this.aMapLocation = aMapLocation;
 	}
 
 	//获取当前GPS坐标位置
