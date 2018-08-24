@@ -2,7 +2,6 @@ package com.movementinsome.kernel.location.trace;
 
 import android.content.Context;
 
-import com.amap.api.location.AMapLocation;
 import com.amap.api.maps.CoordinateConverter;
 import com.amap.api.maps.model.LatLng;
 import com.movementinsome.AppContext;
@@ -79,19 +78,6 @@ public class ZhdGps {
             }
 
             locationInfo.setLocationModel("中海达");   //定位类型
-
-            AMapLocation aMapLocation=new AMapLocation("");
-            aMapLocation.setAddress(locationInfo.getAddr());
-            aMapLocation.setLongitude(locationInfo.getLongitude());
-            aMapLocation.setLatitude(locationInfo.getLatitude());
-            aMapLocation.setAltitude(locationInfo.getAltitude());
-            aMapLocation.setAccuracy(locationInfo.getAccuracy());
-            aMapLocation.setSpeed(locationInfo.getSpeed());
-            aMapLocation.setBearing(locationInfo.getBearing());
-            aMapLocation.setSatellites(locationInfo.getSatellites());
-            aMapLocation.setTime(Long.parseLong(locationInfo.getTime()));
-
-            locationInfo.setaMapLocation(aMapLocation);
 
             return locationInfo;
         }

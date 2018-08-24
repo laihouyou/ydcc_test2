@@ -138,7 +138,7 @@ public class MapViewer extends ContainActivity implements
     boolean isFirstLoc = true; // 是否首次定位
 
     private RelativeLayout reBMapview;
-    private Marker marker;
+//    private Marker marker;
     private CreateFiles createFiles;
     private String pointAddress = new String();
     private GeocodeSearch mGeoCoder = null;
@@ -302,6 +302,7 @@ public class MapViewer extends ContainActivity implements
 
         // 开启定位图层
         aMap.setMyLocationEnabled(true);
+        aMap.setOnCameraChangeListener(this);
 
 //        // 定义点聚合管理类ClusterManager
 //        mClusterManager = new ClusterManager<MyItem>(this, aMap);
@@ -744,7 +745,7 @@ public class MapViewer extends ContainActivity implements
 
             case R.id.point_connect_line:       //设施点连线
                 projectManipulation.point_connect_line_Onclick(point_connect_line, draw_point,
-                        markerOverlayList, lineOverlayList, linePointOverlayList, lineList, marker);
+                        markerOverlayList, lineOverlayList, linePointOverlayList, lineList, infoWindowPoiOverlay);
 
                 break;
 
@@ -787,7 +788,7 @@ public class MapViewer extends ContainActivity implements
                 break;
 
             case R.id.revocation_line:  //撤销
-                projectManipulation.revocation_line_Onclick(continuity_point, marker, revocation_line, property, input_line,
+                projectManipulation.revocation_line_Onclick(continuity_point, infoWindowPoiOverlay, revocation_line, property, input_line,
                         linePointList, markerOverlayList, lineOverlayList, lineList, facLines);
 
                 break;
@@ -978,10 +979,11 @@ public class MapViewer extends ContainActivity implements
                 lineList.removeAll(lineList);
 
 
-                if (marker != null) {
-                    marker.hideInfoWindow();
-                    marker.remove();
-                }
+//                if (marker != null) {
+//                    marker.hideInfoWindow();
+//                    marker.remove();
+//                }
+                infoWindowPoiOverlay.removeFromMap();
 
                 if (facilityTypes != null && facilityTypes.size() >= 2) {
                     IntegratedFacData(facilityTypes.get(1).getFacilities());
@@ -1041,10 +1043,11 @@ public class MapViewer extends ContainActivity implements
                 lineList.removeAll(lineList);
 
 
-                if (marker != null) {
-                    marker.hideInfoWindow();
-                    marker.remove();
-                }
+//                if (marker != null) {
+//                    marker.hideInfoWindow();
+//                    marker.remove();
+//                }
+                infoWindowPoiOverlay.removeFromMap();
 
                 if (facilityTypes != null && facilityTypes.size() >= 2) {
                     IntegratedFacData(facilityTypes.get(0).getFacilities());
@@ -1109,10 +1112,11 @@ public class MapViewer extends ContainActivity implements
                 linePointOverlayList.clear();
                 lineList.removeAll(lineList);
 
-                if (marker != null) {
-                    marker.hideInfoWindow();
-                    marker.remove();
-                }
+//                if (marker != null) {
+//                    marker.hideInfoWindow();
+//                    marker.remove();
+//                }
+                infoWindowPoiOverlay.removeFromMap();
 
                 set_point_view_IsChecked(
                         false,
@@ -1243,10 +1247,11 @@ public class MapViewer extends ContainActivity implements
                 linePointOverlayList.clear();
                 lineList.removeAll(lineList);
 
-                if (marker != null) {
-                    marker.hideInfoWindow();
-                    marker.remove();
-                }
+//                if (marker != null) {
+//                    marker.hideInfoWindow();
+//                    marker.remove();
+//                }
+                infoWindowPoiOverlay.removeFromMap();
                 break;
 
             case "no":
@@ -1285,10 +1290,11 @@ public class MapViewer extends ContainActivity implements
 
                 facLines.clear();
 
-                if (marker != null) {
-                    marker.hideInfoWindow();
-                    marker.remove();
-                }
+//                if (marker != null) {
+//                    marker.hideInfoWindow();
+//                    marker.remove();
+//                }
+                infoWindowPoiOverlay.removeFromMap();
                 EventBus.getDefault().post(OkHttpParam.DETELE_LINE);
                 break;
         }
@@ -1322,10 +1328,11 @@ public class MapViewer extends ContainActivity implements
                 linePointOverlayList.clear();
                 lineList.removeAll(lineList);
 
-                if (marker != null) {
-                    marker.remove();
-                    marker.hideInfoWindow();
-                }
+//                if (marker != null) {
+//                    marker.remove();
+//                    marker.hideInfoWindow();
+//                }
+                infoWindowPoiOverlay.removeFromMap();
 
                 //由点亮变为灰色时需要将集合清空
                 linePointList.clear();
@@ -1380,10 +1387,11 @@ public class MapViewer extends ContainActivity implements
 
                 facLines.clear();
 
-                if (marker!=null){
-                    marker.hideInfoWindow();
-                    marker.remove();
-                }
+//                if (marker!=null){
+//                    marker.hideInfoWindow();
+//                    marker.remove();
+//                }
+                infoWindowPoiOverlay.removeFromMap();
 //
 //                ToastUtils.show("开始管线加点");
 
@@ -1532,10 +1540,11 @@ public class MapViewer extends ContainActivity implements
                 linePointOverlayList.clear();
                 lineList.removeAll(lineList);
 
-                if (marker != null) {
-                    marker.remove();
-                }
-                marker.hideInfoWindow();
+//                if (marker != null) {
+//                    marker.hideInfoWindow();
+//                    marker.remove();
+//                }
+                infoWindowPoiOverlay.removeFromMap();
 
                 if (draw_point.getTag().toString().equals("yes")) {
                     aMap.setOnMapClickListener(this);
@@ -1621,10 +1630,11 @@ public class MapViewer extends ContainActivity implements
             linePointOverlayList.clear();
             lineList.removeAll(lineList);
 
-            if (marker != null) {
-                marker.hideInfoWindow();
-                marker.remove();
-            }
+//            if (marker != null) {
+//                marker.hideInfoWindow();
+//                marker.remove();
+//            }
+            infoWindowPoiOverlay.removeFromMap();
 
 //            Map<String, Object> map1 = new HashMap<>();
 //            map1.put(OkHttpParam.PROJECT_ID, projectVo.getProjectId());
@@ -1677,7 +1687,6 @@ public class MapViewer extends ContainActivity implements
         infoWindowPoiOverlay.setImplementorName(implementorName);
         infoWindowPoiOverlay.setData(latLngs,wgs84LatLngs);
         infoWindowPoiOverlay.addToMap();
-        infoWindowPoiOverlay.zoomToSpan();
 
 //        if (marker != null) {
 //            marker.remove();
@@ -1751,27 +1760,30 @@ public class MapViewer extends ContainActivity implements
                 if (savePointVoList.size() > 0) {
                     for (SavePointVo savePointVo : savePointVoList) {
                         if (savePointVo.getDataType().equals(MapMeterMoveScope.POINT)) {
-                            LatLng latLng = savePointVo.getLatlng();
-                            double dis = AMapUtils.calculateArea(centerLatlng, latLng);
-                            long cos = AppContext.getInstance().getCollectionScope();
-                            if (dis < cos) {
-                                savePointVos.add(savePointVo);
-                            }
+//                            LatLng latLng = savePointVo.getLatlng();
+//                            double dis = AMapUtils.calculateArea(centerLatlng, latLng);
+//                            long cos = AppContext.getInstance().getCollectionScope();
+//                            if (dis < cos) {
+//                                savePointVos.add(savePointVo);
+//                            }
+
+                            savePointVos.add(savePointVo);
                         } else if (savePointVo.getDataType().equals(MapMeterMoveScope.LINE)) {
-                            List<LatLng> latLngs = savePointVo.getLineLatlngList();
-                            boolean isAdd = true;
-                            for (int i = 0; i < latLngs.size(); i++) {
-                                LatLng latLng = latLngs.get(i);
-                                double dis =  AMapUtils.calculateArea(centerLatlng, latLng);
-                                long cos = AppContext.getInstance().getCollectionScope();
-                                if (dis < cos) {
-                                    isAdd = false;
-                                    break;
-                                }
-                            }
-                            if (!isAdd) {
-                                saveLinetVos.add(savePointVo);
-                            }
+//                            List<LatLng> latLngs = savePointVo.getLineLatlngList();
+//                            boolean isAdd = true;
+//                            for (int i = 0; i < latLngs.size(); i++) {
+//                                LatLng latLng = latLngs.get(i);
+//                                double dis =  AMapUtils.calculateArea(centerLatlng, latLng);
+//                                long cos = AppContext.getInstance().getCollectionScope();
+//                                if (dis < cos) {
+//                                    isAdd = false;
+//                                    break;
+//                                }
+//                            }
+//                            if (!isAdd) {
+//                                saveLinetVos.add(savePointVo);
+//                            }
+                            saveLinetVos.add(savePointVo);
                         }
                     }
                 }
@@ -1862,12 +1874,13 @@ public class MapViewer extends ContainActivity implements
             }
         }
 
-        if (marker != null) {
-            if (marker.getTitle()!=null&&!marker.getTitle().equals(OkHttpParam.TITLE)){
-                marker.remove();
-            }
-            marker.hideInfoWindow();
-        }
+//        if (marker != null) {
+//            if (marker.getTitle()!=null&&!marker.getTitle().equals(OkHttpParam.TITLE)){
+//                marker.remove();
+//            }
+//            marker.hideInfoWindow();
+//        }
+        infoWindowPoiOverlay.removeFromMap();
 
         if (!isLineAddPoint){
             poiOverlay.removeFromMap();
@@ -2313,10 +2326,11 @@ public class MapViewer extends ContainActivity implements
             //管线提交成功后把设施点编号集合清空
             facLines.clear();
 
-            if (marker!=null){
-                                marker.hideInfoWindow();
-                marker.remove();
-            }
+//            if (marker!=null){
+//                marker.hideInfoWindow();
+//                marker.remove();
+//            }
+            infoWindowPoiOverlay.removeFromMap();
 
 //            List<OverlayOptions> lineOverlayList = lineOverlay.getOverlayOptions();
 //            for (int i = 0; i < lineOverlayList.size(); i++) {
@@ -2492,10 +2506,11 @@ public class MapViewer extends ContainActivity implements
                             }
                         }
 
-                        if (marker != null) {
-                            marker.hideInfoWindow();
-                            marker.remove();
-                        }
+//                        if (marker != null) {
+//                            marker.hideInfoWindow();
+//                            marker.remove();
+//                        }
+                        infoWindowPoiOverlay.removeFromMap();
 
                         showMaker(currentProject,false);
                     }
@@ -2618,10 +2633,11 @@ public class MapViewer extends ContainActivity implements
                             }
                         }
 
-                        if (marker != null) {
-                            marker.remove();
-                            marker.hideInfoWindow();
-                        }
+//                        if (marker != null) {
+//                            marker.remove();
+//                            marker.hideInfoWindow();
+//                        }
+                        infoWindowPoiOverlay.removeFromMap();
 
                         showMaker(currentProject,true);
                     }
@@ -2645,7 +2661,7 @@ public class MapViewer extends ContainActivity implements
 
     @Override
     public void onCameraChange(CameraPosition cameraPosition) {
-
+        Log.i("tag","地图正在改变：+++++"+cameraPosition.target);
     }
 
     @Override

@@ -266,7 +266,6 @@ public class Gps {
 			LatLng latLng_bd09=BaiduCoordinateTransformation.toGcj02(latLng_wgs84.longitude,latLng_wgs84.latitude, CoordinateConverter.CoordType.GPS);
 			locationInfo.setLongitude_gcj02(latLng_bd09.longitude);
 			locationInfo.setLatitude_gcj02(latLng_bd09.latitude);
-			locationInfo.setaMapLocation(aMapLocation);
 			return locationInfo;
 		} else {
 			return null;

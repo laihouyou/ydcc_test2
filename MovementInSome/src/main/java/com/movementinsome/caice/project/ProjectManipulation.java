@@ -17,6 +17,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.aMap.overlay.InfoWindowPoiOverlay;
 import com.alibaba.fastjson.JSONObject;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.CameraUpdateFactory;
@@ -1123,12 +1124,11 @@ public class ProjectManipulation {
      * @param lineOverlayList
      * @param linePointOverlayList
      * @param lineList
-     * @param marker
      */
     public void point_connect_line_Onclick(TextView point_connect_line,TextView draw_point,
                                            List<Marker> markerOverlayList, List<Polyline> lineOverlayList,
                                            List<Polyline> linePointOverlayList, List<LatLng> lineList,
-                                           Marker marker
+                                           InfoWindowPoiOverlay infoWindowPoiOverlay
                                            ){
         switch ((String) point_connect_line.getTag()) {
             case "yes":     //设施点连线
@@ -1167,9 +1167,8 @@ public class ProjectManipulation {
                 linePointOverlayList.clear();
                 lineList.removeAll(lineList);
 
-                if (marker != null) {
-                    marker.hideInfoWindow();
-                    marker.remove();
+                if (infoWindowPoiOverlay != null) {
+                    infoWindowPoiOverlay.removeFromMap();
                 }
 
                 break;
@@ -1210,9 +1209,8 @@ public class ProjectManipulation {
                 linePointOverlayList.clear();
                 lineList.removeAll(lineList);
 
-                if (marker != null) {
-                    marker.hideInfoWindow();
-                    marker.remove();
+                if (infoWindowPoiOverlay != null) {
+                    infoWindowPoiOverlay.removeFromMap();
                 }
 
                 break;
@@ -1849,7 +1847,6 @@ public class ProjectManipulation {
     /**
      * 撤销 点击事件
      * @param continuity_point
-     * @param marker
      * @param revocation_line
      * @param property
      * @param input_line
@@ -1858,15 +1855,14 @@ public class ProjectManipulation {
      * @param lineOverlayList
      * @param lineList
      */
-    public void revocation_line_Onclick(View continuity_point,Marker marker,View revocation_line,
+    public void revocation_line_Onclick(View continuity_point,InfoWindowPoiOverlay infoWindowPoiOverlay,View revocation_line,
                                         View property,View input_line,List<LatLng> linePointList,
                                         List<Marker> markerOverlayList,List<Polyline> lineOverlayList,
                                         List<LatLng> lineList,List<String> facLines){
         if (continuity_point.getTag().equals("yes")) {
 
-            if (marker != null) {
-                marker.hideInfoWindow();
-                marker.remove();
+            if (infoWindowPoiOverlay != null) {
+                infoWindowPoiOverlay.removeFromMap();
             }
 
             revocation_line.setVisibility(View.GONE);
@@ -1891,8 +1887,8 @@ public class ProjectManipulation {
                 lineOverlayList.remove(lineOverlayList.size() - 1);
             }
 
-            if (marker != null) {
-                marker.hideInfoWindow();
+            if (infoWindowPoiOverlay != null) {
+                infoWindowPoiOverlay.removeFromMap();
             }
 
             if (lineList.size() < 1) {

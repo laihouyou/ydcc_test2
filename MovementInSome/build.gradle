@@ -5,7 +5,7 @@ android {
         release {
             keyAlias 'ydcc'
             keyPassword 'gddst888'
-            storeFile file('F:/worksp/ydcc.jks')
+            storeFile file('G:/LHY3/ydcc_test/ydcc.jks')
             storePassword 'gddst888'
         }
     }

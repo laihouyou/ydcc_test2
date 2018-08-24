@@ -66,6 +66,7 @@ public class InfoWindowPoiOverlay {
 			for (int i = 0; i < latLngList.size(); i++) {
 				Marker marker = mAMap.addMarker(getMarkerOptions(latLngList.get(i),wgs84LatLngList.get(i)));
 				marker.setObject(i);
+				marker.showInfoWindow();
 				mPoiMarks.add(marker);
 
 			}
@@ -79,6 +80,7 @@ public class InfoWindowPoiOverlay {
 	 */
 	public void removeFromMap() {
 		for (Marker mark : mPoiMarks) {
+			mark.hideInfoWindow();
 			mark.remove();
 		}
 		mPoiMarks.clear();

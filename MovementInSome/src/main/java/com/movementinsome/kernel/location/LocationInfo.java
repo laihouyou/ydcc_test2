@@ -11,9 +11,9 @@ import java.io.Serializable;
 import java.util.Map;
 
 public class LocationInfo implements Serializable {
-	
+
 	private double latitude; // 经度		wgs84
-	
+
 	private double longitude; // 纬度		wgs84
 
 	private double latitude_gcj02; // 经度		gcj02
@@ -21,31 +21,31 @@ public class LocationInfo implements Serializable {
 	private double longitude_gcj02; // 纬度		gcj02
 
 	private double altitude; // 海拨
-	
+
 	private float accuracy; // 精度
-	
+
 	private float speed; // 速度
-	
+
 	private float bearing;// 方位角
-	
+
 	private String time; // 卫星时间
-	
+
 	private double mapx;
-	
+
 	private double mapy;
-	
+
 	private int satellites; //卫星数量
-	
+
 	private String locationModel; //定位模式:gps、网络、百度
-	
+
 	private String addr; //所在地址
-	
+
 	private String imei;
-	
+
 	private String usnum;
-	
+
 	private String usid;
-	
+
 	private Long speedType; // 前进方式 （1、步行 2、车载）
 
 	private boolean isConnected;	//当前是否连接中海达
@@ -91,8 +91,6 @@ public class LocationInfo implements Serializable {
 
 	private boolean 	IsVerified; 	//是否已经过验证（来自BESTPOS）
 
-	private AMapLocation aMapLocation;
-
 
 
 /*	public LocationInfo(double latitude, double longitude, double altitude,
@@ -112,7 +110,7 @@ public class LocationInfo implements Serializable {
 	public LocationInfo(){
 		;
 	}
-	
+
 	public LocationInfo(double latitude, double longitude, double altitude,
 			float accuracy, float speed, float bearing, String time, double mapx,
 			double mapy,String locationModel,String addr,int satellites) {
@@ -129,7 +127,7 @@ public class LocationInfo implements Serializable {
 		this.addr = addr;
 		this.satellites = satellites;
 	}
-	
+
 	public Long getSpeedType() {
 		return speedType;
 	}
@@ -443,11 +441,18 @@ public class LocationInfo implements Serializable {
 	}
 
 	public AMapLocation getaMapLocation() {
-		return aMapLocation;
-	}
+		AMapLocation aMapLocation=new AMapLocation("");
+		aMapLocation.setAddress(this.getAddr());
+		aMapLocation.setLongitude(this.getLongitude_gcj02());
+		aMapLocation.setLatitude(this.getLatitude_gcj02());
+		aMapLocation.setAltitude(this.getAltitude());
+		aMapLocation.setAccuracy(this.getAccuracy());
+		aMapLocation.setSpeed(this.getSpeed());
+		aMapLocation.setBearing(this.getBearing());
+		aMapLocation.setSatellites(this.getSatellites());
+		aMapLocation.setTime(Long.parseLong(this.getTime()));
 
-	public void setaMapLocation(AMapLocation aMapLocation) {
-		this.aMapLocation = aMapLocation;
+		return aMapLocation;
 	}
 
 	//获取当前GPS坐标位置

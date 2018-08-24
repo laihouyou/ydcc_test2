@@ -112,7 +112,6 @@ public class Agps {
 				locationInfo.setSolutionUsedSats(aMapLocation.getSatellites());
 				locationInfo.setLatitude_gcj02(aMapLocation.getLatitude());
 				locationInfo.setLongitude_gcj02(aMapLocation.getLongitude());
-				locationInfo.setaMapLocation(aMapLocation);
 			}
 		}
 	};
