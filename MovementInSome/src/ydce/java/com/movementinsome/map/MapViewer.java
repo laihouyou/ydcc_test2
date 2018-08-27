@@ -29,6 +29,7 @@ import android.widget.Toast;
 import com.aMap.overlay.InfoWindowPoiOverlay;
 import com.aMap.overlay.LineOverlay;
 import com.aMap.overlay.PoiOverlay;
+import com.aMap.overlay.PoiOverlay2;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.AMapUtils;
 import com.amap.api.maps.CameraUpdateFactory;
@@ -161,7 +162,7 @@ public class MapViewer extends ContainActivity implements
     private static Map<String, SavePointVo> pointVoMap = new HashMap<>();
 
     private InfoWindowPoiOverlay infoWindowPoiOverlay;  //绘制中的点数据
-    private PoiOverlay poiOverlay;      //绘制后的点数据
+    private PoiOverlay2 poiOverlay;      //绘制后的点数据
     private LineOverlay lineOverlay;
     private  List<Marker> markerOverlayList = new ArrayList<>();    //绘制线中的marker集合
     private  List<Polyline> lineOverlayList = new ArrayList<>();//绘制线中的线段
@@ -580,7 +581,7 @@ public class MapViewer extends ContainActivity implements
 
 
         lineOverlay = new LineOverlay(aMap);
-        poiOverlay = new PoiOverlay(aMap);
+        poiOverlay = new PoiOverlay2(aMap);
 
         infoWindowPoiOverlay=new InfoWindowPoiOverlay(aMap);
         geocoderSearch=new GeocodeSearch(this);
