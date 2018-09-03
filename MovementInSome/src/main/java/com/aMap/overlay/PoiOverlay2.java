@@ -3,14 +3,10 @@ package com.aMap.overlay;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.model.BitmapDescriptor;
-import com.amap.api.maps.model.BitmapDescriptorFactory;
 import com.amap.api.maps.model.LatLngBounds;
 import com.amap.api.maps.model.MultiPointItem;
 import com.amap.api.maps.model.MultiPointOverlay;
 import com.amap.api.maps.model.MultiPointOverlayOptions;
-import com.movementinsome.R;
-import com.movementinsome.app.pub.Constant;
-import com.movementinsome.caice.util.MapMeterMoveScope;
 import com.movementinsome.caice.vo.ProjectVo;
 import com.movementinsome.caice.vo.SavePointVo;
 
@@ -25,12 +21,10 @@ public class PoiOverlay2 {
 	private AMap mAMap;
 
 	private MultiPointOverlay multiPointOverlay;
-//	private Map<String,MultiPointOverlay> multiPointOverlayMap;
-//	private Map<String,List<MultiPointItem>> multiPointItemMap;
+	private BitmapDescriptor mBitmapDescriptor;
 
 	private List<SavePointVo> savePointVoList=null;
 	private ProjectVo projectVo;
-	private String acquisitionState;
 	/**
 	 * 通过此构造函数创建Poi图层。
 	 * @param amap 地图对象。
@@ -47,9 +41,9 @@ public class PoiOverlay2 {
 	 * @param poiResult  当前采集模式
 	 *            设置POI数据
 	 */
-	public void setData(List<SavePointVo> poiResult,String acquisitionState) {
+	public void setData(List<SavePointVo> poiResult, BitmapDescriptor bitmapDescriptor) {
 		this.savePointVoList = poiResult;
-		this.acquisitionState=acquisitionState;
+		this.mBitmapDescriptor=bitmapDescriptor;
 //		if (savePointVoList!=null){
 //			for (SavePointVo savePointVo:savePointVoList){
 //				BitmapDescriptor bitmap;
@@ -139,6 +133,7 @@ public class PoiOverlay2 {
 		this.projectVo = projectVo;
 	}
 
+
 	/**
 	 * 添加Marker到地图中。
 	 * @since V2.1.0
@@ -150,9 +145,8 @@ public class PoiOverlay2 {
 			}
 			removeFromMap();
 
-
 			MultiPointOverlayOptions overlayOptions = new MultiPointOverlayOptions();
-			overlayOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
+			overlayOptions.icon(mBitmapDescriptor);
 			overlayOptions.anchor(0.5f,0.5f);
 
 			multiPointOverlay = mAMap.addMultiPointOverlay(overlayOptions);
@@ -181,8 +175,9 @@ public class PoiOverlay2 {
 	 * @since V2.1.0
 	 */
 	public void removeFromMap() {
-
-
+		if (multiPointOverlay!=null){
+			multiPointOverlay.remove();
+		}
 	}
 	/**
 	 * 移动镜头到当前的视角。
@@ -211,95 +206,6 @@ public class PoiOverlay2 {
 			b.include(savePointVoList.get(i).getLatlng());
 		}
 		return b.build();
-	}
-
-	private MultiPointOverlayOptions getMultiPointOverlayOptions(SavePointVo savePointVo) {
-		BitmapDescriptor bitmap;
-		String implementorName=savePointVo.getImplementorName();
-		if (implementorName != null&&!implementorName.equals("")) {
-			switch (implementorName) {
-				case Constant.VALVE:    //阀门
-					//构建Marker图标
-					bitmap = BitmapDescriptorFactory
-							.fromResource(R.drawable.valve_inspection);
-					break;
-				case Constant.MUD_VALVE:    //排泥阀
-					//构建Marker图标
-					bitmap = BitmapDescriptorFactory
-							.fromResource(R.drawable.mud_valve);
-					break;
-				case Constant.VENT_VALVE:    //排气阀
-					//构建Marker图标
-					bitmap = BitmapDescriptorFactory
-							.fromResource(R.drawable.drain_tap);
-					break;
-				case Constant.WATER_METER:    //水表
-					//构建Marker图标
-					bitmap = BitmapDescriptorFactory
-							.fromResource(R.drawable.meter_reading);
-					break;
-				case Constant.FIRE_HYDRANT:    //消防栓
-					//构建Marker图标
-					bitmap = BitmapDescriptorFactory
-							.fromResource(R.drawable.hydrant);
-					break;
-				case Constant.DISCHARGE_OUTLET:    //出水口
-					//构建Marker图标
-					bitmap = BitmapDescriptorFactory
-							.fromResource(R.drawable.water_outlet);
-					break;
-				case Constant.PLUG_SEAL:    //封头堵坂
-					//构建Marker图标
-					bitmap = BitmapDescriptorFactory
-							.fromResource(R.drawable.plug_seal_plate);
-					break;
-				case Constant.NODE_BLACK:    //节点
-					//构建Marker图标
-					bitmap = BitmapDescriptorFactory
-							.fromResource(R.drawable.node);
-				case Constant.POOL:    //水池
-					//构建Marker图标
-					bitmap = BitmapDescriptorFactory
-							.fromResource(R.drawable.pool);
-					break;
-
-				case Constant.METER_READING_UNDONE:    //水表(未完成)
-					//构建Marker图标
-					bitmap = BitmapDescriptorFactory
-							.fromResource(R.drawable.meter_reading_undone);
-					break;
-
-				case Constant.METER_READING_COMPLETED:    //水表(已完成)
-					//构建Marker图标
-					bitmap = BitmapDescriptorFactory
-							.fromResource(R.drawable.meter_reading_completed);
-					break;
-
-				default:
-					//构建Marker图标
-					bitmap = BitmapDescriptorFactory
-							.fromResource(R.drawable.icon_marka_b_yellow);
-
-					break;
-			}
-		} else {
-			//构建Marker图标
-			bitmap = BitmapDescriptorFactory
-					.fromResource(R.drawable.icon_marka_b_yellow);
-
-		}
-
-		boolean isDraggable=false;
-		if (acquisitionState.equals(MapMeterMoveScope.MOVE)){      //采集模式
-			if (projectVo.getProjectId().equals(savePointVo.getProjectId())){
-				isDraggable=true;
-			}
-		}
-
-//		DecimalFormat df = new DecimalFormat("0.000000");    //保留6为有效数字
-		return new MultiPointOverlayOptions()
-				.anchor(0.5f,0.5f)
-				.icon(bitmap);
 	}
 
 }

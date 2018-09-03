@@ -28,10 +28,8 @@ import android.widget.Toast;
 
 import com.aMap.overlay.InfoWindowPoiOverlay;
 import com.aMap.overlay.LineOverlay;
-import com.aMap.overlay.PoiOverlay;
 import com.aMap.overlay.PoiOverlay2;
 import com.amap.api.maps.AMap;
-import com.amap.api.maps.AMapUtils;
 import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.CoordinateConverter;
 import com.amap.api.maps.LocationSource;
@@ -42,6 +40,7 @@ import com.amap.api.maps.model.CameraPosition;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
+import com.amap.api.maps.model.MultiPointOverlay;
 import com.amap.api.maps.model.MyLocationStyle;
 import com.amap.api.maps.model.Polyline;
 import com.amap.api.maps.model.PolylineOptions;
@@ -121,7 +120,8 @@ public class MapViewer extends ContainActivity implements
         AdapterView.OnItemClickListener,
         AMap.OnPolylineClickListener,
         LocationSource,
-        AMap.OnCameraChangeListener{
+        AMap.OnCameraChangeListener
+{
 //    private MyMapView arcMapview;
 
     public static final String TAG = ContentValues.TAG;
@@ -162,7 +162,9 @@ public class MapViewer extends ContainActivity implements
     private static Map<String, SavePointVo> pointVoMap = new HashMap<>();
 
     private InfoWindowPoiOverlay infoWindowPoiOverlay;  //绘制中的点数据
-    private PoiOverlay2 poiOverlay;      //绘制后的点数据
+//    private PoiOverlay2 poiOverlay;      //绘制后的单种类型的点数据
+    private Map<String,MultiPointOverlay> multiPointOverlayMap; //存放所有类型的绘制后的点数据
+    private Map<String,List<SavePointVo>> facTypeSavePoints;  //存放不同类型的点数据源
     private LineOverlay lineOverlay;
     private  List<Marker> markerOverlayList = new ArrayList<>();    //绘制线中的marker集合
     private  List<Polyline> lineOverlayList = new ArrayList<>();//绘制线中的线段
@@ -581,7 +583,9 @@ public class MapViewer extends ContainActivity implements
 
 
         lineOverlay = new LineOverlay(aMap);
-        poiOverlay = new PoiOverlay2(aMap);
+//        poiOverlay = new PoiOverlay2(aMap);
+        multiPointOverlayMap = new HashMap<>();
+        facTypeSavePoints = new HashMap<>();
 
         infoWindowPoiOverlay=new InfoWindowPoiOverlay(aMap);
         geocoderSearch=new GeocodeSearch(this);
@@ -1756,6 +1760,9 @@ public class MapViewer extends ContainActivity implements
 
                 List<SavePointVo> savePointVoList = OkHttpRequest.showPoint(projectVo);
 
+                //测试
+                List<String> implementorNameList=new ArrayList<>();
+
                 List<SavePointVo> savePointVos = new ArrayList<>();
                 List<SavePointVo> saveLinetVos = new ArrayList<>();
                 if (savePointVoList.size() > 0) {
@@ -1769,6 +1776,11 @@ public class MapViewer extends ContainActivity implements
 //                            }
 
                             savePointVos.add(savePointVo);
+
+                            if (!implementorNameList.contains(savePointVo.getImplementorName())){
+                                implementorNameList.add(savePointVo.getImplementorName());
+                            }
+
                         } else if (savePointVo.getDataType().equals(MapMeterMoveScope.LINE)) {
 //                            List<LatLng> latLngs = savePointVo.getLineLatlngList();
 //                            boolean isAdd = true;
@@ -1794,10 +1806,94 @@ public class MapViewer extends ContainActivity implements
                 lineOverlay.addToMap();
 //                lineOverlay.zoomToSpan();
 
-                poiOverlay.setProjectVo(currentProject);
-                poiOverlay.setData(savePointVos,acquisitionState);
-                poiOverlay.addToMap();
-//                poiOverlay.zoomToSpan();
+                //测试
+                for (int i = 0; i < implementorNameList.size(); i++) {
+                    BitmapDescriptor bitmap = null;
+                    String implementorName=implementorNameList.get(i);
+                    if (implementorName != null&&!implementorName.equals("")) {
+                        switch (implementorName) {
+                            case Constant.VALVE:    //阀门
+                                //构建Marker图标
+                                bitmap = BitmapDescriptorFactory
+                                        .fromResource(R.drawable.valve_inspection);
+                                break;
+                            case Constant.MUD_VALVE:    //排泥阀
+                                //构建Marker图标
+                                bitmap = BitmapDescriptorFactory
+                                        .fromResource(R.drawable.mud_valve);
+                                break;
+                            case Constant.VENT_VALVE:    //排气阀
+                                //构建Marker图标
+                                bitmap = BitmapDescriptorFactory
+                                        .fromResource(R.drawable.drain_tap);
+                                break;
+                            case Constant.WATER_METER:    //水表
+                                //构建Marker图标
+                                bitmap = BitmapDescriptorFactory
+                                        .fromResource(R.drawable.meter_reading);
+                                break;
+                            case Constant.FIRE_HYDRANT:    //消防栓
+                                //构建Marker图标
+                                bitmap = BitmapDescriptorFactory
+                                        .fromResource(R.drawable.hydrant);
+                                break;
+                            case Constant.DISCHARGE_OUTLET:    //出水口
+                                //构建Marker图标
+                                bitmap = BitmapDescriptorFactory
+                                        .fromResource(R.drawable.water_outlet);
+                                break;
+                            case Constant.PLUG_SEAL:    //封头堵坂
+                                //构建Marker图标
+                                bitmap = BitmapDescriptorFactory
+                                        .fromResource(R.drawable.plug_seal_plate);
+                                break;
+                            case Constant.NODE_BLACK:    //节点
+                                //构建Marker图标
+                                bitmap = BitmapDescriptorFactory
+                                        .fromResource(R.drawable.node);
+                            case Constant.POOL:    //水池
+                                //构建Marker图标
+                                bitmap = BitmapDescriptorFactory
+                                        .fromResource(R.drawable.pool);
+                                break;
+
+                            case Constant.METER_READING_UNDONE:    //水表(未完成)
+                                //构建Marker图标
+                                bitmap = BitmapDescriptorFactory
+                                        .fromResource(R.drawable.meter_reading_undone);
+                                break;
+
+                            case Constant.METER_READING_COMPLETED:    //水表(已完成)
+                                //构建Marker图标
+                                bitmap = BitmapDescriptorFactory
+                                        .fromResource(R.drawable.meter_reading_completed);
+                                break;
+
+                            default:
+                                //构建Marker图标
+                                bitmap = BitmapDescriptorFactory
+                                        .fromResource(R.drawable.icon_marka_b_yellow);
+
+                                break;
+                        }
+                    }
+
+                    Map map=new HashMap();
+                    map.put(OkHttpParam.IMPLEMENTORNAME,implementorName);
+                    if (projectVo.getProjectShareCode()!=null&&!projectVo.getProjectShareCode().equals("")){    //共享
+                        map.put(OkHttpParam.SHARE_CODE, projectVo.getProjectShareCode());
+                    }else {     //不共享
+                        map.put(OkHttpParam.PROJECT_ID, projectVo.getProjectId());
+                    }
+                    List<SavePointVo> facTypeSavePoints=savePointVoLongDao.queryForFieldValues(map);
+
+                    PoiOverlay2 poiOverlay=new PoiOverlay2(aMap);
+                    poiOverlay.setProjectVo(projectVo);
+                    poiOverlay.setData(facTypeSavePoints,bitmap);
+                    poiOverlay.addToMap();
+                }
+
+
 
                 e.onComplete();
             }
@@ -1884,7 +1980,9 @@ public class MapViewer extends ContainActivity implements
         infoWindowPoiOverlay.removeFromMap();
 
         if (!isLineAddPoint){
-            poiOverlay.removeFromMap();
+            for (String implementorName:multiPointOverlayMap.keySet()){
+                multiPointOverlayMap.get(implementorName).remove();
+            }
             lineOverlay.removeFromMap();
         }
     }
@@ -2667,16 +2765,16 @@ public class MapViewer extends ContainActivity implements
 
     @Override
     public void onCameraChangeFinish(CameraPosition cameraPosition) {
-        if (centerLatlng == null) {
-            centerLatlng = cameraPosition.target;
-        } else {
-            if (AMapUtils.calculateArea(cameraPosition.target, centerLatlng) > AppContext.getInstance().getCollectionScope()) {
-                centerLatlng = cameraPosition.target;
-                if (!projectId.equals("")){
-                    showMaker(currentProject,false);
-                }
-            }
-        }
+//        if (centerLatlng == null) {
+//            centerLatlng = cameraPosition.target;
+//        } else {
+//            if (AMapUtils.calculateArea(cameraPosition.target, centerLatlng) > AppContext.getInstance().getCollectionScope()) {
+//                centerLatlng = cameraPosition.target;
+//                if (!projectId.equals("")){
+//                    showMaker(currentProject,false);
+//                }
+//            }
+//        }
     }
 
     @Override
