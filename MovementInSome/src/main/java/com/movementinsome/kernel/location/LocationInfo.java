@@ -450,7 +450,7 @@ public class LocationInfo implements Serializable {
 		aMapLocation.setSpeed(this.getSpeed());
 		aMapLocation.setBearing(this.getBearing());
 		aMapLocation.setSatellites(this.getSatellites());
-		aMapLocation.setTime(Long.parseLong(this.getTime()));
+//		aMapLocation.setTime(Long.parseLong(this.getTime()));
 
 		return aMapLocation;
 	}

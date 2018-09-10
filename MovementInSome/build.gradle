@@ -37,7 +37,7 @@ android {
     // 重点--------------------------
     productFlavors {
         ydce {
-            applicationId "com.movementinsome"
+            applicationId "com.movementinsome.text"
             versionCode 302
             versionName "移动采测V3.0.3.1"
             dimension "app"

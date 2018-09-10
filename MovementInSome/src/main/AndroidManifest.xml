@@ -101,7 +101,7 @@
 
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="ce07a5b1c0ac33e5e657289412a73a41"/>
+            android:value="b42561bb68494f30335fdb5aca46fe30"/>
 
         <!-- 开机自动启动 -->
         <receiver
