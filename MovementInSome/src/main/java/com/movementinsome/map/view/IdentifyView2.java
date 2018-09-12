@@ -22,6 +22,8 @@ import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.amap.api.maps.model.LatLng;
+import com.amap.api.navi.AmapNaviType;
+import com.baidu.BaiduAppProxy;
 import com.esri.core.geometry.Envelope;
 import com.esri.core.geometry.Geometry;
 import com.esri.core.geometry.Point;
@@ -393,7 +395,7 @@ public class IdentifyView2 extends RelativeLayout {
 							LatLng latLng=new LatLng(y,x);
 							latLngs.add(latLng);
 						}
-//						BaiduAppProxy.CallBaiduNavigationLatLng((Activity) context, BNRoutePlanNode.CoordinateType.BD09LL,latLngs.get(0),latLngs.get(1));
+						BaiduAppProxy.CallBaiduNavigationLatLng(latLngs.get(0),latLngs.get(1), AmapNaviType.DRIVER,context);
 //						BaiduAppProxy.navigatorViaPoints((Activity) context,
 //								AppContext.getInstance().getCoordTransform(),
 //								view.getSpatialReference(), arcPoints);
@@ -439,7 +441,7 @@ public class IdentifyView2 extends RelativeLayout {
 							LatLng latLng=new LatLng(y,x);
 							latLngs.add(latLng);
 						}
-//						BaiduAppProxy.CallBaiduNavigationLatLng((Activity) context, BNRoutePlanNode.CoordinateType.BD09LL,latLngs.get(0),latLngs.get(1));
+						BaiduAppProxy.CallBaiduNavigationLatLng(latLngs.get(0),latLngs.get(1),AmapNaviType.DRIVER,context);
 //						BaiduAppProxy.navigatorViaPoints((Activity) context,
 //								AppContext.getInstance().getCoordTransform(),
 //								view.getSpatialReference(), arcPointss);

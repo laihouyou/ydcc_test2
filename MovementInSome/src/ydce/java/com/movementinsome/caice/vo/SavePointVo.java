@@ -444,6 +444,18 @@ public class SavePointVo implements Serializable{
     }
 
     /**
+     *获取经纬度
+     * @return
+     */
+    public LatLng getLatlngWgs84(){
+        LatLng latLng = null;
+        if (getDataType().equals(MapMeterMoveScope.POINT)){
+            latLng=new LatLng(Double.parseDouble(getLatitudeWg84()),Double.parseDouble(getLongitudeWg84()));
+        }
+        return latLng;
+    }
+
+    /**
      *获取管线经纬度集合
      * @return
      */

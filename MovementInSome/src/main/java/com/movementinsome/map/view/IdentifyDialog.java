@@ -23,6 +23,9 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import com.amap.api.maps.model.LatLng;
+import com.amap.api.navi.AmapNaviType;
+import com.baidu.BaiduAppProxy;
 import com.esri.core.geometry.Envelope;
 import com.esri.core.geometry.Geometry;
 import com.esri.core.geometry.Point;
@@ -32,6 +35,7 @@ import com.esri.core.map.Graphic;
 import com.esri.core.tasks.identify.IdentifyResult;
 import com.movementinsome.AppContext;
 import com.movementinsome.R;
+import com.movementinsome.caice.util.ArcgisToBd09;
 import com.movementinsome.kernel.initial.model.Field;
 import com.movementinsome.kernel.initial.model.Ftlayer;
 import com.movementinsome.kernel.initial.model.MapParam;
@@ -201,17 +205,16 @@ public class IdentifyDialog extends AlertDialog implements OnGestureListener,
 							geo.queryEnvelope(env);
 							arcPoints.add(env.getCenter());
 						}
-//						List<LatLng> latLngs=new ArrayList<>();
-//						latLngs.removeAll(latLngs);
-//						for (Point point :arcPoints){
-//							String position = toBd09Position( AppContext.getInstance().getCoordTransform(),view.getSpatialReference(),point.getX(), point.getY());
-//							double x = Double.valueOf(position.split(" ")[0]);
-//							double y = Double.valueOf(position.split(" ")[1]);
-//							LatLng latLng=new LatLng(y,x);
-//							latLngs.add(latLng);
-//						}
-//						BaiduAppProxy.CallBaiduNavigationLatLng((Activity) context, BNRoutePlanNode.CoordinateType.BD09LL,latLngs.get(0),latLngs.get(1));
-//						BaiduAppProxy.navigatorViaPoints((Activity)context, AppContext.getInstance().getCoordTransform(), view.getSpatialReference(), arcPoints);
+						List<LatLng> latLngs=new ArrayList<>();
+						latLngs.removeAll(latLngs);
+						for (Point point :arcPoints){
+							String position = ArcgisToBd09.toBd09Position( AppContext.getInstance().getCoordTransform(),view.getSpatialReference(),point.getX(), point.getY());
+							double x = Double.valueOf(position.split(" ")[0]);
+							double y = Double.valueOf(position.split(" ")[1]);
+							LatLng latLng=new LatLng(y,x);
+							latLngs.add(latLng);
+						}
+						BaiduAppProxy.CallBaiduNavigationLatLng(latLngs.get(0),latLngs.get(1), AmapNaviType.DRIVER,context);
 					}
 					break;
 				default:

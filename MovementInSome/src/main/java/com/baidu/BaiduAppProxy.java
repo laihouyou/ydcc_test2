@@ -2,6 +2,16 @@ package com.baidu;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+
+import com.amap.api.maps.model.LatLng;
+import com.amap.api.maps.model.Poi;
+import com.amap.api.navi.AmapNaviPage;
+import com.amap.api.navi.AmapNaviParams;
+import com.amap.api.navi.AmapNaviType;
+import com.amap.api.navi.INaviInfoCallback;
+import com.amap.api.navi.model.AMapNaviLocation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,97 +24,93 @@ public class BaiduAppProxy {
 	public static List<Activity> activityList = new ArrayList<Activity>();
 	public static final String ROUTE_PLAN_NODE = "routePlanNode";
 	private final static String authComArr[] = { Manifest.permission.READ_PHONE_STATE };
-	
+	private static INaviInfoCallback iNaviInfoCallback=new INaviInfoCallback() {
+		@Override
+		public void onInitNaviFailure() {
 
-//	/**
-//	 * 新版百度地图导航
-//	 * @param context
-//	 * @param coType 坐标类型
-//	 * @param myLatLng 起点坐标
-//	 * @param markerLatlng 终点坐标
-//	 */
-//	public static void CallBaiduNavigationLatLng(final Activity context, BNRoutePlanNode.CoordinateType coType,
-//												 LatLng myLatLng, LatLng markerLatlng){
-//
-//		// 权限申请
-//		if (android.os.Build.VERSION.SDK_INT >= 23) {
-//			// 保证导航功能完备
-//			if (!hasCompletePhoneAuth(context)) {
-//				if (!hasRequestComAuth) {
-//					hasRequestComAuth = true;
-////                    this.requestPermissions(authComArr, authComRequestCode);
-//					return;
-//				} else {
-//					Toast.makeText(context, "没有完备的权限!", Toast.LENGTH_SHORT).show();
-//				}
-//			}
-//
-//		}
-//
-//		BNRoutePlanNode sNode = null;
-//		BNRoutePlanNode eNode = null;
-//		switch (coType) {
-//			case GCJ02: {
-//				sNode=new BNRoutePlanNode(myLatLng.longitude, myLatLng.latitude,"当前定位位置", null, coType);
-//				eNode=new BNRoutePlanNode(markerLatlng.longitude,markerLatlng.latitude,"地图选取位置", null, coType);
-//				break;
-//			}
-//			case WGS84: {
-//				sNode=new BNRoutePlanNode(myLatLng.longitude, myLatLng.latitude,"当前定位位置", null, coType);
-//				eNode=new BNRoutePlanNode(markerLatlng.longitude,markerLatlng.latitude,"地图选取位置", null, coType);
-//				break;
-//			}
-//			case BD09_MC: {
-//				sNode=new BNRoutePlanNode(myLatLng.longitude, myLatLng.latitude,"当前定位位置", null, coType);
-//				eNode=new BNRoutePlanNode(markerLatlng.longitude,markerLatlng.latitude,"地图选取位置", null, coType);
-//				break;
-//			}
-//			case BD09LL: {
-//				sNode=new BNRoutePlanNode(myLatLng.longitude, myLatLng.latitude,"当前定位位置", null, coType);
-//				eNode=new BNRoutePlanNode(markerLatlng.longitude,markerLatlng.latitude,"地图选取位置", null, coType);
-//				break;
-//			}
-//			default:
-//				break ;
-//		}
-//		if (sNode != null && eNode != null) {
-//			List<BNRoutePlanNode> list = new ArrayList<BNRoutePlanNode>();
-//			list.add(sNode);
-//			list.add(eNode);
-//			mBNRoutePlanNode=sNode;
-//			BaiduNaviManager.getInstance().launchNavigator(context, list, 1, true, new BaiduNaviManager.RoutePlanListener() {
-//
-//				@Override
-//				public void onRoutePlanFailed() {
-//					// TODO 自动生成的方法存根
-//					Toast.makeText(context, "算路失败", Toast.LENGTH_SHORT).show();
-//				}
-//
-//				@Override
-//				public void onJumpToNavigator() {
-//					// TODO 自动生成的方法存根
-//					/*
-//		             * 设置途径点以及resetEndNode会回调该接口
-//		             */
-//
-////					for (Activity ac : activityList) {
-////
-////						if (ac.getClass().getName().endsWith("BNDemoGuideActivity")) {
-////
-////							return;
-////						}
-////					}
-//					Intent intent = new Intent(context, BNDemoGuideActivity.class);
-//					Bundle bundle = new Bundle();
-//					bundle.putSerializable(ROUTE_PLAN_NODE, (BNRoutePlanNode) mBNRoutePlanNode);
-//					intent.putExtras(bundle);
-//					context.startActivity(intent);
-//				}
-//			});
-//		}
-//	}
-//
-//	/**
+		}
+
+		@Override
+		public void onGetNavigationText(String s) {
+
+		}
+
+		@Override
+		public void onLocationChange(AMapNaviLocation aMapNaviLocation) {
+
+		}
+
+		@Override
+		public void onArriveDestination(boolean b) {
+
+		}
+
+		@Override
+		public void onStartNavi(int i) {
+
+		}
+
+		@Override
+		public void onCalculateRouteSuccess(int[] ints) {
+
+		}
+
+		@Override
+		public void onCalculateRouteFailure(int i) {
+
+		}
+
+		@Override
+		public void onStopSpeaking() {
+
+		}
+
+		@Override
+		public void onReCalculateRoute(int i) {
+
+		}
+
+		@Override
+		public void onExitPage(int i) {
+
+		}
+
+		@Override
+		public void onStrategyChanged(int i) {
+
+		}
+
+		@Override
+		public View getCustomNaviBottomView() {
+			return null;
+		}
+
+		@Override
+		public View getCustomNaviView() {
+			return null;
+		}
+
+		@Override
+		public void onArrivedWayPoint(int i) {
+
+		}
+	};
+
+	/**
+	 * 新版高德地图导航
+	 * @param startLatlng 起点坐标
+	 * @param endLatlng 终点坐标
+	 */
+	public static void CallBaiduNavigationLatLng(LatLng startLatlng, LatLng endLatlng, AmapNaviType amapNaviType,Context context){
+		Poi startPoi=new Poi("起点",startLatlng,"");
+		Poi endPoi=new Poi("终点",endLatlng,"");
+		AmapNaviParams amapNaviParams=new AmapNaviParams(startPoi,null,endPoi,amapNaviType);
+		amapNaviParams.setUseInnerVoice(true);
+		AmapNaviPage.getInstance().showRouteActivity(context.getApplicationContext(),amapNaviParams,iNaviInfoCallback);
+	}
+
+
+	//	/**
 //	 * 新版百度导航
 //	 * @param context
 //	 * @param coType 坐标类型

@@ -2,6 +2,7 @@ package com.movementinsome.caice.project;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -27,6 +28,8 @@ import com.amap.api.maps.model.CameraPosition;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.Polyline;
+import com.amap.api.navi.AmapNaviType;
+import com.baidu.BaiduAppProxy;
 import com.google.gson.Gson;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.stmt.QueryBuilder;
@@ -1019,8 +1022,8 @@ public class ProjectManipulation {
      * @param markerLatlng
      * @param progressDialog
      */
-    public void go_to_the_Onclick(final LatLng cenpt,final LatLng markerLatlng,
-                                  final ProgressDialog progressDialog){
+    public void go_to_the_Onclick(final LatLng cenpt, final LatLng markerLatlng,
+                                  final ProgressDialog progressDialog, final Context context){
         mActivity.customDialog1 = builder.cancelTouchout(false)
                 .view(R.layout.item_nav_dialog)
                 .heightpx(ActivityUtil.getWindowsHetght(mActivity))
@@ -1032,15 +1035,11 @@ public class ProjectManipulation {
                         if (mActivity.customDialog1.isShowing()) {
                             mActivity.customDialog1.dismiss();
                         }
-//                        if (cenpt != null) {
-//                            progressDialog.setMessage("加载中,请稍后...");
+                        if (cenpt != null) {
+                            progressDialog.setMessage("加载中,请稍后...");
 //                            progressDialog.show();
-//                            BaiduAppProxy.CallBaiduNavigationLatLng(
-//                                    (Activity) mActivity,
-//                                    BNRoutePlanNode.CoordinateType.BD09LL,
-//                                    cenpt,
-//                                    markerLatlng);
-//                        }
+                            BaiduAppProxy.CallBaiduNavigationLatLng(cenpt, markerLatlng,AmapNaviType.DRIVER,context);
+                        }
                     }
                 })
                 .addViewOnclick(R.id.tv_riding_search, new View.OnClickListener() {
@@ -1052,7 +1051,12 @@ public class ProjectManipulation {
                         if (cenpt != null) {
                             progressDialog.setMessage("加载中,请稍后...");
                             progressDialog.show();
-//                            BaiduAppProxy.CyclingNavigation(mActivity, cenpt, markerLatlng);
+                            BaiduAppProxy.CallBaiduNavigationLatLng(
+                                    cenpt,
+                                    markerLatlng,
+                                    AmapNaviType.RIDE,
+                                    context
+                            );
                         }
                     }
                 })
@@ -1065,7 +1069,12 @@ public class ProjectManipulation {
                         if (cenpt != null) {
                             progressDialog.setMessage("加载中,请稍后...");
                             progressDialog.show();
-//                            BaiduAppProxy.PedestrianNavigation(mActivity, cenpt, markerLatlng);
+                            BaiduAppProxy.CallBaiduNavigationLatLng(
+                                    cenpt,
+                                    markerLatlng,
+                                    AmapNaviType.WALK,
+                                    context
+                            );
                         }
                     }
                 })

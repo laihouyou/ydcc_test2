@@ -40,6 +40,7 @@ import com.amap.api.maps.model.CameraPosition;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
+import com.amap.api.maps.model.MultiPointItem;
 import com.amap.api.maps.model.MultiPointOverlay;
 import com.amap.api.maps.model.MyLocationStyle;
 import com.amap.api.maps.model.Polyline;
@@ -120,6 +121,7 @@ public class MapViewer extends ContainActivity implements
         AdapterView.OnItemClickListener,
         AMap.OnPolylineClickListener,
         LocationSource,
+        AMap.OnMultiPointClickListener,
         AMap.OnCameraChangeListener
 {
 //    private MyMapView arcMapview;
@@ -799,7 +801,7 @@ public class MapViewer extends ContainActivity implements
                 break;
 
             case R.id.go_to_the:    //到这去
-                projectManipulation.go_to_the_Onclick(cenpt, markerLatlng, progressDialog);
+                projectManipulation.go_to_the_Onclick(cenpt, markerLatlng, progressDialog,this);
 
                 break;
 
@@ -1094,7 +1096,7 @@ public class MapViewer extends ContainActivity implements
                  */
                 aMap.setOnMapClickListener(null);
 
-                aMap.setOnMarkerClickListener(this);
+                aMap.setOnMarkerClickListener(null);
 
                 property.setVisibility(View.GONE);
 
@@ -1554,11 +1556,13 @@ public class MapViewer extends ContainActivity implements
                 if (draw_point.getTag().toString().equals("yes")) {
                     aMap.setOnMapClickListener(this);
                     aMap.setOnPolylineClickListener(null);
-                    aMap.setOnMarkerClickListener(this);
+                    aMap.setOnMarkerClickListener(null);
+                    aMap.setOnMultiPointClickListener(null);
                 } else {
                     aMap.setOnMapClickListener(null);
                     aMap.setOnPolylineClickListener(null);
                     aMap.setOnMarkerClickListener(this);
+                    aMap.setOnMultiPointClickListener(this);
                 }
 
                 if (continuity_point.getTag().toString().equals("yes")) {
@@ -1660,6 +1664,7 @@ public class MapViewer extends ContainActivity implements
 
             aMap.setOnMapClickListener(null);
             aMap.setOnMarkerClickListener(this);
+            aMap.setOnMultiPointClickListener(this);
             aMap.setOnPolylineClickListener(this);
             aMap.setOnMyLocationChangeListener(null);
 
@@ -2253,7 +2258,6 @@ public class MapViewer extends ContainActivity implements
                 if (line_add_point.getTag().toString().equals("yes")){
                     aMap.setOnMapClickListener(this);
                     aMap.setOnPolylineClickListener(null);
-                    aMap.setOnMarkerClickListener(null);
 
 //                    lineBundle = polyline.getExtraInfo();
                     SavePointVo savePointVo =lineOverlay.getSavePointVo(lineOverlay.getPoiIndex(polyline));
@@ -2785,6 +2789,64 @@ public class MapViewer extends ContainActivity implements
     @Override
     public void deactivate() {
         mListener = null;
+    }
+
+    @Override
+    public boolean onPointClick(MultiPointItem multiPointItem) {
+            SavePointVo savePointVo= (SavePointVo) multiPointItem.getObject();
+            if (parameter.equals(MapMeterMoveScope.CHECK)) {        //查看模式
+                markerLatlng = multiPointItem.getLatLng();
+                DecimalFormat df = new DecimalFormat("0.000000");    //保留6为有效数字
+
+                List<LatLng> latLngs=new ArrayList<>();
+                latLngs.add(markerLatlng);
+
+                List<LatLng> latLngsWgs84=new ArrayList<>();
+                latLngsWgs84.add(savePointVo.getLatlngWgs84());
+
+                infoWindowPoiOverlay.setImplementorName("");
+                infoWindowPoiOverlay.setData(latLngs,latLngsWgs84);
+                infoWindowPoiOverlay.addToMap();
+
+//                if(marker.isRemoved()) {
+//                    //调用amap clear之后会移除marker，重新添加一个
+//                    marker = aMap.addMarker(new MarkerOptions().icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+//                }
+//                //添加一个Marker用来展示海量点点击效果
+//                marker.setPosition(pointItem.getLatLng());
+//                marker.setToTop();
+//
+//                marker.setTitle("经度:" +df.format(marker.getPosition().longitude));
+//                marker.setSnippet("纬度:" + df.format(marker.getPosition().latitude));
+//                marker.showInfoWindow();
+
+                property.setVisibility(View.VISIBLE);
+                property.setText("查看/修改属性");
+                property.setTag(MapMeterMoveScope.CHECK);
+
+                delete_point.setVisibility(View.VISIBLE);
+                delete_point.setTag(MapMeterMoveScope.CHECK);
+
+                go_to_the.setVisibility(View.VISIBLE);
+                panorama.setVisibility(View.VISIBLE);
+
+                //将线改成默认颜色
+
+                lineOverlay.addToMap();
+
+            } else if (parameter.equals(MapMeterMoveScope.MOVE)) {            //采集模式
+
+                if (point_connect_line.getTag().equals("yes")) {
+                    showLine(multiPointItem.getLatLng(), "设施点连线", savePointVo.getFacId());
+
+                    if (savePointVo != null ) {
+                        facLines.add(savePointVo.getFacName());
+                    } else {
+                        facLines.add("");
+                    }
+                }
+            }
+        return false;
     }
 
     // 获取实时坐标广播数据
