@@ -1280,7 +1280,7 @@ public class RunForm extends FullActivity {
 										ViewGroup.LayoutParams.WRAP_CONTENT);
 							 paramsRl.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM, RelativeLayout.TRUE);
 							((View)group.getFields().elementAt(i).obj).setLayoutParams(paramsRl);
-							((View)group.getFields().elementAt(i).obj).setId(R.id.id_20001);
+							((View)group.getFields().elementAt(i).obj).setId(20001);
 							rl.addView((View)group.getFields().elementAt(i).obj);
 							paramsRll.addRule(RelativeLayout.ABOVE, ((View)group.getFields().elementAt(i).obj).getId());
 						 }
